@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>NL4DV - Natural Language Toolkit for Data Visualization</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <!--<div class="sidebar-heading">NL4DV </div>-->
+      <div class="list-group list-group-flush">
+        <div class="p-sm text-muted"><strong>Fully-specified Queries</strong></div>
+        <a href="#attr_task_vis" class="list-group-item list-group-item-action bg-light">Attributes + Tasks + VIS</a>
+        <hr>
+        <div class="p-sm text-muted"><strong>Under-specified Queries</strong></div>
+        <a href="#attr_vis" class="list-group-item list-group-item-action bg-light">Attributes + VIS</a>
+        <a href="#attr_task" class="list-group-item list-group-item-action bg-light">Attributes + Task</a>
+        <a href="#attr" class="list-group-item list-group-item-action bg-light">Attributes</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" style="margin-left: 15em;">
+      <div class="container-fluid" >
+        <br/>
+        <center><h2 id="attr_task_vis">Fully Specified Queries</h2></center>
+        <hr>
+        <center><h3 >Attributes + Tasks + VIS</h3></center>
+        <center><h4 style="color:red">[Cars dataset]</h4></center>
+        <div w3-include-html="fullyspecified-attributes-task-vis/index.html"></div>
+
+        <hr class="m-xl">
+        <center><h2 id="attr_vis">Under Specified Queries</h2></center>
+        <hr>
+
+        <center><h3 >Attributes + Tasks</h3></center>
+        <center><h4 style="color:red">[Soccer (Euro) dataset]</h4></center>
+        <div w3-include-html="underspecified-attributes-task/index.html"></div>
+
+        <hr class="m-xl">
+
+        <center><h3 id="attr_task">Attributes + VIS</h3></center>
+        <center><h4 style="color:red">Cars dataset</h4></center>
+        <div w3-include-html="underspecified-attributes-vis/index.html"></div>
+
+        <hr class="m-xl">
+
+        <center><h3 id="attr">Attributes</h3></center>
+        <center><h4 style="color:red">[Movies dataset]</h4></center>
+        <div w3-include-html="underspecified-attributes/index.html"></div>
+
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script>
+
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /* Make an HTTP request using the attribute value as the file name: */
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /* Remove the attribute, and call this function once more: */
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /* Exit the function: */
+        return;
+      }
+    }
+  }
+  </script>
+
+  <script>
+    includeHTML();
+  </script>
+</body>
+
+</html>
