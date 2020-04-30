@@ -1,0 +1,13 @@
+Datafile	Aliasfile	Query	Correct	Notes
+euro.csv	euro.json	show me a distribution of goals		
+euro.csv	euro.json	correlate goals and salary		
+euro.csv	euro.json	show me players with salaries more than 60M		
+euro.csv	euro.json	which player from France has scored the highest goals		
+euro.csv	euro.json	countries with the highest mean salary		
+euro.csv	euro.json	players who scored between 5 and 10 goals and whose age is not more than 25		
+euro.csv	euro.json	show me spain players under the age of 30 but with more than 5 goals		
+euro.csv	euro.json	"show me club wise median salary for spain, portugal and germany players."		
+euro.csv	euro.json	show me salaries of left footed players who play as a forward.		
+euro.csv	euro.json	find the relationship between player goals and salaries across player foot.		
+euro.csv	euro.json	show me a distribution of salaries across countries and player positions for right footed players.		
+euro.csv	euro.json	show me a distribution of salaries across countries and player positions for right footed players and age greater than 30.		

@@ -1,0 +1,278 @@
+.loadingModal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+    url('../img/loading.gif')
+    50% 50%
+    no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .loadingModal {
+    display: block;
+}
+
+body {
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /*background-color: #faf9f8;*/
+    /*font-family: Calibri;*/
+}
+
+#systemName{
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", serif;
+    color: white;
+    margin: 1%;
+}
+
+#systemHeaderRow{
+    background-color: darkslategray;
+}
+
+#leftPanel, #rightPanel{
+    /*border: 1px solid gray;*/
+    height: 100%;
+}
+
+.filterWidget{
+    width: 80%;
+}
+
+.filterHeader{
+    font-size: 24px;
+    font-weight: bolder;
+    font-family: "Calibri Light";
+}
+
+#mainbody{
+    margin: .25%;
+}
+
+
+.mainContainer{
+    width: 100%;
+}
+
+.topRow{
+    height: 7.5%;
+}
+.middleRow{
+    height: 85%;
+}
+.bottomRow{
+    height: 7.5%;
+}
+
+#canvasRow{
+}
+
+.encodingPicker{
+    height: 50px;
+    font-size: 24px;
+    border: none;
+    /*background-color: lightyellow;*/
+    font-weight: bold;
+    font-family: Calibri;
+}
+
+#yAxisPicker{
+    width: 100%;
+}
+#xAxisPicker{
+    width: 10%;
+}
+#colorAttrPicker{
+    /*width: 50%;*/
+}
+
+#colorLegendHeader{
+    width: 100%;
+    border: 1px solid lightgray;
+}
+#colorLegendSvg{
+    width: 100%;
+}
+#colorLegend{
+    height: 40%;
+    overflow-y: auto;
+    border: 1px solid lightgray;
+}
+
+#sizeLegendHeader{
+    width: 100%;
+    border: 1px solid lightgray;
+}
+#sizeLegendSvg{
+    width: 100%;
+}
+#sizeLegend{
+    height: 20%;
+    border: 1px solid lightgray;
+}
+
+.legendIcon{
+    font-size: 22px;
+}
+
+#vis{
+    width: 100%;
+    height: 100%;
+}
+
+#queryBox{
+    width: 90%;
+    margin-right: .5%;
+    margin-left: 5%;
+    font-size: 24px;
+    height: 50%;
+    margin-top: 1%;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#recordButton{
+    font-size: 20px;
+    margin-top: 1%;
+}
+
+.sidepanel  {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: lightgray;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border: 1px solid black;
+}
+
+.sidepanel .filterPanelHideButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: black;
+    font-weight: bolder;
+}
+
+#filterPanelHeader{
+    position: absolute;
+    top: 0;
+    right: 115px;
+    font-size: 30px;
+    color: black;
+    font-weight: bolder;
+    margin-top: 2%;
+}
+
+#filterPanelShowButton{
+    font-size: 44px;
+}
+
+.pointG circle{
+    fill: steelblue;
+    stroke:none;
+    opacity: .8;
+}
+
+.pointG.filtered circle{
+    /*fill-opacity: 0.2!important;*/
+    /*stroke: black;*/
+    /*stroke-dasharray: 2;*/
+    display: none;
+}
+
+.pointLabelDetail{
+    font-size: 12px;
+}
+
+.markDetailDiv{
+    background-color: whitesmoke;
+    opacity: 0.9;
+    border: .25px solid lightgray;
+    position: fixed;
+    /*width: 50px;*/
+    /*height: 25px;*/
+    /*color: gray;*/
+    /*text-align: center;*/
+    font-weight: bold;
+    padding: .005% .5% .005% .5%;
+    font-size: 16px;
+}
+
+.pointLabelBgRect{
+    fill: whitesmoke;
+    fill-opacity: 0.9;
+    stroke: lightgray;
+    stroke-width: .25px;
+}
+
+.axisSelectionArea{
+    fill: white;
+    fill-opacity: .01;
+}
+
+#axisRulerValueDiv{
+    display: none;
+    /*background-color: black;*/
+    position: fixed;
+    color: gray;
+}
+
+.detailRuler{
+    stroke-width: 2px;
+    stroke: gray;
+    stroke-dasharray: 5;
+}
+
+.blinking{
+    animation:blinkingText .8s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #f44242;    }
+    /*49%{    color: transparent; }*/
+    50%{    color: transparent; }
+    /*99%{    color:transparent;  }*/
+    100%{   color: #f44242;    }
+}
+
+.blinkingBorder{
+    animation:blinkingBorder .8s infinite;
+}
+@keyframes blinkingBorder{
+    0%{     border: 1px solid #f44242;    }
+    /*49%{    color: transparent; }*/
+    50%{    border: 1px solid lightgray; }
+    /*99%{    color:transparent;  }*/
+    100%{   border: 1px solid #f44242;    }
+}
+
+
+.blinkingButton{
+    animation:blinkingBg 0.8s infinite;
+}

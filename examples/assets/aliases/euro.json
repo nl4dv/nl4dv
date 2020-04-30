@@ -1,0 +1,29 @@
+{
+  "Name": [
+    "footballer",
+    "sportsperson"
+  ],
+  "Foot": [
+    "leg",
+    "legged"
+  ],
+  "Position": [],
+  "Club": [
+    "team",
+    "franchise"
+  ],
+  "Country": [
+    "nation"
+  ],
+  "Age": [],
+  "Salary": [
+    "wage",
+    "money",
+    "earn",
+    "earning",
+    "worth"
+  ],
+  "Goals": [
+    "score"
+  ]
+}

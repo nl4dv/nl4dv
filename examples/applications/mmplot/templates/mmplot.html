@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MMPlot</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('mmplot.static', filename='img/favicon.ico') }}"/>
+
+    <!--Vendor CSS files-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.3/nouislider.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+    <link href="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.css" rel="stylesheet">
+
+    <!--Custom CSS files-->
+    <link href="{{ url_for('mmplot.static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<div class="row" id="systemHeaderRow">
+    <div class="col-md-6">
+        <span id="systemName">MMPlot</span>
+    </div>
+    <div class="col-md-6" align="right" style="margin-top: .25%;padding-right: 2.75%;">
+        <!--<button id="studyRefreshButton" class="btn btn-light" style="height: 90%;font-size: 18px;"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>-->
+    </div>
+</div>
+<div id='mainbody' class="row">
+    <div class="col-md-1" id='leftPanel'>
+        <table class="mainContainer">
+            <tr class="topRow">
+                <td align="left">
+                    <i class="fa fa-database" style="float:left; font-size: large; margin-top: 5%;"></i>
+                    <select class="form-control display-inline" style="padding: 0px;float:right;font-size: small; width: 80%" id="datasetSelect">
+                        <option value="euro.csv" >Euro</option>
+                        <option value="movies-w-year.csv">Movies</option>
+                        <option value="cars-w-year.csv">Cars</option>
+                        <option value="colleges.csv" >Colleges</option>
+                        <option value="global500.csv">S&P 500</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="middleRow">
+                <td valign="top" align="right">
+                    <select id="yAxisPicker" class="encodingPicker">
+                    </select>
+                </td>
+            </tr>
+            <tr class="bottomRow">
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-9 flex-container" id='mainRegion'>
+        <table class="mainContainer">
+            <tr class="topRow">
+                <td valign="top">
+                    <div class="flex-container">
+                        <input type="text" class="form-control input-md" id="queryBox" placeholder="Tap the record button to start speaking...">
+                        <button id="recordButton" class="btn btn-success"><i class="fa fa-microphone"></i></button>
+                    </div>
+                <td>
+            </tr>
+            <tr class="middleRow" id="canvasRow">
+                <td>
+                    <svg id="vis"></svg>
+                </td>
+            </tr>
+            <tr class="bottomRow">
+                <td align="right">
+                    <select id="xAxisPicker" class="encodingPicker">
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-2" id='rightPanel'>
+        <table class="mainContainer">
+            <tr class="topRow">
+                <td align="right" valign="top">
+                    <span id="filterPanelShowButton"><i class="fa fa-bars"></i></span>
+                </td>
+            </tr>
+            <tr class="middleRow">
+                <td valign="top" align="middle">
+                    <div id="colorLegendHeader">
+                        <span><i class="fa fa-paint-brush legendIcon"></i></span>
+                        <select id="colorAttrPicker" class="encodingPicker">
+                        </select>
+                    </div>
+                    <div id="colorLegend">
+                        <svg id="colorLegendSvg">
+                        </svg>
+                    </div>
+                    <br>
+                    <div id="sizeLegendHeader">
+                        <span><i class="fa fa-expand legendIcon"></i></span>
+                        <select id="sizeAttrPicker" class="encodingPicker">
+                        </select>
+                    </div>
+                    <div id="sizeLegend">
+                        <svg id="sizeLegendSvg">
+                        </svg>
+                    </div>
+                </td>
+            </tr>
+            <tr class="bottomRow">
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="filterPanel" class="sidepanel">
+    <span id="filterPanelHeader"><i class="fa fa-filter"></i> Filters</span>
+    <a href="javascript:void(0)" id="filterPanelHideButton" class="filterPanelHideButton">×</a>
+    <hr>
+    <div align="middle" id="filterContainer">
+    </div>
+</div>
+<div id="axisRulerValueDiv"></div>
+<div class="loadingModal"></div>
+</body>
+
+<!--JS files-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.js"></script>
+<!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.3/nouislider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<!--<script src="https://code.easypz.io/easypz.latest.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script src="{{ url_for('mmplot.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('mmplot.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('mmplot.static', filename='js/ui.js') }}"></script>
+<script src="{{ url_for('mmplot.static', filename='js/scatter.js') }}"></script>
+<script src="{{ url_for('mmplot.static', filename='js/main.js') }}"></script>
+
+</html>

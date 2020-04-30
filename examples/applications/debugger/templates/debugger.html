@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NL4DV</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('debugger.static', filename='img/favicon.ico') }}"/>
+
+    <!--Vendor CSS files-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.css" rel="stylesheet"/>
+
+    <!--Custom CSS files-->
+    <link href="{{ url_for('debugger.static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <h3>NL4DV</h3>
+        </div>
+        <div class="col-md-8">
+            <br/>
+            <div class="form-group text-center" style="position:relative;">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <select class="form-control display-inline" style="width:100px; border-right: 0;"
+                                id="datasetSelect">
+                            <option value="movies-w-year.csv" selected="selected">movies-w-year.csv</option>
+                            <option value="cars-w-year.csv">cars-w-year.csv</option>
+                            <option value="housing.csv">housing.csv</option>
+                            <option value="colleges.csv" >colleges.csv</option>
+                            <option value="euro.csv" >euro.csv</option>
+                            <option value="cereals.csv">cereals.csv</option>
+                            <option value="brown.csv">brown.csv</option>
+                            <option value="olympic_medals.csv">olympic_medals.csv</option>
+                            <option value="cars.csv">cars.csv</option>
+                            <option value="global500.csv">global500.csv</option>
+                            <option value="airplane_crashes.csv">airplane_crashes.csv</option>
+                        </select>
+                    </span>
+                    <span class="input-group-btn"><a style="border-right: 0; border-radius: 0" class="btn btn-default"
+                                                     type="button" data-toggle="collapse" href="#dataDomainCollapse">
+                            <i class="fa fa-database"></i>
+                        </a>
+                    </span>
+                    <span class="input-group-btn"><a style="border-right: 0; border-radius: 0" class="btn btn-default"
+                                                     type="button" data-toggle="collapse" href="#settingsCollapse">
+                            <i class="fa fa-cogs"></i>
+                        </a>
+                    </span>
+                    <input type="search" class="form-control" id="queryInput" placeholder="Type your query here...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" id="queryBtn">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Execute
+                        </button>
+                        <span>
+                            <a style="border-left: 0; border-radius: 0" type="button" class="btn btn-default"
+                               data-toggle="collapse" href="#outputJSONCollapse">
+                            <i class="glyphicon glyphicon-eye-open"></i>&nbsp;&nbsp;JSON
+                            </a>
+                        </span>
+                    </span>
+                </div>
+                <div class="collapse absolute-collapse-panel p-md" id="dataDomainCollapse">
+                    <p>
+                        <span class="pull-left text-muted">
+                            <span class="text-muted">Dataset:</span>&nbsp;&nbsp;<strong id="datasetUrl"></strong>&nbsp;&nbsp;|
+                            <span class="text-muted"># Rows:</span>&nbsp;<strong id="rowCount"></strong>&nbsp;&nbsp;|
+                            <span class="text-muted"># Columns:</span>&nbsp;<strong id="columnCount"></strong>&nbsp;&nbsp;
+                        </span>
+                    </p>
+                    <hr>
+                    <p class="text-muted">Attribute Summary</p>
+                    <div class="table-responsive" id="metaDataTableContainer">
+                        <table class="table table-hover table-sm text-left">
+                            <thead>
+                            <tr class="text-muted">
+                                <th>Attribute</th>
+                                <th>Type</th>
+                                <th>Is Label?</th>
+                                <th>Aliases</th>
+                                <th>Unique&nbsp;#</th>
+                                <th class="text-no-wrap">Summary</th>
+                                <th class="text-no-wrap">Unique&nbsp;Items</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="collapse absolute-collapse-panel p-md" id="outputJSONCollapse">
+                    <br/>
+                    <div id="outputJSONContainer"></div>
+                </div>
+                <div class="collapse absolute-collapse-panel p-md" id="settingsCollapse">
+                    <br/>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    <strong>Importance Scores</strong>
+                                    <span class="pull-right"><button onclick="saveImportanceScores()"
+                                                                     class="btn btn-default btn-xs">Save</button></span>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-sm text-left">
+                                        <tbody>
+                                        <tr class="text-muted">
+                                            <td>Attribute Similarity Match</td>
+                                            <td><input id="attribute_similarity_match" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="1"/></td>
+                                        </tr>
+                                        <tr class="text-muted">
+                                            <td>Attribute Alias Similarity Match</td>
+                                            <td><input id="attribute_alias_similarity_match" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="0.75"/></td>
+                                        </tr>
+                                        <tr class="text-muted">
+                                            <td>Attribute Domain Value Match</td>
+                                            <td><input id="attribute_domain_value_match" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="0.5"/></td>
+                                        </tr>
+                                        <tr class="text-muted">
+                                            <td>Attribute Synonym Match</td>
+                                            <td><input id="attribute_synonym_match" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="0.5"/></td>
+                                        </tr>
+                                        <tr class="text-muted">
+                                            <td>Task Match</td>
+                                            <td><input id="task_match" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="1"/></td>
+                                        </tr>
+                                        <tr class="text-muted">
+                                            <td>Explicit Vis Match</td>
+                                            <td><input id="explicit_vis_match" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="1"/></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <strong>Thresholds</strong>
+                                    <span class="pull-right"><button onclick="saveThresholds()"
+                                                                     class="btn btn-default btn-xs">Save</button></span>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-sm text-left">
+                                        <tbody>
+                                        <tr class="text-muted">
+                                            <td>String Similarity (eg. with = width)</td>
+                                            <td><input id="string_similarity_score" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="0.85"/></td>
+                                        </tr>
+                                        <tr class="text-muted">
+                                            <td>Word Similarity (eg. players = sportsperson)</td>
+                                            <td><input id="word_similarity_score" class="form-control" type="number" step="0.01" min="0" max="1"
+                                                       value="0.9"/></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>
+                                    <strong>NLP</strong>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-sm text-left">
+                                        <tbody>
+                                            <tr class="text-muted">
+                                                <td>Dependency Parser</td>
+                                                <td>
+                                                    <select id="dependency_parser_select" onchange="initializeNL4DV()">
+                                                        <option value="stanford">Stanford</option>
+                                                        <option value="spacy">Spacy</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="container-fluid">
+        <div class="row text-center b-all">
+            <div class="col-md-12 p-none">
+                <div class="badge pull-left b-r-none">Query</div>
+                <h4 class="text-center"><span class="text-danger" id="inputQueryContainer">No query executed!</span></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 p-none b-all">
+                <div class="badge pull-left b-r-none">Attributes</div>
+                <br/>
+                <div class="p-sm">
+                    <div class="table-responsive">
+                        <table id="extractedAttributesContainer" class="display table table-hover table-xs text-left" style="width: auto;">
+                            <thead>
+                                <tr>
+                                    <th>Attr</th>
+                                    <th>Phrase</th>
+                                    <th>IsLabel</th>
+                                    <th>Encode</th>
+                                    <th>IsAmbig</th>
+                                    <th>Ambig</th>
+                                    <th>RefType</th>
+                                    <!--<th>Score</th>-->
+                                    <th>Metric</th>
+                                    <th>Meta</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 b-all p-none">
+                <div class="badge pull-left b-r-none">Tasks</div>
+                <br/>
+                <div class="p-sm">
+                    <div class="table-responsive">
+                        <table id="extractedTasksContainer" class="display table table-hover table-xs text-left" style="width: auto;">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Oper</th>
+                                    <th>Val</th>
+                                    <th>Attr</th>
+                                    <th>Phrase</th>
+                                    <th>InferType</th>
+                                    <th>IsAttrAmbig</th>
+                                    <th>IsValAmbig</th>
+                                    <th>Meta</th>
+                                    <!--<th>Score</th>-->
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 b-all p-none">
+                <div class="badge pull-left b-r-none">Vis</div>
+                <br/>
+                <div class="p-sm">
+                    <div class="table-responsive">
+                        <table id="extractedVisContainer" class="display table table-hover table-xs text-left" style="width: auto;">
+                            <thead>
+                                <tr>
+                                    <th>Vis</th>
+                                    <th>Phrase</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 b-all p-none">
+                <div class="badge pull-left b-r-none">Visualization</div>
+                <br/>
+                <div class="h-750 p-sm m-sm" style="overflow-y: hidden;">
+                    <div id="outputVisContainer"
+                         style="white-space: nowrap; overflow-x: auto; overflow-y: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="loadingModal"></div>
+</div>
+</body>
+
+<!--JS files-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script src="{{ url_for('debugger.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('debugger.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('debugger.static', filename='js/ui.js') }}"z></script>
+<script src="{{ url_for('debugger.static', filename='js/main.js') }}"></script>
+
+
+</html>

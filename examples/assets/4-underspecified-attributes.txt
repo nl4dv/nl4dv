@@ -1,0 +1,10 @@
+Datafile	Aliasfile	Query	Correct	Notes
+cars-w-year.csv	cars-w-year.json	Origin		
+cars-w-year.csv	cars-w-year.json	Visualize mpg		
+cars-w-year.csv	cars-w-year.json	Show mpg across origins		
+cars-w-year.csv	cars-w-year.json	Weight and acceleration		
+cars-w-year.csv	cars-w-year.json	Create a visualization with miles per gallon and horsepower		
+cars-w-year.csv	cars-w-year.json	Displacement Cylinders Acceleration		
+cars-w-year.csv	cars-w-year.json	Show me acceleration and horsepower across origins		
+cars-w-year.csv	cars-w-year.json	Visualize car weight and number of cylinders over the years		
+cars-w-year.csv	cars-w-year.json	Create a chart showing mpg across origin over years		

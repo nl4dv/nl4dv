@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NL4DV | DataTone</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('datatone.static', filename='img/favicon.ico') }}"/>
+
+    <!--Vendor CSS files-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.css" rel="stylesheet"/>
+
+    <!--Custom CSS files-->
+    <link href="{{ url_for('datatone.static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <center><h3>DataTone - NL4DV</h3></center>
+    <br/>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <span class="input-group-btn">
+                <select class="form-control" id="datasetSelect" style="height: 30px;">
+                    <option value="movies-w-year.csv">movies-w-year.csv</option>
+                            <option value="cars-w-year.csv">cars-w-year.csv</option>
+                            <option value="housing.csv">housing.csv</option>
+                            <option value="colleges.csv" >colleges.csv</option>
+                            <option value="euro.csv" >euro.csv</option>
+                            <option value="cereals.csv">cereals.csv</option>
+                            <option value="brown.csv">brown.csv</option>
+                            <option value="olympic_medals.csv" selected="selected">olympic_medals.csv</option>
+                            <option value="cars.csv">cars.csv</option>
+                            <option value="global500.csv">global500.csv</option>
+                            <option value="airplane_crashes.csv">airplane_crashes.csv</option>
+                </select>
+            </span>
+        </div>
+        <div class="col-md-7">
+            <input type="search" class="form-control display-inline" id="queryInput" placeholder="Type your query here..." style="height: 30px; width: calc(100% - 170px)">
+            <!--<button class="btn btn-default btn-sm m-l-xs" type="button" disabled="disabled">-->
+                <!--Click to Speak-->
+            <!--</button>-->
+            <button class="btn btn-success btn-sm m-l-xs" type="button" id="queryBtn">
+                Submit
+            </button>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Data <strong id="datasetUrl"></strong>
+                        <small class="pull-right"># Row: <strong id="rowCount"></strong>, # Col: <strong id="columnCount"></strong></small>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p class="text-muted">Attribute Summary</p>
+                    <div class="table-responsive" id="metaDataTableContainer">
+                        <table class="table table-hover table-sm text-left">
+                            <thead>
+                            <tr class="text-muted">
+                                <th class="text-no-wrap">Attribute</th>
+                                <!--<th>Type</th>-->
+                                <!--<th>Aliases</th>-->
+                                <!--<th>Unique&nbsp;#</th>-->
+                                <th class="text-no-wrap">Domain / Range</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <h4 class="text-center" id="inputQueryContainer">No query executed!</h4>
+            <br/>
+            <div style="overflow-y: hidden;">
+                <div id="outputVisContainer" align="center"
+                     style="white-space: nowrap; overflow-x: auto; overflow-y: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="loadingModal"></div>
+</div>
+</body>
+
+<!--JS files-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script src="{{ url_for('datatone.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('datatone.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('datatone.static', filename='js/ui.js') }}"z></script>
+<script src="{{ url_for('datatone.static', filename='js/main.js') }}"></script>
+
+</html>

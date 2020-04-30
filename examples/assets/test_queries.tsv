@@ -1,0 +1,30 @@
+Datafile	Aliasfile	Query	Correct	Notes
+housing.csv	housing.json	price	-	Q
+housing.csv	housing.json	home type	-	N
+housing.csv	housing.json	rooms	-	O
+housing.csv	housing.json	year	-	T
+housing.csv	housing.json	price basement area	- 	QQ
+housing.csv	housing.json	price home type	-	QN
+housing.csv	housing.json	price rooms	-	QO
+housing.csv	housing.json	price year	-	QT
+housing.csv	housing.json	home type heating type	-	NN
+housing.csv	housing.json	home type rooms	-	NO
+housing.csv	housing.json	home type year	-	NT
+housing.csv	housing.json	rooms fireplaces	-	OO
+housing.csv	housing.json	rooms year	-	OT
+housing.csv	housing.json	price basement area lot area	-	QQQ
+housing.csv	housing.json	price basement area home type	-	QQN
+housing.csv	housing.json	price home type rooms	-	QNO
+housing.csv	housing.json	rooms price basement area	-	QQO
+housing.csv	housing.json	price basement area year	-	QQT
+housing.csv	housing.json	price home type heating type	-	QNN
+housing.csv	housing.json	price home type year	-	QNT
+housing.csv	housing.json	price rooms fireplaces	-	QOO
+housing.csv	housing.json	price rooms year	-	QOT
+housing.csv	housing.json	home type heating type garage type	-	NNN
+housing.csv	housing.json	home type heating type rooms	-	NNO
+housing.csv	housing.json	home type heating type year	-	NNT
+housing.csv	housing.json	rooms fireplaces year	-	OOT
+housing.csv	housing.json	rooms fireplaces satisfaction	-	OOO
+housing.csv	housing.json	home type rooms fireplaces	-	NOO
+housing.csv	housing.json	home type rooms year	-	NOT

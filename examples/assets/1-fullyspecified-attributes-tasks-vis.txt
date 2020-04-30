@@ -1,0 +1,8 @@
+Datafile	Aliasfile	Query	Correct	Notes
+movies-w-year.csv	movies-w-year.json	show me a distribution of gross as a strip plot		
+movies-w-year.csv	movies-w-year.json	visualize the distribution of budget as a histogram		
+movies-w-year.csv	movies-w-year.json	total budget across genres as a pie chart		
+movies-w-year.csv	movies-w-year.json	show me an area chart of how comedy movies evolved over the years		
+movies-w-year.csv	movies-w-year.json	show me a scatter plot of budget and gross for romantic comedy movies		
+movies-w-year.csv	movies-w-year.json	create a barchart showing average gross across genres		
+movies-w-year.csv	movies-w-year.json	average production budget of different movie types over the years		
