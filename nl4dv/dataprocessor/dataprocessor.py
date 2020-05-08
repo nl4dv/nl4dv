@@ -184,8 +184,6 @@ class DataProcessor:
         User can choose to manually initialize data
 
         """
-        # ToDo:- Best coding practice? What to do if both are defined?
-
         self.nl4dv_instance.alias_url= alias_url
         self.nl4dv_instance.alias_map = alias_map
 

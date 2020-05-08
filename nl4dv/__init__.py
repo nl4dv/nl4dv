@@ -4,6 +4,7 @@ from .vegawrapper import *
 from .visgenie import *
 from .taskgenie import *
 from .attributegenie import *
+from .querygenie import *
 from nltk.stem.porter import PorterStemmer
 from vega import VegaLite
 import time
@@ -38,17 +39,23 @@ class NL4DV:
         self.execution_durations = dict()
         self.query_processed = ""
         self.query_tokens = list()
+        self.query_ngrams = dict()
         self.extracted_vis_type = None
         self.extracted_vis_token = None
         self.extracted_tasks = OrderedDict()
         self.extracted_attributes = OrderedDict()
         self.vis_list = None
+        self.dependencies = list()
 
         # Load constants: thresholds, mappings, scores
         self.vis_keyword_map = constants.vis_keyword_map
         self.task_keyword_map = constants.task_keyword_map
         self.match_scores = constants.match_scores
         self.match_thresholds = constants.match_thresholds
+
+        # Others
+        self.dialog = False
+        self.debug = False
 
         # initialize porter stemmer instance
         self.porter_stemmer_instance = PorterStemmer()
@@ -58,17 +65,12 @@ class NL4DV:
         self.dependency_parser_instance = None
         self.set_dependency_parser(dependency_parser_config)
 
-        # initialize a DataProcessor instance.
-        self.data_processor_instance = DataProcessor(self)
-
-        # initialize a VisGenie instance.
-        self.vis_genie_instance = VisGenie(self)
-
-        # initialize a TaskGenie instance.
-        self.task_genie_instance = TaskGenie(self)
-
-        # initialize a AttributeGenie instance.
-        self.attribute_genie_instance = AttributeGenie(self)
+        # Internal Class Instances
+        self.query_genie_instance = QueryGenie(self)  # initialize a QueryGenie instance.
+        self.data_processor_instance = DataProcessor(self)  # initialize a DataProcessor instance.
+        self.vis_genie_instance = VisGenie(self)   # initialize a VisGenie instance.
+        self.task_genie_instance = TaskGenie(self)  # initialize a TaskGenie instance.
+        self.attribute_genie_instance = AttributeGenie(self)   # initialize a AttributeGenie instance.
 
     # returns a VegaLite object of the best (1st) visualization after analyzing the query.
     def render_vis(self, query_raw):
@@ -82,66 +84,64 @@ class NL4DV:
     # ToDo:- Discuss support for non-ascii characters? Fallback from unicode to ascii good enough?
     # ToDo:- Discuss ERROR Handling
     # ToDo:- Utilities to perform unit conversion (eg. seconds > minutes). Problem: Tedious to infer base unit from data. - LATER
-    def analyze_query(self, query_raw, debug=False):
+    def analyze_query(self, query_raw, dialog=False, debug=False):
         # type: (str) -> dict
 
-        # outputs
-        self.query_raw = None
         self.execution_durations = dict()
-        self.query_processed = ""
-        self.query_tokens = list()
-        self.extracted_vis_type = None
-        self.extracted_vis_token = None
-        self.extracted_tasks = OrderedDict()
-        self.extracted_attributes = OrderedDict()
-        self.vis_list = None
+        self.dialog = dialog
+        self.debug = debug
+
+        # If not a follow-up query, reset the output variables.
+        if not dialog:
+            self.extracted_vis_type = None
+            self.extracted_vis_token = None
+            self.extracted_tasks = OrderedDict()
+            self.extracted_attributes = OrderedDict()
+            self.vis_list = None
 
         # clean query and generate tokens
         self.query_raw = query_raw
         helpers.cond_print("Raw Query: " + self.query_raw, self.verbose)
         st = time.time()
-        self.query_processed, self.query_tokens = helpers.process_query(query_raw, self.reserve_words, self.ignore_words)
+        self.query_tokens = self.query_genie_instance.get_query_tokens(query_raw, self.reserve_words, self.ignore_words)
+        self.query_processed = ' '.join(self.query_tokens)
+        self.query_ngrams = self.query_genie_instance.get_query_ngrams(self.query_processed)
+        self.dependencies = self.query_genie_instance.create_dependency_tree(self.query_processed)
         helpers.cond_print("Processed Query: " + self.query_processed, self.verbose)
         self.execution_durations['clean_query'] = time.time() - st
 
         # DETECT EXPLICIT AND IMPLICIT ATTRIBUTES
         st = time.time()
-        self.extracted_attributes = self.attribute_genie_instance.extract_attributes(' '.join(self.query_tokens),
-                                                                                     self.query_tokens)
+        self.extracted_attributes = self.attribute_genie_instance.extract_attributes(self.query_ngrams)
         helpers.cond_print("Final Extracted Attributes: " + str(list(self.extracted_attributes.keys())), self.verbose)
         self.execution_durations['extract_attributes'] = time.time() - st
 
         # DETECT EXPLICIT VISUALIZATION UTTERANCES
         st = time.time()
-        self.extracted_vis_type, self.extracted_vis_token = self.vis_genie_instance.extract_vis_type(' '.join(self.query_tokens),
-                                                                                     self.query_tokens)
+        self.extracted_vis_type, self.extracted_vis_token = self.vis_genie_instance.extract_vis_type(self.query_ngrams)
         self.execution_durations['extract_vis_type'] = time.time() - st
-
-        # create a dependency tree
-        dependencies = self.create_dependency_tree(self.query_processed)
 
         # DETECT IMPLICIT AND EXPLICIT TASKS
         st = time.time()
-        # Using Dependency Parser
-        task_map = self.task_genie_instance.extract_explicit_tasks_from_dependencies(dependencies)
+        task_map = self.task_genie_instance.extract_explicit_tasks_from_dependencies(self.dependencies)
 
         # Filters from Domain Values
         task_map = self.task_genie_instance.extract_explicit_tasks_from_domain_value(task_map)
 
         # At this stage, which attributes are encodeable?
-        attribute_list = self.attribute_genie_instance.get_encodable_attributes()  # At this stage, they also get refined further
+        encodeable_attributes = self.attribute_genie_instance.get_encodeable_attributes()
 
         # INFER tasks based on (encodeable) attribute Datatypes
-        self.extracted_tasks = self.task_genie_instance.extract_implicit_tasks_from_attributes(task_map, attribute_list)
+        self.extracted_tasks = self.task_genie_instance.extract_implicit_tasks_from_attributes(task_map, encodeable_attributes)
         self.execution_durations['extract_tasks'] = time.time() - st
-
-        # FINAL ATTRIBUTES that are TO BE ENCODED in the VIS
-        attribute_list = self.attribute_genie_instance.get_encodable_attributes()
 
         # RECOMMEND VISUALIZATIONS FROM ATTRIBUTES, TASKS, and VISUALIZATIONS
         st = time.time()
-        vis_genie_instance = VisGenie(self)
-        self.vis_list = vis_genie_instance.get_vis_list(attribute_list=attribute_list)
+
+        # Final list of encodeable attributes in the VIS
+        final_encodeable_attributes = self.attribute_genie_instance.update_encodeable_attributes_based_on_tasks()
+
+        self.vis_list = self.vis_genie_instance.get_vis_list(attribute_list=final_encodeable_attributes)
         self.execution_durations['get_vis_list'] = time.time() - st
 
         # Prepare output
@@ -154,67 +154,11 @@ class NL4DV:
             'extractedVis': {'vis_type': self.extracted_vis_type, 'queryPhrase': self.extracted_vis_token},
             'attributeMap': self.extracted_attributes,
             'taskMap': self.extracted_tasks,
-            'followUpQuery': False,
+            'followUpQuery': self.dialog,
             'contextObj': None
         }
 
         return output if debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
-
-    def create_dependency_tree(self, query):
-
-        if self.dependency_parser == "spacy":
-            doc = self.dependency_parser_instance(query)
-            dependencies = [[]]
-            for token in doc:
-                dependency = [(token.head.text, token.head.tag_), token.dep_, (token.text, token.tag_)]
-                dependencies[0].append(dependency)
-                # print(
-                #     "text:", token.text, " | "
-                #     "pos:", token.pos_,  " | "
-                #     "tag:", token.tag_,  " | "
-                #     "dependency:", token.dep_,  " | "
-                #     "htext:", token.head.text, " | "
-                #     "hpos:", token.head.pos_,  " | "
-                #     "htag:", token.head.tag_,  " | "
-                #     "hdependency:", token.head.dep_,  " | "
-                #     "subtree:", [s for s in token.subtree],
-                #     "treechildren:", [child for child in token.children]
-                #     # "lemma:", token.lemma_,  " | "
-                #     # "shape:", token.shape_,  " | "
-                #     # "isalphabet:", token.is_alpha, " | "
-                #     # "isstopword:", token.is_stop,  " | "
-                # )
-                # print("{2}({3}-{6}, {0}-{5})".format(token.text, token.tag_, token.dep_, token.head.text, token.head.tag_, token.i+1, token.head.i+1))
-
-            # print("\nSpacy Noun Chunks:")
-            # print("------------------------------")
-            # for chunk in doc.noun_chunks:
-            #     print(
-            #        "text:", chunk.text,
-            #         "rtext:", chunk.root.text,
-            #         "rdep:", chunk.root.dep_,
-            #         "htext:", chunk.root.head.text
-            #     )
-            #
-            # print("\nSpacy Named Entity Recognition:")
-            # print("------------------------------")
-            # for ent in doc.ents:
-            #     print(ent.text, ent.start_char, ent.end_char, ent.label_)
-
-            return dependencies
-
-        elif self.dependency_parser == "stanford":
-            dependencies = [list(parse.triples()) for parse in self.dependency_parser_instance.raw_parse(query)]
-
-            # Encode every string in tree to utf8 so string matching will work
-            for dependency in dependencies[0]:
-                dependency[0][0].encode('utf-8')
-                dependency[0][1].encode('utf-8')
-                dependency[1].encode('utf-8')
-                dependency[2][0].encode('utf-8')
-                dependency[2][1].encode('utf-8')
-
-            return dependencies
 
     # Update the attribute datatypes that were not correctly detected by NL4DV
     def set_attribute_datatype(self, attr_type_obj):
@@ -259,6 +203,10 @@ class NL4DV:
 
         return True
 
+    # Get the dataset metadata
+    def get_metadata(self):
+        return self.data_processor_instance.data_attribute_map
+
     # Create a dependency parser instance
     def set_dependency_parser(self, config):
         if isinstance(config, dict) and all(i in ["name", "model", "parser"] for i in config.keys()):
@@ -283,7 +231,3 @@ class NL4DV:
 
                 self.dependency_parser_instance = StanfordDependencyParser(path_to_models_jar=config["model"],
                                                                            encoding='utf8')
-
-    # Get the dataset metadata
-    def get_metadata(self):
-        return self.data_processor_instance.data_attribute_map

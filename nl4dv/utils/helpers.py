@@ -1,6 +1,4 @@
 import re
-from nltk.corpus import stopwords
-from nltk import word_tokenize
 from nltk.corpus import wordnet as wn
 from itertools import product
 import math
@@ -10,12 +8,8 @@ import Levenshtein
 from dateutil.parser import parse
 from datetime import date, datetime
 import copy
-from si_prefix import si_parse
 
-# Available globally
-stopwords_set = set(stopwords.words('english'))
 WORD = re.compile(r'\w+')
-
 
 # Includes Repetition
 def get_ngrams(input, n):
@@ -25,26 +19,15 @@ def get_ngrams(input, n):
         output.append(input[i:i+n])
     return output
 
-# # Removes Duplicate N-Grams
-# def get_ngrams(input, n):
-#     input = input.split(' ')
-#     output = {}
-#     for i in range(len(input)-n+1):
-#         g = ' '.join(input[i:i+n])
-#         output.setdefault(g, 0)
-#         output[g] += + 1
-#         return output
-
-# Includes Repetition
-# def get_ngrams(string, n, separator=' '):
-#     # type: (str, int, str) -> list
-#     """
-#     Return ngrams from a give string)
-#
-#     """
-#     tokens = string.split(separator)
-#     return list(zip(*[tokens[i:] for i in range(n)]))
-
+# Removes Duplicate N-Grams
+def get_ngrams_without_duplicate(input, n):
+    input = input.split(' ')
+    output = {}
+    for i in range(len(input)-n+1):
+        g = ' '.join(input[i:i+n])
+        output.setdefault(g, 0)
+        output[g] += + 1
+        return output
 
 # ToDo:- Explore alternatives to WordNet similarity
 def synonymity_score(word_x, word_y):
@@ -80,30 +63,6 @@ def cond_print(string_to_print, debug=True):
     if debug:
         print(string_to_print)
 
-
-def process_query(string, reserve_words, ignore_words):
-
-    # Try to infer and convert numerical shorthands to machine understandable format, e.g. 100M = 100*1,000,000
-    parsed_tokens = []
-    for token in word_tokenize(string):
-        try:
-            parsed_tokens.append(str(int(si_parse(token))))
-        except Exception as e:
-            parsed_tokens.append(token)
-
-    query_cleaned = ' '.join(parsed_tokens)
-
-    # Operate on lowercase
-    string_lowercase = query_cleaned.lower()
-
-    # Clean sentence of non-alphanumerical characters
-    query_cleaned = re.sub(r'[^A-Za-z0-9]+', ' ', string_lowercase)
-
-    # Create token set and filter out standard stopwords
-    custom_stopwords_set = stopwords_set.difference(set(reserve_words)).union(set(ignore_words))
-    tokens = list(filter(lambda token: token not in custom_stopwords_set, word_tokenize(query_cleaned)))
-
-    return query_cleaned, tokens
 
 def normalize(vis_list, attr, tasks):
     max_score_by_attr = len(attr)

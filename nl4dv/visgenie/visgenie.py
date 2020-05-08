@@ -7,8 +7,8 @@ class VisGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
 
-    def extract_vis_type(self, query, tokens):
-        # type: (str, list) -> (str,str)
+    def extract_vis_type(self, query_ngrams):
+        # type: (dict) -> (str,str)
         """
         Get explicit Vis type from query
 
@@ -22,12 +22,10 @@ class VisGenie:
         #                 return vis_type, token
 
         # Let max length of n-gram be 2.
-        for i in range(2, 0, -1):
-            for ngram in helpers.get_ngrams(query, i):
-                ngram_str = (' '.join(map(str, ngram))).rstrip()
-                for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
-                    if ngram_str in vis_keywords:
-                        return vis_type, ngram_str
+        for ngram in query_ngrams:
+            for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
+                if query_ngrams[ngram]["lower"] in vis_keywords:
+                    return vis_type, query_ngrams[ngram]["lower"]
 
         return None, None
 
