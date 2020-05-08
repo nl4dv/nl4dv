@@ -6,9 +6,14 @@ from jinja2 import TemplateNotFound
 
 # Import our Example Applications
 from applications.datatone import datatone_routes
-from applications.debugger import debugger_routes
 from applications.vleditor import vleditor_routes
 from applications.mmplot import mmplot_routes
+
+# Import our Debugging Applications
+from debuggers.debugger import debugger_routes
+from debuggers.debugger_csv import debugger_csv_routes
+from debuggers.design_debugger import design_debugger_routes
+from debuggers.examples import examples_routes
 
 # Initialize the app
 app = Flask(__name__)
@@ -134,7 +139,12 @@ def get_dataset_meta():
 
 if __name__ == "__main__":
     app.register_blueprint(datatone_routes.datatone_bp, url_prefix='/datatone')
-    app.register_blueprint(debugger_routes.debugger_bp, url_prefix='/debugger')
     app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
     app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
+
+    app.register_blueprint(debugger_routes.debugger_bp, url_prefix='/debugger')
+    app.register_blueprint(debugger_csv_routes.debugger_csv_bp, url_prefix='/debugger_csv')
+    app.register_blueprint(design_debugger_routes.design_debugger_bp, url_prefix='/design_debugger')
+    app.register_blueprint(examples_routes.examples_bp, url_prefix='/examples')
+
     app.run(host='0.0.0.0', debug=True, threaded=True, port=7001)

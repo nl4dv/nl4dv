@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NL4DV</title>
+    <title>NL4DV | Applications and Debuggers</title>
 
     <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('debugger.static', filename='img/favicon.ico') }}"/>
 
@@ -12,103 +12,130 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
+        body{
+            font-size: 16px;
+        }
+
         .panel-padding{
             padding: 36px;
         }
 
         .fixed-height{
-            height: 250px;
+            height: 300px;
+            overflow: auto;
         }
+
+        h3{
+            margin-top: 0px;
+            margin-bottom: 20px;
+        }
+
+        a,
+        a:hover {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .panel:hover{
+            background: #e1f5fe !important;
+        }
+
     </style>
 
 </head>
 <body>
 <br/>
 <center><h1>NL4DV: Natural Language Toolkit for Data Visualization</h1></center>
-<br/>
+<hr>
+<center><h3>Applications</h3></center>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <a href="/vleditor" target="_blank">
                 <div class="panel panel-primary panel-padding fixed-height">
                     <div class="panel-body">
-                        <h2>NL4DV - Vega-Lite</h2>
-                        <h4 class="text-muted">A natural language interface for specifying and editing Vega-Lite charts. Show cases how NL4DV's visualization recommendations can be used to help novices get started with using Vega-Lite.</h4>
+                        <h3>NL4DV - Vega-Lite</h3>
+                        <p>A natural language interface for specifying and editing Vega-Lite charts. Show cases how NL4DV's visualization recommendations can be used to help novices get started with using Vega-Lite.</p>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <a href="/datatone" target="_blank">
                 <div class="panel panel-primary panel-padding fixed-height">
                     <div class="panel-body">
-                        <h2>NL4DV - DataTone</h2>
-                        <h4 class="text-muted">A sample application illustrating how NL4DV can be used to recreate ambiguity widgets originally presented in the DataTone system developed by Gao et al.</h4>
+                        <h3>NL4DV - DataTone</h3>
+                        <p>A sample application illustrating how NL4DV can be used to recreate ambiguity widgets originally presented in the DataTone system developed by Gao et al.</p>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <a href="/mmplot" target="_blank">
                 <div class="panel panel-primary panel-padding fixed-height">
                     <div class="panel-body">
-                        <h2>NL4DV - MMPlot</h2>
-                        <h4 class="text-muted">A multimodal interface that allows interacting with scatter plots through touch and speech. This example illustrates how NL4DV can be used to augment existing interactions in a visualization system with voice.</h4>
+                        <h3>NL4DV - MMPlot</h3>
+                        <p>A multimodal interface that allows interacting with scatter plots through touch and speech. This example illustrates how NL4DV can be used to augment existing interactions in a visualization system with voice.</p>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="panel panel-primary panel-padding fixed-height">
                 <div class="panel-body">
-                    <h2>NL4DV - Jupyter Notebook</h2>
-                    <h4 class="text-muted">For creating visualizations in Python without needing to learn about Python-based visualization packages.</h4>
-                    <h5 class="text-muted">Follow README for instructions.</h5>
+                    <h3>NL4DV - Jupyter Notebook</h3>
+                    <p>For creating visualizations in Python without needing to learn about Python-based visualization packages.</p>
+                    <p>Follow README for instructions.</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+    </div>
+</div>
+<hr>
+<center><h3>Debuggers</h3></center>
+<div class="container-fluid">
+    <div clas="row">
+        <div class="col-md-3">
             <a href="/debugger" target="_blank">
                 <div class="panel panel-primary panel-padding fixed-height">
                     <div class="panel-body">
-                        <h2>Debugger</h2>
-                        <h4 class="text-muted">A debugging interface that breaks down NL4DV's output and highlights the underlying query interpretation logic.</h4>
+                        <h3>Debugger</h3>
+                        <p>A debugging interface that breaks down NL4DV's output and highlights the underlying query interpretation logic.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="/examples" target="_blank">
+                <div class="panel panel-primary panel-padding fixed-height">
+                    <div class="panel-body">
+                        <h3>Sample Queries</h3>
+                        <p>An interface to explore NL4DV's output on different types of queries such as underspecified and fullyspecified.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="/debugger_csv" target="_blank">
+                <div class="panel panel-primary panel-padding fixed-height">
+                    <div class="panel-body">
+                        <h3>Batch Query Debugger</h3>
+                        <p>An extension to the Debugger, it enables the analysis of outputs of multiple queries at once.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="/design_debugger" target="_blank">
+                <div class="panel panel-primary panel-padding fixed-height">
+                    <div class="panel-body">
+                        <h3>VIS Matrix</h3>
+                        <p>An interface to understand the base Visualization recommendations for different Attribute combinations such as QxN, QxNxN, etc. </p>
                     </div>
                 </div>
             </a>
         </div>
     </div>
-    <!--<hr>-->
-    <!--<br/>-->
-    <!--<div clas="row">-->
-        <!--<div class="col-md-4">-->
-            <!--<a href="/examples" target="_blank">-->
-                <!--<div class="panel panel-primary panel-padding fixed-height">-->
-                    <!--<div class="panel-body">-->
-                        <!--<h2>Sample Queries</h2>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="col-md-4">-->
-            <!--<a href="/debugger_csv" target="_blank">-->
-                <!--<div class="panel panel-primary panel-padding fixed-height">-->
-                    <!--<div class="panel-body">-->
-                        <!--<h2>Batch Query Debugger</h2>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="col-md-4">-->
-            <!--<a href="/design_debugger" target="_blank">-->
-                <!--<div class="panel panel-primary panel-padding fixed-height">-->
-                    <!--<div class="panel-body">-->
-                        <!--<h2>VIS Matrix</h2>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
 </div>
 </body>
 
