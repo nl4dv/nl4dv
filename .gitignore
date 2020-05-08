@@ -5,6 +5,7 @@
 *.DS_Store
 .idea/
 .ipynb_checkpoints/
+*.tar.gz
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
