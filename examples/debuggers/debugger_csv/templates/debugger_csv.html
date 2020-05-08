@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NL4DV | Debugger CSV</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('debugger_csv.static', filename='img/favicon.ico') }}"/>
+
+    <!--Vendor CSS files-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+
+    <!--Custom CSS files-->
+    <link href="{{ url_for('debugger_csv.static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <br/>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary" onclick="execute()">
+                    Execute
+                </button>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="loadingModal"></div>
+                <table class="table table-condensed table-bordered" id="debugTable">
+                    <thead>
+                        <tr>
+                            <th width="5%">Dataset</th>
+                            <th width="10%">Query</th>
+                            <th width="20%">Vis</th>
+                            <!--<th>Show All </th>-->
+                            <th width="30%">Attributes</th>
+                            <th width="35%">Tasks</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <br/>
+        <!--<div id="showModal" class="modal">-->
+            <!--<div class="modal-content">-->
+                <!--<span class="close">&times;</span>-->
+                <!--<b>Show All Table </b>-->
+                <!--<br>-->
+                <!--<b id="ShowAllQuery"></b>-->
+                <!--<table id="visList" class= "table table-bordered table-sm">-->
+                <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>Vis</th>-->
+                        <!--<th>Score</th>-->
+                    <!--</tr>-->
+                <!--</thead>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</body>
+
+<!--JS files-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script src="{{ url_for('debugger_csv.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('debugger_csv.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('debugger_csv.static', filename='js/ui.js') }}"z></script>
+<script src="{{ url_for('debugger_csv.static', filename='js/main.js') }}"></script>
+
+</html>

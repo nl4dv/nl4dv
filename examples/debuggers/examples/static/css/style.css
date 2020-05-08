@@ -1,0 +1,288 @@
+.loadingModal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+    url('../img/loading.gif')
+    50% 50%
+    no-repeat;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .loadingModal {
+    display: block;
+}
+
+.display-inline{
+    display:inline;
+}
+
+.display-inline-block{
+    display:inline-block;
+}
+
+.overflow{
+    overflow: auto;
+}
+
+.overflow-x-auto{
+    overflow-x: auto;
+}
+
+.overflow-y-auto{
+    overflow-y: auto;
+}
+
+.w-500{
+    width: 500px;
+}
+
+.w-600{
+    width: 600px;
+}
+
+.h-150{
+    height: 150px;
+}
+
+.h-200{
+    height: 200px;
+}
+
+.h-300{
+    height: 300px;
+}
+
+.h-350{
+    height: 350px;
+}
+
+.h-400{
+    height: 400px;
+}
+
+.h-700{
+    height: 700px;
+}
+
+.h-750{
+    height: 750px;
+}
+
+.h-800{
+    height: 800px;
+}
+
+.valign-top{
+    vertical-align: top;
+}
+
+.bg-light{
+    background-color: #f9f9f9 !important;
+    background-image: none !important;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.vega-embed{
+    display: block !important;
+    padding-right: 0 !important;
+}
+
+.text-no-wrap{
+    white-space: nowrap !important;
+}
+
+.b-r-none{
+    border-radius: 0;
+}
+
+.b-top{
+    border-top: 1px solid lightgray;
+}
+
+.b-right{
+    border-right: 1px solid lightgray;
+}
+
+.b-bottom{
+    border-bottom: 1px solid lightgray;
+}
+
+.b-left{
+    border-left: 1px solid lightgray;
+}
+
+.b-all{
+    border: 1px solid lightgray;
+}
+
+.p-b-md{
+    padding: 16px;
+}
+
+.p-b-sm{
+    padding: 8px;
+}
+
+.p-md{
+    padding: 16px;
+}
+
+.p-sm{
+    padding: 8px;
+}
+
+.p-xs{
+    padding: 4px;
+}
+
+.p-none{
+    padding: 0;
+}
+
+.m-b-sm{
+    margin-bottom: 8px;
+}
+
+.m-t-sm{
+    margin-top: 8px;
+}
+
+.m-l-sm{
+    margin-left: 8px;
+}
+
+.m-r-sm{
+    margin-right: 8px;
+}
+
+.m-sm{
+    margin: 8px;
+}
+
+tr.dtrg-group,
+tr.dtrg-group:hover {
+    background-color: #eeeeee !important;
+}
+
+.table-xs td,
+.table-xs tr,
+.table-xs th {
+    padding: 0.1rem !important;
+}
+
+.badge-light{
+    color: #2f4050;
+    background: #eeeeee;
+}
+
+
+ul, ol {
+    list-style: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.jsontree_tree{
+    margin-left: 0px !important;
+    white-space: normal !important;
+}
+
+.jsontree_child-nodes{
+    margin-left: 0px !important;
+}
+
+.absolute-collapse-panel{
+    background:  white;
+    position: absolute;
+    top: 34px;
+    left: 0;
+    right: 0;
+    z-index:999;
+    border: 1px solid lightgray;
+}
+
+.parent {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.child {
+      width:250px;
+      height:250px;
+      border:1px solid #ccc !important;
+      margin:25px;
+      flex: 0 0 auto;
+      overflow: auto;
+}
+
+.t-head{
+    font-size: 24px;
+}
