@@ -1,17 +1,21 @@
-from .dataprocessor import DataProcessor
-from .utils import helpers, constants, error_codes
-from .vegawrapper import *
-from .visgenie import *
-from .taskgenie import *
-from .attributegenie import *
-from .querygenie import *
-from nltk.stem.porter import PorterStemmer
-from vega import VegaLite
-import time
+# In-built Libraries
 import os
+import time
 from collections import OrderedDict
-from nltk.parse.stanford import StanfordDependencyParser
+
+# Third-Party Libraries
 import spacy
+from nltk.stem.porter import PorterStemmer
+from nltk.parse.stanford import StanfordDependencyParser
+from vega import VegaLite
+
+# NL4DV Imports
+from nl4dv.datagenie import DataGenie
+from nl4dv.querygenie import QueryGenie
+from nl4dv.attributegenie import AttributeGenie
+from nl4dv.taskgenie import TaskGenie
+from nl4dv.visgenie import VisGenie
+from nl4dv.utils import helpers, constants, error_codes
 
 
 class NL4DV:
@@ -21,9 +25,14 @@ class NL4DV:
 
     """
 
-    def __init__(self, data_url=None, alias_url=None, alias_map=None, label_attribute=None, ignore_words=list(), reserve_words=list(),
-                 dependency_parser_config=None, verbose=False):
-        # type: (str) -> None
+    def __init__(self, data_url=None,
+                 alias_url=None,
+                 alias_map=None,
+                 label_attribute=None,
+                 ignore_words=list(),
+                 reserve_words=list(),
+                 dependency_parser_config=None,
+                 verbose=False):
 
         # inputs
         self.data_url = data_url
@@ -66,11 +75,11 @@ class NL4DV:
         self.set_dependency_parser(dependency_parser_config)
 
         # Internal Class Instances
+        self.data_genie_instance = DataGenie(self)  # initialize a DataGenie instance.
         self.query_genie_instance = QueryGenie(self)  # initialize a QueryGenie instance.
-        self.data_processor_instance = DataProcessor(self)  # initialize a DataProcessor instance.
-        self.vis_genie_instance = VisGenie(self)   # initialize a VisGenie instance.
-        self.task_genie_instance = TaskGenie(self)  # initialize a TaskGenie instance.
         self.attribute_genie_instance = AttributeGenie(self)   # initialize a AttributeGenie instance.
+        self.task_genie_instance = TaskGenie(self)  # initialize a TaskGenie instance.
+        self.vis_genie_instance = VisGenie(self)   # initialize a VisGenie instance.
 
     # returns a VegaLite object of the best (1st) visualization after analyzing the query.
     def render_vis(self, query_raw):
@@ -99,7 +108,7 @@ class NL4DV:
             self.extracted_attributes = OrderedDict()
             self.vis_list = None
 
-        # clean query and generate tokens
+        # CLEAN AND PROCESS QUERY
         self.query_raw = query_raw
         helpers.cond_print("Raw Query: " + self.query_raw, self.verbose)
         st = time.time()
@@ -162,31 +171,31 @@ class NL4DV:
 
     # Update the attribute datatypes that were not correctly detected by NL4DV
     def set_attribute_datatype(self, attr_type_obj):
-        return self.data_processor_instance.set_attribute_datatype(attr_type_obj=attr_type_obj)
+        return self.data_genie_instance.set_attribute_datatype(attr_type_obj=attr_type_obj)
 
     # Set Label attribute for the dataset, i.e. one that defines what the dataset is about.
     # e.g. "Correlate horsepower and MPG for sports car models" should NOT apply an explicit attribute for models since there are two explicit attributes already present.
     def set_label_attribute(self, label_attribute):
-        return self.data_processor_instance.set_label_attribute(label_attribute=label_attribute)
+        return self.data_genie_instance.set_label_attribute(label_attribute=label_attribute)
 
     # WORDS that should be IGNORED in the query, i.e. NOT lead to the detection of attributes and tasks
     # `Movie` in movies dataset
     # `Car` in cars dataset
     def set_ignore_words(self, ignore_words):
-        return self.data_processor_instance.set_ignore_words(ignore_words=ignore_words)
+        return self.data_genie_instance.set_ignore_words(ignore_words=ignore_words)
 
     # Custom STOPWORDS that should NOT removed from the query, as they might be present in the domain.
     # e.g. `A` in grades dataset
     def set_reserve_words(self, reserve_words):
-        return self.data_processor_instance.set_reserve_words(reserve_words=reserve_words)
+        return self.data_genie_instance.set_reserve_words(reserve_words=reserve_words)
 
     # Sets the AliasMap
     def set_alias_map(self, alias_map=None, alias_url=None):
-        return self.data_processor_instance.set_alias_map(alias_map=alias_map, alias_url=alias_url)
+        return self.data_genie_instance.set_alias_map(alias_map=alias_map, alias_url=alias_url)
 
     # Sets the Dataset
     def set_data(self, data_url=None):
-        return self.data_processor_instance.set_data(data_url=data_url)
+        return self.data_genie_instance.set_data(data_url=data_url)
 
     # Sets the String Matching, Domain Word Limit, ... Thresholds
     def set_thresholds(self, thresholds):
@@ -205,7 +214,7 @@ class NL4DV:
 
     # Get the dataset metadata
     def get_metadata(self):
-        return self.data_processor_instance.data_attribute_map
+        return self.data_genie_instance.data_attribute_map
 
     # Create a dependency parser instance
     def set_dependency_parser(self, config):

@@ -11,6 +11,7 @@ import copy
 
 WORD = re.compile(r'\w+')
 
+
 # Includes Repetition
 def get_ngrams(input, n):
     input = input.split(' ')
@@ -18,6 +19,7 @@ def get_ngrams(input, n):
     for i in range(len(input)-n+1):
         output.append(input[i:i+n])
     return output
+
 
 # Removes Duplicate N-Grams
 def get_ngrams_without_duplicate(input, n):
@@ -28,6 +30,7 @@ def get_ngrams_without_duplicate(input, n):
         output.setdefault(g, 0)
         output[g] += + 1
         return output
+
 
 # ToDo:- Explore alternatives to WordNet similarity
 def synonymity_score(word_x, word_y):
@@ -58,6 +61,7 @@ def set_default(obj):
         return list(obj)
 
     raise TypeError ("Type %s not serializable" % type(obj))
+
 
 def cond_print(string_to_print, debug=True):
     if debug:
@@ -116,6 +120,7 @@ def filter_combo_based_on_unique_keywords(combo, queryPhrase, attributes, a_k_ma
 
     # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
     return len(combo) != len(unique_attrs) or (len(unique_keywords) != len(combo))
+
 
 def compute_similarity(str1, str2, type):
     if type == 'cosine_similarity':

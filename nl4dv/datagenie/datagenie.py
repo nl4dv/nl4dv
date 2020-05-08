@@ -6,7 +6,7 @@ from dateutil.parser import parse
 from nl4dv.utils import constants, error_codes, helpers
 import os
 
-class DataProcessor:
+class DataGenie:
     """
     Pre-process data attributes into different categories
     """

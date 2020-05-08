@@ -7,12 +7,8 @@ from jinja2 import TemplateNotFound
 # Import our Example Applications
 from applications.datatone import datatone_routes
 from applications.debugger import debugger_routes
-from applications.debugger_csv import debugger_csv_routes
 from applications.vleditor import vleditor_routes
-from applications.design_debugger import design_debugger_routes
 from applications.mmplot import mmplot_routes
-from applications.examples import examples_routes
-
 
 # Initialize the app
 app = Flask(__name__)
@@ -50,8 +46,8 @@ def setData():
     dataset = request.form['dataset']
     if dataset is not None:
         datafile_obj = dataset.rsplit(".")
-        nl4dv_instance.data_processor_instance.set_data(data_url=os.path.join("assets", "data", datafile_obj[0] + ".csv"))
-        nl4dv_instance.data_processor_instance.set_alias_map(alias_url=os.path.join("assets", "aliases", datafile_obj[0] + ".json"))
+        nl4dv_instance.data_genie_instance.set_data(data_url=os.path.join("assets", "data", datafile_obj[0] + ".csv"))
+        nl4dv_instance.data_genie_instance.set_alias_map(alias_url=os.path.join("assets", "aliases", datafile_obj[0] + ".json"))
         return get_dataset_meta()
     else:
         raise ValueError('Data not provided')
@@ -63,7 +59,7 @@ def setIgnoreList():
         return jsonify({"message":"NL4DV NOT initialized"})
 
     ignore_words = request.form['ignore_words']
-    nl4dv_instance.data_processor_instance.set_ignore_words(ignore_words=json.loads(ignore_words))
+    nl4dv_instance.data_genie_instance.set_ignore_words(ignore_words=json.loads(ignore_words))
     return jsonify({'message': 'Ignore List Set successfully'})
 
 
@@ -115,7 +111,7 @@ def setAttributeDataType():
         return jsonify({"message":"NL4DV NOT initialized"})
 
     attr_type_obj = request.form['attr_type_obj']
-    nl4dv_instance.data_processor_instance.set_attribute_datatype(json.loads(attr_type_obj))
+    nl4dv_instance.data_genie_instance.set_attribute_datatype(json.loads(attr_type_obj))
     return get_dataset_meta()
 
 
@@ -130,18 +126,15 @@ def debugger():
 def get_dataset_meta():
     global nl4dv_instance
     output = {
-        "summary": nl4dv_instance.data_processor_instance.data_attribute_map,
-        "rowCount": nl4dv_instance.data_processor_instance.rows,
-        "columnCount": len(nl4dv_instance.data_processor_instance.data_attribute_map.keys())
+        "summary": nl4dv_instance.data_genie_instance.data_attribute_map,
+        "rowCount": nl4dv_instance.data_genie_instance.rows,
+        "columnCount": len(nl4dv_instance.data_genie_instance.data_attribute_map.keys())
     }
     return jsonify(output)
 
 if __name__ == "__main__":
     app.register_blueprint(datatone_routes.datatone_bp, url_prefix='/datatone')
     app.register_blueprint(debugger_routes.debugger_bp, url_prefix='/debugger')
-    app.register_blueprint(debugger_csv_routes.debugger_csv_bp, url_prefix='/debugger_csv')
     app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
-    app.register_blueprint(design_debugger_routes.design_debugger_bp, url_prefix='/design_debugger')
     app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
-    app.register_blueprint(examples_routes.examples_bp, url_prefix='/examples')
     app.run(host='0.0.0.0', debug=True, threaded=True, port=7001)

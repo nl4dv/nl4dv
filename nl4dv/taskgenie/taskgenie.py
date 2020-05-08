@@ -20,7 +20,7 @@ class TaskGenie:
                         continue
 
                     # Get Attribute datatypes
-                    sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_processor_instance.data_attribute_map)
+                    sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_genie_instance.data_attribute_map)
                     sorted_attr_datatype_combo_str = ''.join(x[1] for x in sorted_attr_datatype_combo)
                     sorted_attr_combo = [x[0] for x in sorted_attr_datatype_combo]
 
@@ -28,12 +28,12 @@ class TaskGenie:
                     if task in ["filter","derived_value","find_extremum"]:
                         if len(values) > 0 and helpers.isfloat(values[0]):
                             for a in sorted_attr_combo:
-                                if self.nl4dv_instance.data_processor_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
+                                if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
                                     is_datatype_ambiguous = True
                                     break
                     elif task in ["trend"]:
                         for a in sorted_attr_combo:
-                            if self.nl4dv_instance.data_processor_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["TEMPORAL"]:
+                            if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["TEMPORAL"]:
                                 is_datatype_ambiguous = True
                                 break
 
@@ -58,13 +58,13 @@ class TaskGenie:
             if task in ["filter","derived_value","find_extremum"]:
                 if len(values) > 0 and helpers.isfloat(values[0]):
                     for a in attributes:
-                        if self.nl4dv_instance.data_processor_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
+                        if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
                             is_datatype_ambiguous = True
                             break
 
             elif task in ["trend"]:
                 for a in attributes:
-                    if self.nl4dv_instance.data_processor_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["TEMPORAL"]:
+                    if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["TEMPORAL"]:
                         is_datatype_ambiguous = True
                         break
 
@@ -415,7 +415,7 @@ class TaskGenie:
                         continue
 
                     # Get Attribute datatypes
-                    sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_processor_instance.data_attribute_map)
+                    sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_genie_instance.data_attribute_map)
                     sorted_attr_datatype_combo_str = ''.join(x[1] for x in sorted_attr_datatype_combo)
                     sorted_attr_combo = [x[0] for x in sorted_attr_datatype_combo]
 

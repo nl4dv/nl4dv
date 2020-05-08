@@ -1,7 +1,8 @@
 import itertools
-from nl4dv.vegawrapper import *
+from nl4dv.vegawrapper import VegaWrapper
 from nl4dv.utils import constants, helpers
 import copy
+
 
 class VisGenie:
     def __init__(self, nl4dv_instance):
@@ -13,15 +14,6 @@ class VisGenie:
         Get explicit Vis type from query
 
         """
-        # If an Explicit Visualization type is requested, set the relevant flag.
-        # for token in tokens:
-        #     # If token is eg. 'line' / 'bar' which are not also attributes in dataset, then set it as an explicit vis type.
-        #     if token not in self.nl4dv_instance.data_processor_instance.data_attribute_map:
-        #         for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
-        #             if token in vis_keywords:
-        #                 return vis_type, token
-
-        # Let max length of n-gram be 2.
         for ngram in query_ngrams:
             for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
                 if query_ngrams[ngram]["lower"] in vis_keywords:
@@ -133,7 +125,7 @@ class VisGenie:
                             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
                             combo.append(self.nl4dv_instance.label_attribute)
 
-                sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_processor_instance.data_attribute_map)
+                sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_genie_instance.data_attribute_map)
                 attr_datatype_combo_str = ''
                 sorted_combo = []
                 for s in sorted_attr_datatype_combo:
@@ -222,7 +214,7 @@ class VisGenie:
         for index, attr in enumerate(combos):
             encoding = design['priority'][index]  # x, y, color, size, tooltip, ...
             agg = design[encoding]['agg']
-            datatype = self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]['dataType']
+            datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
 
             # Update the design with the attribute. It could be referenced later.
             design[encoding]['attr'] = attr
@@ -241,7 +233,7 @@ class VisGenie:
             if not design[encoding]['is_defined']:
                 attr_reference = design[encoding]['attr_ref']
                 attr = design[attr_reference]['attr']
-                datatype = self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]['dataType']
+                datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                 agg = design[encoding]['agg']
                 vega_wrapper_instance.set_encoding(encoding, attr, datatype, agg)
 
@@ -382,7 +374,7 @@ class VisGenie:
         for index, attr in enumerate(combos):
             encoding = design['priority'][index]  # x, y, color, size, tooltip, ...
             agg = design[encoding]['agg']
-            datatype = self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]['dataType']
+            datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
 
             # Update the design with the attribute. It could be referenced later.
             design[encoding]['attr'] = attr
@@ -401,7 +393,7 @@ class VisGenie:
             if not design[encoding]['is_defined']:
                 attr_reference = design[encoding]['attr_ref']
                 attr = design[attr_reference]['attr']
-                datatype = self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]['dataType']
+                datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                 agg = design[encoding]['agg']
                 vega_wrapper_instance.set_encoding(encoding, attr, datatype, agg)
 
@@ -439,8 +431,8 @@ class VisGenie:
                     vega_wrapper_instance.unset_encoding('x')
                     vega_wrapper_instance.unset_encoding('y')
                     vega_wrapper_instance.unset_encoding('size')
-                    vega_wrapper_instance.set_encoding('theta', combos[0], self.nl4dv_instance.data_processor_instance.data_attribute_map[combos[0]]['dataType'], aggregate=y_encoding['aggregate'])
-                    vega_wrapper_instance.set_encoding('color', combos[1], self.nl4dv_instance.data_processor_instance.data_attribute_map[combos[1]]['dataType'])
+                    vega_wrapper_instance.set_encoding('theta', combos[0], self.nl4dv_instance.data_genie_instance.data_attribute_map[combos[0]]['dataType'], aggregate=y_encoding['aggregate'])
+                    vega_wrapper_instance.set_encoding('color', combos[1], self.nl4dv_instance.data_genie_instance.data_attribute_map[combos[1]]['dataType'])
                     vega_wrapper_instance.set_recommended_vis_type(self.nl4dv_instance.extracted_vis_type, is_explicit=True)
                 else:
                     self.error = ("VIS", "Pie Chart not compatible / not supported for your query. Falling back to default behavior.")

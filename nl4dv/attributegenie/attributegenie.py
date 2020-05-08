@@ -10,7 +10,7 @@ class AttributeGenie:
     # 1-time generation of Attributes for processing
     def get_data_attributes(self):
         attribute_map = dict()
-        for attr in self.nl4dv_instance.data_processor_instance.data_attribute_map:
+        for attr in self.nl4dv_instance.data_genie_instance.data_attribute_map:
             attr_lower = attr.lower()
             attribute_map[attr] = dict()
             attribute_map[attr]['raw'] = attr
@@ -22,9 +22,9 @@ class AttributeGenie:
     # 1-time generation of Attribute Aliases for processing
     def get_attribute_aliases(self):
         attribute_aliases = dict()
-        for attr in self.nl4dv_instance.data_processor_instance.data_attribute_map:
+        for attr in self.nl4dv_instance.data_genie_instance.data_attribute_map:
             attribute_aliases[attr] = dict()
-            for alias in self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]['aliases']:
+            for alias in self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['aliases']:
                 alias_lower = alias.lower()
 
                 attribute_aliases[attr][alias] = dict()
@@ -79,8 +79,8 @@ class AttributeGenie:
                             'inferenceType': constants.attribute_reference_types['EXPLICIT'],
                             'matchScore': self.nl4dv_instance.match_scores['attribute_similarity_match'],
                             'metric': ['attribute_similarity_match'],
-                            'isLabel': self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["isLabelAttribute"],
-                            'encode': not self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["isLabelAttribute"],
+                            'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
+                            'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                             'isAmbiguous': False,
                             'ambiguity': list(),
                             'meta': {
@@ -143,8 +143,8 @@ class AttributeGenie:
                                 'inferenceType': constants.attribute_reference_types['EXPLICIT'],
                                 'matchScore': self.nl4dv_instance.match_scores['attribute_alias_similarity_match'],
                                 'metric': 'attribute_alias_similarity_match',
-                                'isLabel': self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["isLabelAttribute"],
-                                'encode': not self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["isLabelAttribute"],
+                                'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
+                                'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                                 'isAmbiguous': False,
                                 'ambiguity': list(),
                                 'meta': {
@@ -188,8 +188,8 @@ class AttributeGenie:
                         'matchScore': self.nl4dv_instance.match_scores['attribute_synonym_match'],
                         'inferenceType': constants.attribute_reference_types['EXPLICIT'],
                         'metric': ['attribute_synonym_match'],
-                        'isLabel': self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["isLabelAttribute"],
-                        'encode': not self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["isLabelAttribute"],
+                        'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
+                        'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                         'isAmbiguous': False,
                         'ambiguity': list(),
                         'meta': {
@@ -222,7 +222,7 @@ class AttributeGenie:
 
             # Look for domain value matches ONLY for ordinal and nominal variables.
             # For timeseries and quantitative  attribute types, it is difficult to map numbers to attributes AND this is computationally inefficient due to their domain size.
-            if self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["dataType"] not in ['N','O']:
+            if self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"] not in ['N','O']:
                 continue
 
             # RESET for each Attribute
@@ -235,8 +235,7 @@ class AttributeGenie:
                 ngram_str = ''.join([i for i in query_ngrams[ngram]["lower"] if not i.isdigit()])
 
                 add_attribute = False
-                is_exact_match = False
-                for d in self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]['domain']:
+                for d in self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['domain']:
                     value_raw = str(d)
                     value = value_raw.lower()
 
@@ -251,7 +250,6 @@ class AttributeGenie:
 
                         keyword_value_mapping[attr][ngram_str].add(value_raw)
                         add_attribute = True
-                        is_exact_match = True
 
                     else:
 
@@ -284,7 +282,7 @@ class AttributeGenie:
                         'inferenceType': constants.attribute_reference_types['IMPLICIT'],
                         'matchScore': self.nl4dv_instance.match_scores['attribute_domain_value_match'],
                         'metric': metrics,
-                        'isLabel': self.nl4dv_instance.data_processor_instance.data_attribute_map[attr]["isLabelAttribute"],
+                        'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                         'isAmbiguous': False,
                         'ambiguity': list(),
                         'encode': False,
@@ -303,9 +301,6 @@ class AttributeGenie:
 
                     # Update Keyword-Attribute-Score Mappings
                     self.update_keyword_attribute_mappings(keyword=ngram_str, attribute=attr, score=query_attributes[attr]["matchScore"])
-
-                    if is_exact_match:
-                        break
 
         return query_attributes
 
@@ -468,18 +463,17 @@ class AttributeGenie:
             for task_obj in self.nl4dv_instance.extracted_tasks["filter"]:
                 # NOTE: remove attributes that are mapped to Filter tasks. We don't ENCODE them explicitly in the VIS.
                 for attr in task_obj['attributes']:
-                    if attr in self.nl4dv_instance.extracted_attributes:
-                        # If the attribute is detected from domain value that too only IMPLICITLY (as in was not also EXPLICITLY detected), encode it to False
-                        if "attribute_domain_value_match" in self.nl4dv_instance.extracted_attributes[attr]["metric"]:
-                            if self.nl4dv_instance.extracted_attributes[attr]["inferenceType"] == constants.attribute_reference_types['IMPLICIT']:
-                                self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
+                    # If the attribute is detected from domain value that too only IMPLICITLY (as in was not also EXPLICITLY detected), encode it to False
+                    if "attribute_domain_value_match" in self.nl4dv_instance.extracted_attributes[attr]["metric"]:
+                        if self.nl4dv_instance.extracted_attributes[attr]["inferenceType"] == constants.attribute_reference_types['IMPLICIT']:
+                            self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
 
-                        # If the attribute is part of some FILTER (e.g. budget more than 50) but also exists standalone (e.g. correlate budget and gross for budget more than 50)
-                        # Simple heuristic check for now: Check for multiple occurrences of the attribute's keyword in the raw query.
-                        else:
-                            keyword = list(self.nl4dv_instance.attribute_keyword_mapping[attr].keys())[0]
-                            if self.nl4dv_instance.query_processed.count(keyword) == 1:
-                                self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
+                    # If the attribute is part of some FILTER (e.g. budget more than 50) but also exists standalone (e.g. correlate budget and gross for budget more than 50)
+                    # Simple heuristic check for now: Check for multiple occurrences of the attribute's keyword in the raw query.
+                    else:
+                        keyword = list(self.nl4dv_instance.attribute_keyword_mapping[attr].keys())[0]
+                        if self.nl4dv_instance.query_processed.count(keyword) == 1:
+                            self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
 
         # If correlation as a task is detected, then ensure attributes are ENCODED, even if it means the FILTER ones.
         if "correlation" in self.nl4dv_instance.extracted_tasks:
