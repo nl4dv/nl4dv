@@ -8,10 +8,10 @@ import json
 dependency_parser = "stanford" # stanford / spacy
 
 # -------------------- File INPUT ---------------------------
-data_url = "olympic_medals.csv"
-alias_url = "olympic_medals.json"
-label_attribute = "Name"
-ignore_words = []
+# data_url = "olympic_medals.csv"
+# alias_url = "olympic_medals.json"
+# label_attribute = "Name"
+# ignore_words = []
 # data_url = "cars.csv"
 # alias_url = "cars.json"
 # label_attribute = "Name"
@@ -24,10 +24,10 @@ ignore_words = []
 # alias_url = "cars-w-year.json"
 # label_attribute = "Model"
 # ignore_words = ['car']
-# data_url = "movies-w-year.csv"
-# alias_url = "movies-w-year.json"
-# label_attribute = "Title"
-# ignore_words = ['movie','movies']
+data_url = "movies-w-year.csv"
+alias_url = "movies-w-year.json"
+label_attribute = "Title"
+ignore_words = ['movie','movies']
 # data_url = "colleges.csv"
 # alias_url = "colleges.json"
 # label_attribute = "Name"
@@ -205,7 +205,7 @@ query = "Show a scatter-plot of age and salary for players under the age of 30" 
 ## --------------
 
 # query = "visualize imdb rating and gross"
-query = "show me medals for hockey and skating by country"  # Datatone
+query = "Show average gross across genres for science fiction and fantasy movies" # Figure 1B
 
 print("\nQuery Input: \n" + query)
 
@@ -228,7 +228,7 @@ nl4dv_instance.set_alias_map(alias_url=alias_url)
 nl4dv_instance.set_label_attribute(label_attribute=label_attribute)
 nl4dv_instance.set_ignore_words(ignore_words=ignore_words)
 # nl4dv_instance.set_attribute_datatype({"Year": "T"})
-nl4dv_instance.set_attribute_datatype({"Year": "T", "Gold Medal": "Q", "Silver Medal": "Q", "Bronze Medal": "Q", "Total Medal": "Q"})
+# nl4dv_instance.set_attribute_datatype({"Year": "T", "Gold Medal": "Q", "Silver Medal": "Q", "Bronze Medal": "Q", "Total Medal": "Q"})
 
 # WHAT HAPPENS IF WE CHANGE THE DEPENDENCY PARSER?
 # dependency_parser_config = {'name': 'stanford','model': os.path.join("examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("examples","assets","jars","stanford-parser.jar")}
@@ -246,10 +246,10 @@ print("\nAttributes:")
 pprint(response['attributeMap'])
 print("-----------------------------------------")
 
-# print("\nTasks:")
-# pprint(response['taskMap'])
-# print("-----------------------------------------")
-#
+print("\nTasks:")
+pprint(response['taskMap'])
+print("-----------------------------------------")
+
 # print("\nVisList:")
 # print(response['visList'])
 # print("-----------------------------------------")

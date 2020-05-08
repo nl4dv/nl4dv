@@ -88,10 +88,8 @@ class TaskGenie:
 
     def extract_explicit_tasks_from_dependencies(self, dependencies):
 
-        encodeable_attributes = list()
-        for a in self.nl4dv_instance.extracted_attributes:
-            if self.nl4dv_instance.extracted_attributes[a]["encode"]:
-                encodeable_attributes.append(a)
+        # Get encodeable attributes
+        encodeable_attributes = self.nl4dv_instance.attribute_genie_instance.get_encodeable_attributes()
 
         # Initialize the output
         task_map = dict()

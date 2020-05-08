@@ -267,6 +267,12 @@ class AttributeGenie:
                             add_attribute = True
 
                 if add_attribute:
+                    # Required: To filter out keyword subsets that point to the same attribute, e.g. science fiction, fiction, science
+                    for k1 in keyword_value_mapping[attr].copy():
+                            for k2 in keyword_value_mapping[attr].copy():
+                                if k1!=k2 and k1 in k2:
+                                    if k1 in keyword_value_mapping[attr]:
+                                        del keyword_value_mapping[attr][k1]
 
                     # When attributes are double defined
                     metrics = ["attribute_domain_value_match"]
@@ -333,7 +339,7 @@ class AttributeGenie:
         # Detect attributes by synonymity
         query_attributes = self.detect_attributes_by_synonymity(query_ngrams, data_attributes, query_attributes)
 
-        # Detect attributes by synonymity
+        # Detect attributes by domain value match
         query_attributes = self.detect_attributes_from_domain_value(query_ngrams, data_attributes, query_attributes)
 
         # ---------------------------------------------------------------------------------------------------
@@ -377,6 +383,7 @@ class AttributeGenie:
             for _attr in copy_keyword_attribute_mapping[key]:
                 if key not in query_attributes[_attr]["queryPhrase"]:
                     del self.nl4dv_instance.keyword_attribute_mapping[key][_attr]
+
         # ---------------------------------------------------------------------------------------------------
 
         # ---------------------------------------------------------------------------------------------------
@@ -389,10 +396,14 @@ class AttributeGenie:
         for k1 in copy_keyword_attribute_mapping:
             for k2 in copy_keyword_attribute_mapping:
                 if k1 != k2 and k1 in k2:
-                    for _attr in copy_keyword_attribute_mapping[k1]:
-                        attributes_to_delete.add(_attr)
+                    # Remove the "smaller" keyword (e.g. science fiction v/s fiction)
                     if k1 in self.nl4dv_instance.keyword_attribute_mapping:
                         del self.nl4dv_instance.keyword_attribute_mapping[k1]
+
+                    # Remove the attribute of the "smaller" keyword IF it is different from the "bigger" one.
+                    for _attr in copy_keyword_attribute_mapping[k1]:
+                        if _attr not in copy_keyword_attribute_mapping[k2]:
+                            attributes_to_delete.add(_attr)
         # ---------------------------------------------------------------------------------------------------
 
         # ---------
@@ -446,13 +457,13 @@ class AttributeGenie:
             if self.nl4dv_instance.extracted_attributes[attr]["encode"]:
                 encodeable_attributes.append(attr)
 
-        # If the length is 0, then add the Label Attribute.
-        if len(encodeable_attributes) == 0:
-            # If vis_objects is EMPTY, check if JUST the LABEL attribute was requested!
-            if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes:
-                if self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == constants.attribute_reference_types["EXPLICIT"]:
-                    self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
-                    encodeable_attributes.append(self.nl4dv_instance.label_attribute)
+        # ToDo:- When do we introduce the LABEL attribute?
+        # # If the length is 0, then add the Label Attribute.
+        # if len(encodeable_attributes) == 0:
+        #     # If vis_objects is EMPTY, check if JUST the LABEL attribute was requested!
+        #     if self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == constants.attribute_reference_types["EXPLICIT"]:
+        #         self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
+        #         encodeable_attributes.append(self.nl4dv_instance.label_attribute)
 
         return encodeable_attributes
 
