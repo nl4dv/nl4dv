@@ -382,6 +382,12 @@ function getVisSpec(){
     });
 
     for(var i=0; i < visList.length; i++){
+
+        // We just want BAR CHART to recreate DataTone
+        if (visList[i]["vlSpec"]["mark"]["type"] != "bar"){
+            continue
+        }
+
         var is_x = "x" in visList[i]["vlSpec"]["encoding"];
         var is_y = "y" in visList[i]["vlSpec"]["encoding"];
         var is_c = "color" in visList[i]["vlSpec"]["encoding"];
