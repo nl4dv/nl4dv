@@ -234,12 +234,9 @@ $(globalConfig.queryBtn).on("click",function(evt){
             });
 
             // container for Extracted VIS
-            var visObj = response['extractedVis'];
-            if("vis_type" in visObj){
-                var vis_type = visObj['vis_type'];
-                var vis_token = visObj['queryPhrase'];
-                extractedVisDataTable.row.add([vis_type, vis_token]).draw(false);
-            }
+            var vis_type = response['extractedVis']['visType'];
+            var vis_token = response['extractedVis']['queryPhrase'];
+            extractedVisDataTable.row.add([vis_type, vis_token]).draw(false);
 
             // Render VIS
             response['visList'].forEach((obj) => {
