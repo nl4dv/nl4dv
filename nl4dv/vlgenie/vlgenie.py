@@ -8,13 +8,7 @@ class VegaWrapper():
         self.vegaObject['encoding'] = dict()
         self.vegaObject['transform'] = list()
 
-        self.xAttr = None
-        self.yAttr = None
-        self.xAttrType = None
-        self.yAttrType = None
         self.bin = False
-        self.isExplicit = False
-        self.vis = None
 
         self.data_type_mapping = {
             'Q': 'quantitative',
@@ -23,21 +17,12 @@ class VegaWrapper():
             'O': 'ordinal',
         }
 
-    def get_recommended_vis_type(self):
-        # type: (None) -> (str, bool)
-        """
-        Get visualization to be rendered by vega
-
-        """
-        return self.vis, self.isExplicit
-
-    def set_recommended_vis_type(self, vis, is_explicit):
+    def set_recommended_vis_type(self, vis):
         # type: (str, bool) -> None
         """
         Set visualization to be rendered by vega
 
         """
-        self.isExplicit = is_explicit
         self.vis = vis
         if vis == 'histogram':
             self.vegaObject['mark']['type'] = 'bar'
@@ -76,11 +61,7 @@ class VegaWrapper():
         """
         if dimension in self.vegaObject['encoding']:
             del self.vegaObject['encoding'][dimension]
-            self.xAttr = None
-            self.xAttrType = None
             self.bin = False
-            self.yAttr = None
-            self.yAttrType = None
 
     def get_encoding(self, dimension):
         # type: (str) -> dict()
@@ -93,31 +74,24 @@ class VegaWrapper():
     def set_encoding_aggregate(self, dimension, aggregate):
         self.vegaObject['encoding'][dimension]['aggregate'] = aggregate
 
-    def set_encoding(self, dimension, attr, attrType, aggregate=None):
+    def set_encoding(self, dimension, attr, attr_type, aggregate=None):
         # type: (str, str, str) -> None
         """
         Set encoding for a given dimension
 
         """
-        vegaAattrType = self.data_type_mapping[attrType]
+        vl_attr_type = self.data_type_mapping[attr_type]
         self.vegaObject['encoding'][dimension] = {
             'field': attr,
-            'type': vegaAattrType,
+            'type': vl_attr_type,
         }
 
         if aggregate is not None:
             self.vegaObject['encoding'][dimension]['aggregate'] = aggregate
 
         if dimension == 'x':
-            self.xAttr = attr
-            self.xAttrType = vegaAattrType
-
             if self.bin:
                 self.vegaObject['encoding'][dimension]['bin'] = True
-
-        elif dimension == 'y':
-            self.yAttr = attr
-            self.yAttrType = vegaAattrType
 
     def set_task(self, dimension, task):
         # type: (str, dict) -> None
@@ -169,13 +143,10 @@ class VegaWrapper():
                     self.vegaObject['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(at, symbol, task["values"][0])})
 
         elif task["task"] == 'distribution':
-            # ToDo:- what to do really? The attribute match will take care of default viz any way
             pass
 
         elif task["task"] == 'correlation':
             pass
-            # self.set_recommended_vis_type('scatterplot')
-            # self.set_encoding('y', attrName, 'QUANTITATIVE', aggregate=None)
 
         elif task["task"] == 'outlier':
             # ToDo:- Can explore vega-lite to apply a filter like show the data points beyond the inter-quartile range?
