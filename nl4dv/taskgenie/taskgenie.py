@@ -7,14 +7,21 @@ class TaskGenie:
         self.nl4dv_instance = nl4dv_instance
 
     @staticmethod
-    def is_non_filter_explicit_task(task_map):
-        has_explicit_task = False
-        for k in task_map:
-            if k != "filter" and len(task_map[k]) != 0:
-                has_explicit_task = True
-                break
+    def has_non_filter_explicit_task(task_map):
+        for task in task_map:
+            if task != "filter" and len(task_map[task]) != 0:
+                return True
+        return False
 
-        return has_explicit_task
+    @staticmethod
+    def has_non_filter_explicit_task_for_attr_list(task_map, attr_list):
+        for task in task_map:
+            if task != "filter":
+                for task_instance in task_map[task]:
+                    if set(task_instance["attributes"]) == set(attr_list):
+                        return True
+
+        return False
 
     # ToDo:- Ensure EMPTY LIST is not returned. Return NULL/ None so that the KEY itself is not added to the Task Map
     def generate_tasks(self, task, attributes, keywords, operator_phrase, operator, values, inference_type, allow_subset=False):
@@ -403,7 +410,7 @@ class TaskGenie:
         # E.g. trend (from temporal)
         # E.g. correlation (from two quantitative), distribution (from one quantitative, one nominal/ordinal)
 
-        if not self.is_non_filter_explicit_task(task_map):
+        if not self.has_non_filter_explicit_task(task_map):
             for i in range(1, len(attribute_list) + 1):
                 combinations = itertools.combinations(attribute_list, i)
                 for combination in combinations:
@@ -413,6 +420,9 @@ class TaskGenie:
 
                     # Get Attribute datatypes
                     sorted_attr_combo, sorted_attr_datatype_combo_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
+
+                    if self.has_non_filter_explicit_task_for_attr_list(task_map, sorted_attr_combo):
+                        continue
 
                     # Keeping it outside of the if elif
                     if 'T' in sorted_attr_datatype_combo_str and not sorted_attr_datatype_combo_str in ["QQT"]:

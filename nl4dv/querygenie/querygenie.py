@@ -26,8 +26,8 @@ class QueryGenie:
             except Exception as e:
                 parsed_tokens.append(token)
 
-        # Join the tokens into a string and make it lowercase
-        query_processed = ' '.join(parsed_tokens).lower()
+        # Join the tokens into a string
+        query_processed = ' '.join(parsed_tokens)
 
         # Clean sentence of non-alphanumerical characters
         query_cleaned = re.sub(r'[^A-Za-z0-9]+', ' ', query_processed)

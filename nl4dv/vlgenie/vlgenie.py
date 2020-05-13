@@ -62,7 +62,6 @@ class VLGenie():
         """
         if dimension in self.vl_spec['encoding']:
             del self.vl_spec['encoding'][dimension]
-            self.bin = False
 
     def get_encoding(self, dimension):
         # type: (str) -> dict()
@@ -87,23 +86,15 @@ class VLGenie():
             'type': vl_attr_type,
         }
 
-        if aggregate is not None:
-            self.vl_spec['encoding'][dimension]['aggregate'] = aggregate
+        self.vl_spec['encoding'][dimension]['aggregate'] = aggregate
 
         if dimension == 'x':
             if self.bin:
                 self.vl_spec['encoding'][dimension]['bin'] = True
 
     def set_task(self, dimension, task):
-        # type: (str, dict) -> None
-        """
-        Set task
 
-        """
-        if task is None:
-            return
-
-        elif task["task"] == 'find_extremum':
+        if task["task"] == 'find_extremum':
             if dimension is None:
                 dimension = 'y'
             if task["operator"] == 'MIN':
@@ -119,20 +110,19 @@ class VLGenie():
 
         elif task["task"] == 'filter':
             if task["operator"] == 'IN':
-                for at in task['attributes']:
-                    self.vl_spec['transform'].append({'filter': {"field": at, "oneOf": task["values"]}})
+                for attr in task['attributes']:
+                    self.vl_spec['transform'].append({'filter': {"field": attr, "oneOf": task["values"]}})
             elif task["operator"] == 'RANGE':
-                for at in task['attributes']:
-                    self.vl_spec['transform'].append({"filter": {"field": at, "range": task["values"]}})
+                for attr in task['attributes']:
+                    self.vl_spec['transform'].append({"filter": {"field": attr, "range": task["values"]}})
             elif task["operator"] == 'NOT RANGE':
-                for at in task['attributes']:
-                    # self.vl_spec['transform'].append({"filter": {"field": at, "gte": task["values"][1], "lte": task["values"][0]}})
-                    self.vl_spec['transform'].append({"filter": {"not": {"field": at, "range": task["values"]}}})
-
+                for attr in task['attributes']:
+                    # self.vl_spec['transform'].append({"filter": {"field": attr, "gte": task["values"][1], "lte": task["values"][0]}})
+                    self.vl_spec['transform'].append({"filter": {"not": {"field": attr, "range": task["values"]}}})
             else:
-                for at in task['attributes']:
+                for attr in task['attributes']:
                     symbol = constants.operator_symbol_mapping[task["operator"]]
-                    self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(at, symbol, task["values"][0])})
+                    self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(attr, symbol, task["values"][0])})
 
         elif task["task"] == 'distribution':
             pass
@@ -171,7 +161,6 @@ class VLGenie():
         """
         self.vl_spec['data'] = {'url': dataUrl, 'format': {'type': 'csv'}}
 
-
     def add_tick_format(self):
         for dimension in self.vl_spec['encoding']:
             if dimension in ['x','y'] and self.vl_spec['encoding'][dimension]['type'] == 'quantitative':
@@ -179,13 +168,13 @@ class VLGenie():
                     self.vl_spec['encoding'][dimension]['axis'] = {}
                 self.vl_spec['encoding'][dimension]['axis']["format"] = "s"
 
-
     def add_label_attribute_as_tooltip(self, label_attribute):
         # Check if any of the AXES (encodings) have existing aggregations. If not, then add tooltip which is the label
         has_aggregate = False
         for encoding in self.vl_spec['encoding']:
             if 'aggregate' in self.vl_spec['encoding'][encoding] and self.vl_spec['encoding'][encoding]['aggregate'] is not None:
                 has_aggregate = True
+                break
 
         if not has_aggregate:
             self.vl_spec['encoding']['tooltip'] = {

@@ -226,3 +226,13 @@ def delete_keys_from_dict(dictionary, keys):
             else:
                 modified_dict[key] = value  # or copy.deepcopy(value) if a copy is desired for non-dicts.
     return modified_dict
+
+
+# Use to determine if two lists have any common elements, if any.
+def common_member(a, b):
+    a_set = set(a)
+    b_set = set(b)
+    if (a_set & b_set):
+        return True
+    else:
+        return False

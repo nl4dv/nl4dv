@@ -150,6 +150,9 @@ class VisGenie:
                         continue
 
                     if task == "derived_value":
+                        if design["vis_type"] in ["histogram", "boxplot"]:
+                            return None, None
+
                         # Iterate over all encodings and if the corresponding attribute matches that in the task, then UPDATE the "aggregate".
                         for encoding in design["mandatory"]:
                             attr = design[encoding]["attr"]
@@ -171,6 +174,7 @@ class VisGenie:
                         pass
 
         # If explicit VIS is specified, then override it
+        # TODO:- There a few vis (mark) types that are NOT sensible, e.g. asking a scatterplot for a piechart design or a linechart for a boxplot base design. Filter these designs out!
         if self.nl4dv_instance.extracted_vis_type:
 
             # PIE CHART + DONUT CHART
@@ -188,7 +192,9 @@ class VisGenie:
 
             # STRIP PLOT
             elif self.nl4dv_instance.extracted_vis_type == "stripplot":
-                pass
+                for dimension in design['mandatory']:
+                    design[dimension]['agg'] = None
+                    vl_genie_instance.set_encoding_aggregate(dimension, None)
 
             # BAR CHART
             elif self.nl4dv_instance.extracted_vis_type == "barchart":

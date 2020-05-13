@@ -549,8 +549,7 @@ class AttributeGenie:
         # Uncomment if you wish to show LABEL ATTRIBUTE in some cases.
         # HERE, if there is ONLY 1 non-label attribute, AND if there are NO EXPLICIT non-FILTER tasks, then add the label attribute.
         # if len(combo) == 1 and combo[0] != self.nl4dv_instance.label_attribute:
-        #
-        #     if self.has_find_extremum_task():
+        #     if "find_extremum" in self.nl4dv_instance.extracted_tasks:
         #         # If it is in the extracted attributes, ENCODE it to TRUE. If it is NOT, CREATE IT. Finally, add to COMBO
         #         if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes:
         #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
@@ -583,13 +582,6 @@ class AttributeGenie:
 
         return encodeable_attributes
 
-    # def has_find_extremum_task(self):
-    #     for k in self.nl4dv_instance.extracted_tasks:
-    #         if k == "find_extremum":
-    #             return True
-    #     return False
-    #
-    #
     # def has_no_explicit_tasks(self, combo):
     #     has_no_explicit_task = True
     #     for k in self.nl4dv_instance.extracted_tasks:
