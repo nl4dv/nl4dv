@@ -15,7 +15,7 @@ setup(
     description='Natural Language Toolkit for Data Visualization',
     long_description=open('README.txt').read(),
     install_requires=[
-        "nltk==3.1",
+        "nltk==3.4.5",
         "spacy==2.2",
         "python-dateutil==2.6.1",
         "fuzzywuzzy==0.8.1",

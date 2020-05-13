@@ -1,4 +1,4 @@
-nltk==3.1
+nltk==3.4.5
 python-dateutil==2.6.1
 fuzzywuzzy==0.8.1
 pytest==3.10.1
