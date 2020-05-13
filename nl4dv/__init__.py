@@ -160,7 +160,7 @@ class NL4DV:
             'query': self.query_processed,
             'dataset': self.data_url,
             'visList': self.vis_list,
-            'extractedVis': {'vis_type': self.extracted_vis_type, 'queryPhrase': self.extracted_vis_token},
+            'extractedVis': {'visType': self.extracted_vis_type, 'queryPhrase': self.extracted_vis_token},
             'attributeMap': self.extracted_attributes,
             'taskMap': self.extracted_tasks,
             'followUpQuery': self.dialog,

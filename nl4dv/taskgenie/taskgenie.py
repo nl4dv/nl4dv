@@ -6,6 +6,16 @@ class TaskGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
 
+    @staticmethod
+    def is_non_filter_explicit_task(task_map):
+        has_explicit_task = False
+        for k in task_map:
+            if k != "filter" and len(task_map[k]) != 0:
+                has_explicit_task = True
+                break
+
+        return has_explicit_task
+
     # ToDo:- Ensure EMPTY LIST is not returned. Return NULL/ None so that the KEY itself is not added to the Task Map
     def generate_tasks(self, task, attributes, keywords, operator_phrase, operator, values, inference_type, allow_subset=False):
         task_list = list()
@@ -20,9 +30,7 @@ class TaskGenie:
                         continue
 
                     # Get Attribute datatypes
-                    sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_genie_instance.data_attribute_map)
-                    sorted_attr_datatype_combo_str = ''.join(x[1] for x in sorted_attr_datatype_combo)
-                    sorted_attr_combo = [x[0] for x in sorted_attr_datatype_combo]
+                    sorted_attr_combo, sorted_attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_genie_instance.data_attribute_map)
 
                     is_datatype_ambiguous = False
                     if task in ["filter","derived_value","find_extremum"]:
@@ -48,6 +56,7 @@ class TaskGenie:
                     _task['isAttrAmbiguous'] = is_attribute_ambiguous
                     _task['isValueAmbiguous'] = is_datatype_ambiguous
                     _task['meta'] = {'value_ambiguity_type': None}
+
                     if is_datatype_ambiguous:
                         _task['meta']['value_ambiguity_type'] = 'datatype'
                     task_list.append(_task)
@@ -388,16 +397,6 @@ class TaskGenie:
 
         return task_map
 
-    @staticmethod
-    def is_non_filter_explicit_task(task_map):
-        has_explicit_task = False
-        for k in task_map:
-            if k != "filter" and len(task_map[k]) != 0:
-                has_explicit_task = True
-                break
-
-        return has_explicit_task
-
     def extract_implicit_tasks_from_attributes(self, task_map, attribute_list):
         # IMPLICITLY infer tasks based on Attributes (Counts and Datatypes)
         # IF UNABLE to detect from Visualizations and/or Explicit utterances in the query
@@ -413,9 +412,7 @@ class TaskGenie:
                         continue
 
                     # Get Attribute datatypes
-                    sorted_attr_datatype_combo = helpers.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_genie_instance.data_attribute_map)
-                    sorted_attr_datatype_combo_str = ''.join(x[1] for x in sorted_attr_datatype_combo)
-                    sorted_attr_combo = [x[0] for x in sorted_attr_datatype_combo]
+                    sorted_attr_combo, sorted_attr_datatype_combo_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
 
                     # Keeping it outside of the if elif
                     if 'T' in sorted_attr_datatype_combo_str and not sorted_attr_datatype_combo_str in ["QQT"]:

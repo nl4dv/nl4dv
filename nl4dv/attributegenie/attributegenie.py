@@ -7,6 +7,20 @@ class AttributeGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
 
+    # Get a sorted list of (attributes and their datatype) tuples to determine IMPLICIT TASKS as well as default VIS encodings
+    def get_attr_datatype_shorthand(self, attributes):
+        # Attribute-Datatype pair
+        unsorted_attr_datatype = [(attr, self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']) for attr in attributes]
+
+        # Since the `vis_combo` mapping keys are in a specific order [Q,N,O,T], we will order the list of attributes in this order
+        default_sort_order = ['Q', 'N', 'O', 'T']
+        sorted_attr_datatype = [(attr,attr_type) for x in default_sort_order for (attr,attr_type) in unsorted_attr_datatype if attr_type == x]
+
+        sorted_attributes = [x[0] for x in sorted_attr_datatype]  # e.g. ['Rotten Tomatoes Rating', 'Worldwide Gross']
+        sorted_attribute_datatypes = ''.join([x[1] for x in sorted_attr_datatype])  # e.g. 'QQ'
+
+        return sorted_attributes, sorted_attribute_datatypes
+
     # 1-time generation of Attributes for processing
     def get_data_attributes(self):
         attribute_map = dict()
@@ -34,6 +48,7 @@ class AttributeGenie:
 
         return attribute_aliases
 
+    # Update the state if keyword-attribute mappings
     def update_keyword_attribute_mappings(self, keyword, attribute, score):
         if keyword not in self.nl4dv_instance.keyword_attribute_mapping:
             self.nl4dv_instance.keyword_attribute_mapping[keyword] = dict()
@@ -43,6 +58,7 @@ class AttributeGenie:
             self.nl4dv_instance.attribute_keyword_mapping[attribute] = dict()
         self.nl4dv_instance.attribute_keyword_mapping[attribute][keyword] = score
 
+    # Detect attributes based on string similarity of the n-grams
     def detect_attributes_by_similarity(self, query_ngrams, data_attributes, query_attributes):
 
         for attr in data_attributes:
@@ -100,6 +116,7 @@ class AttributeGenie:
 
         return query_attributes
 
+    # Detect attributes based on string similarity of the n-grams with the developer specified aliases
     def detect_attributes_by_alias_similarity(self, query_ngrams, data_attributes, query_attributes, attribute_aliases):
  
         # Go over each ngram to check for matches in attribute aliases
@@ -166,6 +183,7 @@ class AttributeGenie:
 
         return query_attributes
 
+    # Detect attributes based on semantic similarity of the n-grams
     def detect_attributes_by_synonymity(self, query_ngrams, data_attributes, query_attributes):
 
         # Go over each ngram to check for matches in attribute aliases
@@ -205,6 +223,7 @@ class AttributeGenie:
 
         return query_attributes
 
+    # Detect attributes based on string similarity of the n-grams with the domain values
     def detect_attributes_from_domain_value(self, query_ngrams, data_attributes, query_attributes):
 
         value_keyword_mapping = dict()
@@ -310,6 +329,7 @@ class AttributeGenie:
 
         return query_attributes
 
+    # Main function to extract attributes from the query (query_ngrams to be specific).
     def extract_attributes(self, query_ngrams):
         """
         Return relevant attributes of query
@@ -449,6 +469,7 @@ class AttributeGenie:
 
         return query_attributes
 
+    # Return just those attributes that are to be "encoded" into the visualization, i.e. along x, y, size, color, column, row, etc.
     def get_encodeable_attributes(self):
         encodeable_attributes = list()
 
@@ -457,16 +478,9 @@ class AttributeGenie:
             if self.nl4dv_instance.extracted_attributes[attr]["encode"]:
                 encodeable_attributes.append(attr)
 
-        # ToDo:- When do we introduce the LABEL attribute?
-        # # If the length is 0, then add the Label Attribute.
-        # if len(encodeable_attributes) == 0:
-        #     # If vis_objects is EMPTY, check if JUST the LABEL attribute was requested!
-        #     if self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == constants.attribute_reference_types["EXPLICIT"]:
-        #         self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
-        #         encodeable_attributes.append(self.nl4dv_instance.label_attribute)
-
         return encodeable_attributes
 
+    # Update attribute encodings based on tasks. e.g. "gross more than 50M" is a filter and the attribute "Worldwide Gross" need not be encoded into the visualization.
     def update_encodeable_attributes_based_on_tasks(self):
         # REFINE ATTRIBUTES based ON TASKS until now
         # Attributes affected by filter should be excluded from the vis UNLESS there are multiple keyword occurrences in the query
@@ -492,4 +506,96 @@ class AttributeGenie:
                 for attr in task_obj['attributes']:
                     self.nl4dv_instance.extracted_attributes[attr]["encode"] = True
 
-        return self.get_encodeable_attributes()
+        # Get Encocdeable attributes
+        encodeable_attributes = self.get_encodeable_attributes()
+
+        # # ToDo:- When do we introduce the LABEL attribute?
+        # # If the length is 0, then add the Label Attribute.
+        # if len(encodeable_attributes) == 0:
+        #     # If vis_objects is EMPTY, check if JUST the LABEL attribute was requested!
+        #     if self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == constants.attribute_reference_types["EXPLICIT"]:
+        #         self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
+        #         encodeable_attributes.append(self.nl4dv_instance.label_attribute)
+        #
+        #     # IF there are ONLY FILTER TASKs detected AND NO other ENCODEable attribute exist, then ADD the LABEL attribute.
+        #     if len(self.nl4dv_instance.extracted_tasks) != 0:
+        #         if 'filter' in self.nl4dv_instance.extracted_tasks:
+        #             # Check if there is a task BUT no ENCODABLE attribute is detected. In this case, add the label attribute.
+        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute] = {
+        #                 'name': self.nl4dv_instance.label_attribute,
+        #                 "queryPhrase": None,
+        #                 'inferenceType': constants.attribute_reference_types['IMPLICIT'],
+        #                 'matchScore': 0,
+        #                 'metric': ['label_attribute'],
+        #                 'isLabel': True, # OBVIOUSLY
+        #                 'isAmbiguous': False,
+        #                 'ambiguity': [],
+        #                 'encode': True, # Set to TRUE
+        #                 'meta': {
+        #                     'score': None,
+        #                     'threshold': None,
+        #                     'alias': None,
+        #                     'ambiguity': {}
+        #                 }
+        #             }
+        #
+        #             self.nl4dv_instance.attribute_keyword_mapping[self.nl4dv_instance.label_attribute] = {"LABEL": 1}
+        #             self.nl4dv_instance.keyword_attribute_mapping["LABEL"] = {self.nl4dv_instance.label_attribute: 1}
+        #
+        #             if self.nl4dv_instance.label_attribute not in encodeable_attributes:
+        #                 encodeable_attributes.append(self.nl4dv_instance.label_attribute)
+
+        # TODO: This is from COMBO (think of rating > three possible attributes so len(attributes) may not be CORRECT. The keyword-attr checker function can be used here.
+        # Uncomment if you wish to show LABEL ATTRIBUTE in some cases.
+        # HERE, if there is ONLY 1 non-label attribute, AND if there are NO EXPLICIT non-FILTER tasks, then add the label attribute.
+        # if len(combo) == 1 and combo[0] != self.nl4dv_instance.label_attribute:
+        #
+        #     if self.has_find_extremum_task():
+        #         # If it is in the extracted attributes, ENCODE it to TRUE. If it is NOT, CREATE IT. Finally, add to COMBO
+        #         if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes:
+        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
+        #         else:
+        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute] = {
+        #                 'name': self.nl4dv_instance.label_attribute,
+        #                 "queryPhrase": None,
+        #                 'inferenceType': constants.attribute_reference_types['IMPLICIT'],
+        #                 'matchScore': 0,
+        #                 'metric': ['label_attribute'],
+        #                 'isLabel': True, # OBVIOUSLY
+        #                 'encode': True, # Set to TRUE
+        #                 'isAmbiguous': False,
+        #                 'ambiguity': [],
+        #                 'meta': {
+        #                     'score': None,
+        #                     'threshold': None,
+        #                     'alias': None,
+        #                     'ambiguity': {}
+        #                 }
+        #             }
+        #         if self.nl4dv_instance.label_attribute not in combo:
+        #             combo.append(self.nl4dv_instance.label_attribute)
+        #
+        #     elif self.has_no_explicit_tasks(combo):
+        #         # If it is in the extracted attributes, encode it to TRUE and add to COMBO
+        #         if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes:
+        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
+        #             combo.append(self.nl4dv_instance.label_attribute)
+
+        return encodeable_attributes
+
+    # def has_find_extremum_task(self):
+    #     for k in self.nl4dv_instance.extracted_tasks:
+    #         if k == "find_extremum":
+    #             return True
+    #     return False
+    #
+    #
+    # def has_no_explicit_tasks(self, combo):
+    #     has_no_explicit_task = True
+    #     for k in self.nl4dv_instance.extracted_tasks:
+    #         for v in self.nl4dv_instance.extracted_tasks[k]:
+    #             if v["inferenceType"] == constants.task_reference_types["EXPLICIT"] and combo[0] not in v['attributes']:
+    #                 has_no_explicit_task = False
+    #
+    #     return has_no_explicit_task
+    #

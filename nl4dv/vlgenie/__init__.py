@@ -1,1 +1,1 @@
-from .vegawrapper import *
+from .vlgenie import *

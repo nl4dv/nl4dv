@@ -206,6 +206,9 @@ query = "Show a scatter-plot of age and salary for players under the age of 30" 
 
 # query = "visualize imdb rating and gross"
 query = "Show average gross across genres for science fiction and fantasy movies" # Figure 1B
+query = "show me goals and salary"
+query = "Home Type Heating Type Price as a distribution"
+query = "gross and sum of budget"
 
 print("\nQuery Input: \n" + query)
 
@@ -242,18 +245,18 @@ response = nl4dv_instance.analyze_query(query, debug=True)
 # print("\nData Attribute Map:")
 # print(nl4dv_instance.data_genie_instance.data_attribute_map)
 
-print("\nAttributes:")
-pprint(response['attributeMap'])
-print("-----------------------------------------")
-
-print("\nTasks:")
-pprint(response['taskMap'])
-print("-----------------------------------------")
-
+# print("\nAttributes:")
+# pprint(response['attributeMap'])
+# print("-----------------------------------------")
+#
+# print("\nTasks:")
+# pprint(response['taskMap'])
+# print("-----------------------------------------")
+#
 # print("\nVisList:")
 # print(response['visList'])
 # print("-----------------------------------------")
-#
+
 # print("\nFull Output:")
 # print(json.dumps(response))
 # print("-----------------------------------------")

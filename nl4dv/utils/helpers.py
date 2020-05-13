@@ -226,15 +226,3 @@ def delete_keys_from_dict(dictionary, keys):
             else:
                 modified_dict[key] = value  # or copy.deepcopy(value) if a copy is desired for non-dicts.
     return modified_dict
-
-
-# Get a sorted list of (attributes and their datatype) tuples to determine IMPLICIT TASKS as well as default VIS encodings
-def get_attr_datatype_shorthand(attributes, data_attribute_map):
-    attr_datatype_combo = []
-    for attr in attributes:
-        attr_datatype_combo.append((attr, data_attribute_map[attr]['dataType']))
-
-    # Since the `vis_combo` mapping keys are in a specific order [Q,N,O,T], we will order the list of attributes in this order
-    default_sort_order = ['Q', 'N', 'O', 'T']
-    sorted_attr_datatype_combo = [(attr,attr_type) for x in default_sort_order for (attr,attr_type) in attr_datatype_combo if attr_type == x]
-    return sorted_attr_datatype_combo

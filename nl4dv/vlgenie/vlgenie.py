@@ -1,12 +1,13 @@
 from nl4dv.utils import constants
 
-class VegaWrapper():
+
+class VLGenie():
     def __init__(self):
-        self.vegaObject = dict()
-        self.vegaObject['$schema'] = 'https://vega.github.io/schema/vega-lite/v4.json'
-        self.vegaObject['mark'] = {'tooltip': True}
-        self.vegaObject['encoding'] = dict()
-        self.vegaObject['transform'] = list()
+        self.vl_spec = dict()
+        self.vl_spec['$schema'] = 'https://vega.github.io/schema/vega-lite/v4.json'
+        self.vl_spec['mark'] = {'tooltip': True}
+        self.vl_spec['encoding'] = dict()
+        self.vl_spec['transform'] = list()
 
         self.bin = False
 
@@ -25,33 +26,33 @@ class VegaWrapper():
         """
         self.vis = vis
         if vis == 'histogram':
-            self.vegaObject['mark']['type'] = 'bar'
+            self.vl_spec['mark']['type'] = 'bar'
             self.bin = True
 
         elif vis == 'barchart':
-            self.vegaObject['mark']['type'] = 'bar'
+            self.vl_spec['mark']['type'] = 'bar'
 
         elif vis == 'linechart':
-            self.vegaObject['mark']['type'] = 'line'
+            self.vl_spec['mark']['type'] = 'line'
 
         elif vis == 'areachart':
-            self.vegaObject['mark']['type'] = 'area'
+            self.vl_spec['mark']['type'] = 'area'
 
         elif vis == 'scatterplot':
-            self.vegaObject['mark']['type'] = 'point'
+            self.vl_spec['mark']['type'] = 'point'
 
         elif vis == 'boxplot':
-            self.vegaObject['mark']['type'] = 'boxplot'
+            self.vl_spec['mark']['type'] = 'boxplot'
 
         elif vis == 'stripplot':
-            self.vegaObject['mark']['type'] = 'tick'
+            self.vl_spec['mark']['type'] = 'tick'
 
         elif vis == 'piechart':
-            self.vegaObject['mark']['type'] = 'arc'
+            self.vl_spec['mark']['type'] = 'arc'
 
         elif vis == 'donutchart':
-            self.vegaObject['mark']['type'] = 'arc'
-            self.vegaObject['mark']['innerRadius'] = 50
+            self.vl_spec['mark']['type'] = 'arc'
+            self.vl_spec['mark']['innerRadius'] = 50
 
     def unset_encoding(self, dimension):
         # type: (str, str, str) -> None
@@ -59,8 +60,8 @@ class VegaWrapper():
         Set encoding for a given dimension
 
         """
-        if dimension in self.vegaObject['encoding']:
-            del self.vegaObject['encoding'][dimension]
+        if dimension in self.vl_spec['encoding']:
+            del self.vl_spec['encoding'][dimension]
             self.bin = False
 
     def get_encoding(self, dimension):
@@ -69,10 +70,10 @@ class VegaWrapper():
         Get encoding for a given dimension
 
         """
-        return self.vegaObject['encoding'][dimension]
+        return self.vl_spec['encoding'][dimension]
 
     def set_encoding_aggregate(self, dimension, aggregate):
-        self.vegaObject['encoding'][dimension]['aggregate'] = aggregate
+        self.vl_spec['encoding'][dimension]['aggregate'] = aggregate
 
     def set_encoding(self, dimension, attr, attr_type, aggregate=None):
         # type: (str, str, str) -> None
@@ -81,17 +82,17 @@ class VegaWrapper():
 
         """
         vl_attr_type = self.data_type_mapping[attr_type]
-        self.vegaObject['encoding'][dimension] = {
+        self.vl_spec['encoding'][dimension] = {
             'field': attr,
             'type': vl_attr_type,
         }
 
         if aggregate is not None:
-            self.vegaObject['encoding'][dimension]['aggregate'] = aggregate
+            self.vl_spec['encoding'][dimension]['aggregate'] = aggregate
 
         if dimension == 'x':
             if self.bin:
-                self.vegaObject['encoding'][dimension]['bin'] = True
+                self.vl_spec['encoding'][dimension]['bin'] = True
 
     def set_task(self, dimension, task):
         # type: (str, dict) -> None
@@ -102,45 +103,36 @@ class VegaWrapper():
         if task is None:
             return
 
-        if task["task"] == 'derived_value':
-            if dimension is None:
-                if self.vis in ["piechart", "donutchart"]:
-                    dimension = 'theta'
-                else:
-                    dimension = 'y'
-
-            self.vegaObject['encoding'][dimension]['aggregate'] = constants.operator_symbol_mapping[task["operator"]]
-
         elif task["task"] == 'find_extremum':
             if dimension is None:
                 dimension = 'y'
             if task["operator"] == 'MIN':
                 if dimension == 'x':
-                    self.vegaObject['encoding']['y']['sort'] = 'x'
+                    self.vl_spec['encoding']['y']['sort'] = 'x'
                 elif dimension == 'y':
-                    self.vegaObject['encoding']['x']['sort'] = 'y'
+                    self.vl_spec['encoding']['x']['sort'] = 'y'
             elif task["operator"] == 'MAX':
                 if dimension == 'x':
-                    self.vegaObject['encoding']['y']['sort'] = '-x'
+                    self.vl_spec['encoding']['y']['sort'] = '-x'
                 elif dimension == 'y':
-                    self.vegaObject['encoding']['x']['sort'] = '-y'
+                    self.vl_spec['encoding']['x']['sort'] = '-y'
 
         elif task["task"] == 'filter':
             if task["operator"] == 'IN':
                 for at in task['attributes']:
-                    self.vegaObject['transform'].append({'filter': {"field": at, "oneOf": task["values"]}})
+                    self.vl_spec['transform'].append({'filter': {"field": at, "oneOf": task["values"]}})
             elif task["operator"] == 'RANGE':
                 for at in task['attributes']:
-                    self.vegaObject['transform'].append({"filter": {"field": at, "range": task["values"]}})
+                    self.vl_spec['transform'].append({"filter": {"field": at, "range": task["values"]}})
             elif task["operator"] == 'NOT RANGE':
                 for at in task['attributes']:
-                    # self.vegaObject['transform'].append({"filter": {"field": at, "gte": task["values"][1], "lte": task["values"][0]}})
-                    self.vegaObject['transform'].append({"filter": {"not": {"field": at, "range": task["values"]}}})
+                    # self.vl_spec['transform'].append({"filter": {"field": at, "gte": task["values"][1], "lte": task["values"][0]}})
+                    self.vl_spec['transform'].append({"filter": {"not": {"field": at, "range": task["values"]}}})
 
             else:
                 for at in task['attributes']:
                     symbol = constants.operator_symbol_mapping[task["operator"]]
-                    self.vegaObject['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(at, symbol, task["values"][0])})
+                    self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(at, symbol, task["values"][0])})
 
         elif task["task"] == 'distribution':
             pass
@@ -164,12 +156,12 @@ class VegaWrapper():
                     "as": "PercentOfTotal"
                 }]}
 
-            self.vegaObject['transform'].append(window_transform)
-            self.vegaObject['encoding'][dimension]['field'] = 'PercentOfTotal'
-            self.vegaObject['transform'].append({'filter':'datum["{}"] {} {}'.format("PercentOfTotal", ">", "5")})
+            self.vl_spec['transform'].append(window_transform)
+            self.vl_spec['encoding'][dimension]['field'] = 'PercentOfTotal'
+            self.vl_spec['transform'].append({'filter':'datum["{}"] {} {}'.format("PercentOfTotal", ">", "5")})
 
-            if 'aggregate' in self.vegaObject['encoding'][dimension]:
-                del self.vegaObject['encoding'][dimension]['aggregate']
+            if 'aggregate' in self.vl_spec['encoding'][dimension]:
+                del self.vl_spec['encoding'][dimension]['aggregate']
 
     def set_data(self, dataUrl):
         # type: (list) -> None
@@ -177,25 +169,25 @@ class VegaWrapper():
         Set domain data for the visualization
 
         """
-        self.vegaObject['data'] = {'url': dataUrl, 'format': {'type': 'csv'}}
+        self.vl_spec['data'] = {'url': dataUrl, 'format': {'type': 'csv'}}
 
 
     def add_tick_format(self):
-        for dimension in self.vegaObject['encoding']:
-            if dimension in ['x','y'] and self.vegaObject['encoding'][dimension]['type'] == 'quantitative':
-                if 'axis' not in self.vegaObject['encoding'][dimension]:
-                    self.vegaObject['encoding'][dimension]['axis'] = {}
-                self.vegaObject['encoding'][dimension]['axis']["format"] = "s"
+        for dimension in self.vl_spec['encoding']:
+            if dimension in ['x','y'] and self.vl_spec['encoding'][dimension]['type'] == 'quantitative':
+                if 'axis' not in self.vl_spec['encoding'][dimension]:
+                    self.vl_spec['encoding'][dimension]['axis'] = {}
+                self.vl_spec['encoding'][dimension]['axis']["format"] = "s"
 
 
     def add_label_attribute_as_tooltip(self, label_attribute):
         # Check if any of the AXES (encodings) have existing aggregations. If not, then add tooltip which is the label
         has_aggregate = False
-        for encoding in self.vegaObject['encoding']:
-            if 'aggregate' in self.vegaObject['encoding'][encoding] and self.vegaObject['encoding'][encoding]['aggregate'] is not None:
+        for encoding in self.vl_spec['encoding']:
+            if 'aggregate' in self.vl_spec['encoding'][encoding] and self.vl_spec['encoding'][encoding]['aggregate'] is not None:
                 has_aggregate = True
 
         if not has_aggregate:
-            self.vegaObject['encoding']['tooltip'] = {
+            self.vl_spec['encoding']['tooltip'] = {
                 "field": label_attribute
             }
