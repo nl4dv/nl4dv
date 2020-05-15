@@ -6,60 +6,123 @@
 
     <!--Vendor CSS files-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.css"
+          rel="stylesheet">
 
     <!--Custom CSS files-->
     <link href="{{ url_for('examples.static', filename='css/style.css') }}" rel="stylesheet">
 
 </head>
 <body>
-    <div class="container-fluid">
-        <br/>
-        <div class="row">
-            <div class="col-md-12">
-                <button class="btn btn-primary" onclick="execute()">
-                    Execute
-                </button>
-            </div>
+<div class="container-fluid">
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary" onclick="execute()">
+                Execute
+            </button>
         </div>
-        <br/>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="loadingModal"></div>
-                <div class="table-responsive">
-                    <table style="width:100%" class="table table-condensed table-bordered" id="debugTable">
-                        <thead>
-                            <tr>
-                                <!--<th>Attribute Combination</th>-->
-                                <th class="t-head" width="30%">Query</th>
-                                <!--<th width="10%">Attributes</th>-->
-                                <!--<th width="15%">Tasks</th>-->
-                                <!--<th width="10%">Vis</th>-->
-                                <th class="t-head" width="70%">Recommendations</th>
-                            </tr>
-                        </thead>
-                    </table>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="loadingModal"></div>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                Fullyspecificed: Attributes + Tasks + VIS</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table style="width:100%" class="table table-condensed table-bordered" id="fullyspecified-attributes-tasks-vis-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="t-head" width="30%">Query</th>
+                                            <th class="t-head" width="70%">Recommendations</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                Underspecified: Attributes + Tasks</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table style="width:100%" class="table table-condensed table-bordered" id="underspecified-attributes-tasks-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="t-head" width="30%">Query</th>
+                                            <th class="t-head" width="70%">Recommendations</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                Underspecified: Attributes + VIS</a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-condensed table-bordered" id="underspecified-attributes-vis-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="t-head" width="30%">Query</th>
+                                            <th class="t-head" width="70%">Recommendations</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                Underspecified: Attributes</a>
+                        </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table style="width:100%" class="table table-condensed table-bordered" id="underspecified-attributes-table">
+                                    <thead>
+                                    <tr>
+                                        <th class="t-head" width="30%">Query</th>
+                                        <th class="t-head" width="70%">Recommendations</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--<br/>-->
-        <!--<div id="showModal" class="modal">-->
-            <!--<div class="modal-content">-->
-                <!--<span class="close">&times;</span>-->
-                <!--<b>Show All Table </b>-->
-                <!--<br>-->
-                <!--<b id="ShowAllQuery"></b>-->
-                <!--<table id="visList" class= "table table-bordered table-sm">-->
-                <!--<thead>-->
-                    <!--<tr>-->
-                        <!--<th>Vis</th>-->
-                        <!--<th>Score</th>-->
-                    <!--</tr>-->
-                <!--</thead>-->
-                <!--</table>-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
+</div>
 </body>
 
 <!--JS files-->
@@ -72,7 +135,7 @@
 
 <script src="{{ url_for('examples.static', filename='js/global.js') }}"></script>
 <script src="{{ url_for('examples.static', filename='js/utils.js') }}"></script>
-<script src="{{ url_for('examples.static', filename='js/ui.js') }}"z></script>
+<script src="{{ url_for('examples.static', filename='js/ui.js') }}" z></script>
 <script src="{{ url_for('examples.static', filename='js/main.js') }}"></script>
 
 </html>
