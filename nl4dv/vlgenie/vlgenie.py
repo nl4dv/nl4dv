@@ -56,10 +56,19 @@ class VLGenie():
             self.vl_spec['mark']['type'] = 'arc'
             self.vl_spec['mark']['innerRadius'] = 50
 
-    def unset_encoding(self, dimension):
-        # type: (str, str, str) -> None
+    def delete_key(self, key):
+        # type: (str) -> None
         """
-        Set encoding for a given dimension
+        Delete key from the vl_spec
+
+        """
+        if key in self.vl_spec:
+            del self.vl_spec[key]
+
+    def unset_encoding(self, dimension):
+        # type: (str) -> None
+        """
+        Unset encoding for a given dimension
 
         """
         if dimension in self.vl_spec['encoding']:

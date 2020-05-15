@@ -7,6 +7,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'distribution',
             'vis_type': 'histogram',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y'],
             'priority': ['x'],
@@ -15,6 +16,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x'],
             'priority': ['x'],
@@ -22,6 +24,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'boxplot',
+            'not_suggested_by_default': True,
             'mark': 'boxplot',
             'mandatory': ['x'],
             'priority': ['x'],
@@ -36,6 +39,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'distribution',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y'],
             'priority': ['x'],
@@ -51,6 +55,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'distribution',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y'],
             'priority': ['x'],
@@ -66,6 +71,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y'],
             'priority': ['x'],
@@ -81,6 +87,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y'],
             'priority': ['x', 'y'],
@@ -96,6 +103,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -104,6 +112,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'piechart',
+            'not_suggested_by_default': True,
             'mark': 'arc',
             'mandatory': ['theta', 'color'],
             'priority': ['theta', 'color'],
@@ -112,6 +121,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': True,
             'mark': 'tick',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -127,6 +137,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -135,6 +146,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'piechart',
+            'not_suggested_by_default': True,
             'mark': 'arc',
             'mandatory': ['theta', 'color'],
             'priority': ['theta', 'color'],
@@ -143,6 +155,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': True,
             'mark': 'tick',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -158,6 +171,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -166,11 +180,12 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
             'x': {'attr': None, 'is_defined': False, 'agg': None},
-            'y': {'attr': None, 'is_defined': False, 'agg':  None}
+            'y': {'attr': None, 'is_defined': False, 'agg': None}
         }]
     },
     'NN': {
@@ -181,6 +196,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'distribution',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['x', 'y'],
@@ -190,6 +206,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['x', 'color'],
@@ -206,6 +223,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'distribution',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['x', 'y'],
@@ -215,6 +233,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['x', 'color'],
@@ -231,6 +250,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['color', 'x'],
@@ -240,6 +260,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'x'],
@@ -250,6 +271,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['color', 'x'],
@@ -259,6 +281,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'x'],
@@ -276,6 +299,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'distribution',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['x', 'y'],
@@ -285,6 +309,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['x', 'color'],
@@ -301,6 +326,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['color', 'x'],
@@ -310,6 +336,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'x'],
@@ -320,6 +347,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['color', 'x'],
@@ -329,6 +357,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'x'],
@@ -353,6 +382,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['x', 'y', 'color'],
@@ -362,6 +392,7 @@ vis_design_combos = {
         }, {
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['x', 'y', 'size'],
@@ -378,6 +409,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['x', 'y', 'color'],
@@ -387,6 +419,7 @@ vis_design_combos = {
         }, {
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['x', 'y', 'column'],
@@ -397,6 +430,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -413,6 +447,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['x', 'y', 'column'],
@@ -423,6 +458,7 @@ vis_design_combos = {
         }, {
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['x', 'y', 'color'],
@@ -432,6 +468,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -448,6 +485,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['x', 'y', 'color'],
@@ -457,6 +495,7 @@ vis_design_combos = {
         }, {
             'task': 'correlation',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['x', 'y', 'size'],
@@ -473,6 +512,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'x', 'color'],
@@ -482,6 +522,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -492,6 +533,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['size', 'x', 'y'],
@@ -501,6 +543,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'x', 'color'],
@@ -510,6 +553,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'x', 'column'],
@@ -520,6 +564,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['y', 'x', 'size'],
@@ -536,6 +581,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'x', 'color'],
@@ -545,6 +591,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -555,6 +602,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['size', 'x', 'y'],
@@ -564,6 +612,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'x', 'color'],
@@ -573,6 +622,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'x', 'column'],
@@ -583,6 +633,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['y', 'x', 'size'],
@@ -599,6 +650,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -608,6 +660,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -618,6 +671,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'x', 'column'],
@@ -628,6 +682,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -637,6 +692,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -647,6 +703,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'x', 'column'],
@@ -664,6 +721,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'x', 'color'],
@@ -673,6 +731,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -683,6 +742,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['size', 'x', 'y'],
@@ -692,6 +752,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'x', 'color'],
@@ -701,6 +762,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'x', 'column'],
@@ -711,6 +773,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'size'],
             'priority': ['y', 'x', 'size'],
@@ -727,6 +790,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -737,6 +801,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -746,6 +811,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'barchart',
+            'not_suggested_by_default': False,
             'mark': 'bar',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'x', 'column'],
@@ -756,6 +822,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -766,6 +833,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -775,6 +843,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'x', 'column'],
@@ -813,6 +882,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'color', 'x'],
@@ -823,6 +893,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'column', 'size'],
             'priority': ['x', 'y', 'column'],
@@ -847,6 +918,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'color', 'x'],
@@ -857,6 +929,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'column', 'size'],
             'priority': ['x', 'y', 'column'],
@@ -888,6 +961,7 @@ vis_design_combos = {
         'designs': [{
             'task': 'trend',
             'vis_type': 'linechart',
+            'not_suggested_by_default': False,
             'mark': 'line',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'color', 'x'],
@@ -898,6 +972,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'scatterplot',
+            'not_suggested_by_default': False,
             'mark': 'point',
             'mandatory': ['x', 'y', 'column', 'size'],
             'priority': ['x', 'y', 'column'],

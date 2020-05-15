@@ -146,21 +146,32 @@ class VisGenie:
 
                     if task == "derived_value":
                         if design["vis_type"] in ["histogram", "boxplot"]:
-                            return None, None
+                            return None
 
                         # Iterate over all encodings and if the corresponding attribute matches that in the task, then UPDATE the "aggregate".
-                        for encoding in design["mandatory"]:
-                            attr = design[encoding]["attr"]
+                        for dimension in design["mandatory"]:
+                            attr = design[dimension]["attr"]
                             if attr in task_instance["attributes"]:
                                 datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"]
                                 new_agg = constants.operator_symbol_mapping[task_instance["operator"]]
-                                vl_genie_instance.set_encoding(encoding, attr, datatype, new_agg)
+                                vl_genie_instance.set_encoding(dimension, attr, datatype, new_agg)
 
                     elif task == "distribution":
                         pass
 
                     elif task == "correlation":
-                        pass
+                        # For correlations, there should be NO aggregation between the attributes
+                        for dimension in design['mandatory']:
+                            if design[dimension]["attr"] in task_instance["attributes"]:
+                                # If there exists some aggregate already, then this is a CONFLICT and we should DEDUCT points
+                                if design[dimension]['agg'] is not None:
+                                    vl_genie_instance.score_obj["by_task"] -= 1
+
+                                design[dimension]['agg'] = None
+                                vl_genie_instance.set_encoding_aggregate(dimension, None)
+
+                                # Correlation < scatterplot (mark type = point)
+                                vl_genie_instance.set_recommended_vis_type("scatterplot")
 
                     elif task == "find_extremum":
                         pass
@@ -174,25 +185,29 @@ class VisGenie:
 
             # A design with PIECHART / DONUTCHART as a base should NOT be attempted to be transformed for a different mark type. Note: It has thetas, colors as opposed to x, y.
             if self.nl4dv_instance.extracted_vis_type not in ["piechart", "donutchart"] and design["vis_type"] in ["piechart", "donutchart"]:
-                return None, None
+                return None
 
             # PIE CHART + DONUT CHART
             # Can happen between 2 attributes {QN, QO} combinations
             if self.nl4dv_instance.extracted_vis_type in ["piechart", "donutchart"]:
                 if attr_type_combo not in ["QN", "QO"]:
                     print("Pie Chart not compatible / not supported for your query.")
-                    return None, None
+                    return None
 
             # HISTOGRAM
             elif self.nl4dv_instance.extracted_vis_type == "histogram":
                 if attr_type_combo not in ["Q", "N", "O", "T"]:
                     print("Histogram not compatible / not supported for your query.")
-                    return None, None
+                    return None
 
             # STRIP PLOT
             elif self.nl4dv_instance.extracted_vis_type == "stripplot":
                 # Stripplot is indicative of a DISTRIBUTION Task. All aggregations should be removed.
                 for dimension in design['mandatory']:
+                    # If there exists some aggregate already, then this is a CONFLICT and we should DEDUCT points
+                    if design[dimension]['agg'] is not None:
+                        vl_genie_instance.score_obj["by_task"] -= 1
+
                     design[dimension]['agg'] = None
                     vl_genie_instance.set_encoding_aggregate(dimension, None)
 
@@ -210,19 +225,36 @@ class VisGenie:
 
             # SCATTERPLOT
             elif self.nl4dv_instance.extracted_vis_type == "scatterplot":
-                pass
+                # For scatterplots, treat it as a Correlation task. There should be NO aggregation between the attributes,
+                # and mark type should be "point"
+                for dimension in design['mandatory']:
+                    # If there exists some aggregate already, then this is a CONFLICT and we should DEDUCT points
+                    if design[dimension]['agg'] is not None:
+                        vl_genie_instance.score_obj["by_task"] -= 1
+
+                    design[dimension]['agg'] = None
+                    vl_genie_instance.set_encoding_aggregate(dimension, None)
+
+                    # Correlation < scatterplot (mark type = point)
+                    vl_genie_instance.set_recommended_vis_type("scatterplot")
 
             # BOX PLOT
             elif self.nl4dv_instance.extracted_vis_type == "boxplot":
                 if "Q" not in attr_type_combo:
                     print("Box Plot requires at least one continuous axis. Not compatible / supported for your query.")
-                    return None, None
+                    return None
 
             # Set the VIS mark type in the vl_genie_instance
             vl_genie_instance.set_recommended_vis_type(self.nl4dv_instance.extracted_vis_type)
 
             # just here because the user/developer explicitly requested this
             vl_genie_instance.score_obj["by_vis"] += self.nl4dv_instance.match_scores["explicit_vis_match"]
+
+        else:
+            # There are a few designs tagged as "not_suggested_by_default",
+            # e.g., in absence of a task, there's no need to show both DERIVED_VALUE (barchart + mean) and DISTRIBUTION (stripplot) implicit tasked visualizations
+            if design["not_suggested_by_default"]:
+                return None
 
         # Encode the label attribute as a TOOLTIP to show the dataset label on hover.
         # Note: This will ONLY be added when there is NO aggregation, i.e., all data points are visible.
@@ -249,12 +281,12 @@ class VisGenie:
     # Return a Data Table in Vega-Lite
     def create_datatable_vis(self, sorted_combo):
 
-        # Start CREATING a new Vega-Lite Spec
+        # Create a new base Vega-Lite Spec
         vl_genie_instance = VLGenie()
 
         # Remove unneeded encodings
-        vl_genie_instance.unset_encoding("mark")
-        vl_genie_instance.unset_encoding("encoding")
+        vl_genie_instance.delete_key("mark")
+        vl_genie_instance.delete_key("encoding")
 
         # Derive a new "row_number" variable with a sequence of numbers (used as index / counter later on)
         vl_genie_instance.vl_spec["transform"] = [{
