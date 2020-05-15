@@ -149,7 +149,6 @@ class VisGenie:
                         # If there is NO Datatype Ambiguity, then apply the Derived Value Task. Else let it be the way it is.
                         # Datatype ambiguity example: "SUM(Genre)" is NOT possible because Genre is a Nominal attribute.
                         if not (task_instance["isValueAmbiguous"] and task_instance["meta"]["value_ambiguity_type"] == "datatype"):
-
                             if design["vis_type"] in ["histogram", "boxplot"]:
                                 return None
 
@@ -164,7 +163,8 @@ class VisGenie:
                                     vl_genie_instance.set_encoding(dimension, attr, datatype, new_agg)
 
                     elif task == "distribution":
-                        pass
+                        # Increment score by_task
+                        vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
 
                     elif task == "correlation":
                         # For correlations, there should be NO aggregation between the attributes
@@ -177,11 +177,23 @@ class VisGenie:
                                 design[dimension]['agg'] = None
                                 vl_genie_instance.set_encoding_aggregate(dimension, None)
 
-                                # Correlation < scatterplot (mark type = point)
-                                vl_genie_instance.set_vis_type("scatterplot")
+                        # Correlation < scatterplot (mark type = point)
+                        vl_genie_instance.set_vis_type("scatterplot")
+
+                        # Increment score by_task
+                        vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
 
                     elif task == "find_extremum":
-                        pass
+                        # If there is NO Datatype Ambiguity, then apply the Derived Value Task. Else let it be the way it is.
+                        # Datatype ambiguity example: "SUM(Genre)" is NOT possible because Genre is a Nominal attribute.
+                        if not (task_instance["isValueAmbiguous"] and task_instance["meta"]["value_ambiguity_type"] == "datatype"):
+
+                            # Iterate over all encodings and if the corresponding attribute matches that in the task, then UPDATE the "aggregate".
+                            for dimension in design["mandatory"]:
+                                attr = design[dimension]["attr"]
+                                if attr in task_instance["attributes"]:
+                                    vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
+                                    vl_genie_instance.set_task(dimension, task_instance)
 
                     elif task == "trend":
                         pass

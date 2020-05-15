@@ -6,6 +6,24 @@ class TaskGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
 
+    def get_explicit_tasks(self):
+        explicit_tasks = set()
+        for k in self.nl4dv_instance.extracted_tasks:
+            for v in self.nl4dv_instance.extracted_tasks[k]:
+                if v["inferenceType"] == constants.task_reference_types["EXPLICIT"]:
+                    explicit_tasks.add(k)
+
+        return explicit_tasks
+
+    def get_implicit_tasks(self):
+        implicit_tasks = set()
+        for k in self.nl4dv_instance.extracted_tasks:
+            for v in self.nl4dv_instance.extracted_tasks[k]:
+                if v["inferenceType"] == constants.task_reference_types["IMPLICIT"]:
+                    implicit_tasks.add(k)
+
+        return implicit_tasks
+
     @staticmethod
     def has_non_filter_explicit_task(task_map):
         for task in task_map:

@@ -509,88 +509,51 @@ class AttributeGenie:
         # Get Encocdeable attributes
         encodeable_attributes = self.get_encodeable_attributes()
 
-        # # ToDo:- When do we introduce the LABEL attribute?
-        # # If the length is 0, then add the Label Attribute.
-        # if len(encodeable_attributes) == 0:
-        #     # If vis_objects is EMPTY, check if JUST the LABEL attribute was requested!
-        #     if self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == constants.attribute_reference_types["EXPLICIT"]:
-        #         self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
-        #         encodeable_attributes.append(self.nl4dv_instance.label_attribute)
-        #
-        #     # IF there are ONLY FILTER TASKs detected AND NO other ENCODEable attribute exist, then ADD the LABEL attribute.
-        #     if len(self.nl4dv_instance.extracted_tasks) != 0:
-        #         if 'filter' in self.nl4dv_instance.extracted_tasks:
-        #             # Check if there is a task BUT no ENCODABLE attribute is detected. In this case, add the label attribute.
-        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute] = {
-        #                 'name': self.nl4dv_instance.label_attribute,
-        #                 "queryPhrase": None,
-        #                 'inferenceType': constants.attribute_reference_types['IMPLICIT'],
-        #                 'matchScore': 0,
-        #                 'metric': ['label_attribute'],
-        #                 'isLabel': True, # OBVIOUSLY
-        #                 'isAmbiguous': False,
-        #                 'ambiguity': [],
-        #                 'encode': True, # Set to TRUE
-        #                 'meta': {
-        #                     'score': None,
-        #                     'threshold': None,
-        #                     'alias': None,
-        #                     'ambiguity': {}
-        #                 }
-        #             }
-        #
-        #             self.nl4dv_instance.attribute_keyword_mapping[self.nl4dv_instance.label_attribute] = {"LABEL": 1}
-        #             self.nl4dv_instance.keyword_attribute_mapping["LABEL"] = {self.nl4dv_instance.label_attribute: 1}
-        #
-        #             if self.nl4dv_instance.label_attribute not in encodeable_attributes:
-        #                 encodeable_attributes.append(self.nl4dv_instance.label_attribute)
+        # IF there are NO encodeable attributes and IF there are ONLY FILTER TASKs detected as EXPLICIT AND NO other ENCODEable attribute exist,
+        # OR if there is a FIND_EXTREMUM task
+        # Then ADD the LABEL attribute.
+        add_label_attr = False
+        if len(encodeable_attributes) == 0:
+            if {'filter'} == self.nl4dv_instance.task_genie_instance.get_explicit_tasks():
+                add_label_attr = True
+        elif len(encodeable_attributes) == 1:
+            if "find_extremum" in self.nl4dv_instance.extracted_tasks:
+                add_label_attr = True
 
-        # TODO: This is from COMBO (think of rating > three possible attributes so len(attributes) may not be CORRECT. The keyword-attr checker function can be used here.
-        # Uncomment if you wish to show LABEL ATTRIBUTE in some cases.
-        # HERE, if there is ONLY 1 non-label attribute, AND if there are NO EXPLICIT non-FILTER tasks, then add the label attribute.
-        # if len(combo) == 1 and combo[0] != self.nl4dv_instance.label_attribute:
-        #     if "find_extremum" in self.nl4dv_instance.extracted_tasks:
-        #         # If it is in the extracted attributes, ENCODE it to TRUE. If it is NOT, CREATE IT. Finally, add to COMBO
-        #         if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes:
-        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
-        #         else:
-        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute] = {
-        #                 'name': self.nl4dv_instance.label_attribute,
-        #                 "queryPhrase": None,
-        #                 'inferenceType': constants.attribute_reference_types['IMPLICIT'],
-        #                 'matchScore': 0,
-        #                 'metric': ['label_attribute'],
-        #                 'isLabel': True, # OBVIOUSLY
-        #                 'encode': True, # Set to TRUE
-        #                 'isAmbiguous': False,
-        #                 'ambiguity': [],
-        #                 'meta': {
-        #                     'score': None,
-        #                     'threshold': None,
-        #                     'alias': None,
-        #                     'ambiguity': {}
-        #                 }
-        #             }
-        #         if self.nl4dv_instance.label_attribute not in combo:
-        #             combo.append(self.nl4dv_instance.label_attribute)
-        #
-        #     elif self.has_no_explicit_tasks(combo):
-        #         # If it is in the extracted attributes, encode it to TRUE and add to COMBO
-        #         if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes:
-        #             self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
-        #             combo.append(self.nl4dv_instance.label_attribute)
+        if add_label_attr:
+            # If label attribute was Explicitly detected in the query, "encode" it to True ELSE add it manually
+            if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes and \
+                    self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == constants.attribute_reference_types["EXPLICIT"]:
+                self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
+            else:
+                # Check if there is a task BUT no ENCODABLE attribute is detected. In this case, add the label attribute.
+                self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute] = {
+                    'name': self.nl4dv_instance.label_attribute,
+                    "queryPhrase": None,
+                    'inferenceType': constants.attribute_reference_types['IMPLICIT'],
+                    'matchScore': 0,
+                    'metric': ['label_attribute'],
+                    'isLabel': True,  # OBVIOUSLY
+                    'isAmbiguous': False,
+                    'ambiguity': [],
+                    'encode': True,  # Set to TRUE
+                    'meta': {
+                        'score': None,
+                        'threshold': None,
+                        'alias': None,
+                        'ambiguity': {}
+                    }
+                }
+
+            # Update the attribute-keyword and keyword-attribute mapping dictionaries
+            self.nl4dv_instance.attribute_keyword_mapping[self.nl4dv_instance.label_attribute] = {"LABEL": 1}
+            self.nl4dv_instance.keyword_attribute_mapping["LABEL"] = {self.nl4dv_instance.label_attribute: 1}
+
+            # Add the label attribute to the list of encodeable_attributes.
+            if self.nl4dv_instance.label_attribute not in encodeable_attributes:
+                encodeable_attributes.append(self.nl4dv_instance.label_attribute)
 
         return encodeable_attributes
-
-    # def has_no_explicit_tasks(self, combo):
-    #     has_no_explicit_task = True
-    #     for k in self.nl4dv_instance.extracted_tasks:
-    #         for v in self.nl4dv_instance.extracted_tasks[k]:
-    #             if v["inferenceType"] == constants.task_reference_types["EXPLICIT"] and combo[0] not in v['attributes']:
-    #                 has_no_explicit_task = False
-    #
-    #     return has_no_explicit_task
-    #
 
     def validate_attr_combo(self, attr_combo, query_phrase, allow_subset=False):
         unique_keywords = set()
