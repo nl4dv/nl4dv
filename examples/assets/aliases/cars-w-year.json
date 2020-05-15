@@ -1,4 +1,5 @@
 {
+  "MPG": ["miles per gallon"],
   "Horsepower": ["hp"],
   "Weight": ["heavy","heaviest","light"]
 }
