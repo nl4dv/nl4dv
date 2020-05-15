@@ -33,11 +33,11 @@ class TaskGenie:
                 combinations = itertools.combinations(attributes, i)
                 for combination in combinations:
                     combo = list(combination)
-                    if helpers.filter_combo_based_on_unique_keywords(combo, keywords, self.nl4dv_instance.extracted_attributes, self.nl4dv_instance.attribute_keyword_mapping, self.nl4dv_instance.keyword_attribute_mapping, allow_subset=allow_subset):
+                    if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=keywords, allow_subset=allow_subset):
                         continue
 
                     # Get Attribute datatypes
-                    sorted_attr_combo, sorted_attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo, self.nl4dv_instance.data_genie_instance.data_attribute_map)
+                    sorted_attr_combo, sorted_attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
 
                     is_datatype_ambiguous = False
                     if task in ["filter","derived_value","find_extremum"]:
@@ -224,8 +224,6 @@ class TaskGenie:
             # Case 2: Takes care of numeric FILTERS e.g '...less than 50'
             keyword, amount, operator_phrase, has_negation, negation_phrase = None, None, None, False, None
             for dep_index, dep in enumerate(dependencies[0]):
-
-                # print(dep)
 
                 if dep[0][0] in self.nl4dv_instance.keyword_attribute_mapping and dep[2][1] == 'CD':
                     keyword = dep[0][0]
@@ -415,7 +413,7 @@ class TaskGenie:
                 combinations = itertools.combinations(attribute_list, i)
                 for combination in combinations:
                     combo = list(combination)
-                    if helpers.filter_combo_based_on_unique_keywords(combo, [], self.nl4dv_instance.extracted_attributes, self.nl4dv_instance.attribute_keyword_mapping, self.nl4dv_instance.keyword_attribute_mapping):
+                    if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False):
                         continue
 
                     # Get Attribute datatypes

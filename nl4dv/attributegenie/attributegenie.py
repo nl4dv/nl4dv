@@ -591,3 +591,28 @@ class AttributeGenie:
     #
     #     return has_no_explicit_task
     #
+
+    def validate_attr_combo(self, attr_combo, query_phrase, allow_subset=False):
+        unique_keywords = set()
+
+        # The combination has already incorporated the to be "encode"d attributes.
+        for c in attr_combo:
+            unique_keywords.add(','.join(self.nl4dv_instance.attribute_keyword_mapping[c].keys()))
+
+        unique_attrs = set()
+        for k in self.nl4dv_instance.keyword_attribute_mapping:
+            is_encode = True
+            for a in self.nl4dv_instance.keyword_attribute_mapping[k]:
+                if a in self.nl4dv_instance.extracted_attributes and not self.nl4dv_instance.extracted_attributes[a]["encode"]:
+                    is_encode = False
+                    break
+
+            if is_encode:
+                if ','.join(self.nl4dv_instance.keyword_attribute_mapping[k].keys()) not in unique_attrs:
+                    unique_attrs.add(','.join(self.nl4dv_instance.keyword_attribute_mapping[k].keys()))
+
+        if allow_subset:
+            return len(attr_combo) != len(unique_keywords) or len(attr_combo) != len(query_phrase)
+
+        # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
+        return len(attr_combo) != len(unique_attrs) or (len(unique_keywords) != len(attr_combo))

@@ -13,27 +13,31 @@ class QueryGenie:
         # Stopwords
         self.stopwords_set = set(stopwords.words('english'))
 
-    def get_query_tokens(self, string, reserve_words, ignore_words):
-
-        # Set the stopwords from reserve words and ignore words
-        self.stopwords_set = self.stopwords_set.difference(set(reserve_words)).union(set(ignore_words))
+    def process_query(self, query):
 
         # Try to infer and convert numerical shorthands to machine understandable format, e.g. 100M = 100*1,000,000
         parsed_tokens = []
-        for token in word_tokenize(string):
+        for token in word_tokenize(query):
             try:
                 parsed_tokens.append(str(int(si_parse(token))))
             except Exception as e:
                 parsed_tokens.append(token)
 
-        # Join the tokens into a string
-        query_processed = ' '.join(parsed_tokens)
-
         # Clean sentence of non-alphanumerical characters
-        query_cleaned = re.sub(r'[^A-Za-z0-9]+', ' ', query_processed)
+        query_processed = re.sub(r'[^A-Za-z0-9]+', ' ', ' '.join(parsed_tokens))
+
+        # Convert to lowercase
+        query_lower = query_processed.lower()
+
+        return query_lower
+
+    def clean_query_and_get_query_tokens(self, query, reserve_words, ignore_words):
+
+        # Set the stopwords from reserve words and ignore words
+        self.stopwords_set = self.stopwords_set.difference(set(reserve_words)).union(set(ignore_words))
 
         # Create token set and filter out standard stopwords
-        query_tokens = list(filter(lambda token: token not in self.stopwords_set, word_tokenize(query_cleaned)))
+        query_tokens = list(filter(lambda token: token not in self.stopwords_set, word_tokenize(query)))
 
         return query_tokens
 

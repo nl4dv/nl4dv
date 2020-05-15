@@ -5,11 +5,18 @@ class VLGenie():
     def __init__(self):
         self.vl_spec = dict()
         self.vl_spec['$schema'] = 'https://vega.github.io/schema/vega-lite/v4.json'
-        self.vl_spec['mark'] = {'tooltip': True}
+        self.vl_spec['mark'] = dict()
         self.vl_spec['encoding'] = dict()
         self.vl_spec['transform'] = list()
 
         self.bin = False
+
+        # Score object
+        self.score_obj = {
+            "by_attributes": 0,
+            "by_task": 0,
+            "by_vis": 0
+        }
 
         self.data_type_mapping = {
             'Q': 'quantitative',
@@ -19,12 +26,7 @@ class VLGenie():
         }
 
     def set_recommended_vis_type(self, vis):
-        # type: (str, bool) -> None
-        """
-        Set visualization to be rendered by vega
 
-        """
-        self.vis = vis
         if vis == 'histogram':
             self.vl_spec['mark']['type'] = 'bar'
             self.bin = True
@@ -124,12 +126,6 @@ class VLGenie():
                     symbol = constants.operator_symbol_mapping[task["operator"]]
                     self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(attr, symbol, task["values"][0])})
 
-        elif task["task"] == 'distribution':
-            pass
-
-        elif task["task"] == 'correlation':
-            pass
-
         elif task["task"] == 'outlier':
             # ToDo:- Can explore vega-lite to apply a filter like show the data points beyond the inter-quartile range?
             window_transform = {
@@ -167,6 +163,9 @@ class VLGenie():
                 if 'axis' not in self.vl_spec['encoding'][dimension]:
                     self.vl_spec['encoding'][dimension]['axis'] = {}
                 self.vl_spec['encoding'][dimension]['axis']["format"] = "s"
+
+    def add_tooltip(self):
+        self.vl_spec['mark']['tooltip'] = True
 
     def add_label_attribute_as_tooltip(self, label_attribute):
         # Check if any of the AXES (encodings) have existing aggregations. If not, then add tooltip which is the label

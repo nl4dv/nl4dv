@@ -35,7 +35,7 @@ class VisGenie:
         for i in range(1, len(attribute_list) + 1):
             combinations = itertools.combinations(attribute_list, i)
             for combo in combinations:
-                if helpers.filter_combo_based_on_unique_keywords(combo, [], self.nl4dv_instance.extracted_attributes, self.nl4dv_instance.attribute_keyword_mapping, self.nl4dv_instance.keyword_attribute_mapping, allow_subset=False):
+                if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False):
                     continue
 
                 # Create a SORTED list of attributes and their datatypes to match the keys of the VisReco dictionary. e.g. `QQ`, `QNO`, ...
@@ -61,21 +61,22 @@ class VisGenie:
                         if design_has_valid_task and design["task"] not in self.nl4dv_instance.extracted_tasks:
                             continue
 
-                        # Filter the DESIGN based on explicit VISUALIZATIONs
+                        # Filter the DESIGN based on explicit VISUALIZATIONS
                         if design_has_valid_vis and self.nl4dv_instance.extracted_vis_type != design["vis_type"]:
                             continue
 
                         # Generate Vega-Lite specification along with it"s relevance score for the attribute and task combination.
-                        vl_genie_instance, score_obj = self.get_vis(design, attr_type_str, attr_list)
+                        vl_genie_instance = self.get_vis(design, attr_type_str, attr_list)
 
+                        # This is the Score object that helps prioritize between AMBIGUOUS attributes
                         confidence_obj = dict()
                         for attr in attr_list:
                             confidence_obj[attr] = 0 if "confidence" not in self.nl4dv_instance.extracted_attributes[attr]["meta"] else self.nl4dv_instance.extracted_attributes[attr]["meta"]["confidence"]/100
 
                         if vl_genie_instance is not None:
                             vis_object = {
-                                "score": sum(score_obj.values()) + sum(confidence_obj.values()),
-                                "scoreObj": score_obj,
+                                "score": sum(vl_genie_instance.score_obj.values()) + sum(confidence_obj.values()),
+                                "scoreObj": vl_genie_instance.score_obj,
                                 "confidenceObj": confidence_obj,
                                 "attributes": attr_list,
                                 "queryPhrase": self.nl4dv_instance.extracted_vis_token,
@@ -99,31 +100,24 @@ class VisGenie:
         # CREATE a new Vega-Lite Spec
         vl_genie_instance = VLGenie()
 
-        # Score object
-        score_obj = {
-            "by_attributes": 0,
-            "by_task": 0,
-            "by_vis": 0
-        }
-
         # MAP the attributes to the DESIGN spec.
         for index, attr in enumerate(attr_list):
-            encoding = design["priority"][index]  # x, y, color, size, tooltip, ...
-            agg = design[encoding]["agg"]
+            dim = design["priority"][index]  # Dimension: x, y, color, size, tooltip, ...
+            agg = design[dim]["agg"]  # Aggregate: sum, mean, ...
             datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"]
 
             # Update the design with the attribute. It could be referenced later.
-            design[encoding]["attr"] = attr
-            design[encoding]["is_defined"] = True
+            design[dim]["attr"] = attr
+            design[dim]["is_defined"] = True
 
-            # Set the default VIS mark type
+            # Set the default VIS mark type. Note: Can be overridden later.
             vl_genie_instance.set_recommended_vis_type(design["vis_type"])
 
-            # Set the encoding
-            vl_genie_instance.set_encoding(encoding, attr, datatype, agg)
+            # Set the encoding Note: Can be overridden later.
+            vl_genie_instance.set_encoding(dim, attr, datatype, agg)
 
             # Set Score
-            score_obj["by_attributes"] += self.nl4dv_instance.extracted_attributes[attr]["matchScore"]
+            vl_genie_instance.score_obj["by_attributes"] += self.nl4dv_instance.extracted_attributes[attr]["matchScore"]
 
         # If an attribute is dual-encoded e.g. x axis as well as count of y axis, the attribute is supposed to be encoded to both channels.
         for encoding in design["mandatory"]:
@@ -139,9 +133,10 @@ class VisGenie:
             for task_instance in self.nl4dv_instance.extracted_tasks[task]:
                 if task == "filter":
                     # If there is NO Datatype Ambiguity, then apply the Filter Task. Else let it be the way it is.
+                    # Datatype ambiguity example: "Content Rating > 5" is NOT possible because Content Rating is a Nominal attribute.
                     if not (task_instance["isValueAmbiguous"] and task_instance["meta"]["value_ambiguity_type"] == "datatype"):
                         vl_genie_instance.set_task(None, task_instance)
-                        score_obj["by_task"] += task_instance["matchScore"]
+                        vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
 
                 else:
                     # If a NON-FILTER task has an attribute that is NOT in the combos (means it was ambiguous), then No Need to Apply this FILTER.
@@ -177,6 +172,10 @@ class VisGenie:
         # TODO:- There a few vis (mark) types that are NOT sensible, e.g. asking a scatterplot for a piechart design or a linechart for a boxplot base design. Filter these designs out!
         if self.nl4dv_instance.extracted_vis_type:
 
+            # A design with PIECHART / DONUTCHART as a base should NOT be attempted to be transformed for a different mark type. Note: It has thetas, colors as opposed to x, y.
+            if self.nl4dv_instance.extracted_vis_type not in ["piechart", "donutchart"] and design["vis_type"] in ["piechart", "donutchart"]:
+                return None, None
+
             # PIE CHART + DONUT CHART
             # Can happen between 2 attributes {QN, QO} combinations
             if self.nl4dv_instance.extracted_vis_type in ["piechart", "donutchart"]:
@@ -192,6 +191,7 @@ class VisGenie:
 
             # STRIP PLOT
             elif self.nl4dv_instance.extracted_vis_type == "stripplot":
+                # Stripplot is indicative of a DISTRIBUTION Task. All aggregations should be removed.
                 for dimension in design['mandatory']:
                     design[dimension]['agg'] = None
                     vl_genie_instance.set_encoding_aggregate(dimension, None)
@@ -218,15 +218,14 @@ class VisGenie:
                     print("Box Plot requires at least one continuous axis. Not compatible / supported for your query.")
                     return None, None
 
-            # If you reach here, means the VIS was not discarded.
-            
             # Set the VIS mark type in the vl_genie_instance
             vl_genie_instance.set_recommended_vis_type(self.nl4dv_instance.extracted_vis_type)
 
             # just here because the user/developer explicitly requested this
-            score_obj["by_vis"] += self.nl4dv_instance.match_scores["explicit_vis_match"]
+            vl_genie_instance.score_obj["by_vis"] += self.nl4dv_instance.match_scores["explicit_vis_match"]
 
         # Encode the label attribute as a TOOLTIP to show the dataset label on hover.
+        # Note: This will ONLY be added when there is NO aggregation, i.e., all data points are visible.
         vl_genie_instance.add_label_attribute_as_tooltip(self.nl4dv_instance.label_attribute)
 
         # AESTHETICS
@@ -235,12 +234,17 @@ class VisGenie:
         vl_genie_instance.add_tick_format()
         # ------------------
 
+        # Enable Tooltips
+        # ------------------
+        vl_genie_instance.add_tooltip()
+        # ------------------
+
         #  Finally, let"s set the data and Rock"n Roll!
         # ------------------
         vl_genie_instance.set_data(self.nl4dv_instance.data_url)
         # ------------------
 
-        return vl_genie_instance, score_obj
+        return vl_genie_instance
 
     # Return a Data Table in Vega-Lite
     def create_datatable_vis(self, sorted_combo):
@@ -248,27 +252,21 @@ class VisGenie:
         # Start CREATING a new Vega-Lite Spec
         vl_genie_instance = VLGenie()
 
-        #  Set the data
-        vl_genie_instance.set_data(self.nl4dv_instance.data_url)
+        # Remove unneeded encodings
+        vl_genie_instance.unset_encoding("mark")
+        vl_genie_instance.unset_encoding("encoding")
 
+        # Derive a new "row_number" variable with a sequence of numbers (used as index / counter later on)
         vl_genie_instance.vl_spec["transform"] = [{
-                    "window": [{"op": "row_number", "as": "row_number"}]
-                  }]
+            "window": [{"op": "row_number", "as": "row_number"}]
+        }]
 
+        # Horizontally concatenate each attribute's column (VIS with mark type = text)
         vl_genie_instance.vl_spec["hconcat"] = []
-        del vl_genie_instance.vl_spec["mark"]
-        del vl_genie_instance.vl_spec["encoding"]
-
-        # Score object
-        score_obj = {
-            "by_attributes": 0,
-            "by_task": 0,
-            "by_vis": 0
-        }
-
         for attr in sorted_combo:
-            score_obj["by_attributes"] += self.nl4dv_instance.extracted_attributes[attr]["matchScore"]
-            vl_genie_instance.vl_spec["hconcat"].append({
+
+            # VL specification for a column of text. Use the row_number as the y_axis encoding to render vertically. Sly!
+            attr_column = {
                 "width": 150,
                 "title": attr,
                 "mark": "text",
@@ -276,11 +274,19 @@ class VisGenie:
                     "text": {"field": attr, "type": "nominal"},
                     "y": {"field": "row_number", "type": "ordinal", "axis": None}
                 }
-            })
+            }
+            vl_genie_instance.vl_spec["hconcat"].append(attr_column)
 
+            # Append the scores
+            vl_genie_instance.score_obj["by_attributes"] += self.nl4dv_instance.extracted_attributes[attr]["matchScore"]
+
+        #  Set the data
+        vl_genie_instance.set_data(self.nl4dv_instance.data_url)
+
+        # Create the Visualization object to return
         vis_object = {
-            "score": sum(score_obj.values()),
-            "scoreObj": score_obj,
+            "score": sum(vl_genie_instance.score_obj.values()),
+            "scoreObj": vl_genie_instance.score_obj,
             "attributes": sorted_combo,
             "visType": "datatable",
             "queryPhrase": None,

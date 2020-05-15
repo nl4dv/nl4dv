@@ -233,56 +233,59 @@ $(globalConfig.queryBtn).on("click",function(evt){
                 });
             });
 
-            // container for Extracted VIS
-            var vis_type = response['extractedVis']['visType'];
-            var vis_token = response['extractedVis']['queryPhrase'];
-            extractedVisDataTable.row.add([vis_type, vis_token]).draw(false);
-
             // Render VIS
-            response['visList'].forEach((obj) => {
-                if(JSON.stringify(obj['encoding']) != "{}"){
-                    // Inline Panel Container
-                    var panel_container = document.createElement('div');
-                    $(panel_container).addClass("w-500 valign-top m-sm display-inline-block");
+            if(response['visList'].length > 0){
+                // Container for Extracted VIS
+                var vis_type = response['visList'][0]['visType'];
+                var vis_token = response['visList'][0]['queryPhrase'];
+                extractedVisDataTable.row.add([vis_type, vis_token]).draw(false);
 
-                    // Panel
-                    var panel = document.createElement('div');
-                    $(panel).addClass("panel panel-default");
-                    $(panel_container).append(panel);
+                // Render the Visualizations
+                response['visList'].forEach((obj) => {
+                    if(JSON.stringify(obj['encoding']) != "{}"){
+                        // Inline Panel Container
+                        var panel_container = document.createElement('div');
+                        $(panel_container).addClass("w-500 valign-top m-sm display-inline-block");
 
-                    // Panel Heading
-                    var panel_title = document.createElement('div');
-                    $(panel_title).addClass("badge badge-light pull-left b-r-none");
-                    $(panel_title).text("Score: " + parseInt(obj["score"]*100)/100)
-                    $(panel).append(panel_title);
+                        // Panel
+                        var panel = document.createElement('div');
+                        $(panel).addClass("panel panel-default");
+                        $(panel_container).append(panel);
 
-                    // Panel Body
-                    var panel_body = document.createElement('div');
-                    $(panel_body).addClass("panel-body");
-                    $(panel).append(document.createElement('br'));
-                    $(panel).append(document.createElement('br'));
-                    $(panel).append(panel_body);
+                        // Panel Heading
+                        var panel_title = document.createElement('div');
+                        $(panel_title).addClass("badge badge-light pull-left b-r-none");
+                        $(panel_title).text("Score: " + parseInt(obj["score"]*100)/100)
+                        $(panel).append(panel_title);
 
-                    // container for Vis
-                    var div = document.createElement('div');
-                    $(div).addClass("h-300 text-center overflow");
-                    vegaEmbed(div, obj["vlSpec"], vegaOptMode);
-                    $(panel_body).append(div);
+                        // Panel Body
+                        var panel_body = document.createElement('div');
+                        $(panel_body).addClass("panel-body");
+                        $(panel).append(document.createElement('br'));
+                        $(panel).append(document.createElement('br'));
+                        $(panel).append(panel_body);
 
-                    // container for Data
-                    var div = document.createElement('div');
-                    $(div).addClass("h-350 overflow-y-auto");
-                    var tree = jsonTree.create(obj, div);
-                    tree.expand();
-                    $(panel_body).append(div);
+                        // container for Vis
+                        var div = document.createElement('div');
+                        $(div).addClass("h-300 text-center overflow");
+                        vegaEmbed(div, obj["vlSpec"], vegaOptMode);
+                        $(panel_body).append(div);
 
-                    // Append Panel container to main Vis container
-                    $(globalConfig.visContainer).append(panel_container);
+                        // container for Data
+                        var div = document.createElement('div');
+                        $(div).addClass("h-350 overflow-y-auto");
+                        var tree = jsonTree.create(obj, div);
+                        tree.expand();
+                        $(panel_body).append(div);
 
-                    // Separator
-                    $(globalConfig.visContainer).append($("hr"));
-                }
-            });
+                        // Append Panel container to main Vis container
+                        $(globalConfig.visContainer).append(panel_container);
+
+                        // Separator
+                        $(globalConfig.visContainer).append($("hr"));
+                    }
+                });
+            }
     });
 });
 

@@ -97,31 +97,6 @@ def cosine_similarity(vec1, vec2):
         return score
 
 
-def filter_combo_based_on_unique_keywords(combo, queryPhrase, attributes, a_k_mapping, k_a_mapping, allow_subset=False):
-    unique_keywords = set()
-    # The combination has already incorporated the to be "encode"d attributes.
-    for c in combo:
-        unique_keywords.add(','.join(a_k_mapping[c].keys()))
-
-    unique_attrs = set()
-    for k in k_a_mapping:
-        is_encode = True
-        for a in k_a_mapping[k]:
-            if a in attributes and not attributes[a]["encode"]:
-                is_encode = False
-                break
-
-        if is_encode:
-            if ','.join(k_a_mapping[k].keys()) not in unique_attrs:
-                unique_attrs.add(','.join(k_a_mapping[k].keys()))
-
-    if allow_subset:
-        return len(combo) != len(unique_keywords) or len(combo) != len(queryPhrase)
-
-    # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
-    return len(combo) != len(unique_attrs) or (len(unique_keywords) != len(combo))
-
-
 def compute_similarity(str1, str2, type):
     if type == 'cosine_similarity':
         return cosine_similarity(vectorize(str1), vectorize(str2.lower()))

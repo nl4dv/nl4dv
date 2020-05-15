@@ -47,7 +47,6 @@ class NL4DV:
         self.execution_durations = dict()
         self.query_raw = None
         self.query_processed = ""
-        self.query_lowercase = ""
         self.query_tokens = list()
         self.query_ngrams = dict()
         self.extracted_vis_type = None
@@ -111,12 +110,11 @@ class NL4DV:
 
         # CLEAN AND PROCESS QUERY
         self.query_raw = query_raw
-        self.query_lowercase = query_raw.lower()
         helpers.cond_print("Raw Query: " + self.query_raw, self.verbose)
         st = time.time()
-        self.query_tokens = self.query_genie_instance.get_query_tokens(self.query_lowercase, self.reserve_words, self.ignore_words)
-        self.query_processed = ' '.join(self.query_tokens)
-        self.query_ngrams = self.query_genie_instance.get_query_ngrams(self.query_processed)
+        self.query_processed = self.query_genie_instance.process_query(self.query_raw)
+        self.query_tokens = self.query_genie_instance.clean_query_and_get_query_tokens(self.query_processed, self.reserve_words, self.ignore_words)
+        self.query_ngrams = self.query_genie_instance.get_query_ngrams(' '.join(self.query_tokens))
         self.dependencies = self.query_genie_instance.create_dependency_tree(self.query_processed)
         helpers.cond_print("Processed Query: " + self.query_processed, self.verbose)
         self.execution_durations['clean_query'] = time.time() - st
@@ -159,10 +157,10 @@ class NL4DV:
         output = {
             'status': 'SUCCESS' if len(self.vis_list) > 0 else 'FAILURE',
             'debug': {'execution_durations': self.execution_durations},
-            'query': self.query_lowercase,
+            'query_raw': self.query_raw,
+            'query': self.query_processed,
             'dataset': self.data_url,
             'visList': self.vis_list,
-            'extractedVis': {'visType': self.extracted_vis_type, 'queryPhrase': self.extracted_vis_token},
             'attributeMap': self.extracted_attributes,
             'taskMap': self.extracted_tasks,
             'followUpQuery': self.dialog,
