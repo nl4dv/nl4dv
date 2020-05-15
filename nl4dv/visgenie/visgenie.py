@@ -1,7 +1,7 @@
 import itertools
 from nl4dv.vlgenie import VLGenie
 from nl4dv.visgenie.vis_recos import vis_design_combos
-from nl4dv.utils import constants, helpers
+from nl4dv.utils import constants
 import copy
 
 
@@ -111,7 +111,7 @@ class VisGenie:
             design[dim]["is_defined"] = True
 
             # Set the default VIS mark type. Note: Can be overridden later.
-            vl_genie_instance.set_recommended_vis_type(design["vis_type"])
+            vl_genie_instance.set_vis_type(design["vis_type"])
 
             # Set the encoding Note: Can be overridden later.
             vl_genie_instance.set_encoding(dim, attr, datatype, agg)
@@ -131,6 +131,7 @@ class VisGenie:
         # ENSURE if COMBOS has the attributes to which the TASK is applied. If NOT, don"t do anything.
         for task in self.nl4dv_instance.extracted_tasks:
             for task_instance in self.nl4dv_instance.extracted_tasks[task]:
+
                 if task == "filter":
                     # If there is NO Datatype Ambiguity, then apply the Filter Task. Else let it be the way it is.
                     # Datatype ambiguity example: "Content Rating > 5" is NOT possible because Content Rating is a Nominal attribute.
@@ -145,16 +146,22 @@ class VisGenie:
                         continue
 
                     if task == "derived_value":
-                        if design["vis_type"] in ["histogram", "boxplot"]:
-                            return None
+                        # If there is NO Datatype Ambiguity, then apply the Derived Value Task. Else let it be the way it is.
+                        # Datatype ambiguity example: "SUM(Genre)" is NOT possible because Genre is a Nominal attribute.
+                        if not (task_instance["isValueAmbiguous"] and task_instance["meta"]["value_ambiguity_type"] == "datatype"):
 
-                        # Iterate over all encodings and if the corresponding attribute matches that in the task, then UPDATE the "aggregate".
-                        for dimension in design["mandatory"]:
-                            attr = design[dimension]["attr"]
-                            if attr in task_instance["attributes"]:
-                                datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"]
-                                new_agg = constants.operator_symbol_mapping[task_instance["operator"]]
-                                vl_genie_instance.set_encoding(dimension, attr, datatype, new_agg)
+                            if design["vis_type"] in ["histogram", "boxplot"]:
+                                return None
+
+                            # Iterate over all encodings and if the corresponding attribute matches that in the task, then UPDATE the "aggregate".
+                            for dimension in design["mandatory"]:
+                                attr = design[dimension]["attr"]
+                                if attr in task_instance["attributes"]:
+                                    vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
+
+                                    datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"]
+                                    new_agg = constants.operator_symbol_mapping[task_instance["operator"]]
+                                    vl_genie_instance.set_encoding(dimension, attr, datatype, new_agg)
 
                     elif task == "distribution":
                         pass
@@ -171,7 +178,7 @@ class VisGenie:
                                 vl_genie_instance.set_encoding_aggregate(dimension, None)
 
                                 # Correlation < scatterplot (mark type = point)
-                                vl_genie_instance.set_recommended_vis_type("scatterplot")
+                                vl_genie_instance.set_vis_type("scatterplot")
 
                     elif task == "find_extremum":
                         pass
@@ -206,7 +213,7 @@ class VisGenie:
                 for dimension in design['mandatory']:
                     # If there exists some aggregate already, then this is a CONFLICT and we should DEDUCT points
                     if design[dimension]['agg'] is not None:
-                        vl_genie_instance.score_obj["by_task"] -= 1
+                        vl_genie_instance.score_obj["by_vis"] -= 1
 
                     design[dimension]['agg'] = None
                     vl_genie_instance.set_encoding_aggregate(dimension, None)
@@ -221,6 +228,8 @@ class VisGenie:
 
             # AREA CHART
             elif self.nl4dv_instance.extracted_vis_type == "areachart":
+                if design["vis_type"] == "barchart":
+                    return None
                 pass
 
             # SCATTERPLOT
@@ -236,7 +245,7 @@ class VisGenie:
                     vl_genie_instance.set_encoding_aggregate(dimension, None)
 
                     # Correlation < scatterplot (mark type = point)
-                    vl_genie_instance.set_recommended_vis_type("scatterplot")
+                    vl_genie_instance.set_vis_type("scatterplot")
 
             # BOX PLOT
             elif self.nl4dv_instance.extracted_vis_type == "boxplot":
@@ -245,7 +254,7 @@ class VisGenie:
                     return None
 
             # Set the VIS mark type in the vl_genie_instance
-            vl_genie_instance.set_recommended_vis_type(self.nl4dv_instance.extracted_vis_type)
+            vl_genie_instance.set_vis_type(self.nl4dv_instance.extracted_vis_type)
 
             # just here because the user/developer explicitly requested this
             vl_genie_instance.score_obj["by_vis"] += self.nl4dv_instance.match_scores["explicit_vis_match"]
@@ -284,30 +293,12 @@ class VisGenie:
         # Create a new base Vega-Lite Spec
         vl_genie_instance = VLGenie()
 
-        # Remove unneeded encodings
-        vl_genie_instance.delete_key("mark")
-        vl_genie_instance.delete_key("encoding")
+        # Set the explicit_vis_type to a datatable and then make relevant transforms there.
+        vl_genie_instance.set_vis_type("datatable")
 
-        # Derive a new "row_number" variable with a sequence of numbers (used as index / counter later on)
-        vl_genie_instance.vl_spec["transform"] = [{
-            "window": [{"op": "row_number", "as": "row_number"}]
-        }]
-
-        # Horizontally concatenate each attribute's column (VIS with mark type = text)
-        vl_genie_instance.vl_spec["hconcat"] = []
         for attr in sorted_combo:
-
-            # VL specification for a column of text. Use the row_number as the y_axis encoding to render vertically. Sly!
-            attr_column = {
-                "width": 150,
-                "title": attr,
-                "mark": "text",
-                "encoding": {
-                    "text": {"field": attr, "type": "nominal"},
-                    "y": {"field": "row_number", "type": "ordinal", "axis": None}
-                }
-            }
-            vl_genie_instance.vl_spec["hconcat"].append(attr_column)
+            # Create a column with mark type = text
+            vl_genie_instance.create_and_add_column_to_datatable(attr)
 
             # Append the scores
             vl_genie_instance.score_obj["by_attributes"] += self.nl4dv_instance.extracted_attributes[attr]["matchScore"]

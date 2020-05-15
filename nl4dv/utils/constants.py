@@ -176,6 +176,14 @@ attribute_types = {
     'ORDINAL': 'O',
 }
 
+# NL4DV datatypes to VL datatypes mapping
+vl_attribute_types = {
+    'Q': 'quantitative',
+    'N': 'nominal',
+    'T': 'temporal',
+    'O': 'ordinal',
+}
+
 attribute_reference_types = {
     'EXPLICIT': 'EXPLICIT',
     'IMPLICIT': 'IMPLICIT'

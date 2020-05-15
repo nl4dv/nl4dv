@@ -23,6 +23,26 @@ class TaskGenie:
 
         return False
 
+    def is_datatype_ambiguous(self, attributes, task, values):
+        is_datatype_ambiguous = False
+        if task == "filter" and len(values) > 0 and helpers.isfloat(values[0]):
+            for a in attributes:
+                if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
+                    is_datatype_ambiguous = True
+                    break
+        elif task in ["derived_value", "find_extremum"]:
+            for a in attributes:
+                if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
+                    is_datatype_ambiguous = True
+                    break
+        elif task in ["trend"]:
+            for a in attributes:
+                if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["TEMPORAL"]:
+                    is_datatype_ambiguous = True
+                    break
+
+        return is_datatype_ambiguous
+
     # ToDo:- Ensure EMPTY LIST is not returned. Return NULL/ None so that the KEY itself is not added to the Task Map
     def generate_tasks(self, task, attributes, keywords, operator_phrase, operator, values, inference_type, allow_subset=False):
         task_list = list()
@@ -39,18 +59,8 @@ class TaskGenie:
                     # Get Attribute datatypes
                     sorted_attr_combo, sorted_attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
 
-                    is_datatype_ambiguous = False
-                    if task in ["filter","derived_value","find_extremum"]:
-                        if len(values) > 0 and helpers.isfloat(values[0]):
-                            for a in sorted_attr_combo:
-                                if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
-                                    is_datatype_ambiguous = True
-                                    break
-                    elif task in ["trend"]:
-                        for a in sorted_attr_combo:
-                            if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["TEMPORAL"]:
-                                is_datatype_ambiguous = True
-                                break
+                    # Check if the datatype is Ambiguous
+                    is_datatype_ambiguous = self.is_datatype_ambiguous(task=task, attributes=sorted_attr_combo, values=values)
 
                     _task = dict()
                     _task['task'] = task
@@ -70,19 +80,8 @@ class TaskGenie:
 
         else:
 
-            is_datatype_ambiguous = False
-            if task in ["filter","derived_value","find_extremum"]:
-                if len(values) > 0 and helpers.isfloat(values[0]):
-                    for a in attributes:
-                        if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
-                            is_datatype_ambiguous = True
-                            break
-
-            elif task in ["trend"]:
-                for a in attributes:
-                    if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["TEMPORAL"]:
-                        is_datatype_ambiguous = True
-                        break
+            # Check if the datatype is Ambiguous
+            is_datatype_ambiguous = self.is_datatype_ambiguous(task=task, attributes=attributes, values=values)
 
             _task = dict()
             _task['task'] = task

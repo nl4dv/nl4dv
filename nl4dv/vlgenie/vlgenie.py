@@ -2,13 +2,14 @@ from nl4dv.utils import constants
 
 
 class VLGenie():
+
     def __init__(self):
+
         self.vl_spec = dict()
         self.vl_spec['$schema'] = 'https://vega.github.io/schema/vega-lite/v4.json'
         self.vl_spec['mark'] = dict()
         self.vl_spec['encoding'] = dict()
         self.vl_spec['transform'] = list()
-
         self.bin = False
 
         # Score object
@@ -18,14 +19,7 @@ class VLGenie():
             "by_vis": 0
         }
 
-        self.data_type_mapping = {
-            'Q': 'quantitative',
-            'N': 'nominal',
-            'T': 'temporal',
-            'O': 'ordinal',
-        }
-
-    def set_recommended_vis_type(self, vis):
+    def set_vis_type(self, vis):
 
         if vis == 'histogram':
             self.vl_spec['mark']['type'] = 'bar'
@@ -56,67 +50,68 @@ class VLGenie():
             self.vl_spec['mark']['type'] = 'arc'
             self.vl_spec['mark']['innerRadius'] = 50
 
-    def delete_key(self, key):
-        # type: (str) -> None
-        """
-        Delete key from the vl_spec
+        elif vis == 'datatable':
+            # Remove unneeded encodings
+            del self.vl_spec['mark']
+            del self.vl_spec['encoding']
 
-        """
-        if key in self.vl_spec:
-            del self.vl_spec[key]
+            # Derive a new "row_number" variable with a sequence of numbers (used as index / counter later on)
+            self.vl_spec["transform"] = [{
+                "window": [{"op": "row_number", "as": "row_number"}]
+            }]
 
-    def unset_encoding(self, dimension):
-        # type: (str) -> None
-        """
-        Unset encoding for a given dimension
+            # Horizontally concatenate each attribute's column (VIS with mark type = text)
+            self.vl_spec["hconcat"] = []
 
-        """
-        if dimension in self.vl_spec['encoding']:
-            del self.vl_spec['encoding'][dimension]
+    def create_and_add_column_to_datatable(self, attr):
 
-    def get_encoding(self, dimension):
-        # type: (str) -> dict()
-        """
-        Get encoding for a given dimension
+            # VL specification for a column of text. Use the row_number as the y_axis encoding to render vertically. Sly!
+            column = {
+                "width": 150,
+                "title": attr,
+                "mark": "text",
+                "encoding": {
+                    "text": {"field": attr, "type": "nominal"},
+                    "y": {"field": "row_number", "type": "ordinal", "axis": None}
+                }
+            }
+            self.vl_spec["hconcat"].append(column)
 
-        """
-        return self.vl_spec['encoding'][dimension]
+    def unset_encoding(self, dim):
+        if dim in self.vl_spec['encoding']:
+            del self.vl_spec['encoding'][dim]
 
-    def set_encoding_aggregate(self, dimension, aggregate):
-        self.vl_spec['encoding'][dimension]['aggregate'] = aggregate
+    def get_encoding(self, dim):
+        return self.vl_spec['encoding'][dim]
 
-    def set_encoding(self, dimension, attr, attr_type, aggregate=None):
-        # type: (str, str, str) -> None
-        """
-        Set encoding for a given dimension
+    def set_encoding_aggregate(self, dim, aggregate):
+        self.vl_spec['encoding'][dim]['aggregate'] = aggregate
 
-        """
-        vl_attr_type = self.data_type_mapping[attr_type]
-        self.vl_spec['encoding'][dimension] = {
-            'field': attr,
-            'type': vl_attr_type,
-        }
+    def set_encoding(self, dim, attr, attr_type, aggregate=None):
 
-        self.vl_spec['encoding'][dimension]['aggregate'] = aggregate
+        self.vl_spec['encoding'][dim] = dict()
+        self.vl_spec['encoding'][dim]['field'] = attr
+        self.vl_spec['encoding'][dim]['type'] = constants.vl_attribute_types[attr_type]
+        self.vl_spec['encoding'][dim]['aggregate'] = aggregate
 
-        if dimension == 'x':
+        if dim == 'x':
             if self.bin:
-                self.vl_spec['encoding'][dimension]['bin'] = True
+                self.vl_spec['encoding'][dim]['bin'] = True
 
-    def set_task(self, dimension, task):
+    def set_task(self, dim, task):
 
         if task["task"] == 'find_extremum':
-            if dimension is None:
-                dimension = 'y'
+            if dim is None:
+                dim = 'y'
             if task["operator"] == 'MIN':
-                if dimension == 'x':
+                if dim == 'x':
                     self.vl_spec['encoding']['y']['sort'] = 'x'
-                elif dimension == 'y':
+                elif dim == 'y':
                     self.vl_spec['encoding']['x']['sort'] = 'y'
             elif task["operator"] == 'MAX':
-                if dimension == 'x':
+                if dim == 'x':
                     self.vl_spec['encoding']['y']['sort'] = '-x'
-                elif dimension == 'y':
+                elif dim == 'y':
                     self.vl_spec['encoding']['x']['sort'] = '-y'
 
         elif task["task"] == 'filter':
@@ -152,11 +147,11 @@ class VLGenie():
                 }]}
 
             self.vl_spec['transform'].append(window_transform)
-            self.vl_spec['encoding'][dimension]['field'] = 'PercentOfTotal'
+            self.vl_spec['encoding'][dim]['field'] = 'PercentOfTotal'
             self.vl_spec['transform'].append({'filter':'datum["{}"] {} {}'.format("PercentOfTotal", ">", "5")})
 
-            if 'aggregate' in self.vl_spec['encoding'][dimension]:
-                del self.vl_spec['encoding'][dimension]['aggregate']
+            if 'aggregate' in self.vl_spec['encoding'][dim]:
+                del self.vl_spec['encoding'][dim]['aggregate']
 
     def set_data(self, dataUrl):
         # type: (list) -> None
@@ -167,11 +162,11 @@ class VLGenie():
         self.vl_spec['data'] = {'url': dataUrl, 'format': {'type': 'csv'}}
 
     def add_tick_format(self):
-        for dimension in self.vl_spec['encoding']:
-            if dimension in ['x','y'] and self.vl_spec['encoding'][dimension]['type'] == 'quantitative':
-                if 'axis' not in self.vl_spec['encoding'][dimension]:
-                    self.vl_spec['encoding'][dimension]['axis'] = {}
-                self.vl_spec['encoding'][dimension]['axis']["format"] = "s"
+        for dim in self.vl_spec['encoding']:
+            if dim in ['x','y'] and self.vl_spec['encoding'][dim]['type'] == 'quantitative':
+                if 'axis' not in self.vl_spec['encoding'][dim]:
+                    self.vl_spec['encoding'][dim]['axis'] = dict()
+                self.vl_spec['encoding'][dim]['axis']["format"] = "s"
 
     def add_tooltip(self):
         self.vl_spec['mark']['tooltip'] = True
@@ -185,6 +180,5 @@ class VLGenie():
                 break
 
         if not has_aggregate:
-            self.vl_spec['encoding']['tooltip'] = {
-                "field": label_attribute
-            }
+            self.vl_spec['encoding']['tooltip'] = dict()
+            self.vl_spec['encoding']['tooltip']["field"] = label_attribute
