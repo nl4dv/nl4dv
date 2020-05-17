@@ -294,19 +294,7 @@ output = nl4dv_instance.analyze_query(query)
 </details>
 
 ## Examples
-1. [Vega-lite Editor and NL4DV](nl4dv/examples/lean_vegalite/README.md]):\
-Experience the Vega-lite editor augmented with NL4DV.
-2. [DataTone and NL4DV](nl4dv/examples/ambiguity/README.md):\
-NL4DV recreates the "ambiguity widgets" from DataTone
-3. [Visualization Systems and NL4DV](nl4dv/examples/network_vis/README.md):\
-NL4DV augments an existing network visualization system with a NL query interface.
-4. [Visualization Sytems on Tablets and NL4DV (tangere)](nl4dv/examples/tangere/README.md):\
-NL4DV augment an existing tablet visualization system with a NL query interface.
-5. [query-at-a-time](nl4dv/examples/debugger/README.md)\
-Write a query and see how NL4V responds in this Debugging tool.
-6. [queries-at-a-time](nl4dv/examples/debugger_csv/README.md)\
-Write multiple queries in a ***.tsv*** and compare NL4DV's response for all.
-
+Please see [this page](/examples/) for details on how to run the example applications built using NL4DV.
 
 ## Documentation
 NL4DV exposes a simple, intuitive API for developers to consume.
