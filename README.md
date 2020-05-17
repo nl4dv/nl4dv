@@ -34,10 +34,17 @@
       python -m spacy download en_core_web_sm
   ```
 
-  * [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/):
+  * [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/) (**DEPRECATED**, seems slower too):
     * [Download](https://nlp.stanford.edu/software/stanford-english-corenlp-2018-10-05-models.jar) the **English** model of Stanford CoreNLP version **3.9.2** and copy it to `examples/assets/jars/` or a known location
 
     * [Download](https://nlp.stanford.edu/software/stanford-parser-full-2018-10-17.zip) the Stanford Parser version **3.9.2** and after unzipping the folder, copy the `stanford-parser.jar` file to `examples/assets/jars/`  or a known location
+
+  * [Stanford CoreNLPServer](https://stanfordnlp.github.io/CoreNLP/) (**RECOMMENDED**):
+    * [Download](http://nlp.stanford.edu/software/stanford-corenlp-latest.zip) and copy `stanford-corenlp-*.jar` and `stanford-corenlp-*-models.jar` contents to `examples/assets/jars/` or a known location
+    * Start the server (You will require [JAVA](https://www.oracle.com/java/technologies/javase-downloads.html) installed). It will run on `http://localhost:9000`
+    ```sh
+        java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -annotators "tokenize,ssplit,pos,lemma,parse,sentiment" -port 9000 -timeout 30000
+    ```
 
 
 ## Quick Start
@@ -60,9 +67,14 @@ from nl4dv import NL4DV
 # Initialize an instance of NL4DV
 nl4dv_instance = NL4DV(data_url = "cars-w-year.csv")
 
-# using Stanford Core NLP
+# using Stanford Core NLP [DEPRECATED]
 # replace with appropriate paths
-dependency_parser_config = {"name": "stanford", "model": "stanford-english-corenlp-2018-10-05-models.jar","parser": "stanford-parser.jar"}
+dependency_parser_config = {"name": "corenlp", "model": "stanford-english-corenlp-2018-10-05-models.jar","parser": "stanford-parser.jar"}
+
+# using Stanford Core NLP [SERVER: recommended, slower]
+# replace with appropriate URL
+# Note: The CoreNLPServer must be running at the below URL.
+dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"}
   
 # using Spacy
 # replace with appropriate model

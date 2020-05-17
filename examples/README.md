@@ -1,4 +1,6 @@
-# Running the Examples
+# Running the Examples (and Debuggers)
+
+![NL4DV Applications Teaser](../docs/teaser-nl4dv-applications.png)
 
 - Once NL4DV is installed, run ```pip install -r requirements.txt``` from within the **Examples** folder to install all dependencies for example applications (only required the first time).
 
