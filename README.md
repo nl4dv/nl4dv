@@ -97,7 +97,7 @@ output = nl4dv_instance.analyze_query(query)
   "dataset": "data/cars-w-year.csv",
   "visList": ["..."],
   "attributeMap": {"..."},
-  "taskMap": {"..."}
+  "taskMap": {"..."},
   "followUpQuery": false,
   "contextObj": null
 }
