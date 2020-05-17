@@ -1,6 +1,5 @@
 function execute(){
     var table = document.getElementById('debugTable');
-    initNL4DV("stanford");
     var data;
     var current_dataset = "";
 	$.ajax({
@@ -18,6 +17,7 @@ function execute(){
                     var dataset = cells[0];
                     var alias = cells[1];
                     var query = cells[2];
+                    var attribute_combination = cells[3];
 
                     // Set data ONLY if you detect a different dataset
                     if(current_dataset != dataset){
@@ -32,10 +32,7 @@ function execute(){
                     var new_row = table.insertRow(-1);
 
                     var cell = new_row.insertCell(-1);
-                    $(cell).append("<h1>" + cells[4] + "</h1"); //Attribute Combination section
-
-//                    cell = new_row.insertCell(-1);
-//                    cell.innerHTML = query; //Query section
+                    $(cell).append("<h1>" + attribute_combination + "</h1"); //Attribute Combination section
 
                     $.ajax("/analyze_query", {type: 'POST', data: {"query": query}, async:false})
                         .done(function (response_string) {
@@ -63,7 +60,6 @@ function execute(){
                     // making table for attributes and the attribute names
                     new_cell = new_row.insertCell(-1);
                     var content = "<table class='table table-bordered table-condensed'>"
-//                    content += '<tr><th>Name</th></tr>';
                     for(var t = 0; t < attributeList.length; t++){
                         content += '<tr>' +
                                         '<td>' + attributeList[t]['name'] + '</td>' +
@@ -73,45 +69,12 @@ function execute(){
                     $(new_cell).append(content);
 
                     new_cell = new_row.insertCell(-1);
-                    //adding the task subtask attribute and value categories to the task table
                     var content = "<table class='table table-bordered table-condensed vertical'>";
-//                    content += '<tr><th>Task</th></tr>';
                     for (var t = 0; t < taskList.length; t++) {
                         content += '<tr>' +
                                         '<td>' + taskList[t]['task'] + '</td>' +
                                     '</tr>';
                     }
-//                    content += '</tr>';
-//                    content += '<tr><th>Operator</th>';
-//                    for (var t = 0; t < taskList.length; t++) {
-//                        content += '<td>' + (taskList[t]['operator'] === null ? '' : taskList[t]['operator']) + '</td>';
-//                    }
-//                    content += '</tr>';
-//                    content += '<tr><th>Attribute</th>';
-//                    for (var t = 0; t < taskList.length; t++) {
-//                        content += '<td>' + taskList[t]['attributes'] + '</td>';
-//                    }
-//                    content += '</tr>';
-//                    content += '<tr><th>Value</th>'
-//                    for (var t = 0; t < taskList.length; t++) {
-//                        content += '<td>' + (taskList[t]['values'] === null ? '' : taskList[t]['values']) + '</td>';
-//                    }
-//                    content += '</tr>';
-//                    content += '<tr><th>Is Ambiguous</th>'
-//                    for (var t = 0; t < taskList.length; t++) {
-//                        content += '<td>' + taskList[t]['isAmbiguous'] + '</td>';
-//                    }
-//                    content += '</tr>';
-//                    content += '<tr><th>Interpretation</th>'
-//                    for (var t = 0; t < taskList.length; t++) {
-//                        content += '<td>' + taskList[t]['inferenceType'] + '</td>';
-//                    }
-//                    content += '</tr>';
-//                    content += '<tr><th>Query Phrase</th>'
-//                    for (var t = 0; t < taskList.length; t++) {
-//                        content += '<td>' + taskList[t]['queryPhrase'] + '</td>';
-//                    }
-//                    content += '</tr>';
 
                     content += '</table>';
                     $(new_cell).append(content);
@@ -192,5 +155,5 @@ function configureDatabase(dataset){
 }
 
 $(document).ready(function() {
-
+    initNL4DV("corenlp");
 });

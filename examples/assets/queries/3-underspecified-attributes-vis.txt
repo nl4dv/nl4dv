@@ -1,10 +1,10 @@
-Datafile	Aliasfile	Query	Correct	Notes
-cars-w-year.csv	cars-w-year.json	create a histogram of mpg		
-cars-w-year.csv	cars-w-year.json	visualize acceleration as a boxplot		
-cars-w-year.csv	cars-w-year.json	show origin as a bar chart		
-cars-w-year.csv	cars-w-year.json	visualize hp and displacement as a scatterplot		
-cars-w-year.csv	cars-w-year.json	show a linechart of horsepower over the years		
-cars-w-year.csv	cars-w-year.json	show a scatterplot of acceleration and mpg across origins		
-cars-w-year.csv	cars-w-year.json	show an area chart of how acceleration has evolved over the years across origin		
-cars-w-year.csv	cars-w-year.json	visualize origin and cylinders as a barchart		
-cars-w-year.csv	cars-w-year.json	visualize origin and cylinders as a scatter plot		
+Datafile	Aliasfile	Query	Attributes	Tasks	Visualizations
+cars-w-year.csv	cars-w-year.json	create a histogram of mpg			
+cars-w-year.csv	cars-w-year.json	visualize acceleration as a boxplot			
+cars-w-year.csv	cars-w-year.json	show origin as a bar chart			
+cars-w-year.csv	cars-w-year.json	visualize hp and displacement as a scatterplot			
+cars-w-year.csv	cars-w-year.json	show a linechart of horsepower over the years			
+cars-w-year.csv	cars-w-year.json	show a scatterplot of acceleration and mpg across origins			
+cars-w-year.csv	cars-w-year.json	show an area chart of how acceleration has evolved over the years across origin			
+cars-w-year.csv	cars-w-year.json	visualize origin and cylinders as a barchart			
+cars-w-year.csv	cars-w-year.json	visualize origin and cylinders as a scatter plot			

@@ -173,9 +173,10 @@
                                             <tr class="text-muted">
                                                 <td>Dependency Parser</td>
                                                 <td>
-                                                    <select id="dependency_parser_select" onchange="initializeNL4DV()">
-                                                        <option value="stanford">Stanford</option>
+                                                    <select id="dependency_parser_select" onchange="setDependencyParser()">
+                                                        <option value="corenlp" selected="selected">CoreNLP</option>
                                                         <option value="spacy">Spacy</option>
+                                                        <option value="corenlp-server">CoreNLP Server</option>
                                                     </select>
                                                 </td>
                                             </tr>

@@ -41,6 +41,10 @@ class VisGenie:
                 # Create a SORTED list of attributes and their datatypes to match the keys of the VisReco dictionary. e.g. `QQ`, `QNO`, ...
                 attr_list, attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
 
+                # The Attribute-Datatype combination (e.g. QQNN) is NOT yet supported. Continue.
+                if attr_type_str not in vis_design_combos:
+                    continue
+
                 # Is at least one task supported for the Designs. Used to disambiguate/choose between tasks for e.g. `distribution` and `derived value`.
                 design_has_valid_task = any([t in vis_design_combos[attr_type_str]["tasks"] for t in self.nl4dv_instance.extracted_tasks])
 

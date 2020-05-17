@@ -28,18 +28,44 @@ def init():
         return jsonify({"message":"NL4DV already initialized"})
 
     dependency_parser = request.form['dependency_parser']
-    if dependency_parser == "stanford":
-        dependency_parser_config = {'name': 'stanford','model': os.path.join("assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("assets","jars","stanford-parser.jar")}
+    if dependency_parser == "corenlp":
+        dependency_parser_config = {'name': 'corenlp','model': os.path.join("assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("assets","jars","stanford-parser.jar")}
         nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True)
 
     elif dependency_parser == "spacy":
         dependency_parser_config = {'name': 'spacy','model': 'en_core_web_sm','parser': None}
         nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True)
 
+    elif dependency_parser == "corenlp-server":
+        dependency_parser_config = {'name': 'corenlp-server','url': 'http://localhost:9000'}
+        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True)
+
     else:
         raise ValueError('Error with Dependency Parser')
 
     return jsonify({"message":"NL4DV Initialized"})
+
+
+@app.route('/setDependencyParser', methods=['POST'])
+def setDependencyParser():
+    global nl4dv_instance
+    if nl4dv_instance is None:
+        return jsonify({"message":"NL4DV NOT initialized"})
+
+    dependency_parser = request.form['dependency_parser']
+    if dependency_parser == "corenlp":
+        dependency_parser_config = {'name': 'corenlp','model': os.path.join("assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("assets","jars","stanford-parser.jar")}
+        nl4dv_instance.set_dependency_parser(config=dependency_parser_config)
+
+    elif dependency_parser == "spacy":
+        dependency_parser_config = {'name': 'spacy','model': 'en_core_web_sm','parser': None}
+        nl4dv_instance.set_dependency_parser(config=dependency_parser_config)
+
+    elif dependency_parser == "corenlp-server":
+        dependency_parser_config = {'name': 'corenlp-server','url': 'http://localhost:9000'}
+        nl4dv_instance.set_dependency_parser(config=dependency_parser_config)
+    else:
+        raise ValueError('Data not provided')
 
 
 @app.route('/setData', methods=['POST'])

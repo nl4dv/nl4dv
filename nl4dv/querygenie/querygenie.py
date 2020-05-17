@@ -105,7 +105,20 @@ class QueryGenie:
 
             return dependencies
 
-        elif self.nl4dv_instance.dependency_parser == "stanford":
+        elif self.nl4dv_instance.dependency_parser == "corenlp":
+            dependencies = [list(parse.triples()) for parse in self.nl4dv_instance.dependency_parser_instance.raw_parse(query)]
+
+            # Encode every string in tree to utf8 so string matching will work
+            for dependency in dependencies[0]:
+                dependency[0][0].encode('utf-8')
+                dependency[0][1].encode('utf-8')
+                dependency[1].encode('utf-8')
+                dependency[2][0].encode('utf-8')
+                dependency[2][1].encode('utf-8')
+
+            return dependencies
+
+        elif self.nl4dv_instance.dependency_parser == "corenlp-server":
             dependencies = [list(parse.triples()) for parse in self.nl4dv_instance.dependency_parser_instance.raw_parse(query)]
 
             # Encode every string in tree to utf8 so string matching will work

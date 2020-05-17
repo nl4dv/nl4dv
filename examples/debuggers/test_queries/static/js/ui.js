@@ -134,5 +134,5 @@ function configureDatabase(dataset){
 }
 
 $(document).ready(function() {
-    initNL4DV("stanford");
+    initNL4DV("corenlp");
 });

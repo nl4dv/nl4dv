@@ -7,6 +7,8 @@ from collections import OrderedDict
 import spacy
 from nltk.stem.porter import PorterStemmer
 from nltk.parse.stanford import StanfordDependencyParser
+from nltk.parse.corenlp import CoreNLPDependencyParser
+
 from vega import VegaLite
 
 # NL4DV Imports
@@ -218,7 +220,8 @@ class NL4DV:
 
     # Create a dependency parser instance
     def set_dependency_parser(self, config):
-        if isinstance(config, dict) and all(i in ["name", "model", "parser"] for i in config.keys()):
+        if isinstance(config, dict):
+            helpers.cond_print("Dependency Parser: " + config["name"], self.verbose)
             self.dependency_parser = config["name"]
             if config["name"] == "spacy":
                 """
@@ -230,7 +233,7 @@ class NL4DV:
                 """
                 self.dependency_parser_instance = spacy.load(config["model"])
 
-            elif config["name"] == "stanford":
+            elif config["name"] == "corenlp":
                 if 'CLASSPATH' not in os.environ:
                     os.environ['CLASSPATH'] = ""
 
@@ -238,6 +241,11 @@ class NL4DV:
                 if cpath not in os.environ['CLASSPATH']:
                     os.environ['CLASSPATH'] = cpath + os.pathsep + os.environ['CLASSPATH']
 
-                # TODO:- Update StanfordDependencyParser
+                # TODO:- DEPRECATED
                 self.dependency_parser_instance = StanfordDependencyParser(path_to_models_jar=config["model"],
                                                                            encoding='utf8')
+            elif config["name"] == "corenlp-server":
+                # Requires the CoreNLPServer running in the background at the below URL (generally https://localhost:9000)
+                # Start server by running the following command in the JARs directory.
+                # `java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -annotators "tokenize,ssplit,pos,lemma,parse,sentiment" -port 9000 -timeout 30000`
+                self.dependency_parser_instance = CoreNLPDependencyParser(url=config["url"])

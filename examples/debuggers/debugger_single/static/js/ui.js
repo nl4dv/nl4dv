@@ -116,6 +116,15 @@ function initializeNL4DV(){
         });
 }
 
+// Set Dependency Parser
+function setDependencyParser(){
+    var dependency_parser = document.getElementById("dependency_parser_select").value;
+    $.post("/setDependencyParser", {"dependency_parser": dependency_parser})
+        .done(function (response) {
+            // Do Nothing
+        });
+}
+
 function configureDatabase(dataset){
     $.post("/setData", {"dataset": dataset})
         .done(function (r1) {

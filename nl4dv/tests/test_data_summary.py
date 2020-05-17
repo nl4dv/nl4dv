@@ -87,23 +87,39 @@ class TestDataGenieClass:
         }
     }
 
+    # Dependency Parser OPTIONS
+    dependency_parser_config = {
+        "corenlp": {'name': 'corenlp', 'model': os.path.join("examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("examples","assets","jars","stanford-parser.jar")},
+        "corenlp-server": {'name': 'corenlp-server', 'url': 'http://localhost:9000'},
+        "spacy": {'name': 'spacy','model': 'en_core_web_sm'}
+    }
+
+    @staticmethod
+    @pytest.fixture(scope='class')
+    def set_dependency_parser(request):
+        # Base NL4DV instance
+        return request.param
+
     @staticmethod
     @pytest.fixture(scope='class')
     def init_nl4dv(request):
+
+        # Access request param and assign to dataset
         dataset = request.param
-        dependency_parser_config = {'name': 'stanford','model': os.path.join("examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("examples","assets","jars","stanford-parser.jar")}
+
+        # Base NL4DV instance
         nl4dv_instance = NL4DV(verbose=False)
-        nl4dv_instance.set_dependency_parser(config=dependency_parser_config)
         nl4dv_instance.set_data(data_url=os.path.join("examples","assets","data",dataset + ".csv"))
         nl4dv_instance.set_alias_map(alias_url=os.path.join("examples","assets","aliases",dataset + ".json"))
         return dataset, nl4dv_instance
 
     @pytest.mark.parametrize("init_nl4dv", list(dataset_attribute_type_mapping.keys()), indirect=True, scope="class")
-    def test_attribute_datatypes(self, init_nl4dv):
+    @pytest.mark.parametrize("set_dependency_parser", list(dependency_parser_config.keys()), indirect=True, scope="class")
+    def test_attribute_datatypes(self, init_nl4dv, set_dependency_parser):
         dataset = init_nl4dv[0]
         nl4dv_instance = init_nl4dv[1]
+        nl4dv_instance.set_dependency_parser(config=TestDataGenieClass.dependency_parser_config[set_dependency_parser])
         data_summary = nl4dv_instance.get_metadata()
-
         errors = []
         for attr in data_summary:
             if data_summary[attr]["dataType"] != TestDataGenieClass.dataset_attribute_type_mapping[dataset][attr]:
