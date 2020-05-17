@@ -1,0 +1,10 @@
+Datafile	Aliasfile	Query	Attributes	Tasks	Visualizations
+movies-w-year.csv	moview-w-year.json	Create a histogram showing distribution of IMDB ratings	IMDB Rating		
+movies-w-year.csv	moview-w-year.json	Show average gross across genres for science fiction and fantasy movies	"Worldwide Gross,Genre,Creative Type"		
+movies-w-year.csv	moview-w-year.json	Visualize rating and budget	"Production Budget,IMDB Rating,Content Rating,Rotten Tomatoes Rating"		
+movies-w-year.csv	moview-w-year.json	show the relationship between budget and rating for action and adventure movies that grossed over 100M	"Production Budget,IMDB Rating,Content Rating,Rotten Tomatoes Rating,Worldwide Gross,Genre"		
+cars-w-year.csv	cars-w-year.json	visualize horsepower mpg and cylinders	"Horsepower,MPG,Cylinders"		
+cars-w-year.csv	cars-w-year.json	create a boxplot of acceleration	Acceleration		
+colleges.csv	colleges.json	show debt and earning for different types of colleges	"Median Debt,Median Earnings,Control"		
+olympic_medals.csv	olympic_medals.json	show me medals for hockey and skating by country	"Total Medal,Bronze Medal,Silver Medal,Gold Medal,Sport,Country"		
+euro.csv	euro.json	Show a scatter-plot of age and salary for players under the age of 30	"Age,Salary"		
