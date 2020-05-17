@@ -67,14 +67,14 @@ from nl4dv import NL4DV
 # Initialize an instance of NL4DV
 nl4dv_instance = NL4DV(data_url = "cars-w-year.csv")
 
-# using Stanford Core NLP [DEPRECATED]
+# using Stanford Core NLP [DEPRECATED, easy to setup, slow in performance]
 # replace with appropriate paths
 dependency_parser_config = {"name": "corenlp", "model": "stanford-english-corenlp-2018-10-05-models.jar","parser": "stanford-parser.jar"}
 
-# using Stanford Core NLP [SERVER: recommended, slower]
+# using Stanford Core NLP [SERVER: recommended]
 # replace with appropriate URL
 # Note: The CoreNLPServer must be running at the below URL.
-dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"}
+# dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"}
   
 # using Spacy
 # replace with appropriate model
@@ -95,9 +95,9 @@ output = nl4dv_instance.analyze_query(query)
 {
   "query": "show me price of US cars with horsepower more than 200",
   "dataset": "data/cars-w-year.csv",
-  "visList": ["..."], // below
-  "attributeMap": {"..."}, // below
-  "taskMap": {"..."} // below
+  "visList": ["..."],
+  "attributeMap": {"..."},
+  "taskMap": {"..."}
   "followUpQuery": false,
   "contextObj": null
 }
