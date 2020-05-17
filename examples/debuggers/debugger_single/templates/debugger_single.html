@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>NL4DV | Debugger</title>
 
-    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('debugger.static', filename='img/favicon.ico') }}"/>
+    <!--Favicon-->
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('debugger_single.static', filename='img/favicon.ico') }}"/>
 
     <!--Vendor CSS files-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.css" rel="stylesheet"/>
 
     <!--Custom CSS files-->
-    <link href="{{ url_for('debugger.static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('debugger_single.static', filename='css/style.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -290,10 +291,10 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-<script src="{{ url_for('debugger.static', filename='js/global.js') }}"></script>
-<script src="{{ url_for('debugger.static', filename='js/utils.js') }}"></script>
-<script src="{{ url_for('debugger.static', filename='js/ui.js') }}"z></script>
-<script src="{{ url_for('debugger.static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('debugger_single.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('debugger_single.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('debugger_single.static', filename='js/ui.js') }}"z></script>
+<script src="{{ url_for('debugger_single.static', filename='js/main.js') }}"></script>
 
 
 </html>

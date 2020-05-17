@@ -10,10 +10,10 @@ from applications.vleditor import vleditor_routes
 from applications.mmplot import mmplot_routes
 
 # Import our Debugging Applications
-from debuggers.debugger import debugger_routes
-from debuggers.debugger_csv import debugger_csv_routes
-from debuggers.design_debugger import design_debugger_routes
-from debuggers.examples import examples_routes
+from debuggers.debugger_single import debugger_single_routes
+from debuggers.debugger_batch import debugger_batch_routes
+from debuggers.vis_matrix import vis_matrix_routes
+from debuggers.test_queries import test_queries_routes
 
 # Initialize the app
 app = Flask(__name__)
@@ -121,7 +121,7 @@ def setAttributeDataType():
 
 
 @app.route('/',methods=['GET'])
-def debugger():
+def application_homepage():
     try:
         return render_template('index.html')
     except TemplateNotFound:
@@ -142,9 +142,9 @@ if __name__ == "__main__":
     app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
     app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
 
-    app.register_blueprint(debugger_routes.debugger_bp, url_prefix='/debugger')
-    app.register_blueprint(debugger_csv_routes.debugger_csv_bp, url_prefix='/debugger_csv')
-    app.register_blueprint(design_debugger_routes.design_debugger_bp, url_prefix='/design_debugger')
-    app.register_blueprint(examples_routes.examples_bp, url_prefix='/examples')
+    app.register_blueprint(debugger_single_routes.debugger_single_bp, url_prefix='/debugger_single')
+    app.register_blueprint(debugger_batch_routes.debugger_batch_bp, url_prefix='/debugger_batch')
+    app.register_blueprint(vis_matrix_routes.vis_matrix_bp, url_prefix='/vis_matrix')
+    app.register_blueprint(test_queries_routes.test_queries_bp, url_prefix='/test_queries')
 
     app.run(host='0.0.0.0', debug=True, threaded=True, port=7001)

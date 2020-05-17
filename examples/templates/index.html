@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>NL4DV | Applications and Debuggers</title>
 
-    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('debugger.static', filename='img/favicon.ico') }}"/>
+    <link rel='shortcut icon' type='image/x-icon' href="static/img/favicon.ico"/>
 
     <!--Vendor CSS files-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -96,37 +96,37 @@
 <div class="container-fluid">
     <div clas="row">
         <div class="col-md-3">
-            <a href="/debugger" target="_blank">
+            <a href="/debugger_single" target="_blank">
                 <div class="panel panel-primary panel-padding fixed-height">
                     <div class="panel-body">
-                        <h3>Debugger</h3>
+                        <h3>Debugger: Single</h3>
                         <p>A debugging interface that breaks down NL4DV's output and highlights the underlying query interpretation logic.</p>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-md-3">
-            <a href="/examples" target="_blank">
+            <a href="/debugger_batch" target="_blank">
                 <div class="panel panel-primary panel-padding fixed-height">
                     <div class="panel-body">
-                        <h3>Sample Queries</h3>
-                        <p>An interface to explore NL4DV's output on different types of queries such as underspecified and fullyspecified.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a href="/debugger_csv" target="_blank">
-                <div class="panel panel-primary panel-padding fixed-height">
-                    <div class="panel-body">
-                        <h3>Batch Query Debugger</h3>
+                        <h3>Debugger: Batch</h3>
                         <p>An extension to the Debugger, it enables the analysis of outputs of multiple queries at once.</p>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-md-3">
-            <a href="/design_debugger" target="_blank">
+            <a href="/test_queries" target="_blank">
+                <div class="panel panel-primary panel-padding fixed-height">
+                    <div class="panel-body">
+                        <h3>Test Queries</h3>
+                        <p>An interface to explore NL4DV's output on different types of queries such as underspecified and fullyspecified.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="/vis_matrix" target="_blank">
                 <div class="panel panel-primary panel-padding fixed-height">
                     <div class="panel-body">
                         <h3>VIS Matrix</h3>
