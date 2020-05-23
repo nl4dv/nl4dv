@@ -34,14 +34,15 @@ function execute(){
                     var visObj;
 
                     var new_row = table.insertRow(-1);
-                    for (var j = 0; j < cells.length; j++) {
-                        // No need to show Alias Map
-                        if(j==1 || j==3){
-                            continue;
-                        }
-                        var cell = new_row.insertCell(-1);
-                        cell.innerHTML = cells[j];
-                    }
+
+                    // Dataset
+                    var cell = new_row.insertCell(-1);
+                    cell.innerHTML = dataset;
+
+                    // Query
+                    var cell = new_row.insertCell(-1);
+                    cell.innerHTML = query;
+
                     $.ajax("/analyze_query", {type: 'POST', data: {"query": query}, async:false})
                         .done(function (response_string) {
                             var response = JSON.parse(response_string);
@@ -66,10 +67,8 @@ function execute(){
 
                     dict[queryList.length] = visObj;
 
-                    var new_cell;
-
                     // visualization
-                    new_cell = new_row.insertCell(-1);
+                    var new_cell = new_row.insertCell(0);
                     var vizContainer = document.createElement('div');
                     $(vizContainer).addClass("vizContainer");
                     visObj.forEach(function(visSpec) {
@@ -104,12 +103,11 @@ function execute(){
 
                         }
                     });
-
                     new_cell.appendChild(vizContainer);
                     new_row.appendChild(new_cell);
 
                     // attributes
-                    new_cell = new_row.insertCell(-1);
+                    new_cell = new_row.insertCell(0);
                     var content = "<div class='table-responsive'><table class='table table-bordered table-condensed'>"
                     content += '<tr><th>Name</th><th>Query Phrase</th><th>Metric</th><th>Reference Type</th><th>Is Ambiguous</th><th>Meta</th></tr>';
                     for(var t = 0; t < attributeList.length; t++){
@@ -124,9 +122,10 @@ function execute(){
                     }
                     content += "</table></div>";
                     $(new_cell).append(content);
+                    new_row.appendChild(new_cell);
 
                     // tasks
-                    new_cell = new_row.insertCell(-1);
+                    new_cell = new_row.insertCell(0);
                     var content = "<div class='table-responsive'><table class='table table-bordered table-condensed'>"
                     content += '<tr><th>Task</th><th>Operator</th><th>Value</th><th>Attribute</th><th>Inference Type</th><th>Is Attribute Ambiguous</th><th>Is Value Ambiguous</th><th>Query Phrase</th><th>Meta</th></tr>';
                     for(var t = 0; t < taskList.length; t++){
