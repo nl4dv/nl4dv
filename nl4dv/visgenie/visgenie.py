@@ -86,7 +86,7 @@ class VisGenie:
                                 "queryPhrase": self.nl4dv_instance.extracted_vis_token,
                                 "visType": self.nl4dv_instance.extracted_vis_type,
                                 "tasks": list(self.nl4dv_instance.extracted_tasks.keys()),
-                                "inferenceType": constants.attribute_reference_types["IMPLICIT"] if self.nl4dv_instance.extracted_vis_type is None else constants.attribute_reference_types["EXPLICIT"],
+                                "inferenceType": 'implicit' if self.nl4dv_instance.extracted_vis_type is None else 'explicit',
                                 "vlSpec": vl_genie_instance.vl_spec
                             }
                             if vis_object not in vis_objects and vis_object["score"] > 0:
@@ -246,7 +246,6 @@ class VisGenie:
             elif self.nl4dv_instance.extracted_vis_type == "areachart":
                 if design["vis_type"] == "barchart":
                     return None
-                pass
 
             # SCATTERPLOT
             elif self.nl4dv_instance.extracted_vis_type == "scatterplot":
@@ -273,7 +272,7 @@ class VisGenie:
             vl_genie_instance.set_vis_type(self.nl4dv_instance.extracted_vis_type)
 
             # just here because the user/developer explicitly requested this
-            vl_genie_instance.score_obj["by_vis"] += self.nl4dv_instance.match_scores["explicit_vis_match"]
+            vl_genie_instance.score_obj["by_vis"] += self.nl4dv_instance.match_scores['vis']['explicit']
 
         else:
             # There are a few designs tagged as "not_suggested_by_default",
@@ -330,7 +329,7 @@ class VisGenie:
             "visType": "datatable",
             "queryPhrase": None,
             "tasks": list(self.nl4dv_instance.extracted_tasks.keys()),
-            "inferenceType": constants.attribute_reference_types["IMPLICIT"] if self.nl4dv_instance.extracted_vis_type is None else constants.attribute_reference_types["EXPLICIT"],
+            "inferenceType": 'implicit' if self.nl4dv_instance.extracted_vis_type is None else 'explicit',
             "vlSpec": vl_genie_instance.vl_spec
         }
 

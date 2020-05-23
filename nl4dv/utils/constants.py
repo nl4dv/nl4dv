@@ -125,13 +125,19 @@ task_keyword_map = {
 
 # scores given to attribute/ task/ vis matches of different types
 match_scores = {
-    'attribute_similarity_match': 1,
-    'attribute_alias_similarity_match': 0.75,
-    'attribute_synonym_match': 0.5,
-    'attribute_domain_value_match': 0.5,
-    'explicit_task_match': 1,
-    'implicit_task_match': 0.5,
-    'explicit_vis_match': 1
+    'attribute': {
+        'attribute_similarity_match': 1,
+        'attribute_alias_similarity_match': 0.75,
+        'attribute_synonym_match': 0.5,
+        'attribute_domain_value_match': 0.5,
+    },
+    'task': {
+        'explicit': 1,
+        'implicit': 0.5,
+    },
+    'vis': {
+        'explicit': 1
+    }
 }
 
 # JSON has an abbreviated version (GT) but Vega-Lite requires symbols (>)
@@ -182,14 +188,4 @@ vl_attribute_types = {
     'N': 'nominal',
     'T': 'temporal',
     'O': 'ordinal',
-}
-
-attribute_reference_types = {
-    'EXPLICIT': 'EXPLICIT',
-    'IMPLICIT': 'IMPLICIT'
-}
-
-task_reference_types = {
-    'EXPLICIT': 'EXPLICIT',
-    'IMPLICIT': 'IMPLICIT'
 }

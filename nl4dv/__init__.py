@@ -143,7 +143,10 @@ class NL4DV:
         encodeable_attributes = self.attribute_genie_instance.get_encodeable_attributes()
 
         # INFER tasks based on (encodeable) attribute Datatypes
-        self.extracted_tasks = self.task_genie_instance.extract_implicit_tasks_from_attributes(task_map, encodeable_attributes)
+        task_map = self.task_genie_instance.extract_implicit_tasks_from_attributes(task_map, encodeable_attributes)
+
+        # From the generated TaskMap, ensure that the task "keys" are NOT EMPTY LISTS
+        self.extracted_tasks = self.task_genie_instance.filter_empty_tasks(task_map)
         self.execution_durations['extract_tasks'] = time.time() - st
 
         # RECOMMEND VISUALIZATIONS FROM ATTRIBUTES, TASKS, and VISUALIZATIONS

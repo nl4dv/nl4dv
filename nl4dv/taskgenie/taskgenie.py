@@ -6,11 +6,36 @@ class TaskGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
 
+    def new_task(self, task_name,
+                 task_type='implicit',
+                 attributes=list(),
+                 query_phrase=list(),
+                 operator=None,
+                 values=None,
+                 is_attr_ambiguous=False,
+                 is_value_ambiguous=False,
+                 value_ambiguity_type=None):
+
+        task = dict()
+        task['task'] = task_name
+        task['queryPhrase'] = query_phrase
+        task['operator'] = operator
+        task['values'] = values
+        task['matchScore'] = self.nl4dv_instance.match_scores['task'][task_type]
+        task['attributes'] = attributes
+        task['inferenceType'] = task_type
+        task['isAttrAmbiguous'] = is_attr_ambiguous
+        task['isValueAmbiguous'] = is_value_ambiguous
+        task['meta'] = dict()
+        task['meta']['value_ambiguity_type'] = value_ambiguity_type
+
+        return task
+
     def get_explicit_tasks(self):
         explicit_tasks = set()
         for k in self.nl4dv_instance.extracted_tasks:
             for v in self.nl4dv_instance.extracted_tasks[k]:
-                if v["inferenceType"] == constants.task_reference_types["EXPLICIT"]:
+                if v["inferenceType"] == 'explicit':
                     explicit_tasks.add(k)
 
         return explicit_tasks
@@ -19,10 +44,21 @@ class TaskGenie:
         implicit_tasks = set()
         for k in self.nl4dv_instance.extracted_tasks:
             for v in self.nl4dv_instance.extracted_tasks[k]:
-                if v["inferenceType"] == constants.task_reference_types["IMPLICIT"]:
+                if v["inferenceType"] == 'implicit':
                     implicit_tasks.add(k)
 
         return implicit_tasks
+
+    @staticmethod
+    def filter_empty_tasks(task_map):
+        tasks_to_delete = set()
+        for task_name in task_map:
+            if len(task_map[task_name]) == 0:
+                tasks_to_delete.add(task_name)
+
+        for task_name in tasks_to_delete:
+            del task_name[task_name]
+        return task_map
 
     @staticmethod
     def has_non_filter_explicit_task(task_map):
@@ -61,62 +97,68 @@ class TaskGenie:
 
         return is_datatype_ambiguous
 
-    # ToDo:- Ensure EMPTY LIST is not returned. Return NULL/ None so that the KEY itself is not added to the Task Map
-    def generate_tasks(self, task, attributes, keywords, operator_phrase, operator, values, inference_type, allow_subset=False):
-        task_list = list()
+    def generate_tasks(self,
+                       task_name,
+                       attributes,
+                       query_phrase,
+                       operator_phrase,
+                       operator,
+                       values,
+                       inference_type,
+                       allow_subset=False):
 
+        task_list = list()
         is_attribute_ambiguous = any(self.nl4dv_instance.extracted_attributes[k]["isAmbiguous"] for k in attributes)
         if is_attribute_ambiguous:
-            for i in range(1, len(attributes) + 1):
-                combinations = itertools.combinations(attributes, i)
-                for combination in combinations:
-                    combo = list(combination)
-                    if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=keywords, allow_subset=allow_subset):
+            for idx in range(1, len(attributes) + 1):
+                attr_combos = itertools.combinations(attributes, idx)
+                for attr_combo in attr_combos:
+                    attr_combo = list(attr_combo)
+
+                    if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=attr_combo,
+                                                                                        query_phrase=query_phrase,
+                                                                                        allow_subset=allow_subset):
                         continue
 
                     # Get Attribute datatypes
-                    sorted_attr_combo, sorted_attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
+                    sorted_attr_combo, sorted_attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(attr_combo)
 
-                    # Check if the datatype is Ambiguous
-                    is_datatype_ambiguous = self.is_datatype_ambiguous(task=task, attributes=sorted_attr_combo, values=values)
+                    # Check if the Value (datatype) is Ambiguous
+                    is_value_ambiguous = self.is_datatype_ambiguous(task=task_name, attributes=sorted_attr_combo, values=values)
+                    value_ambiguity_type = 'datatype' if is_value_ambiguous else None
 
-                    _task = dict()
-                    _task['task'] = task
-                    _task['queryPhrase'] = operator_phrase
-                    _task['operator'] = operator
-                    _task['matchScore'] = constants.match_scores['explicit_task_match'] if inference_type == constants.task_reference_types['EXPLICIT'] else constants.match_scores['implicit_task_match']
-                    _task['attributes'] = sorted_attr_combo
-                    _task['inferenceType'] = inference_type
-                    _task['values'] = values
-                    _task['isAttrAmbiguous'] = is_attribute_ambiguous
-                    _task['isValueAmbiguous'] = is_datatype_ambiguous
-                    _task['meta'] = {'value_ambiguity_type': None}
+                    task_obj = self.new_task(task_name=task_name,
+                                             task_type=inference_type,
+                                             attributes=sorted_attr_combo,
+                                             query_phrase=operator_phrase,
+                                             values=values,
+                                             operator=operator,
+                                             is_attr_ambiguous=is_attribute_ambiguous,
+                                             is_value_ambiguous=is_value_ambiguous,
+                                             value_ambiguity_type=value_ambiguity_type)
 
-                    if is_datatype_ambiguous:
-                        _task['meta']['value_ambiguity_type'] = 'datatype'
-                    task_list.append(_task)
+                    if task_obj not in task_list:
+                        task_list.append(task_obj)
 
         else:
 
-            # Check if the datatype is Ambiguous
-            is_datatype_ambiguous = self.is_datatype_ambiguous(task=task, attributes=attributes, values=values)
+            # Check if the Value (datatype) is Ambiguous
+            is_value_ambiguous = self.is_datatype_ambiguous(task=task_name, attributes=attributes, values=values)
+            value_ambiguity_type = 'datatype' if is_value_ambiguous else None
 
-            _task = dict()
-            _task['task'] = task
-            _task['queryPhrase'] = operator_phrase
-            _task['operator'] = operator
-            _task['values'] = values
-            _task['matchScore'] = constants.match_scores['explicit_task_match'] if inference_type == constants.task_reference_types['EXPLICIT'] else constants.match_scores['implicit_task_match']
-            _task['attributes'] = attributes
-            _task['inferenceType'] = inference_type
-            _task['isAttrAmbiguous'] = is_attribute_ambiguous
-            _task['isValueAmbiguous'] = is_datatype_ambiguous
-            _task['meta'] = {'value_ambiguity_type': None}
-            if is_datatype_ambiguous:
-                _task['meta']['value_ambiguity_type'] = 'datatype'
+            task_obj = self.new_task(task_name=task_name,
+                                     task_type=inference_type,
+                                     attributes=attributes,
+                                     query_phrase=operator_phrase,
+                                     values=values,
+                                     operator=operator,
+                                     is_attr_ambiguous=is_attribute_ambiguous,
+                                     is_value_ambiguous=is_value_ambiguous,
+                                     value_ambiguity_type=value_ambiguity_type)
 
-            task_list.append(_task)
-            # print(_task)
+            if task_obj not in task_list:
+                task_list.append(task_obj)
+
         return task_list
 
     def extract_explicit_tasks_from_dependencies(self, dependencies):
@@ -166,11 +208,13 @@ class TaskGenie:
                     # If keywords point to DOMAIN VALUE matches, then do NOT tag them as a correlation task
                     a1 = list(self.nl4dv_instance.keyword_attribute_mapping[k1].keys())[0]
                     a2 = list(self.nl4dv_instance.keyword_attribute_mapping[k2].keys())[0]
-                    if self.nl4dv_instance.extracted_attributes[a1]["metric"] == ["attribute_domain_value_match"] \
-                        or self.nl4dv_instance.extracted_attributes[a2]["metric"] == ["attribute_domain_value_match"]:
+                    if self.nl4dv_instance.extracted_attributes[a1]["metric"] == ["attribute_domain_value_match"] or \
+                            self.nl4dv_instance.extracted_attributes[a2]["metric"] == ["attribute_domain_value_match"]:
                         continue
 
                     task = self.nl4dv_instance.task_keyword_map[operator_phrase][0][0]
+                    if task not in task_map:
+                        task_map[task] = list()
 
                     # These tasks requires at most 1 Attribute to make sense
                     if task in ["correlation"]:
@@ -185,18 +229,16 @@ class TaskGenie:
                                 elif self.nl4dv_instance.porter_stemmer_instance.stem(k) in self.nl4dv_instance.keyword_attribute_mapping:
                                     relevant_attributes.extend(list(self.nl4dv_instance.keyword_attribute_mapping[self.nl4dv_instance.porter_stemmer_instance.stem(k)].keys()))
 
-                            _tasks = self.generate_tasks(task=task,
+                            _tasks = self.generate_tasks(task_name=task,
                                                          attributes=relevant_attributes,
-                                                         keywords=[k1,k2],
                                                          operator_phrase=operator_phrase,
+                                                         query_phrase=[k1,k2],
                                                          operator=operator,
                                                          values=[],
-                                                         inference_type=constants.task_reference_types['EXPLICIT'],
-                                                         allow_subset=True) # ToDo: IMP
+                                                         inference_type='explicit',
+                                                         allow_subset=True)  # IMP, this will be true
 
                             for _task in _tasks:
-                                if task not in task_map:
-                                    task_map[task] = list()
                                 if _task not in task_map[task]:
                                     task_map[task].append(_task)
 
@@ -218,21 +260,23 @@ class TaskGenie:
 
                 if keyword is not None and operator_phrase is not None:
                     task = self.nl4dv_instance.task_keyword_map[operator_phrase][0][0]
+                    if task not in task_map:
+                        task_map[task] = list()
 
                     # These tasks requires at most 1 Attribute to make sense
                     if task in ["derived_value", "find_extremum", "trend"]:
                         operator = self.nl4dv_instance.task_keyword_map[operator_phrase][0][1]
-                        _tasks = self.generate_tasks(task=task,
-                                                     attributes=list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys()),
+                        attributes = list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys())
+                        _tasks = self.generate_tasks(task_name=task,
+                                                     attributes=attributes,
                                                      operator_phrase=operator_phrase,
-                                                     keywords=[keyword],
+                                                     query_phrase=[keyword],
                                                      operator=operator,
                                                      values=[],
-                                                     inference_type=constants.task_reference_types['EXPLICIT'])
+                                                     inference_type='explicit',
+                                                     allow_subset=False)
 
                         for _task in _tasks:
-                            if task not in task_map:
-                                task_map[task] = list()
                             if _task not in task_map[task]:
                                 task_map[task].append(_task)
 
@@ -294,17 +338,19 @@ class TaskGenie:
                             operator_phrase = negation_phrase + " " + operator_phrase
 
                         task = 'filter'
-                        _tasks = self.generate_tasks(task=task,
+                        if task not in task_map:
+                            task_map[task] = list()
+
+                        _tasks = self.generate_tasks(task_name=task,
                                                      attributes=list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys()),
                                                      operator_phrase=operator_phrase,
-                                                     keywords=[keyword],
+                                                     query_phrase=[keyword],
                                                      operator=operator,
                                                      values=[float(amount)],
-                                                     inference_type=constants.task_reference_types['EXPLICIT'])
+                                                     inference_type='explicit',
+                                                     allow_subset=False)
 
                         for _task in _tasks:
-                            if task not in task_map:
-                                task_map[task] = list()
                             if _task not in task_map[task]:
                                 task_map[task].append(_task)
 
@@ -343,24 +389,24 @@ class TaskGenie:
                     if self.nl4dv_instance.task_keyword_map[operator_phrase][0][0] == "filter" and operator_phrase == "between":
                         operator = self.nl4dv_instance.task_keyword_map[operator_phrase][0][1]
                         if has_negation:
-                            if operator == "GT":
-                                operator = "LT"
-                            elif operator == "LT":
-                                operator = "GT"
+                            # NOT RANGE
+                            operator = "NOT" + " " + operator
                             operator_phrase = negation_phrase + " " + operator_phrase
 
                         task = 'filter'
-                        _tasks = self.generate_tasks(task=task,
+                        if task not in task_map:
+                            task_map[task] = list()
+
+                        _tasks = self.generate_tasks(task_name=task,
                                                      attributes=list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys()),
                                                      operator_phrase=operator_phrase,
-                                                     keywords=[keyword],
+                                                     query_phrase=[keyword],
                                                      operator=operator,
                                                      values=[float(from_amount), float(to_amount)],
-                                                     inference_type=constants.task_reference_types['EXPLICIT'])
+                                                     inference_type='explicit',
+                                                     allow_subset=False)
 
                         for _task in _tasks:
-                            if task not in task_map:
-                                task_map[task] = list()
                             if _task not in task_map[task]:
                                 task_map[task].append(_task)
 
@@ -372,17 +418,19 @@ class TaskGenie:
                     if operator_phrase in self.nl4dv_instance.query_processed:
                         # It exists, create distribution task
                         task = 'distribution'
-                        _tasks = self.generate_tasks(task=task,
+                        if task not in task_map:
+                            task_map[task] = list()
+
+                        _tasks = self.generate_tasks(task_name=task,
                                                      attributes=encodeable_attributes,
-                                                     keywords=[list(self.nl4dv_instance.attribute_keyword_mapping[a].keys())[0] for a in encodeable_attributes],
                                                      operator_phrase=operator_phrase,
+                                                     query_phrase=[list(self.nl4dv_instance.attribute_keyword_mapping[a].keys())[0] for a in encodeable_attributes],
                                                      operator=None,
                                                      values=[],
-                                                     inference_type=constants.task_reference_types['EXPLICIT'])
+                                                     inference_type='explicit',
+                                                     allow_subset=False)
 
                         for _task in _tasks:
-                            if task not in task_map:
-                                task_map[task] = list()
                             if _task not in task_map[task]:
                                 task_map[task].append(_task)
 
@@ -391,31 +439,35 @@ class TaskGenie:
     def extract_explicit_tasks_from_domain_value(self, task_map):
 
         # Case 3: Takes care of IMPLICIT categorical filters (from the domain)
-        for attr, attrObj in self.nl4dv_instance.extracted_attributes.items():
-            if 'attribute_domain_value_match' in attrObj['metric']:
+        for attr, attr_obj in self.nl4dv_instance.extracted_attributes.items():
+            if 'attribute_domain_value_match' in attr_obj['metric']:
                 task = 'filter'
+                attributes = [attr]
+                is_value_ambiguous = False
+                value_ambiguity_type = None
+                values = list()
+
                 if task not in task_map:
                     task_map[task] = list()
 
-                _task = dict()
-                _task['task'] = task
-                _task['queryPhrase'] = attrObj["queryPhrase"]
-                _task['operator'] = "IN"
-                _task['values'] = []
-                _task['matchScore'] = constants.match_scores['explicit_task_match']
-                _task['attributes'] = [attr]
-                _task['inferenceType'] = constants.task_reference_types['EXPLICIT']
-                _task['isAttrAmbiguous'] = attrObj["isAmbiguous"]
-                _task['meta'] = {'value_ambiguity_type': None}
+                for k in attr_obj["meta"]["ambiguity"]:
+                    values.extend(attr_obj["meta"]["ambiguity"][k])
+                    if len(attr_obj["meta"]["ambiguity"][k]) > 1:
+                        is_value_ambiguous = True
+                        value_ambiguity_type = 'domain_value'
 
-                ambiguity = False
-                for k in attrObj["meta"]["ambiguity"]:
-                    _task['values'].extend(attrObj["meta"]["ambiguity"][k])
-                    if len(attrObj["meta"]["ambiguity"][k]) > 1:
-                        ambiguity = True
-                        _task['meta']['value_ambiguity_type'] = 'domain_value'
-                _task['isValueAmbiguous'] = ambiguity
-                task_map[task].append(_task)
+                task_obj = self.new_task(task_name=task,
+                                         task_type='explicit',
+                                         attributes=attributes,
+                                         query_phrase=attr_obj["queryPhrase"],
+                                         values=values,
+                                         operator="IN",
+                                         is_attr_ambiguous=attr_obj["isAmbiguous"],
+                                         is_value_ambiguous=is_value_ambiguous,
+                                         value_ambiguity_type=value_ambiguity_type)
+
+                if task_obj not in task_map[task]:
+                    task_map[task].append(task_obj)
 
         return task_map
 
@@ -433,9 +485,8 @@ class TaskGenie:
                     if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False):
                         continue
 
-                    # Get Attribute datatypes
+                    # Get attribute datatypes
                     sorted_attr_combo, sorted_attr_datatype_combo_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
-
                     if self.has_non_filter_explicit_task_for_attr_list(task_map, sorted_attr_combo):
                         continue
 
@@ -443,82 +494,65 @@ class TaskGenie:
                     if 'T' in sorted_attr_datatype_combo_str and not sorted_attr_datatype_combo_str in ["QQT"]:
                         # Add TREND task
                         task = 'trend'
-                        _task = dict()
-                        _task['task'] = task
-                        _task['queryPhrase'] = []
-                        _task['operator'] = None
-                        _task['values'] = None
-                        _task['matchScore'] = constants.match_scores['implicit_task_match']
-                        _task['attributes'] = sorted_attr_combo
-                        _task['inferenceType'] = constants.task_reference_types['IMPLICIT']
-                        _task['isAttrAmbiguous'] = any(self.nl4dv_instance.extracted_attributes[x]["isAmbiguous"] for x in sorted_attr_combo)
-                        _task['isValueAmbiguous'] = False
-                        _task['meta'] = {'value_ambiguity_type': None}
+                        attributes = sorted_attr_combo
 
                         if task not in task_map:
                             task_map[task] = list()
-                        if _task not in task_map[task]:
-                            task_map[task].append(_task)
+
+                        task_obj = self.new_task(task_name=task,
+                                                 task_type='implicit',
+                                                 attributes=attributes,
+                                                 is_attr_ambiguous=any(self.nl4dv_instance.extracted_attributes[x]["isAmbiguous"] for x in attributes))
+                        if task_obj not in task_map[task]:
+                            task_map[task].append(task_obj)
 
                     if sorted_attr_datatype_combo_str in ["QQ","QQN","QQO","QQQ","QQT"]:
                         # Add CORRELATION task
                         task = 'correlation'
-                        _task = dict()
-                        _task['task'] = task
-                        _task['queryPhrase'] = []
-                        _task['operator'] = None
-                        _task['values'] = None
-                        _task['matchScore'] = constants.match_scores['implicit_task_match']
-                        _task['attributes'] = sorted_attr_combo[0:2]  # Take the first 2
-                        _task['inferenceType'] = constants.task_reference_types['IMPLICIT']
-                        _task['isAttrAmbiguous'] = any(self.nl4dv_instance.extracted_attributes[x]["isAmbiguous"] for x in sorted_attr_combo[0:2])
-                        _task['isValueAmbiguous'] = False
-                        _task['meta'] = {'value_ambiguity_type': None}
+                        attributes = sorted_attr_combo[0:2]
 
                         if task not in task_map:
                             task_map[task] = list()
-                        if _task not in task_map[task]:
-                            task_map[task].append(_task)
+
+                        task_obj = self.new_task(task_name=task,
+                                                 task_type='implicit',
+                                                 attributes=attributes,
+                                                 is_attr_ambiguous=any(self.nl4dv_instance.extracted_attributes[x]["isAmbiguous"] for x in attributes))
+
+                        if task_obj not in task_map[task]:
+                            task_map[task].append(task_obj)
 
                     if sorted_attr_datatype_combo_str in ["QN","QO","QNN","QNO","QOO"]:
                         # Add Derived Value task
                         task = 'derived_value'
-                        _task = dict()
-                        _task['task'] = task
-                        _task['queryPhrase'] = []
-                        _task['operator'] = "AVG"
-                        _task['values'] = None
-                        _task['matchScore'] = constants.match_scores['implicit_task_match']
-                        _task['attributes'] = [sorted_attr_combo[0]] # Will be Q
-                        _task['inferenceType'] = constants.task_reference_types['IMPLICIT']
-                        _task['isAttrAmbiguous'] = self.nl4dv_instance.extracted_attributes[sorted_attr_combo[0]]["isAmbiguous"]
-                        _task['isValueAmbiguous'] = False
-                        _task['meta'] = {'value_ambiguity_type': None}
+                        attributes = [sorted_attr_combo[0]]
 
                         if task not in task_map:
                             task_map[task] = list()
-                        if _task not in task_map[task]:
-                            task_map[task].append(_task)
 
-                    # NNN","NNO","OOO","NOO"
+                        task_obj = self.new_task(task_name=task,
+                                                 task_type='implicit',
+                                                 attributes=attributes,
+                                                 operator='AVG',
+                                                 is_attr_ambiguous=any(self.nl4dv_instance.extracted_attributes[x]["isAmbiguous"] for x in attributes))
+
+                        if task_obj not in task_map[task]:
+                            task_map[task].append(task_obj)
+
                     if sorted_attr_datatype_combo_str in ["Q","N","O","NN","NO","OO"]:
                         # Add Distribution task
                         task = 'distribution'
-                        _task = dict()
-                        _task['task'] = task
-                        _task['queryPhrase'] = []
-                        _task['operator'] = None
-                        _task['values'] = None
-                        _task['matchScore'] = constants.match_scores['implicit_task_match']
-                        _task['attributes'] = sorted_attr_combo
-                        _task['inferenceType'] = constants.task_reference_types['IMPLICIT']
-                        _task['isAttrAmbiguous'] = any(self.nl4dv_instance.extracted_attributes[x]["isAmbiguous"] for x in sorted_attr_combo)
-                        _task['isValueAmbiguous'] = False
-                        _task['meta'] = {'value_ambiguity_type': None}
+                        attributes = sorted_attr_combo
 
                         if task not in task_map:
                             task_map[task] = list()
-                        if _task not in task_map[task]:
-                            task_map[task].append(_task)
+
+                        task_obj = self.new_task(task_name=task,
+                                                 task_type='implicit',
+                                                 attributes=attributes,
+                                                 is_attr_ambiguous=any(self.nl4dv_instance.extracted_attributes[x]["isAmbiguous"] for x in attributes))
+
+                        if task_obj not in task_map[task]:
+                            task_map[task].append(task_obj)
 
         return task_map

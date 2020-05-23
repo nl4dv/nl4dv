@@ -130,29 +130,6 @@ class VLGenie():
                     symbol = constants.operator_symbol_mapping[task["operator"]]
                     self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(attr, symbol, task["values"][0])})
 
-        elif task["task"] == 'outlier':
-            # ToDo:- Can explore vega-lite to apply a filter like show the data points beyond the inter-quartile range?
-            window_transform = {
-                "transform": [{
-                    "window": [{
-                      "op": "sum",
-                      "field": task[1],
-                      "as": "TotalSum"
-                    }],
-                    "frame": [None, None]
-                },
-                {
-                    "calculate": "datum." + task[1] + "/datum.TotalSum * 100",
-                    "as": "PercentOfTotal"
-                }]}
-
-            self.vl_spec['transform'].append(window_transform)
-            self.vl_spec['encoding'][dim]['field'] = 'PercentOfTotal'
-            self.vl_spec['transform'].append({'filter':'datum["{}"] {} {}'.format("PercentOfTotal", ">", "5")})
-
-            if 'aggregate' in self.vl_spec['encoding'][dim]:
-                del self.vl_spec['encoding'][dim]['aggregate']
-
     def set_data(self, dataUrl):
         # type: (list) -> None
         """

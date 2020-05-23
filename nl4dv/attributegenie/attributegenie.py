@@ -92,8 +92,8 @@ class AttributeGenie:
                         query_attributes[attr] = {
                             'name': attr,
                             "queryPhrase": [query_ngrams[ngram]["lower"]],
-                            'inferenceType': constants.attribute_reference_types['EXPLICIT'],
-                            'matchScore': self.nl4dv_instance.match_scores['attribute_similarity_match'],
+                            'inferenceType': 'explicit',
+                            'matchScore': self.nl4dv_instance.match_scores['attribute']['attribute_similarity_match'],
                             'metric': ['attribute_similarity_match'],
                             'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                             'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
@@ -157,8 +157,8 @@ class AttributeGenie:
                             query_attributes[attr] = {
                                 'name': attr,
                                 "queryPhrase": [query_ngrams[ngram]["lower"]],
-                                'inferenceType': constants.attribute_reference_types['EXPLICIT'],
-                                'matchScore': self.nl4dv_instance.match_scores['attribute_alias_similarity_match'],
+                                'inferenceType': 'explicit',
+                                'matchScore': self.nl4dv_instance.match_scores['attribute']['attribute_alias_similarity_match'],
                                 'metric': 'attribute_alias_similarity_match',
                                 'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                                 'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
@@ -203,8 +203,8 @@ class AttributeGenie:
                     query_attributes[attr] = {
                         'name': attr,
                         "queryPhrase": [query_ngrams[ngram]["lower"]],
-                        'matchScore': self.nl4dv_instance.match_scores['attribute_synonym_match'],
-                        'inferenceType': constants.attribute_reference_types['EXPLICIT'],
+                        'matchScore': self.nl4dv_instance.match_scores['attribute']['attribute_synonym_match'],
+                        'inferenceType': 'explicit',
                         'metric': ['attribute_synonym_match'],
                         'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                         'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
@@ -304,8 +304,8 @@ class AttributeGenie:
                     query_attributes[attr] = {
                         'name': attr,
                         "queryPhrase": list(keyword_value_mapping[attr].keys()),
-                        'inferenceType': constants.attribute_reference_types['IMPLICIT'],
-                        'matchScore': self.nl4dv_instance.match_scores['attribute_domain_value_match'],
+                        'inferenceType': 'implicit',
+                        'matchScore': self.nl4dv_instance.match_scores['attribute']['attribute_domain_value_match'],
                         'metric': metrics,
                         'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                         'isAmbiguous': False,
@@ -490,7 +490,7 @@ class AttributeGenie:
                 for attr in task_obj['attributes']:
                     # If the attribute is detected from domain value that too only IMPLICITLY (as in was not also EXPLICITLY detected), encode it to False
                     if "attribute_domain_value_match" in self.nl4dv_instance.extracted_attributes[attr]["metric"]:
-                        if self.nl4dv_instance.extracted_attributes[attr]["inferenceType"] == constants.attribute_reference_types['IMPLICIT']:
+                        if self.nl4dv_instance.extracted_attributes[attr]["inferenceType"] == 'implicit':
                             self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
 
                     # If the attribute is part of some FILTER (e.g. budget more than 50) but also exists standalone (e.g. correlate budget and gross for budget more than 50)
@@ -523,14 +523,14 @@ class AttributeGenie:
         if add_label_attr:
             # If label attribute was Explicitly detected in the query, "encode" it to True ELSE add it manually
             if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes and \
-                    self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == constants.attribute_reference_types["EXPLICIT"]:
+                    self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == 'explicit':
                 self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
             else:
                 # Check if there is a task BUT no ENCODABLE attribute is detected. In this case, add the label attribute.
                 self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute] = {
                     'name': self.nl4dv_instance.label_attribute,
                     "queryPhrase": None,
-                    'inferenceType': constants.attribute_reference_types['IMPLICIT'],
+                    'inferenceType': 'implicit',
                     'matchScore': 0,
                     'metric': ['label_attribute'],
                     'isLabel': True,  # OBVIOUSLY
