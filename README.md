@@ -119,7 +119,7 @@ output = nl4dv_instance.analyze_query(query)
     "queryPhrase": [
       "horsepower"
     ],
-    "inferenceType": "EXPLICIT"
+    "inferenceType": "explicit"
   },
   "Origin": {
     "ambiguity": [],
@@ -160,7 +160,7 @@ output = nl4dv_instance.analyze_query(query)
       "attributes": [
         "Horsepower"
       ],
-      "inferenceType": "EXPLICIT",
+      "inferenceType": "explicit",
       "operator": "GT",
       "queryPhrase": "more",
       "task": "filter",
@@ -172,7 +172,7 @@ output = nl4dv_instance.analyze_query(query)
       "attributes": [
         "Origin"
       ],
-      "inferenceType": "EXPLICIT",
+      "inferenceType": "explicit",
       "operator": "IN",
       "queryPhrase": [
         "us"
@@ -205,7 +205,7 @@ output = nl4dv_instance.analyze_query(query)
       "filter",
       "distribution"
     ],
-    "inferenceType": "IMPLICIT",
+    "inferenceType": "implicit",
     "vlSpec": {
       "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
       "mark": {
@@ -260,7 +260,7 @@ output = nl4dv_instance.analyze_query(query)
       "filter",
       "distribution"
     ],
-    "inferenceType": "IMPLICIT",
+    "inferenceType": "implicit",
     "vlSpec": {
       "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
       "mark": {
