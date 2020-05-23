@@ -121,6 +121,10 @@ body.loading .loadingModal {
     height: 800px;
 }
 
+.custom-height{
+    height: calc(100vh - 150px);
+}
+
 .valign-top{
     vertical-align: top;
 }

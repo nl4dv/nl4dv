@@ -5,7 +5,8 @@
     <title>NL4DV | Example Queries</title>
 
     <!--Favicon-->
-    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('test_queries.static', filename='img/favicon.ico') }}"/>
+    <link rel='shortcut icon' type='image/x-icon'
+          href="{{ url_for('test_queries.static', filename='img/favicon.ico') }}"/>
 
     <!--Vendor CSS files-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -31,86 +32,57 @@
         <div class="col-md-12">
             <div class="loadingModal"></div>
 
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                Fullyspecificed: Attributes + Tasks + VIS</a>
-                        </h4>
-                    </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table style="width:100%" class="table table-condensed table-bordered" id="fullyspecified-attributes-tasks-vis-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="t-head" width="30%">Query</th>
-                                            <th class="t-head" width="70%">Recommendations</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active"><a data-toggle="tab" href="#fullyspecified_attributes_tasks_vis">FULLY-SPECIFIED:
+                    Attributes + Tasks + VIS</a></li>
+                <li><a data-toggle="tab" href="#underspecified_attributes_tasks">UNDER-SPECIFIED: Attributes + Tasks</a>
+                </li>
+                <li><a data-toggle="tab" href="#underspecified_attributes_vis">UNDER-SPECIFIED: Attributes + VIS</a>
+                </li>
+                <li><a data-toggle="tab" href="#underspecified_attributes">UNDER-SPECIFIED: Attributes</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="fullyspecified_attributes_tasks_vis" class="tab-pane fade in active">
+                    <br/>
+                    <div class="overflow-y-auto custom-height">
+                        <div class="table-responsive">
+                            <table style="width:100%" class="table table-condensed table-bordered"
+                                   id="fullyspecified-attributes-tasks-vis-table">
+                                <thead>
+                                <tr>
+                                    <th class="t-head" width="30%">Query</th>
+                                    <th class="t-head" width="70%">Recommendations</th>
+                                </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                Underspecified: Attributes + Tasks</a>
-                        </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table style="width:100%" class="table table-condensed table-bordered" id="underspecified-attributes-tasks-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="t-head" width="30%">Query</th>
-                                            <th class="t-head" width="70%">Recommendations</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+                <div id="underspecified_attributes_tasks" class="tab-pane fade">
+                    <br/>
+                    <div class="overflow-y-auto custom-height">
+                        <div class="table-responsive">
+                            <table style="width:100%" class="table table-condensed table-bordered"
+                                   id="underspecified-attributes-tasks-table">
+                                <thead>
+                                <tr>
+                                    <th class="t-head" width="30%">Query</th>
+                                    <th class="t-head" width="70%">Recommendations</th>
+                                </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                Underspecified: Attributes + VIS</a>
-                        </h4>
-                    </div>
-                    <div id="collapse3" class="panel-collapse collapse">
-                        <div class="panel-body">
+                <div id="underspecified_attributes_vis" class="tab-pane fade">
+                    <br/>
+                    <div class="overflow-y-auto custom-height">
+                        <div class="table-responsive">
                             <div class="table-responsive">
-                                <div class="table-responsive">
-                                    <table style="width:100%" class="table table-condensed table-bordered" id="underspecified-attributes-vis-table">
-                                        <thead>
-                                        <tr>
-                                            <th class="t-head" width="30%">Query</th>
-                                            <th class="t-head" width="70%">Recommendations</th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-                                Underspecified: Attributes</a>
-                        </h4>
-                    </div>
-                    <div id="collapse4" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table style="width:100%" class="table table-condensed table-bordered" id="underspecified-attributes-table">
+                                <table style="width:100%" class="table table-condensed table-bordered"
+                                       id="underspecified-attributes-vis-table">
                                     <thead>
                                     <tr>
                                         <th class="t-head" width="30%">Query</th>
@@ -119,6 +91,22 @@
                                     </thead>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="underspecified_attributes" class="tab-pane fade">
+                    <br/>
+                    <div class="overflow-y-auto custom-height">
+                        <div class="table-responsive">
+                            <table style="width:100%" class="table table-condensed table-bordered"
+                                   id="underspecified-attributes-table">
+                                <thead>
+                                <tr>
+                                    <th class="t-head" width="30%">Query</th>
+                                    <th class="t-head" width="70%">Recommendations</th>
+                                </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
