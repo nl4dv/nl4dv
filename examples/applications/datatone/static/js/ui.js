@@ -98,7 +98,7 @@ function processDataResponse(response, dataset){
 // Dataset is optional here
 function initializeNL4DV(){
     var dataset = $(globalConfig.datasetSelect).val();
-    $.post("/init", {"dependency_parser": "stanford"})
+    $.post("/init", {"dependency_parser": "corenlp"})
         .done(function (response) {
             configureDatabase(dataset);
         });

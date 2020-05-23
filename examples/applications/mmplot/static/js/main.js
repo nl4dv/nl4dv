@@ -9,7 +9,7 @@
 
     // Dataset is optional here
     main.initializeNL4DV= function(dataset){
-        $.post("/init", {"dependency_parser": "stanford"})
+        $.post("/init", {"dependency_parser": "corenlp"})
             .done(function (response) {
                 main.configureDatabase(dataset);
             });
