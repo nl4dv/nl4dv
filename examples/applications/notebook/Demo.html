@@ -13074,19 +13074,6 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13096,10 +13083,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nl4dv</span> <span class="kn">import</span> <span class="n">NL4DV</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">nl4dv</span> <span class="kn">import</span> <span class="n">NL4DV</span>
 </pre></div>
 
     </div>
@@ -13116,7 +13104,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl4dv_instance</span> <span class="o">=</span> <span class="n">NL4DV</span><span class="p">(</span><span class="n">data_url</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;assets&quot;</span><span class="p">,</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="s2">&quot;movies-w-year.csv&quot;</span><span class="p">))</span>
@@ -13136,7 +13124,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dependency_parser_config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;corenlp&#39;</span><span class="p">,</span><span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;assets&quot;</span><span class="p">,</span><span class="s2">&quot;jars&quot;</span><span class="p">,</span><span class="s2">&quot;stanford-english-corenlp-2018-10-05-models.jar&quot;</span><span class="p">),</span><span class="s1">&#39;parser&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;assets&quot;</span><span class="p">,</span><span class="s2">&quot;jars&quot;</span><span class="p">,</span><span class="s2">&quot;stanford-parser.jar&quot;</span><span class="p">)}</span>
@@ -13157,7 +13145,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl4dv_instance</span><span class="o">.</span><span class="n">render_vis</span><span class="p">(</span><span class="s2">&quot;Create a histogram showing distribution of IMDB ratings&quot;</span><span class="p">)</span>
@@ -13173,20 +13161,20 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
 
 
-<div id="4d664de9-f6d1-439a-a6c3-16fc0c23af3f"></div>
+<div id="4a51c8c0-c10c-4738-956b-f430023afef8"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#4d664de9-f6d1-439a-a6c3-16fc0c23af3f');
+var element = $('#4a51c8c0-c10c-4738-956b-f430023afef8');
 const spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json", "mark": {"type": "bar", "tooltip": true}, "encoding": {"x": {"field": "IMDB Rating", "type": "quantitative", "aggregate": null, "bin": true, "axis": {"format": "s"}}, "y": {"field": "IMDB Rating", "type": "quantitative", "aggregate": "count", "axis": {"format": "s"}}}, "transform": [], "data": {"url": "../../assets/data/movies-w-year.csv", "format": {"type": "csv"}}};
 const opt = {};
 const type = "vega-lite";
-const id = "94d38808-4f40-44b2-97f3-5f7ed85005ec";
+const id = "dad963ac-6a9d-467e-b131-ffdc3f5ad7b6";
 
 const output_area = this;
 
@@ -13241,7 +13229,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl4dv_instance</span><span class="o">.</span><span class="n">render_vis</span><span class="p">(</span><span class="s2">&quot;gross as a stripplot&quot;</span><span class="p">)</span>
@@ -13257,20 +13245,20 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
 
 
-<div id="fd38a29b-91be-4f9e-a74b-748dc7512a4a"></div>
+<div id="1f0871e2-363b-4c7f-ac1e-f24f1ee020fe"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#fd38a29b-91be-4f9e-a74b-748dc7512a4a');
+var element = $('#1f0871e2-363b-4c7f-ac1e-f24f1ee020fe');
 const spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json", "mark": {"type": "tick", "tooltip": true}, "encoding": {"x": {"field": "Worldwide Gross", "type": "quantitative", "aggregate": null, "axis": {"format": "s"}}, "tooltip": {"field": "Title"}}, "transform": [], "data": {"url": "../../assets/data/movies-w-year.csv", "format": {"type": "csv"}}};
 const opt = {};
 const type = "vega-lite";
-const id = "2424073e-a6f6-42eb-89ba-3cbe2e88205d";
+const id = "e53119d0-76c2-4026-b2d7-bdc661c2c023";
 
 const output_area = this;
 
@@ -13325,7 +13313,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl4dv_instance</span><span class="o">.</span><span class="n">render_vis</span><span class="p">(</span><span class="s2">&quot;budget as a boxplot&quot;</span><span class="p">)</span>
@@ -13341,20 +13329,20 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
 
 
-<div id="fab727dd-3b99-4c4f-bb7e-b84f07fa2e46"></div>
+<div id="0b19cc51-29f3-47a2-822d-a090db7996de"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#fab727dd-3b99-4c4f-bb7e-b84f07fa2e46');
+var element = $('#0b19cc51-29f3-47a2-822d-a090db7996de');
 const spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json", "mark": {"type": "boxplot", "tooltip": true}, "encoding": {"x": {"field": "Production Budget", "type": "quantitative", "aggregate": null, "axis": {"format": "s"}}, "tooltip": {"field": "Title"}}, "transform": [], "data": {"url": "../../assets/data/movies-w-year.csv", "format": {"type": "csv"}}};
 const opt = {};
 const type = "vega-lite";
-const id = "7c99cf83-d196-4b7d-8c34-2532695564ac";
+const id = "058a399d-8997-478e-b7a0-934481c7a0fa";
 
 const output_area = this;
 
@@ -13409,7 +13397,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl4dv_instance</span><span class="o">.</span><span class="n">render_vis</span><span class="p">(</span><span class="s2">&quot;Show average gross across genres for science fiction and fantasy movies&quot;</span><span class="p">)</span>
@@ -13425,20 +13413,20 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
 
 
-<div id="06e6f229-7f9b-4380-9edd-cfdf659f502d"></div>
+<div id="56d64d2b-a726-4f96-bbd5-017a8e283bec"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#06e6f229-7f9b-4380-9edd-cfdf659f502d');
+var element = $('#56d64d2b-a726-4f96-bbd5-017a8e283bec');
 const spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json", "mark": {"type": "bar", "tooltip": true}, "encoding": {"y": {"field": "Worldwide Gross", "type": "quantitative", "aggregate": "mean", "axis": {"format": "s"}}, "x": {"field": "Genre", "type": "nominal", "aggregate": null}}, "transform": [{"filter": {"field": "Creative Type", "oneOf": ["Science Fiction", "Fantasy"]}}], "data": {"url": "../../assets/data/movies-w-year.csv", "format": {"type": "csv"}}};
 const opt = {};
 const type = "vega-lite";
-const id = "53755411-8f10-4074-83c8-41db49b2a503";
+const id = "64f87946-57a1-48c9-990f-cc7dfcc8e236";
 
 const output_area = this;
 
@@ -13493,7 +13481,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl4dv_instance</span><span class="o">.</span><span class="n">render_vis</span><span class="p">(</span><span class="s2">&quot;Visualize rating and budget&quot;</span><span class="p">)</span>
@@ -13509,20 +13497,20 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
 
 
-<div id="c12182ef-9680-42ec-b3d5-45ef4cfb2df7"></div>
+<div id="37efe547-bedf-4a05-9353-7da25bc58fe9"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#c12182ef-9680-42ec-b3d5-45ef4cfb2df7');
+var element = $('#37efe547-bedf-4a05-9353-7da25bc58fe9');
 const spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json", "mark": {"type": "point", "tooltip": true}, "encoding": {"x": {"field": "Production Budget", "type": "quantitative", "aggregate": null, "axis": {"format": "s"}}, "y": {"field": "IMDB Rating", "type": "quantitative", "aggregate": null, "axis": {"format": "s"}}, "tooltip": {"field": "Title"}}, "transform": [], "data": {"url": "../../assets/data/movies-w-year.csv", "format": {"type": "csv"}}};
 const opt = {};
 const type = "vega-lite";
-const id = "3bbc50da-15ca-4f7f-9ec7-680e5ad159f6";
+const id = "7cdcc378-210f-4c02-8139-2c31f375de17";
 
 const output_area = this;
 
@@ -13577,7 +13565,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl4dv_instance</span><span class="o">.</span><span class="n">render_vis</span><span class="p">(</span><span class="s2">&quot;show the relationship between budget and rating for action and adventure movies that grossed over 100M&quot;</span><span class="p">)</span>
@@ -13593,20 +13581,20 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
 
 
-<div id="3320ddab-6297-4e8c-a380-ea61f5166a3c"></div>
+<div id="dd6bd4e0-1af8-42de-877c-82dbb1cc6f2d"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#3320ddab-6297-4e8c-a380-ea61f5166a3c');
+var element = $('#dd6bd4e0-1af8-42de-877c-82dbb1cc6f2d');
 const spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json", "mark": {"type": "point", "tooltip": true}, "encoding": {"x": {"field": "Production Budget", "type": "quantitative", "aggregate": null, "axis": {"format": "s"}}, "y": {"field": "IMDB Rating", "type": "quantitative", "aggregate": null, "axis": {"format": "s"}}, "tooltip": {"field": "Title"}}, "transform": [{"filter": "lower(datum[\"Worldwide Gross\"]) > 100000000.0"}, {"filter": {"field": "Genre", "oneOf": ["Action", "Adventure"]}}], "data": {"url": "../../assets/data/movies-w-year.csv", "format": {"type": "csv"}}};
 const opt = {};
 const type = "vega-lite";
-const id = "11bc0b91-e9d7-4a3c-986c-c93137ea91f7";
+const id = "24a9a611-8242-4128-ab2d-1434cad7f741";
 
 const output_area = this;
 
