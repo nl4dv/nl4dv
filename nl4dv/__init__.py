@@ -157,6 +157,7 @@ class NL4DV:
 
         self.vis_list = self.vis_genie_instance.get_vis_list(attribute_list=final_encodeable_attributes)
         self.execution_durations['get_vis_list'] = time.time() - st
+        self.execution_durations['total'] = sum(self.execution_durations.values())
 
         # Prepare output
         output = {
