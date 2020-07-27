@@ -31,6 +31,7 @@
 
   * [Spacy](https://spacy.io/): install a sample **English model**.
   ```sh
+      pip install spacy
       python -m spacy download en_core_web_sm
   ```
 
@@ -390,17 +391,18 @@ NL4DV can be installed as a Python package and imported in your own awesome appl
 * NL4DV is written in [Python 3](https://www.python.org/doc/versions/). Plea    se ensure you have a Python 3 environment already installed.
 * Clone this repository (master branch) and enter (`cd`) into it.
 
-* Install dependencies.
-```
-    python -m pip install -r requirements.txt
-```
-
 * Create a new [virtual environment](https://pypi.org/project/virtualenv/) in python3 and activate it.
 
 ```sh
     virtualenv --python=python3 venv
     source venv/bin/activate
 ```
+
+* Install dependencies.
+```
+    python -m pip install -r requirements.txt
+```
+
 - Create a python distributable: 
   ```py
   python setup.py sdist
