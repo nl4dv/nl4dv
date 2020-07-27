@@ -1,0 +1,2 @@
+debugger/index filter=lfs diff=lfs merge=lfs -text
+debugger/index.html filter=lfs diff=lfs merge=lfs -text
