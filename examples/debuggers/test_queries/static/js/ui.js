@@ -1,5 +1,23 @@
+function findMinMaxAvg(arr){
+  var min = arr[0]; // min
+  var max = arr[0]; // max
+  var sum = arr[0]; // sum
+
+  for(var i = 1; i < arr.length; i++){
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+    sum = sum + arr[i];
+  }
+  return [min, max, sum / arr.length, arr.length]
+}
+
 function execute(){
-    var query_sets = ["fullyspecified-attributes-tasks-vis", "underspecified-attributes-tasks", "underspecified-attributes-vis", "underspecified-attributes"]
+    var query_sets = ["fullyspecified-attributes-tasks-vis", "underspecified-attributes-tasks", "underspecified-attributes-vis", "underspecified-attributes", "other-examples"]
+    var executionTimes = [];
     for(var query_file_index=0; query_file_index<query_sets.length; query_file_index++){
         var url = "assets/queries/" + (query_file_index+1).toString() + "-" + query_sets[query_file_index] + ".txt?version=" + Math.random()
         var current_dataset = "";
@@ -39,6 +57,7 @@ function execute(){
                         $.ajax("/analyze_query", {type: 'POST', data: {"query": query}, async:false})
                             .done(function (response_string) {
                                 var response = JSON.parse(response_string);
+                                executionTimes.push(response["debug"]["execution_durations"]["total"])
 
                                 // container for Extracted Attributes
                                 var attributeMap = response['attributeMap'];
@@ -75,6 +94,8 @@ function execute(){
             }
         });
     }
+
+    console.log(findMinMaxAvg(executionTimes));
 }
 
 
@@ -114,6 +135,12 @@ function configureDatabase(dataset){
                     "Bronze Medal": 'Q',
                     "Total Medal": 'Q',
                     "Year": "T"
+                }
+                ignore_words = [];
+            }else if(dataset == "superstore.csv"){
+                attributeTypeChanges = {
+                    "Order Date": 'T',
+                    "Ship Date": 'T'
                 }
                 ignore_words = [];
             }
