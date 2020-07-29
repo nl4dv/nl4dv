@@ -24,6 +24,12 @@ function execute(){
         for (var i = 1; i < rows.length; i++) {
             var row = rows[i];
             var dataset = row["dataset"]
+
+            if(query_sets[query_file_index] == "other-examples"){
+                console.log(dataset);
+                table = document.getElementById(dataset.split(".csv")[0] + "-table");
+            }
+
             var alias = row["alias"];
             var query = row["query"];
             var response = row["response"];

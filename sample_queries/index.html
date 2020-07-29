@@ -121,17 +121,66 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="other_examples" role="tabpanel">
-                    <div class="overflow-y-auto custom-height">
-                        <div class="table-responsive">
-                            <table style="width:100%" class="table table-condensed table-bordered"
-                                   id="other-examples-table">
-                                <thead>
-                                <tr>
-                                    <th class="t-head" width="30%">Query</th>
-                                    <th class="t-head" width="70%">Recommendations</th>
-                                </tr>
-                                </thead>
-                            </table>
+                    <div class="nav nav-pills" role="tablist">
+                        <a class="nav-link active" data-toggle="pill"
+                           href="#cars" role="tab" aria-selected="true">
+                            Cars
+                        </a>
+                        <a class="nav-link" data-toggle="pill"
+                           href="#movies" role="tab" aria-selected="false">
+                            Movies
+                        </a>
+                        <a class="nav-link" data-toggle="pill"
+                           href="#superstore" role="tab" aria-selected="false">
+                            Superstore
+                        </a>
+                    </div>
+                    <div class="tab-content">
+                        <br/>
+                        <div class="tab-pane fade" id="cars" role="tabpanel">
+                            <div class="overflow-y-auto custom-height">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-condensed table-bordered"
+                                           id="cars-w-year-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="t-head" width="30%">Query</th>
+                                            <th class="t-head" width="70%">Recommendations</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="movies" role="tabpanel">
+                            <div class="overflow-y-auto custom-height">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-condensed table-bordered"
+                                           id="movies-w-year-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="t-head" width="30%">Query</th>
+                                            <th class="t-head" width="70%">Recommendations</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="superstore" role="tabpanel">
+                            <div class="overflow-y-auto custom-height">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-condensed table-bordered"
+                                           id="superstore-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="t-head" width="30%">Query</th>
+                                            <th class="t-head" width="70%">Recommendations</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
