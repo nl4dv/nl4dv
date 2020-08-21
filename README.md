@@ -415,7 +415,7 @@ NL4DV can be installed as a Python package and imported in your own awesome appl
 - Verify by opening your Python console and importing it
   ```
   $python
-  >>> import nl4dv from NL4DV
+  >>> from nl4dv import NL4DV
   ```
 - Enjoy, NL4DV is now available as a Python package!
 
