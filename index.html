@@ -1,69 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <title>NL4DV | Home</title>
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Natural Language toolkit for Data Visualization">
+    <meta name="author" content="Arpit Narechania">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="assets/fontawesome/js/all.js"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <!-- Custom CSS -->
+    <link id="custom-style" rel="stylesheet" href="assets/css/custom.css">
 
-    <title>NL4DV</title>
-    <meta name="description"
-          content="An Open Source Natural Language Toolkit for Data Visualization">
-    <link rel="stylesheet" href="assets/main.css">
+</head> 
 
-    <link rel="stylesheet" type="text/css" href="assets/style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+<body class="landing-page">   
+	
+	<!-- GITHUB BUTTON JS -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+    <div class="page-wrapper">
+        
+        <!-- ******Header****** -->
+        <header class="header text-center">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <span class="text-highlight">NL4DV</span>
+                    </h1>
+                </div><!--//branding-->
+                <div class="tagline">
+                    <p>Natural Language toolkit for Data Visualization</p>
+                    <p>Georgia Institute of Technology</p>
+                </div><!--//tagline-->
+                <div class="cta-container">
+                    <a class="btn btn-primary btn-cta" href="https://github.com/nl4dv/nl4dv" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                    &nbsp;&nbsp;
+                    <a class="btn btn-primary btn-cta" target="_blank"><i class="fas fa-file-pdf"></i> Download Paper (coming soon)</a>
+                </div><!--//cta-container-->
 
-</head>
+            </div><!--//container-->
+        </header><!--//header-->
+        
+        <section class="cards-section text-center">
+            <div class="container">
+                <div class="intro">
+                    <h2 class="title">Welcome to NL4DV</h2>
+                    <p class="text-left">Natural language interfaces (NLIs) have shown great promise for visual data analysis, allowing people to flexibly specify and interact with visualizations. However, developing visualization NLIs remains a challenging task, requiring low-level implementation of natural language processing (NLP) techniques as well as knowledge of visual analytic tasks and visualization design. </p>
+                    <p class="text-left">NL4DV is a Python package that takes as input a tabular dataset and a natural language query about that dataset. In response, the toolkit returns an analytic specification modeled as a JSON object containing data attributes, analytic tasks, and a list of Vega-Lite specifications relevant to the input query. In doing so, NL4DV aids visualization developers who may not have a background in NLP, enabling them to create new visualization NLIs or incorporate natural language input within their existing systems.</p>
+                    <br/>
+                    <h2 class="title">Video Overview</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/U5uDyILweu8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
 
-<body>
-<a class="github-fork-ribbon" href="https://github.com/nl4dv/nl4dv" data-ribbon="Fork me on GitHub" title="Fork NL4DV on GitHub">Fork NL4DV on GitHub</a>
+                </div><!--//intro-->
+                <br/>
+                <h2 class="title">Getting started is easy!</h2>
+                <br/>
+                <div id="cards-wrapper" class="cards-wrapper row">
+                    <div class="item item-primary col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <i class="icon icon_document_alt"></i>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">Documentation</h3>
+                            <p class="intro">Installation Instructions and API Reference</p>
+                            <a class="link" href="documentation.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item item-primary col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <span aria-hidden="true" class="icon icon_datareport"></span>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">Showcase</h3>
+                            <p class="intro">Applications recreated and Sample Queries answered using NL4DV.</p>
+                            <a class="link" href="showcase.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                </div><!--//cards-->
+                
+            </div><!--//container-->
+        </section><!--//cards-section-->
+    </div><!--//page-wrapper-->
+    
+    <footer class="footer text-center">
+        <div class="container">
+            <p>
+                NL4DV: Natural Language toolkit for Data Visualization.<br/>
+                <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2020</small>
+            </p>
+            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
 
-<header class="site-header" role="banner">
-    <section class="page-header page-header-bg">
-          <h1 class="project-name">NL4DV</h1>
-          <h2 class="project-tagline">An open source Natural Language Toolkit for Data Visualization</h2>
-          <a href="https://github.com/nl4dv/nl4dv" class="btn">View on GitHub</a>
-          <a href="https://github.com/nl4dv/nl4dv/archive/0.0.9.zip" class="btn">Download .zip</a>
-          <a href="https://github.com/nl4dv/nl4dv/archive/0.0.9.tar.gz" class="btn">Download .tar.gz</a>
-    </section>
-</header>
-
-<main class="page-content" aria-label="Content">
-    <div class="wrapper" id="container">
-        <img src="assets/teaser.png"/>
-        <br/>
-        <p>Natural language interfaces (NLIs) have shown great promise for visual data analysis, allowing people to flexibly specify and interact with visualizations. However, developing visualization NLIs remains a challenging task, requiring low-level implementation of natural language processing (NLP) techniques as well as knowledge of visual analytic tasks and visualization design.
-            We present NL4DV, a toolkit for natural language-driven data visualization.
-NL4DV is a Python package that takes as input a tabular dataset and a natural language query about that dataset.
-In response, the toolkit returns an analytic specification modeled as a JSON object containing data attributes, analytic tasks, and a list of Vega-Lite specifications relevant to the input query.
-In doing so, NL4DV aids visualization developers who may not have a background in NLP, enabling them to create new visualization NLIs or incorporate natural language input within their existing systems.</p>
-        <br/>
-        You can see sample queries that NL4DV can execute <a target="_blank" href="sample_queries/index.html">here</a> and learn more about the toolkit <a target="_blank" href="https://github.com/nl4dv/nl4dv">here</a>.
-        <br/>
-    </div>
-</main>
-
-<footer class="site-footer">
-    <div class="wrapper">
-        <h2 class="footer-heading">NL4DV</h2>
-
-        <div class="footer-col-wrapper">
-            <div class="footer-col footer-col-1">
-                <ul class="contact-list">
-                    <li>Author Name</li>
-                    <li>Author Email</li>
-                </ul>
-            </div>
-            <div class="footer-col footer-col-3">
-                <p>An open source Natural Language Toolkit for Data Visualization</p>
-            </div>
-        </div>
-    </div>
-</footer>
 </body>
+</html> 
 
-<script type="text/javascript" src="js/main.js"></script>
-</html>
