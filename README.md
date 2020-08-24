@@ -6,4 +6,6 @@
 * Visualizations (Vega-Lite specifications)
 
 
-For **Documentation**, **Usage**, and **Examples** [Click Here](https://nl4dv.github.io/nl4dv/)
+The **Research Paper** published at **IEEE VIS'20** can be downloaded from [here](https://www.cc.gatech.edu/~anarechania3/docs/publications/nl4dv_vis_2020.pdf).
+
+The **Documentation**, **Usage**, and **Examples** can be found [here](https://nl4dv.github.io/nl4dv/).
