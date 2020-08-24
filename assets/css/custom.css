@@ -64,3 +64,7 @@
 #api-reference > .section-block > ul > li {
     margin-bottom: 32px;
 }
+
+.m-xs{
+    margin: 4px;
+}
