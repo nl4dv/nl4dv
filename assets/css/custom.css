@@ -1,0 +1,66 @@
+.img-teaser{
+    padding: 24px;
+    width: 100%;
+}
+
+.img-center{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+.queryPanel {
+    background-color: white;
+    transition: max-height 0.2s ease-out;
+}
+
+.visThumbnail{
+    max-width: 98%;
+    height: 300px;
+    border: 1px solid #eeeeee;
+    overflow: auto;
+    /*display: flex;*/
+    /*flex-wrap: nowrap;*/
+    margin: 1% 1% 2% 1%;
+    display: block !important;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.queryAccordion {
+    /*background-color: #eee;*/
+    /*color: gray;*/
+    cursor: pointer;
+    padding: 0.1px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: large;
+    transition: 0.2s;
+    background: white;
+}
+
+.queryAccordion ul{
+    margin-bottom: 0 !important;
+}
+
+.queryAccordion ul li{
+    padding: 4px;
+}
+
+.activeQuery, .queryAccordion:hover {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.tab-content{
+    padding: 16px;
+}
+
+#api-reference > .section-block > ul > li {
+    margin-bottom: 32px;
+}
