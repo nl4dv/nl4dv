@@ -1,3 +1,7 @@
+
+//Called when the execute button is pressed. This takes all the queries from debugger_batch_queries
+//and calls NL4DV toolkit on queries. Outputs the attribute and task tables as well as the top
+//visualizatons.
 function execute(){
     var table = document.getElementById('debugTable');
     var data;
@@ -10,11 +14,14 @@ function execute(){
 	    dataType: "text",
 	    success: function(data)
 	    {
+
+            //iterate through each row in queries.txt
             var rows = data.split("\n");
             for (var i = 1; i < rows.length; i++) {
                 var attributeList = [];
                 var taskList = [];
 
+                //take in rows from queries.txt and split rows into queries, datasets and aliases
                 var cells = rows[i].split("\t");
 
                 if (cells.length > 1) {
@@ -33,6 +40,7 @@ function execute(){
                     var taskList = [];
                     var visObj;
 
+                    //Create new row for each new query
                     var new_row = table.insertRow(-1);
 
                     // Dataset
@@ -43,6 +51,7 @@ function execute(){
                     var cell = new_row.insertCell(-1);
                     cell.innerHTML = query;
 
+                    //Call analyze query on the query and get output from NL4DV analyze_query function
                     $.ajax("/analyze_query", {type: 'POST', data: {"query": query}, async:false})
                         .done(function (response_string) {
                             var response = JSON.parse(response_string);
@@ -65,12 +74,15 @@ function execute(){
                             visObj = response['visList'];
                     });
 
+                    //Make sure that the visualizations are mapped correctly to each query.
                     dict[queryList.length] = visObj;
 
                     // visualization
                     var new_cell = new_row.insertCell(0);
+                    //Create wrapper div for the visualization.
                     var vizContainer = document.createElement('div');
                     $(vizContainer).addClass("vizContainer");
+                    //Create div for the visualization of the query. This div will be of fixed height and width.
                     visObj.forEach(function(visSpec) {
                         if(JSON.stringify(visSpec['encoding']) != "{}"){
                             var div = document.createElement('div');
@@ -78,12 +90,16 @@ function execute(){
                             $(div).height(270);
                             $(div).addClass("text-center overflow display-inline");
                             if(visObj != null){
+                                //Make the visualization width and height of fixed width and height.
                                 visObj["width"] = 200;
                                 visObj["height"] = 200;
                                 vegaEmbed(div, visSpec["vlSpec"], vegaOptMode);
                             }
+                            //Add div to wrapper.
                             $(vizContainer).append(div);
 
+                            //Create new div that contains table for the score of visualization plus breakdown of each score.
+                            //Breakdown includes attributes, task, and visualization
                             var div = document.createElement('div');
                             total = visSpec['score'];
                             score_list = visSpec['scoreObj'];
@@ -98,15 +114,19 @@ function execute(){
                                 '</tr>';
                             content += "</table>";
                             content += "<hr>";
+                            //Add table to div
                             $(div).append(content);
                             $(vizContainer).append(div);
 
                         }
                     });
+                    //Add visualization cell to container
                     new_cell.appendChild(vizContainer);
                     new_row.appendChild(new_cell);
 
-                    // attributes
+                    // Add table to row that displays the attribute name and metadata about attribute
+                    //Displays query phrase used to match attribute, metric used to match attribute, if referenced explicitly,
+                    //if ambigious, and additional metadata
                     new_cell = new_row.insertCell(0);
                     var content = "<div class='table-responsive'><table class='table table-bordered table-condensed'>"
                     content += '<tr><th>Name</th><th>Query Phrase</th><th>Metric</th><th>Reference Type</th><th>Is Ambiguous</th><th>Meta</th></tr>';
@@ -124,7 +144,9 @@ function execute(){
                     $(new_cell).append(content);
                     new_row.appendChild(new_cell);
 
-                    // tasks
+                    // Add table to rows that displays the task name and metadata about task
+                    // Table includes task name, operation, values of attributes used in operation, if referenced explicitly,
+                    //if ambiguous, and additional metadata, and query phrase used to match task
                     new_cell = new_row.insertCell(0);
                     var content = "<div class='table-responsive'><table class='table table-bordered table-condensed'>"
                     content += '<tr><th>Task</th><th>Operator</th><th>Value</th><th>Attribute</th><th>Inference Type</th><th>Is Attribute Ambiguous</th><th>Is Value Ambiguous</th><th>Query Phrase</th><th>Meta</th></tr>';
@@ -151,6 +173,7 @@ function execute(){
 }
 
 
+//Initializes NL4DV and sets dependency parser to either Stanford CoreNLP or Spacy
 function initNL4DV(dependency_parser) {
     $.post("/init", {"dependency_parser": dependency_parser})
         .done(function (response) {
@@ -158,6 +181,7 @@ function initNL4DV(dependency_parser) {
         });
 }
 
+//Set the dataset to analyze queries on. Currently only supports toy datasets.
 function configureDatabase(dataset){
     $.ajax("/setData", {type: 'POST', data: {"dataset": dataset}, async:false})
         .done(function (r1) {
@@ -205,6 +229,7 @@ function configureDatabase(dataset){
         });
 }
 
+//When page is loaded NL4DV is initialized with corenlp dependency parser.
 $(document).ready(function() {
     initNL4DV("corenlp");
 });
