@@ -68,3 +68,7 @@
 .m-xs{
     margin: 4px;
 }
+
+.coloredText a{
+    color: #AE3C75 !important;
+}
