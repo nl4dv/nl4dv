@@ -28,7 +28,7 @@ We thank <a href="mailto:rmitra34@gatech.edu">Rishab Mitra</a> for helping build
 <!--```-->
 
 ### License
-The software is available under the [MIT License](https://github.com/nl4dv/nl4dv/LICENSE).
+The software is available under the [MIT License](https://github.com/nl4dv/nl4dv/blob/master/LICENSE).
 
 ### Contact
 If you have any questions, feel free to [open an issue](https://github.com/nl4dv/nl4dv/issues/new/choose) or contact [Arpit Narechania](https://www.cc.gatech.edu/~anarechania3).
