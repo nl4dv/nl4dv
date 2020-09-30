@@ -568,14 +568,16 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
                                     </li>
                                     <li>
                                         <p>Create a new <a href="https://pypi.org/project/virtualenv/" target="_blank">virtual
-                                            environment</a> in python3 and activate it.</p>
+                                            environment</a>.</p>
                                         <p><code class="language-bash">virtualenv --python=python3 venv</code></p>
+                                    </li>
+                                    <li>
                                         <p>
-                                            MacOSX/Linux
-                                            <code class="language-bash">source venv/bin/activate</code>
+                                            Activate it using:
                                             <br/>
-                                            Windows
-                                            <code class="language-bash">venv\Scripts\activate.bat</code>
+                                            <code class="language-bash">source venv/bin/activate</code> (MacOSX/ Linux)
+                                            <br/>
+                                            <code class="language-bash">venv\Scripts\activate.bat</code> (Windows)
                                         </p>
                                     </li>
                                     <li>
@@ -584,15 +586,18 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
                                         </p>
                                     </li>
                                     <li>
-                                        <p>Create a Python distributable.</p>
+                                        <b><i>make your changes></i></b>
+                                    </li>
+                                    <li>
+                                        <p>Bump up the version in <i>setup.py</i> and create a Python distributable.</p>
                                         <p><code class="language-bash">python setup.py sdist</code></p>
                                     </li>
                                     <li>
-                                        <p>This will create **nl4dv-0.0.9.tar.gz** inside `dist/`.</p>
+                                        <p>This will create a new file inside **nl4dv-*.*.*.tar.gz** inside the <i>dist</i> directory.</p>
                                     </li>
                                     <li>
-                                        <p>Install this .tar.gz in your Python environment:</p>
-                                        <p><code class="language-bash">python -m pip install &lt;PATH-TO-nl4dv-0.0.9.tar.gz&gt;</code>
+                                        <p>Install the above file in your Python environment using:</p>
+                                        <p><code class="language-bash">python -m pip install &lt;PATH-TO-nl4dv-*.*.*.tar.gz&gt;</code>
                                         </p>
                                     </li>
                                     <li>
@@ -603,7 +608,7 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
                                         </p>
                                     </li>
                                     <li>
-                                        Enjoy, NL4DV is now available as a Python package!
+                                        Enjoy, NL4DV is now available for use as a Python package!
                                     </li>
                                 </ol>
                             </div>
