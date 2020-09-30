@@ -645,10 +645,10 @@ vis_design_combos = {
     'QNT': {
         'combination': 'QNT',
         'support': True,
-        'tasks': ['trend', 'distribution'],
+        'tasks': ['derived_value', 'distribution'],
         'visualizations': ['linechart', 'barchart', 'stripplot'],
         'designs': [{
-            'task': 'trend',
+            'task': 'derived_value',
             'vis_type': 'linechart',
             'not_suggested_by_default': False,
             'mark': 'line',
@@ -658,7 +658,7 @@ vis_design_combos = {
             'y': {'attr': None, 'is_defined': False, 'agg': 'mean'},
             'color': {'attr': None, 'is_defined': False, 'agg': None}
         }, {
-            'task': 'trend',
+            'task': 'derived_value',
             'vis_type': 'linechart',
             'not_suggested_by_default': False,
             'mark': 'line',
@@ -669,7 +669,7 @@ vis_design_combos = {
             'column': {'attr': None, 'is_defined': False, 'agg': None},
             'color': {'attr': None, 'is_defined': False, 'attr_ref': 'column', 'agg': None}
         }, {
-            'task': 'trend',
+            'task': 'derived_value',
             'vis_type': 'barchart',
             'not_suggested_by_default': False,
             'mark': 'bar',
@@ -785,10 +785,10 @@ vis_design_combos = {
     'QOT': {
         'combination': 'QOT',
         'support': True,
-        'tasks': ['trend', 'distribution'],
+        'tasks': ['derived_value', 'distribution'],
         'visualizations': ['linechart', 'barchart', 'stripplot'],
         'designs': [{
-            'task': 'trend',
+            'task': 'derived_value',
             'vis_type': 'linechart',
             'not_suggested_by_default': False,
             'mark': 'line',
@@ -799,7 +799,7 @@ vis_design_combos = {
             'column': {'attr': None, 'is_defined': False, 'agg': None},
             'color': {'attr': None, 'is_defined': False, 'attr_ref': 'column', 'agg': None}
         }, {
-            'task': 'trend',
+            'task': 'derived_value',
             'vis_type': 'linechart',
             'not_suggested_by_default': False,
             'mark': 'line',
@@ -809,7 +809,7 @@ vis_design_combos = {
             'y': {'attr': None, 'is_defined': False, 'agg': 'mean'},
             'color': {'attr': None, 'is_defined': False, 'agg': None}
         }, {
-            'task': 'trend',
+            'task': 'derived_value',
             'vis_type': 'barchart',
             'not_suggested_by_default': False,
             'mark': 'bar',
