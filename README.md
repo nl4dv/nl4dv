@@ -5,7 +5,7 @@
 * Analytic tasks, and
 * Visualizations (Vega-Lite specifications)
 
-![NL4DV Overview](overview.png)
+![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png)
 
 The preprint of the **Research Paper** due to appear at **IEEE VIS'20** can be downloaded from [here](https://arxiv.org/abs/2008.10723).
 

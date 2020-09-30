@@ -1,8 +1,14 @@
 from setuptools import setup, find_packages
 
+# read the contents of your README file
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(
     name='nl4dv',
-    version='0.1.1',
+    version='0.1.3',
     author='Arpit Narechania',
     author_email='arpitnarechania@gatech.edu',
     packages=find_packages(),
@@ -13,7 +19,8 @@ setup(
     url='https://github.com/nl4dv/nl4dv',
     license='LICENSE.txt',
     description='Natural Language Toolkit for Data Visualization',
-    long_description=open('README.txt').read(),
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     install_requires=[
         "dateparser>=0.7.6",
         "fuzzywuzzy==0.8.1",
