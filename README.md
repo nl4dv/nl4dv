@@ -13,7 +13,7 @@ The **Documentation**, **Usage**, and **Examples** can be found [here](https://n
 
 ### Credits
 NL4DV was created by 
-<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab>.
+<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
 
 We thank <a href="mailto:rmitra34@gatech.edu">Rishab Mitra</a> for helping build some of our debugger applications and members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
