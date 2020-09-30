@@ -5,9 +5,11 @@ import math
 from collections import Counter, MutableMapping
 from fuzzywuzzy import fuzz
 import Levenshtein
+# from dateparser import parse
 from dateutil.parser import parse
 from datetime import date, datetime
 import copy
+from nl4dv.utils import constants
 
 WORD = re.compile(r'\w+')
 
@@ -162,18 +164,23 @@ def isint(datum):
     return a == b
 
 
+# # Dateparser settings
+# dateparser_settings = dict()
+# dateparser_settings['PREFER_DAY_OF_MONTH'] = 'first'
+# dateparser_settings['RELATIVE_BASE'] = datetime(2020, 1, 1)
 def isdate(datum):
     try:
         if datum == '' or str(datum).isspace():
-            return False
-        parse(datum, fuzzy=False)
+            return False, None
+        return True, parse(datum, fuzzy=False)
+        # parsed_obj = parse(datum, settings=constants.dateparser_settings)
+        # return parsed_obj is not None, parsed_obj
     except AttributeError:
-        return False
+        return False, None
     except ValueError:
-        return False
+        return False, None
     except OverflowError:
-        return False
-    return True
+        return False, None
 
 
 # Trim the output LIST based on the debug parameter

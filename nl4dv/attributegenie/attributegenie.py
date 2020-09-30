@@ -252,6 +252,7 @@ class AttributeGenie:
 
                 # Do NOT check for n_grams with numeric entities in the domain. They tend to produce erroneous results, especially due to the TOKEN based similarity algorithm.
                 ngram_str = ''.join([i for i in query_ngrams[ngram]["lower"] if not i.isdigit()])
+                # ngram_str = ''.join([i for i in query_ngrams[ngram]["lower"]])
 
                 add_attribute = False
                 for d in self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['domain']:
@@ -270,6 +271,15 @@ class AttributeGenie:
                         keyword_value_mapping[attr][ngram_str].add(value_raw)
                         add_attribute = True
 
+                    # elif self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"] == 'T' and helpers.isdate(ngram_str)[0]:
+                    #     parsed_value = helpers.isdate(ngram_str)[1]
+                    #     value_keyword_mapping[attr][parsed_value] = ngram_str
+                    #
+                    #     if ngram_str not in keyword_value_mapping[attr]:
+                    #         keyword_value_mapping[attr][ngram_str] = set()
+                    #     keyword_value_mapping[attr][ngram_str].add(parsed_value)
+                    #
+                    #     add_attribute = True
                     else:
 
                         string_similarity_score = helpers.compute_similarity(ngram_str, value,'token_similarity')

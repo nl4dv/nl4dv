@@ -2,7 +2,7 @@ import csv
 from collections import Counter
 import json
 import sys
-from dateutil.parser import parse
+from dateparser import parse
 from nl4dv.utils import constants, error_codes, helpers
 import os
 
@@ -130,9 +130,9 @@ class DataGenie:
                         self.populate_dataset_meta(attr, attr_val, attr_datatype)
 
                     # Check for Datetime
-                    # ToDo:- Works fine for datetime strings. Not for others like Time (5:30), Epochs (which gets captured above)
+                    # ToDo:- Works fine for datetime strings. Not for others like Epochs and Int-only Years (e.g. 2018) which get captured above.
                     # ToDo:- It is VERY risky to switch this elif block with the if block above
-                    elif helpers.isdate(attr_val):
+                    elif helpers.isdate(attr_val)[0]:
                         attr_datatype = constants.attribute_types['TEMPORAL']
                         self.populate_dataset_meta(attr, attr_val, attr_datatype)
 
@@ -218,23 +218,25 @@ class DataGenie:
                 self.data_attribute_map[attr]['summary']['min'] = attr_val
 
         elif attr_datatype == constants.attribute_types['TEMPORAL']:
-            try:
-                attr_val = parse(attr_val)
-            except Exception as e:
-                attr_val = float('NaN')
-            self.data_attribute_map[attr]['domain'].add(attr_val)
+            parsed_status, parsed_attr_val = helpers.isdate(attr_val)
+            if parsed_status:
+                self.data_attribute_map[attr]['domain'].add(parsed_attr_val)
+            else:
+                parsed_attr_val = float('NaN')
+
             # Compute Max and Min of the attribute datetime
             if 'start' not in self.data_attribute_map[attr]['summary']:
-                self.data_attribute_map[attr]['summary']['start'] = attr_val
+                self.data_attribute_map[attr]['summary']['start'] = parsed_attr_val
 
             if 'end' not in self.data_attribute_map[attr]['summary']:
-                self.data_attribute_map[attr]['summary']['end'] = attr_val
+                self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
 
-            if attr_val > self.data_attribute_map[attr]['summary']['end']:
-                self.data_attribute_map[attr]['summary']['end'] = attr_val
+            # print(parsed_status, attr_val, parsed_attr_val, self.data_attribute_map[attr]['summary']['end'])
+            if parsed_attr_val > self.data_attribute_map[attr]['summary']['end']:
+                self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
 
-            if attr_val < self.data_attribute_map[attr]['summary']['start']:
-                self.data_attribute_map[attr]['summary']['start'] = attr_val
+            if parsed_attr_val < self.data_attribute_map[attr]['summary']['start']:
+                self.data_attribute_map[attr]['summary']['start'] = parsed_attr_val
 
         else:
             attr_val = str(attr_val)
