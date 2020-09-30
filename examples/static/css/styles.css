@@ -1,0 +1,30 @@
+body{
+    font-size: 16px;
+}
+
+.link,
+.link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-interactive:hover{
+    background: #e1f5fe !important;
+}
+
+.img-wrapper {
+    overflow: hidden;
+    height: 200px;
+}
+
+.img-wrapper img {
+    margin-top: 0;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    width: 100%;
+    height: 250px;
+}
+
+.card:hover .img-wrapper img {
+    margin-top: -50px;
+}
