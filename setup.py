@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='nl4dv',
-    version='0.1.0',
+    version='0.1.1',
     author='Arpit Narechania',
     author_email='arpitnarechania@gatech.edu',
     packages=find_packages(),
