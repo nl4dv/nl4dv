@@ -29,9 +29,9 @@ query = "Show the relationship between budget and rating for Action and Adventur
 print("\nQuery Input: \n" + query)
 
 # -------------------- Dependency Parser (CHOOSE ONE out of the below 3 configurations) ---------------------------
-# dependency_parser_config = {'name': 'corenlp','model': os.path.join("examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("examples","assets","jars","stanford-parser.jar")}
+dependency_parser_config = {'name': 'corenlp','model': os.path.join("examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("examples","assets","jars","stanford-parser.jar")}
 # dependency_parser_config = {"name": "spacy", "model": "en_core_web_sm", "parser": None}
-dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"} # requires the server to be running.
+# dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"} # requires the server to be running.
 
 # Initialize NL4DV and set the above configurations
 nl4dv_instance = NL4DV(verbose=False)
