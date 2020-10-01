@@ -79,29 +79,33 @@
                                 <div class="code-block">
                                     <ul class="list">
                                         <li>
-                                            <p>NL4DV is written in <a href="https://www.python.org/doc/versions/"
-                                                                      target="_blank">Python 3</a>. Please ensure you have a
-                                                Python 3 environment already installed.</p>
+                                            <p><b>nl4dv</b> requires a <b><a href="https://www.python.org/doc/versions/" target="_blank">64-bit Python 3</a></b> environment. <b>Windows</b> users must ensure that <b><a href="https://visualstudio.microsoft.com/visual-cpp-build-tools">Microsoft C++ Build Tools</a></b> is installed.</p>
                                         </li>
                                         <li>
-                                            <p>From PyPi. <b><i>Stable release coming soon!</i></b></p>
+                                            <p>Install using one of the below two methods:
                                             <ul class="list">
-                                                <li><p><code class="language-bash">pip install -i
-                                                    https://test.pypi.org/simple/ nl4dv==0.1.3</code></p></li>
+                                                <li>
+                                                    <p><b><a href="https://test.pypi.org/project/nl4dv/0.0.1/" target="_blank">pip</a></b>.</p>
+                                                    <p><code class="language-bash">pip install --extra-index-url https://test.pypi.org/simple/ nl4dv==0.0.1</code></p>
+                                                </li>
+                                                <li>
+                                                    <p>A local distributable. Download</p>
+                                                    <p style="font-size:1.1rem;">
+                                                        <b><a
+                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.1.tar.gz"
+                                                        target="_blank">nl4dv-0.0.1.tar.gz</a></b>
+                                                        <br/>
+                                                        <i>or</i>
+                                                        <br/>
+                                                        <b><a
+                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.1.zip"
+                                                        target="_blank">nl4dv-0.0.1.zip</a></b>
+                                                    </p>
+                                                    <p>Accordingly, run <code class="language-bash">pip install nl4dv-0.0.1.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-0.0.1.zip</code>.</p>
+                                                </li>
                                             </ul>
-                                        </li>
-                                        <li>
-                                            <p>From the local distributable.</p>
-                                            <ol class="list">
-                                                <li><p>Download one of (<a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/0.1.3.tar.gz"
-                                                        target="_blank">.tar.gz</a>, <a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/0.1.3.zip"
-                                                        target="_blank">.zip</a>)</p></li>
-                                                <li><p>Accordingly, run <code class="language-bash">pip install nl4dv-0.1.3.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-0.1.3.zip</code>.</p></li>
-                                            </ol>
-                                        </li>
-                                    </ul>
+                                            <b>Note:</b> We recommend installing NL4DV in a  <a href="https://pypi.org/project/virtualenv/" target="_blank">virtual
+                                                    environment</a> as it avoids version conflicts with globally installed packages.
                                 </div><!--//code-block-->
                             </div><!--//section-block-->
                             <div id="post-installation" class="section-block">
@@ -109,16 +113,15 @@
                                 <br/>
                                 <ol class="list">
                                     <li>
-                                        <p>NL4DV installs <a href="https://www.nltk.org" target="_blank">nltk</a> by default. Please download the <b>popular</b>
-                                            nltk artifacts (corpora, etc) using
+                                        <p>NL4DV installs <a href="https://www.nltk.org" target="_blank">nltk</a> by default but requires a few datasets/models/corpora to be separately installed. Please download the <b>popular</b>
+                                            nltk artifacts using:
                                             <br/>
                                             <br/>
                                             <code class="language-bash">python -m nltk.downloader popular</code>
                                         </p>
                                     </li>
                                     <li>
-                                        <p>NL4DV requires a third-party Dependency Parser module to parse the query. You can choose
-                                            to install one from:</p>
+                                        <p>NL4DV requires a third-party Dependency Parser module to infer tasks. Download and install one of:</p>
                                         <ul>
                                             <li>
                                                 <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
@@ -138,6 +141,7 @@
                                                             <b>3.9.2</b> and after unzipping the folder, copy the
                                                             `stanford-parser.jar` file to `examples/assets/jars/` or a
                                                             known location.</p>
+                                                        <p><b>Note: </b> This requires <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">JAVA</a> installed and the JAVA_HOME / JAVAHOME environment variables to be set.</p>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -148,33 +152,26 @@
                                                     <li>
                                                         <p>
                                                             <a href="http://nlp.stanford.edu/software/stanford-corenlp-latest.zip"
-                                                               target="_blank">Download</a> and copy
-                                                            `stanford-corenlp-*.jar` and `stanford-corenlp-*-models.jar`
-                                                            contents to `examples/assets/jars/` or a known location.</p>
+                                                               target="_blank">Download</a> the Stanford CoreNLPServer, unzip it in a known location, and <code class="language-bash">cd</code> into it.</p>
                                                     </li>
                                                     <li>
-                                                        <p>Start the server (You will require <a
-                                                                href="https://www.oracle.com/java/technologies/javase-downloads.html"
-                                                                target="_blank">JAVA</a> installed). It will run on
-                                                            `http://localhost:9000`.</p>
+                                                        <p>Start the server using the below command. It will run on <a href="http://localhost:7001"
+                                                                                           target="_blank">http://localhost:9000</a>.</p>
                                                         <p><code class="language-bash">java -mx4g -cp "*"
                                                             edu.stanford.nlp.pipeline.StanfordCoreNLPServer -annotators
                                                             "tokenize,ssplit,pos,lemma,parse,sentiment" -port 9000
                                                             -timeout 30000</code></p>
+                                                        <p><b>Note: </b> This requires <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">JAVA</a> installed and the JAVA_HOME / JAVAHOME environment variables to be set.</p>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <p><a href="https://spacy.io/" target="_blank">Spacy</a>: After
-                                                    installing nl4dv (which installs spacy), install a sample <b>English
-                                                        model</b>.</p>
+                                                <p>NL4DV installs <a href="https://spacy.io/" target="_blank">Spacy</a> by default but requires a model to be separately installed. Install the sample <b>English
+                                                        model</b> using:</p>
                                                 <p><code class="language-bash">python -m spacy download
                                                     en_core_web_sm</code></p>
                                             </li>
                                         </ul>
-                                        <p><i>(<b>Note</b>: Switching between Stanford CoreNLP and Stanford
-                                            CoreNLPServer requires clearing the CLASSPATH (set internally by nl4dv).
-                                            Clear it manually for now, a fix will be available soon.</i></p>
                                     </li>
                                 </ol>
                             </div><!--//section-block-->
@@ -182,7 +179,8 @@
                                 <h3 class="block-title">Sample Code</h3>
                                 <div class="row">
                                     <div class="col-md-12 col-12">
-                                        <p>If everything went well in the Installation and Post Installation steps above, you are all set. Below is a Sample Code to get started. A more detailed example file (with many more configuration options) can be found <a href="https://github.com/nl4dv/nl4dv/blob/master/sample.py" target="_blank"></a></p>
+                                        <p>If everything went well in the Installation and Post Installation steps above, you are all set.
+                                            <br/>Use the below <b>Sample Code</b> to get started. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/master/sample.py" target="_blank">here</a>.</p>
                                         <div class="code-block">
                                                 <pre><code class="language-python">from nl4dv import NL4DV
 import os
@@ -192,7 +190,7 @@ nl4dv_instance = NL4DV(data_url = os.path.join(".", "examples", "assets", "data"
 
 # using Stanford Core NLP
 # ToDo: replace with appropriate paths
-dependency_parser_config = {"name": "corenlp", "model": os.path.join("examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),"parser": os.path.join("examples","assets","jars","stanford-parser.jar")}
+dependency_parser_config = {"name": "corenlp", "model": os.path.join(".", "examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),"parser": os.path.join(".", "examples","assets","jars","stanford-parser.jar")}
 
 # using Stanford CoreNLPServer
 # ToDo: replace the "url" parameter with the URL of your CoreNLPServer instance.
@@ -209,7 +207,10 @@ nl4dv_instance.set_dependency_parser(config=dependency_parser_config)
 query = "create a barchart showing average gross across genres"
 
 # Execute the query
-output = nl4dv_instance.analyze_query(query)</code></pre>
+output = nl4dv_instance.analyze_query(query)
+
+# Print the output
+print(output)</code></pre>
                                         </div><!--//code-block-->
                                     </div>
                                 </div><!--//row-->
@@ -328,8 +329,16 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
 ]</code></pre>
                                     </div><!--//code-block-->
                                 </div><!--//collapse-->
+                                <br/>
+                                <h4 class="block-title coloredText"><a data-toggle="collapse"
+                                                                           href="#visCollapse">
+                                        Rendered Visualization
+                                    </a></h4>
+                                <div class="collapse show" id="visCollapse">
+                                    <img style="border: 1px solid lightgray;" class="img-fluid img-center"
+                                         src="assets/images/example.png" alt="Example"/>
+                                </div>
                             </div><!--//section-block-->
-
                             <div id="applications" class="section-block">
                                 <h3 class="block-title">Applications</h3>
                                 <div class="row">
@@ -350,13 +359,9 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
                                                 <p><code class="language-bash">virtualenv --python=python3 venv</code></p>
                                             </li>
                                             <li>
-                                                <p>
-                                                    Activate it using:
-                                                    <br/>
-                                                    <code class="language-bash">source venv/bin/activate</code> (MacOSX/ Linux)
-                                                    <br/>
-                                                    <code class="language-bash">venv\Scripts\activate.bat</code> (Windows)
-                                                </p>
+                                                <p>Activate it using:</p>
+                                                <p><code class="language-bash">source venv/bin/activate</code> (MacOSX/ Linux)</p>
+                                                <p><code class="language-bash">venv\Scripts\activate.bat</code> (Windows)</p>
                                             </li>
                                             <li>
                                                 <p>Install dependencies.</p>
@@ -364,7 +369,7 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
                                                 </p>
                                             </li>
                                             <li>
-                                                <p>Manually install NL4DV in this virtual environment using one of the <a href="#install">above instructions</a>.</p>
+                                                <p>Manually install <b>nl4dv</b> in this virtual environment using one of the <a href="#install">above instructions</a>.</p>
                                             </li>
                                             <li><p>Run <code class="language-bash">python app.py</code>.</p></li>
                                             <li>
@@ -572,13 +577,9 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
                                         <p><code class="language-bash">virtualenv --python=python3 venv</code></p>
                                     </li>
                                     <li>
-                                        <p>
-                                            Activate it using:
-                                            <br/>
-                                            <code class="language-bash">source venv/bin/activate</code> (MacOSX/ Linux)
-                                            <br/>
-                                            <code class="language-bash">venv\Scripts\activate.bat</code> (Windows)
-                                        </p>
+                                        <p>Activate it using:</p>
+                                        <p><code class="language-bash">source venv/bin/activate</code> (MacOSX/ Linux)</p>
+                                        <p><code class="language-bash">venv\Scripts\activate.bat</code> (Windows)</p>
                                     </li>
                                     <li>
                                         <p>Install dependencies.</p>
@@ -624,7 +625,7 @@ output = nl4dv_instance.analyze_query(query)</code></pre>
                                     Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech
                                     Visualization Lab</a>.
                                 </p>
-                                <p>We thank <a href="mailto:rmitra34@gatech.edu">Rishab Mitra</a> for helping build some of
+                                <p>We thank <a href="https://www.linkedin.com/in/rmitra34/" target="_blank">Rishab Mitra</a> for helping build some of
                                     our debugger applications and members of the <a target="_blank"
                                                                                      href="http://vis.gatech.edu/">Georgia
                                         Tech Visualization Lab</a> for their support and constructive feedback.</p>
