@@ -187,18 +187,19 @@
 import os
 
 # Initialize an instance of NL4DV
+# ToDo: verify the path to the source data file. modify accordingly.
 nl4dv_instance = NL4DV(data_url = os.path.join(".", "examples", "assets", "data", "movies-w-year.csv"))
 
 # using Stanford Core NLP
-# ToDo: replace with appropriate paths
+# ToDo: verify the paths to the jars. modify accordingly.
 dependency_parser_config = {"name": "corenlp", "model": os.path.join(".", "examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),"parser": os.path.join(".", "examples","assets","jars","stanford-parser.jar")}
 
 # using Stanford CoreNLPServer
-# ToDo: replace the "url" parameter with the URL of your CoreNLPServer instance.
+# ToDo: verify the URL to the CoreNLPServer. modify accordingly.
 # dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"}
 
 # using Spacy
-# ToDo: install an appropriate model and accordingly replace below
+# ToDo: ensure that the below spacy model is installed. if using another model, modify accordingly.
 # dependency_parser_config = {"name": "spacy", "model": "en_core_web_sm", "parser": None}
 
 # Set the Dependency Parser
