@@ -99,7 +99,7 @@ vis_design_combos = {
         'combination': 'QN',
         'support': True,
         'tasks': ['derived_value', 'distribution'],
-        'visualizations': ['barchart', 'piechart', 'tickplot'],
+        'visualizations': ['barchart', 'piechart', 'donutchart', 'tickplot'],
         'designs': [{
             'task': 'derived_value',
             'vis_type': 'barchart',
@@ -112,6 +112,15 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'piechart',
+            'not_suggested_by_default': True,
+            'mark': 'arc',
+            'mandatory': ['theta', 'color'],
+            'priority': ['theta', 'color'],
+            'color': {'attr': None, 'is_defined': False, 'agg': None},
+            'theta': {'attr': None, 'is_defined': False, 'agg': 'mean'}
+        }, {
+            'task': 'derived_value',
+            'vis_type': 'donutchart',
             'not_suggested_by_default': True,
             'mark': 'arc',
             'mandatory': ['theta', 'color'],
@@ -133,7 +142,7 @@ vis_design_combos = {
         'combination': 'QO',
         'support': True,
         'tasks': ['derived_value', 'distribution'],
-        'visualizations': ['barchart', 'piechart', 'tickplot'],
+        'visualizations': ['barchart', 'piechart', 'donutchart', 'tickplot'],
         'designs': [{
             'task': 'derived_value',
             'vis_type': 'barchart',
@@ -146,6 +155,15 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'piechart',
+            'not_suggested_by_default': True,
+            'mark': 'arc',
+            'mandatory': ['theta', 'color'],
+            'priority': ['theta', 'color'],
+            'color': {'attr': None, 'is_defined': False, 'agg': None},
+            'theta': {'attr': None, 'is_defined': False, 'agg': 'mean'}
+        }, {
+            'task': 'derived_value',
+            'vis_type': 'donutchart',
             'not_suggested_by_default': True,
             'mark': 'arc',
             'mandatory': ['theta', 'color'],
