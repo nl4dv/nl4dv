@@ -48,6 +48,9 @@ class VLGenie():
 
         elif vis == 'donutchart':
             self.vl_spec['mark']['type'] = 'arc'
+            # ToDo:- Smartly set the below value depending on the chart
+            # The below value is in Pixels and independent of the generated chart dimensions which can be problematic when there are single v/s multiple donut charts.
+            # Thus, setting the innerRadius value to 50 for now. Developers will have to override it downstream.
             self.vl_spec['mark']['innerRadius'] = 50
 
         elif vis == 'datatable':
