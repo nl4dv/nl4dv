@@ -7,7 +7,7 @@
 
 ![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png)
 
-The preprint of the **Research Paper** due to appear at **IEEE VIS'20** can be downloaded from [here](https://arxiv.org/abs/2008.10723).
+The preprint of the **Research Paper** due to appear at **IEEE VIS'20** can be downloaded from [here](https://www.cc.gatech.edu/~anarechania3/docs/publications/nl4dv_vis_2020.pdf).
 
 The **Documentation**, **Usage**, and **Examples** can be found [here](https://nl4dv.github.io/nl4dv/).
 
