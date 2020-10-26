@@ -57,7 +57,7 @@ class TaskGenie:
                 tasks_to_delete.add(task_name)
 
         for task_name in tasks_to_delete:
-            del task_name[task_name]
+            del task_map[task_name]
         return task_map
 
     @staticmethod
