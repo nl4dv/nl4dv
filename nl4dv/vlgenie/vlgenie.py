@@ -102,20 +102,23 @@ class VLGenie():
                 self.vl_spec['encoding'][dim]['bin'] = True
 
     def set_task(self, dim, task):
-
         if task["task"] == 'find_extremum':
             if dim is None:
                 dim = 'y'
             if task["operator"] == 'MIN':
                 if dim == 'x':
-                    self.vl_spec['encoding']['y']['sort'] = 'x'
+                    if 'y' in self.vl_spec['encoding']:
+                        self.vl_spec['encoding']['y']['sort'] = 'x'
                 elif dim == 'y':
-                    self.vl_spec['encoding']['x']['sort'] = 'y'
+                    if 'x' in self.vl_spec['encoding']:
+                        self.vl_spec['encoding']['x']['sort'] = 'y'
             elif task["operator"] == 'MAX':
                 if dim == 'x':
-                    self.vl_spec['encoding']['y']['sort'] = '-x'
+                    if 'y' in self.vl_spec['encoding']:
+                        self.vl_spec['encoding']['y']['sort'] = '-x'
                 elif dim == 'y':
-                    self.vl_spec['encoding']['x']['sort'] = '-y'
+                    if 'x' in self.vl_spec['encoding']:
+                        self.vl_spec['encoding']['x']['sort'] = '-y'
 
         elif task["task"] == 'filter':
             if task["operator"] == 'IN':
