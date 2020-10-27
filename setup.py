@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='nl4dv',
-    version='0.0.1',
+    version='0.0.2',
     author='Arpit Narechania',
     author_email='arpitnarechania@gatech.edu',
     packages=find_packages(),
