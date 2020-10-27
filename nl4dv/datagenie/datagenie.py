@@ -95,14 +95,16 @@ class DataGenie:
 
             # initialize properties in Attribute Map
             for attr in attributes:
-                self.data_attribute_map[attr] = {
-                    'domain': set(),
-                    'isLabelAttribute': attr == self.nl4dv_instance.label_attribute,
-                    'summary': dict(),
-                    'dataTypeList': list(), # temporary to determine datatype
-                    'dataType': '',
-                    'aliases': list(),
-                }
+                # Don't consider attribute names that are empty or just whitespaces
+                if attr and attr.strip():
+                    self.data_attribute_map[attr] = {
+                        'domain': set(),
+                        'isLabelAttribute': attr == self.nl4dv_instance.label_attribute,
+                        'summary': dict(),
+                        'dataTypeList': list(), # temporary to determine datatype
+                        'dataType': '',
+                        'aliases': list(),
+                    }
 
             # initialize properties in Attribute Map
             # implies file is either .csv or .tsv
@@ -110,7 +112,9 @@ class DataGenie:
                 for line in reader:
                     data_obj = dict()
                     for i in range(len(line)):
-                        data_obj[attributes[i]] = line[i]
+                        # Don't consider attribute names that are empty or just whitespaces
+                        if attributes[i] and attributes[i].strip():
+                            data_obj[attributes[i]] = line[i]
                     self.data.append(data_obj)
                     self.rows += 1
             else:
