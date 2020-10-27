@@ -58,34 +58,63 @@ class AttributeGenie:
             self.nl4dv_instance.attribute_keyword_mapping[attribute] = dict()
         self.nl4dv_instance.attribute_keyword_mapping[attribute][keyword] = score
 
+    # Detect attributes by exact_match of n-grams
+    def detect_attributes_by_exact_match(self, query_ngrams, data_attributes, query_attributes):
+        for attr in data_attributes:
+            for ngram in query_ngrams:
+                # Exact Match
+                if data_attributes[attr]["lower"] == query_ngrams[ngram]["lower"] or data_attributes[attr]["stemmed_lower"] == query_ngrams[ngram]["stemmed_lower"]:
+                    if attr not in query_attributes:
+                        query_attributes[attr] = {
+                            'name': attr,
+                            "queryPhrase": [query_ngrams[ngram]["lower"]],
+                            'inferenceType': 'explicit',
+                            'matchScore': self.nl4dv_instance.match_scores['attribute']['attribute_exact_match'],
+                            'metric': ['attribute_exact_match'],
+                            'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
+                            'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
+                            'isAmbiguous': False,
+                            'ambiguity': list(),
+                            'meta': {
+                                'score': 100,
+                                'threshold': self.nl4dv_instance.match_thresholds['string_similarity'],
+                                'alias': None,
+                                'ambiguity': {}
+                            }
+                        }
+
+                        # Update Keyword-Attribute-Score Mappings
+                        self.update_keyword_attribute_mappings(keyword=query_ngrams[ngram]["lower"], attribute=attr, score=query_attributes[attr]["matchScore"])
+
+                        # Important! If, the attribute is detected by exact match, then break the loop. We can safely SKIP subsequent n-grams saving *some* cycles.
+                        break
+
+        return query_attributes
+
     # Detect attributes based on string similarity of the n-grams
     def detect_attributes_by_similarity(self, query_ngrams, data_attributes, query_attributes):
 
         for attr in data_attributes:
-            is_exact_match = False
+
+            # If already found, continue
+            if attr in query_attributes and any(a for a in query_attributes[attr]["metric"] if a in ["attribute_exact_match"]):
+                continue
+
             for ngram in query_ngrams:
-                add_attribute = False
                 score = 0
-
-                # Exact Match
-                if data_attributes[attr]["lower"] == query_ngrams[ngram]["lower"] or data_attributes[attr]["stemmed_lower"] == query_ngrams[ngram]["stemmed_lower"]:
+                add_attribute = False
+                # Compute similarity of tokens
+                string_similarity_score = helpers.compute_similarity(data_attributes[attr]["lower"], query_ngrams[ngram]["lower"], 'token_similarity')
+                if string_similarity_score >= self.nl4dv_instance.match_thresholds['string_similarity']:
+                    score = string_similarity_score
                     add_attribute = True
-                    is_exact_match = True
-                    score = 100
 
-                # Similarity Algorithm
                 else:
-                    # Compute similarity of tokens
-                    string_similarity_score = helpers.compute_similarity(data_attributes[attr]["lower"], query_ngrams[ngram]["lower"], 'token_similarity')
-                    if string_similarity_score >= self.nl4dv_instance.match_thresholds['string_similarity']:
+                    # Compute similarity of stemmed tokens
+                    stemmed_string_similarity_score = helpers.compute_similarity(data_attributes[attr]["stemmed_lower"], query_ngrams[ngram]["stemmed_lower"], 'token_similarity')
+                    if stemmed_string_similarity_score >= self.nl4dv_instance.match_thresholds['string_similarity']:
+                        score = stemmed_string_similarity_score
                         add_attribute = True
-                        score = string_similarity_score
-                    else:
-                        # Compute similarity of stemmed tokens
-                        stemmed_string_similarity_score = helpers.compute_similarity(data_attributes[attr]["stemmed_lower"], query_ngrams[ngram]["stemmed_lower"], 'token_similarity')
-                        if stemmed_string_similarity_score >= self.nl4dv_instance.match_thresholds['string_similarity']:
-                            add_attribute = True
-                            score = stemmed_string_similarity_score
 
                 if add_attribute:
                     if attr not in query_attributes or query_attributes[attr]["meta"]["score"] <= score:
@@ -110,9 +139,50 @@ class AttributeGenie:
                         # Update Keyword-Attribute-Score Mappings
                         self.update_keyword_attribute_mappings(keyword=query_ngrams[ngram]["lower"], attribute=attr, score=query_attributes[attr]["matchScore"])
 
-                        # Important! If, the attribute is detected by exact match, then break the loop. We can SKIP subsequent n-grams.
+        return query_attributes
+
+    # Detect attributes by alias exact_match of n-grams
+    def detect_attributes_by_alias_exact_match(self, query_ngrams, data_attributes, query_attributes, attribute_aliases):
+        for attr in data_attributes:
+            # If already found, continue
+            if attr in query_attributes and any(a for a in query_attributes[attr]["metric"] if a in ["attribute_similarity_match"]):
+                continue
+
+            for alias in attribute_aliases[attr]:
+                is_exact_match = False
+                for ngram in query_ngrams:
+                    is_exact_match = False
+                    if query_ngrams[ngram]["lower"] == attribute_aliases[attr][alias]["lower"] or query_ngrams[ngram]["stemmed_lower"] == attribute_aliases[attr][alias]["stemmed_lower"]:
+                        is_exact_match = True
+                        if attr not in query_attributes:
+                            query_attributes[attr] = {
+                                'name': attr,
+                                "queryPhrase": [query_ngrams[ngram]["lower"]],
+                                'inferenceType': 'explicit',
+                                'matchScore': self.nl4dv_instance.match_scores['attribute']['attribute_alias_exact_match'],
+                                'metric': 'attribute_alias_exact_match',
+                                'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
+                                'encode': not self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
+                                'isAmbiguous': False,
+                                'ambiguity': list(),
+                                'meta': {
+                                    'score': 100,
+                                    'threshold': self.nl4dv_instance.match_thresholds['string_similarity'],
+                                    'alias': alias,
+                                    'ambiguity': {}
+                                }
+                            }
+
+                            # Update Keyword-Attribute-Score Mappings
+                            self.update_keyword_attribute_mappings(keyword=query_ngrams[ngram]["lower"], attribute=attr, score=query_attributes[attr]["matchScore"])
+
                         if is_exact_match:
+                            # Important! If, the attribute is detected by exact match, then break the loop. We can safely SKIP subsequent n-grams saving *some* cycles.
                             break
+
+                if is_exact_match:
+                    # Important! If, the attribute is detected by exact match, then break the loop. We can safely SKIP subsequent n-grams saving *some* cycles.
+                    break
 
         return query_attributes
 
@@ -124,33 +194,24 @@ class AttributeGenie:
         for attr in data_attributes:
 
             # If already found, continue
-            if attr in query_attributes and any(a for a in query_attributes[attr]["metric"] if a in ["attribute_similarity_match"]):
+            if attr in query_attributes and any(a for a in query_attributes[attr]["metric"] if a in ["attribute_alias_exact_match"]):
                 continue
 
-            is_exact_match = False
             for alias in attribute_aliases[attr]:
                 for ngram in query_ngrams:
-
-                    add_attribute = False
                     score = 0
-
-                    # Exact Match
-                    if query_ngrams[ngram]["lower"] == attribute_aliases[attr][alias]["lower"] or query_ngrams[ngram]["stemmed_lower"] == attribute_aliases[attr][alias]["stemmed_lower"]:
-                        is_exact_match = True
+                    add_attribute = False
+                    # Compute similarity
+                    string_similarity_score = helpers.compute_similarity(query_ngrams[ngram]["lower"], data_attributes[attr]["lower"], 'token_similarity')
+                    if string_similarity_score == 100:
                         add_attribute = True
-                        score = 100
+                        score = string_similarity_score
                     else:
                         # Compute similarity
-                        string_similarity_score = helpers.compute_similarity(query_ngrams[ngram]["lower"], data_attributes[attr]["lower"], 'token_similarity')
-                        if string_similarity_score == 100:
+                        stemmed_string_similarity_score = helpers.compute_similarity(query_ngrams[ngram]["stemmed_lower"], data_attributes[attr]["stemmed_lower"], 'token_similarity')
+                        if stemmed_string_similarity_score == 100:
                             add_attribute = True
-                            score = string_similarity_score
-                        else:
-                            # Compute similarity
-                            stemmed_string_similarity_score = helpers.compute_similarity(query_ngrams[ngram]["stemmed_lower"], data_attributes[attr]["stemmed_lower"], 'token_similarity')
-                            if stemmed_string_similarity_score == 100:
-                                add_attribute = True
-                                score = stemmed_string_similarity_score
+                            score = stemmed_string_similarity_score
 
                     if add_attribute:
                         if attr not in query_attributes:
@@ -175,11 +236,6 @@ class AttributeGenie:
                             # Update Keyword-Attribute-Score Mappings
                             self.update_keyword_attribute_mappings(keyword=query_ngrams[ngram]["lower"], attribute=attr, score=query_attributes[attr]["matchScore"])
 
-                            if is_exact_match:
-                                break
-
-                if is_exact_match:
-                    break
 
         return query_attributes
 
@@ -192,7 +248,7 @@ class AttributeGenie:
         for attr in data_attributes:
 
             # If already found, continue
-            if attr in query_attributes and any(a for a in query_attributes[attr]["metric"] if a in ["attribute_similarity_match","attribute_alias_similarity_match"]):
+            if attr in query_attributes and any(a for a in query_attributes[attr]["metric"] if a in ["attribute_exact_match","attribute_alias_exact_match", "attribute_similarity_match", "attribute_alias_similarity_match"]):
                 continue
 
             for ngram in query_ngrams:
@@ -360,10 +416,16 @@ class AttributeGenie:
         # map of attributes and their variants - stemmed, lowercase, ...
         attribute_aliases = self.get_attribute_aliases()
 
+        # Detect attributes by token exact match
+        query_attributes = self.detect_attributes_by_exact_match(query_ngrams, data_attributes, query_attributes)
+
         # Detect attributes by token similarity
         query_attributes = self.detect_attributes_by_similarity(query_ngrams, data_attributes, query_attributes)
 
-        # Detect attributes by similarity
+        # Detect attributes by alias exact match
+        query_attributes = self.detect_attributes_by_alias_exact_match(query_ngrams, data_attributes, query_attributes, attribute_aliases)
+
+        # Detect attributes by alias similarity
         query_attributes = self.detect_attributes_by_alias_similarity(query_ngrams, data_attributes, query_attributes, attribute_aliases)
 
         # Detect attributes by synonymity
@@ -392,7 +454,6 @@ class AttributeGenie:
             for keyword in keywords:
                 if keyword in self.nl4dv_instance.keyword_attribute_mapping:
                     used_keyword_attribute_mapping[keyword] = self.nl4dv_instance.keyword_attribute_mapping[keyword]
-
                 for _attr in self.nl4dv_instance.keyword_attribute_mapping[keyword]:
                     if score > self.nl4dv_instance.keyword_attribute_mapping[keyword][_attr]:
                         attributes_to_delete.add(_attr)
@@ -400,29 +461,23 @@ class AttributeGenie:
                         attributes_to_delete.add(attr)
 
         # Delete unused keywords from the main self.nl4dv_instance.keyword_attribute_mapping dictionary
-        for key in self.nl4dv_instance.keyword_attribute_mapping.copy():
+        copy_keyword_attribute_mapping = copy.deepcopy(self.nl4dv_instance.keyword_attribute_mapping)
+        for key in copy_keyword_attribute_mapping:
             if key not in used_keyword_attribute_mapping:
                 del self.nl4dv_instance.keyword_attribute_mapping[key]
 
-        # Create a copy to avoid dictionary traversal / modification errors
-        copy_keyword_attribute_mapping = copy.deepcopy(self.nl4dv_instance.keyword_attribute_mapping)
-        copy_attribute_keyword_mapping = copy.deepcopy(self.nl4dv_instance.attribute_keyword_mapping)
-
         # Now, again delete a few attributes if they are coming from different keywords. Ensure 1 keyword contributes to 1 attribute
-        for key in copy_keyword_attribute_mapping:
-            for _attr in copy_keyword_attribute_mapping[key]:
-                if key not in query_attributes[_attr]["queryPhrase"]:
-                    del self.nl4dv_instance.keyword_attribute_mapping[key][_attr]
-
+        copy_keyword_attribute_mapping = copy.deepcopy(self.nl4dv_instance.keyword_attribute_mapping)
+        for _key in copy_keyword_attribute_mapping:
+            for _attr in copy_keyword_attribute_mapping[_key]:
+                if _key not in query_attributes[_attr]["queryPhrase"]:
+                    del self.nl4dv_instance.keyword_attribute_mapping[_key][_attr]
         # ---------------------------------------------------------------------------------------------------
-
         # ---------------------------------------------------------------------------------------------------
         # If a keyword is a subset of another keyword
         # DISCARD the attributes with the smaller keyword
         # For e.g, "highway miles per gallon" should select only "highway miles per gallon" and not "city miles per gallon" (due to "miles per gallon")
-        # ---------
-
-        # Use a copy to avoid dictionary traversal / modification errors
+        copy_keyword_attribute_mapping = copy.deepcopy(self.nl4dv_instance.keyword_attribute_mapping)
         for k1 in copy_keyword_attribute_mapping:
             for k2 in copy_keyword_attribute_mapping:
                 if k1 != k2 and k1 in k2:
@@ -435,24 +490,30 @@ class AttributeGenie:
                         if _attr not in copy_keyword_attribute_mapping[k2]:
                             attributes_to_delete.add(_attr)
         # ---------------------------------------------------------------------------------------------------
-
-        # ---------
-        #  Delete the now-unwanted attributes.
+        # ---------------------------------------------------------------------------------------------------
+        #  Delete the now-unwanted attributes and keywords mapped to these attributes.
         for attr in attributes_to_delete:
             if attr in query_attributes:
+                # 1) delete unwanted attributes from the main attributes object
                 del query_attributes[attr]
+
+                # 2) delete unwanted attributes from the attribute-keyword mapping object
                 del self.nl4dv_instance.attribute_keyword_mapping[attr]
 
-        # ---------
-        #  Delete unused KEYS as well within the self.nl4dv_instance.attribute_keyword_mapping
-        for k_req in self.nl4dv_instance.keyword_attribute_mapping:
-            for attr in self.nl4dv_instance.keyword_attribute_mapping[k_req]:
-                for k in copy_attribute_keyword_mapping[attr]:
-                    if k != k_req:
-                        if attr in self.nl4dv_instance.attribute_keyword_mapping and k in self.nl4dv_instance.attribute_keyword_mapping[attr]:
-                            del self.nl4dv_instance.attribute_keyword_mapping[attr][k]
+                # 3) delete unwanted attributes from the keyword-attributes mapping object
+                for k in self.nl4dv_instance.keyword_attribute_mapping:
+                    if attr in self.nl4dv_instance.keyword_attribute_mapping[k]:
+                       del self.nl4dv_instance.keyword_attribute_mapping[k][attr]
 
-        # ---------
+        # 4) delete unwanted keywords in the finalized attributes
+        copy_attribute_keyword_mapping = copy.deepcopy(self.nl4dv_instance.attribute_keyword_mapping)
+        for attr in copy_attribute_keyword_mapping:
+            for k in copy_attribute_keyword_mapping[attr]:
+                if k not in self.nl4dv_instance.keyword_attribute_mapping:
+                    del self.nl4dv_instance.attribute_keyword_mapping[attr][k]
+
+        # ---------------------------------------------------------------------------------------------------
+        # ---------------------------------------------------------------------------------------------------
         #  Mark attributes as AMBIGUOUS OR NOT. If Ambiguous, append the ambiguities
         for attr in query_attributes:
             # Iterate over it's keywords
@@ -588,4 +649,4 @@ class AttributeGenie:
             return len(attr_combo) != len(unique_keywords) or len(attr_combo) != len(query_phrase)
 
         # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
-        return len(attr_combo) != len(unique_attrs) or (len(unique_keywords) != len(attr_combo))
+        return len(attr_combo) != len(unique_attrs) or (len(attr_combo) != len(unique_keywords))

@@ -126,7 +126,9 @@ task_keyword_map = {
 # scores given to attribute/ task/ vis matches of different types
 match_scores = {
     'attribute': {
-        'attribute_similarity_match': 1,
+        'attribute_exact_match': 1,
+        'attribute_similarity_match': 0.9,
+        'attribute_alias_exact_match': 0.8,
         'attribute_alias_similarity_match': 0.75,
         'attribute_synonym_match': 0.5,
         'attribute_domain_value_match': 0.5,
