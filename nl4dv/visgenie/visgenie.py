@@ -282,7 +282,8 @@ class VisGenie:
 
         # Encode the label attribute as a TOOLTIP to show the dataset label on hover.
         # Note: This will ONLY be added when there is NO aggregation, i.e., all data points are visible.
-        vl_genie_instance.add_label_attribute_as_tooltip(self.nl4dv_instance.label_attribute)
+        if self.nl4dv_instance.label_attribute is not None:
+            vl_genie_instance.add_label_attribute_as_tooltip(self.nl4dv_instance.label_attribute)
 
         # AESTHETICS
         # ------------------
