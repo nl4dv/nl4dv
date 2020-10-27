@@ -291,7 +291,7 @@ class AttributeGenie:
             # if attr in query_attributes and query_attributes[attr]["metric"] in ["attribute_similarity_match","attribute_alias_similarity_match","attribute_synonym_match"]:
             #     continue
 
-            # ToDo:- Let's NOT look for domain value matches in the Label Attribute. Controversial!
+            # ToDo:- Let's NOT look for domain value matches in the Label Attribute. Controversial, but that's how we've designed this.
             if attr == self.nl4dv_instance.label_attribute:
                 continue
 
@@ -591,7 +591,7 @@ class AttributeGenie:
             if "find_extremum" in self.nl4dv_instance.extracted_tasks:
                 add_label_attr = True
 
-        if add_label_attr:
+        if add_label_attr and self.nl4dv_instance.label_attribute is not None:
             # If label attribute was Explicitly detected in the query, "encode" it to True ELSE add it manually
             if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes and \
                     self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == 'explicit':
@@ -617,8 +617,8 @@ class AttributeGenie:
                 }
 
             # Update the attribute-keyword and keyword-attribute mapping dictionaries
-            self.nl4dv_instance.attribute_keyword_mapping[self.nl4dv_instance.label_attribute] = {"LABEL": 1}
-            self.nl4dv_instance.keyword_attribute_mapping["LABEL"] = {self.nl4dv_instance.label_attribute: 1}
+            self.nl4dv_instance.attribute_keyword_mapping[self.nl4dv_instance.label_attribute] = {self.nl4dv_instance.label_attribute: 1}
+            self.nl4dv_instance.keyword_attribute_mapping[self.nl4dv_instance.label_attribute] = {self.nl4dv_instance.label_attribute: 1}
 
             # Add the label attribute to the list of encodeable_attributes.
             if self.nl4dv_instance.label_attribute not in encodeable_attributes:
