@@ -1,5 +1,9 @@
 # NL4DV
 
+- Create Visualizations (Vis) in Python using Natural Language (NL) 
+- Add an NL interface to your existing Vis systems.
+
+
 **NL4DV** stands for **N**atural **L**anguage toolkit **for** **D**ata **V**isualization. It takes a **natural language query** about a given **dataset** as input and outputs a **structured JSON object** containing:
 * Data attributes, 
 * Analytic tasks, and
