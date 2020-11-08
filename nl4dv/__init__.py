@@ -212,9 +212,11 @@ class NL4DV:
 
     # Sets the Scoring Weights for the way attributes / tasks and visualizations are detected.
     def set_importance_scores(self, scores):
-        for s in scores.keys():
-            if s in self.match_scores and isinstance(scores[s], float):
-                self.match_scores[s] = scores[s]
+        for domain in scores.keys():
+            if domain in self.match_scores and isinstance(scores[domain], dict):
+                for setting in scores[domain].keys():
+                    if setting in self.match_scores[domain] and isinstance(scores[domain][setting], float):
+                        self.match_scores[domain] = scores[domain][setting]
 
         return True
 
