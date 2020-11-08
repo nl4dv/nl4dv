@@ -123,7 +123,7 @@
                                     </li>
                                     <li>
                                         <p>NL4DV requires a third-party Dependency Parser module to infer tasks. Download and install one of:</p>
-                                        <ul>
+                                        <ol>
                                             <li>
                                                 <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
                                                     CoreNLP</a>:</p>
@@ -167,12 +167,15 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <p>NL4DV installs <a href="https://spacy.io/" target="_blank">Spacy</a> by default but requires a model to be separately installed. Install the sample <b>English
-                                                        model</b> using:</p>
-                                                <p><code class="language-bash">python -m spacy download
-                                                    en_core_web_sm</code></p>
+                                                <p><a href="https://spacy.io/" target="_blank">Spacy</a> :</p>
+                                                <ul>
+                                                    <li>
+                                                        <p>NL4DV installs Spacy by default but requires a model to be separately installed. Install the sample <b>English model</b> using:</p>
+                                                        <p><code class="language-bash">python -m spacy download en_core_web_sm</code></p>
+                                                    </li>
+                                                </ul>
                                             </li>
-                                        </ul>
+                                        </ol>
                                     </li>
                                 </ol>
                             </div><!--//section-block-->
@@ -470,11 +473,15 @@ print(output)</code></pre>
                                     </li>
                                     <li>
                                         <h4>nl4dv.set_thresholds()</h4>
-                                        <p>Sets the string matching, domain word limit, other thresholds.</p>
+                                        <p>Sets the string matching, other thresholds.</p>
                                         <ul class="list">
                                             <li><b>args</b>: thresholds (dict).</li>
                                             <li><b>return</b>: None</li>
                                         </ul>
+                                    <pre><code class="language-python">{
+    'synonymity': 95,
+    'string_similarity': 85
+}</code></pre>
                                     </li>
                                     <li>
                                         <h4>nl4dv.set_importance_scores()</h4>
@@ -484,14 +491,38 @@ print(output)</code></pre>
                                             <li><b>args</b>: scores (dict).</li>
                                             <li><b>return</b>: None</li>
                                         </ul>
+                                        <pre><code class="language-python">{
+    'attribute': {
+        'attribute_exact_match': 1,
+        'attribute_similarity_match': 0.9,
+        'attribute_alias_exact_match': 0.8,
+        'attribute_alias_similarity_match': 0.75,
+        'attribute_synonym_match': 0.5,
+        'attribute_domain_value_match': 0.5,
+    },
+    'task': {
+        'explicit': 1,
+        'implicit': 0.5,
+    },
+    'vis': {
+        'explicit': 1
+    }
+}</code></pre>
                                     </li>
                                     <li>
                                         <h4>nl4dv.set_attribute_datatype()</h4>
-                                        <p>Set (Override) the attribute datatypes (detected by NL4DV).</p>
+                                        <p>Set (override) the attribute datatypes (detected by NL4DV).
+                                        </p>
                                         <ul class="list">
                                             <li><b>args</b>: attr_type_obj (dict).</li>
                                             <li><b>return</b>: None</li>
                                         </ul>
+                                        <pre><code class="language-python">{
+    "Year": "T", # Temporal
+    "Rank": "O", # Ordinal
+    "Salary": "Q", # Quantitative
+    "Gender": "N" # Nominal
+}</code></pre>
                                     </li>
                                     <li>
                                         <h4>nl4dv.set_dependency_parser()</h4>
@@ -503,39 +534,43 @@ print(output)</code></pre>
                                             <li><b>args</b>: config (dict)</li>
                                             <li><b>return</b>: None</li>
                                         </ul>
+                                        <pre><code class="language-python">{
+    "name": "stanford",
+    "model": "stanford-english-corenlp-2018-10-05-models.jar",
+    "parser": "stanford-parser.jar"
+}</code></pre>
                                     </li>
                                     <li>
                                         <h4>nl4dv.set_reserve_words()</h4>
-                                        <p>Set the vustom STOPWORDS that should NOT be removed from the query, as they
-                                            might be present in the domain.<br/>
-                                            e.g. `A` (an article) in a grades dataset</p>
+                                        <p>Set the custom STOPWORDS that should NOT be removed from the query, as they
+                                            might be present in the domain.</p>
                                         <ul class="list">
                                             <li><b>args</b>: reserve_words (list)</li>
                                             <li><b>return</b>: None</li>
                                         </ul>
+                                        <pre><code class="language-python">["A"] # "A" - although an article (like 'a/an/the') should be retained for e.g., in a grades dataset.</code></pre>
                                     </li>
                                     <li>
                                         <h4>nl4dv.set_ignore_words()</h4>
                                         <p>Set the words that should be IGNORED in the query, i.e. NOT lead to the
-                                            detection of attributes and tasks.<br/>
-                                            e.g. `movie` in a movies dataset may lead to the detection of "Scary Movie".
+                                            detection of attributes and tasks.
                                         </p>
                                         <ul class="list">
                                             <li><b>args</b>: ignore_words (list)</li>
                                             <li><b>return</b>: None</li>
                                         </ul>
+                                        <pre><code class="language-python">["movie"] # in a movies dataset may lead to the detection of "Scary Movie"</code></pre>
                                     </li>
                                     <li>
                                         <h4>nl4dv.set_label_attribute()</h4>
                                         <p>Set the Label attribute for the dataset, i.e. one that defines what the
-                                            dataset is about.<br/>
-                                            e.g. "Correlate horsepower and MPG for sports car models" should NOT apply
-                                            an explicit attribute for models since there are two explicit attributes
-                                            already present.</p>
+                                            dataset is about.</p>
                                         <ul class="list">
                                             <li><b>args</b>: label_attribute (str)</li>
                                             <li><b>return</b>: None</li>
                                         </ul>
+                                        <pre><code class="language-python">["Model"] # Model attribute will NOT be detected explicitly when *other* attributes are present.</code></pre>
+                                        <p><b>Explanation: </b> Correlate horsepower and MPG for sports car models" should NOT apply an explicit attribute for models since there are two explicit attributes already present.</p>
                                     </li>
                                     <li>
                                         <h4>nl4dv.get_metadata()</h4>
