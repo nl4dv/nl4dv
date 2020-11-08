@@ -344,6 +344,18 @@ print(output)</code></pre>
                                          src="assets/images/example.png" alt="Example"/>
                                 </div>
                             </div><!--//section-block-->
+                            <section id="author-notes" class="section-block">
+                                <h3 class="block-title">Message from Authors</h3>
+                                <div class="block">
+                                    <p>As we plan additional features to improve the toolkit, we <b style="color:red;">recommend</b> users/developers to be aware of the following: </p>
+                                    <ul>
+                                        <li><p><b>Attribute data types.</b><br/>Verify the attribute types (e.g., nominal, temporal) that are detected by NL4DV and override them if they are incorrect as they will most likely lead to erroneous visualizations. The current attribute datatype detection logic is heuristics based and we are currently working towards a major improvement that semantically infers the data type from both, the attribute's name and its value.</p>
+                                        </li>
+                                        <li><p><b>Filter task.</b><br/>NL4DV applies the filter task by matching the condition against each data point but does not encode the involved attributes in the visualization. This was a design decision taken to avoid recommending a complex visualization due to too many encoded attributes.</p></li>
+                                        <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior work; we encourage users/developers to modify them to suit their requirements.</p></li>
+                                    </ul>
+                                </div>
+                            </section>
                             <div id="applications" class="section-block">
                                 <h3 class="block-title">Applications</h3>
                                 <div class="row">
@@ -697,6 +709,7 @@ print(output)</code></pre>
                                 <a class="nav-link scrollto" href="#install">Installation</a>
                                 <a class="nav-link scrollto" href="#post-installation">Post Installation</a>
                                 <a class="nav-link scrollto" href="#sample-code">Sample Code</a>
+                                <a class="nav-link scrollto" href="#author-notes">Message from Authors</a>
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
                             </nav><!--//nav-->
                             <a class="nav-link scrollto" href="#api-reference">API Reference</a>
