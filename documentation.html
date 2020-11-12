@@ -77,15 +77,15 @@
                             <div id="install" class="section-block">
                                 <h3 class="block-title">Installation</h3>
                                 <div class="code-block">
-                                    <ul class="list">
+                                    <ol class="list">
                                         <li>
-                                            <p><b>nl4dv</b> requires a <b><a href="https://www.python.org/doc/versions/" target="_blank">64-bit Python 3</a></b> environment. <b>Windows</b> users must ensure that <b><a href="https://visualstudio.microsoft.com/visual-cpp-build-tools">Microsoft C++ Build Tools</a></b> is installed.</p>
+                                            <p><b>nl4dv</b> requires a <b><a href="https://www.python.org/doc/versions/" target="_blank">64-bit Python 3</a></b> environment. <b>Windows</b> users must ensure that <b><a href="https://visualstudio.microsoft.com/visual-cpp-build-tools">Microsoft C++ Build Tools</a></b> is installed. <b>Mac OS X</b> users must ensure that <b><a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a></b> is installed.</p>
                                         </li>
                                         <li>
-                                            <p>Install using one of the below two methods:
-                                            <ul class="list">
+                                            <p>Install using <b><i>one</i></b> of the below methods:
+                                            <ol class="list">
                                                 <li>
-                                                    <p><b><a href="https://pypi.org/project/nl4dv/" target="_blank">pip</a></b>.</p>
+                                                    <p><b><a href="https://pypi.org/project/nl4dv/" target="_blank">PyPi</a></b>.</p>
                                                     <!--<p><code class="language-bash">pip install &#45;&#45;extra-index-url https://test.pypi.org/simple/ nl4dv==0.0.2</code></p>-->
                                                     <p><code class="language-bash">pip install nl4dv</code></p>
                                                 </li>
@@ -95,16 +95,14 @@
                                                         <b><a
                                                         href="https://github.com/nl4dv/nl4dv/archive/0.0.2.tar.gz"
                                                         target="_blank">nl4dv-0.0.2.tar.gz</a></b>
-                                                        <br/>
-                                                        <i>or</i>
-                                                        <br/>
+                                                        &nbsp;&nbsp;<i>or</i>&nbsp;&nbsp;
                                                         <b><a
                                                         href="https://github.com/nl4dv/nl4dv/archive/0.0.2.zip"
                                                         target="_blank">nl4dv-0.0.2.zip</a></b>
                                                     </p>
                                                     <p>Accordingly, run <code class="language-bash">pip install nl4dv-0.0.2.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-0.0.2.zip</code>.</p>
                                                 </li>
-                                            </ul>
+                                            </ol>
                                             <b>Note:</b> We recommend installing NL4DV in a  <a href="https://pypi.org/project/virtualenv/" target="_blank">virtual
                                                     environment</a> as it avoids version conflicts with globally installed packages.
                                 </div><!--//code-block-->
@@ -238,7 +236,7 @@ print(output)</code></pre>
                                 <br/>
                                 <h4 class="block-title coloredText"><a data-toggle="collapse"
                                                                        href="#attributeMapCollapse">
-                                    "attributeMap"
+                                    "attributeMap" &#9656;
                                 </a></h4>
                                 <div class="collapse" id="attributeMapCollapse">
                                     <div class="code-block">
@@ -263,7 +261,7 @@ print(output)</code></pre>
                                 </div><!--//collapse-->
                                 <br/>
                                 <h4 class="block-title coloredText"><a data-toggle="collapse" href="#taskMapCollapse">
-                                    "taskMap"
+                                    "taskMap" &#9656;
                                 </a></h4>
                                 <div class="collapse" id="taskMapCollapse">
                                     <div class="code-block">
@@ -285,7 +283,7 @@ print(output)</code></pre>
                                 </div><!--//collapse-->
                                 <br/>
                                 <h4 class="block-title coloredText"><a data-toggle="collapse" href="#visListCollapse">
-                                    "visList"
+                                    "visList"&#9656;
                                 </a></h4>
                                 <div class="collapse" id="visListCollapse">
                                     <div class="code-block">
@@ -337,22 +335,30 @@ print(output)</code></pre>
                                 <br/>
                                 <h4 class="block-title coloredText"><a data-toggle="collapse"
                                                                            href="#visCollapse">
-                                        Visualization (when the Vega-Lite spec is rendered)
+                                        Visualization (when the Vega-Lite spec is rendered) &#9656;
                                     </a></h4>
                                 <div class="collapse show" id="visCollapse">
                                     <img style="border: 1px solid lightgray;" class="img-fluid img-center"
                                          src="assets/images/example.png" alt="Example"/>
                                 </div>
                             </div><!--//section-block-->
-                            <section id="author-notes" class="section-block">
-                                <h3 class="block-title">Message from Authors</h3>
+                            <section id="docker" class="section-block">
+                                <h3 class="block-title">Docker</h3>
                                 <div class="block">
-                                    <p>As we plan additional features to improve the toolkit, we <b style="color:red;">recommend</b> users/developers to be aware of the following: </p>
+                                    <p>NL4DV is containerized into a <b><a href="https://hub.docker.com/repository/docker/arpitnarechania/nl4dv" target="_blank">Docker Image</a></b>. This image comes pre-installed with NL4DV, Spacy, Stanford CoreNLP, and a few datasets with a web application as a <b>Demo</b>. Install it using:</p>
+                                    <p><code class="language-bash">docker pull arpitnarechania/nl4dv</code></p>
+                                    <p><b>Note:</b> This mode of installation <b style="color:red;">does not</b> require the Post Installation steps. For more informations, follow the detailed instructions in the <b><a href="https://github.com/nl4dv/nl4dv-docker" target="_blank">Github repository (nl4dv-docker)</a></b>.</p>
+                                </div>
+                            </section>
+                            <section id="author-notes" class="section-block">
+                                <h3 class="block-title">Message from Creators</h3>
+                                <div class="block">
+                                    <p>As we plan additional features to add new features / improve the toolkit, we <b style="color:red;">recommend</b> users/developers to be aware of the following: </p>
                                     <ul>
                                         <li><p><b>Attribute data types.</b><br/>Verify the attribute types (e.g., nominal, temporal) that are detected by NL4DV and override them if they are incorrect as they will most likely lead to erroneous visualizations. The current attribute datatype detection logic is heuristics based and we are currently working towards a major improvement that semantically infers the data type from both, the attribute's name and its value.</p>
                                         </li>
                                         <li><p><b>Filter task.</b><br/>NL4DV applies the filter task by matching the condition against each data point but does not encode the involved attributes in the visualization. This was a design decision taken to avoid recommending a complex visualization due to too many encoded attributes.</p></li>
-                                        <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior work; we encourage users/developers to modify them to suit their requirements.</p></li>
+                                        <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior research workss; we encourage users/developers to modify them to suit their specific requirements.</p></li>
                                     </ul>
                                 </div>
                             </section>
@@ -600,7 +606,7 @@ print(output)</code></pre>
                         <section id="test" class="doc-section">
                             <h2 class="section-title">Test</h2>
                             <div class="section-block">
-                                <p><i>Stable release with proper methodology coming soon!</i></p>
+                                <p><i>coming soon...</i></p>
                                 <div class="code-block">
                                     <pre><code class="language-bash">pytest --cov=nl4dv nl4dv/tests</code></pre>
                                 </div><!--//code-block-->
@@ -709,7 +715,8 @@ print(output)</code></pre>
                                 <a class="nav-link scrollto" href="#install">Installation</a>
                                 <a class="nav-link scrollto" href="#post-installation">Post Installation</a>
                                 <a class="nav-link scrollto" href="#sample-code">Sample Code</a>
-                                <a class="nav-link scrollto" href="#author-notes">Message from Authors</a>
+                                <a class="nav-link scrollto" href="#docker">Docker</a>
+                                <a class="nav-link scrollto" href="#author-notes">Message from Creators</a>
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
                             </nav><!--//nav-->
                             <a class="nav-link scrollto" href="#api-reference">API Reference</a>
