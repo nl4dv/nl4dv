@@ -54,24 +54,21 @@ class DataGenie:
     # e.g. "Correlate horsepower and MPG for sports car models" should NOT apply an explicit attribute for models since there are two explicit attributes already present.
     def set_label_attribute(self, label_attribute):
         self.nl4dv_instance.label_attribute = label_attribute
-        return True
 
     # WORDS that should be IGNORED in the query, i.e. NOT lead to the detection of attributes and tasks
     # `Movie` in movies dataset
     # `Car` in cars dataset
     def set_ignore_words(self, ignore_words):
         self.nl4dv_instance.ignore_words = ignore_words
-        return True
 
     # Custom STOPWORDS that should NOT removed from the query, as they might be present in the domain.
     # e.g. `A` in grades dataset
     def set_reserve_words(self, reserve_words):
         self.nl4dv_instance.reserve_words = reserve_words
-        return True
 
     # Sets the Dataset
     def set_data(self, data_url=None, data_value=None):
-        # type: (str) -> bool
+        # type: (str) -> None
         """
         User can choose to manually initialize data
 
@@ -198,11 +195,9 @@ class DataGenie:
             # Presentation
             self.prepare_output(attr, attr_datatype)
 
-        return True
-
     # Sets the Alias Map
     def set_alias_map(self, alias_value=None, alias_url=None):
-        # type: (dict, str) -> bool
+        # type: (dict, str) -> None
         """
         User can choose to manually initialize data
 
@@ -217,8 +212,6 @@ class DataGenie:
             for attr in self.nl4dv_instance.alias_value:
                 if attr in self.data_attribute_map:
                     self.data_attribute_map[attr]['aliases'].extend(self.nl4dv_instance.alias_value[attr])
-
-        return True
 
     # Set Domain, Ranges for Attributes of different datatypes
     def populate_dataset_meta(self, attr, attr_val, attr_datatype):
