@@ -87,33 +87,9 @@ class NL4DV:
         self.task_genie_instance = TaskGenie(self)  # initialize a TaskGenie instance.
         self.vis_genie_instance = VisGenie(self)   # initialize a VisGenie instance.
 
-        # Set the Data if passed data_url or data_value is not None
-        if self.data_url is not None:
-            self.set_data(data_url = self.data_url)
-        elif self.data_value is not None:
-            self.set_data(data_value = self.data_value)
-
-        # Set the Aliases if passed alias_url or alias_value is not None
-        if self.alias_url is not None:
-            self.set_alias_map(alias_url = self.alias_url)
-        elif self.alias_value is not None:
-            self.set_alias_map(alias_value = self.alias_value)
-
         # Set the dependency parser if config is not None
         if self.dependency_parser_config is not None:
             self.set_dependency_parser(dependency_parser_config)
-
-        # Set the label attribute, if specified
-        if self.label_attribute is not None:
-            self.set_label_attribute(label_attribute=self.label_attribute)
-
-        # Set the ignore_words, if specified
-        if self.ignore_words is not None:
-            self.set_ignore_words(ignore_words = self.ignore_words)
-
-        # Set the reserve_words, if specified
-        if self.reserve_words is not None:
-            self.set_reserve_words(reserve_words = self.reserve_words)
 
         # Set the thresholds, e.g., string matching
         if thresholds is not None:
@@ -126,7 +102,6 @@ class NL4DV:
         # Override the attribute datatypes
         if attribute_datatype is not None:
             self.set_attribute_datatype(attr_type_obj=attribute_datatype)
-
 
     # returns a VegaLite object of the best (1st) visualization after analyzing the query.
     def render_vis(self, query):

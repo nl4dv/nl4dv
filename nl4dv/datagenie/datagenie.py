@@ -26,17 +26,22 @@ class DataGenie:
         # set custom stopwords list
         self.set_reserve_words(reserve_words=self.nl4dv_instance.reserve_words)
 
-        # set data and extract attributes
-        self.set_data(data_url=self.nl4dv_instance.data_url, data_value=self.nl4dv_instance.data_value)
-
-        # set alias map
-        self.set_alias_map(alias_url=self.nl4dv_instance.alias_url, alias_value=self.nl4dv_instance.alias_value)
-
         # Other initializations
         self.data_attribute_map = dict()
         self.data = list()
         self.rows = 0
 
+        # Set the Data if passed data_url or data_value is not None
+        if self.nl4dv_instance.data_url is not None:
+            self.set_data(data_url = self.nl4dv_instance.data_url)
+        elif self.nl4dv_instance.data_value is not None:
+            self.set_data(data_value = self.nl4dv_instance.data_value)
+
+        # Set the Aliases if passed alias_url or alias_value is not None
+        if self.nl4dv_instance.alias_url is not None:
+            self.set_alias_map(alias_url = self.nl4dv_instance.alias_url)
+        elif self.nl4dv_instance.alias_value is not None:
+            self.set_alias_map(alias_value = self.nl4dv_instance.alias_value)
 
     # Update the attribute datatypes that were not correctly detected by NL4DV
     def set_attribute_datatype(self, attr_type_obj):
@@ -73,47 +78,56 @@ class DataGenie:
         User can choose to manually initialize data
 
         """
-        self.nl4dv_instance.data_url = data_url
-        self.nl4dv_instance.data_value = data_value
+        self.nl4dv_instance.data_url = data_url if data_url is not None else self.nl4dv_instance.data_url
+        self.nl4dv_instance.data_value = data_value if data_value is not None else self.nl4dv_instance.data_value
 
         # initialize values
         self.data_attribute_map = dict()
         self.data = list()
         self.rows = 0
 
-        if self.nl4dv_instance.data_url is not None and os.path.isfile(self.nl4dv_instance.data_url):
+        if self.nl4dv_instance.data_url is not None:
 
-            # local variables
-            reader = None
-            json_data = None
-            attributes = list()
+            # If LOCAL FILE
+            if os.path.isfile(self.nl4dv_instance.data_url):
 
-            if self.nl4dv_instance.data_url.lower().endswith('.csv'):
-                reader = csv.reader(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'),delimiter=',')
-                attributes = next(reader)  # assumes headers are in the first line
-            elif self.nl4dv_instance.data_url.lower().endswith('.tsv'):
-                reader = csv.reader(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'),delimiter='\t')
-                attributes = next(reader)  # assumes headers are in the first line
-            elif self.nl4dv_instance.data_url.lower().endswith('.json'):
-                json_data = json.load(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'))
-                attributes = json_data[0].keys()
+                # local variables
+                reader = None
+                json_data = None
+                attributes = list()
 
-            # initialize properties in Attribute Map
-            # implies file is either .csv or .tsv
-            if reader is not None:
-                for line in reader:
-                    data_obj = dict()
-                    for i in range(len(line)):
-                        # Don't consider attribute names that are empty or just whitespaces
-                        if attributes[i] and attributes[i].strip():
-                            data_obj[attributes[i]] = line[i]
-                    self.data.append(data_obj)
-                    self.rows += 1
+                if self.nl4dv_instance.data_url.lower().endswith('.csv'):
+                    reader = csv.reader(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'),delimiter=',')
+                    attributes = next(reader)  # assumes headers are in the first line
+                elif self.nl4dv_instance.data_url.lower().endswith('.tsv'):
+                    reader = csv.reader(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'),delimiter='\t')
+                    attributes = next(reader)  # assumes headers are in the first line
+                elif self.nl4dv_instance.data_url.lower().endswith('.json'):
+                    json_data = json.load(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'))
+                    attributes = json_data[0].keys()
+
+                # initialize properties in Attribute Map
+                # implies file is either .csv or .tsv
+                if reader is not None:
+                    for line in reader:
+                        data_obj = dict()
+                        for i in range(len(line)):
+                            # Don't consider attribute names that are empty or just whitespaces
+                            if attributes[i] and attributes[i].strip():
+                                data_obj[attributes[i]] = line[i]
+                        self.data.append(data_obj)
+                else:
+                    # JSON file
+                    for data_obj in json_data:
+                        self.data.append(data_obj)
             else:
-                # JSON file
-                for data_obj in json_data:
-                    self.data.append(data_obj)
-                    self.rows += 1
+                # Possible URL
+                if self.nl4dv_instance.data_url.lower().endswith('.csv'):
+                    self.data = pd.read_csv(self.nl4dv_instance.data_url, sep=',').to_dict('records')
+                elif self.nl4dv_instance.data_url.lower().endswith('.tsv'):
+                    self.data = pd.read_csv(self.nl4dv_instance.data_url, sep='\t').to_dict('records')
+                elif self.nl4dv_instance.data_url.lower().endswith('.json'):
+                    self.data = pd.read_json(self.nl4dv_instance.data_url).to_dict('records')
 
         elif self.nl4dv_instance.data_value is not None:
             if isinstance(data_value, pd.DataFrame):
@@ -122,7 +136,9 @@ class DataGenie:
                 self.data = data_value
             elif isinstance(data_value, dict):
                 self.data = pd.DataFrame(data_value).to_dict('records')
-            self.rows = len(self.data)
+
+        # Set number of rows in the dataset
+        self.rows = len(self.data)
 
         # initialize properties in Attribute Map
         if len(self.data) > 0:
