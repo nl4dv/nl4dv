@@ -1,0 +1,5521 @@
+[{
+    "Foot": "Left",
+    "Name": "Etrit Berisha",
+    "Position": "Goalkeeper",
+    "Club": "Lazio",
+    "Country": "Albania",
+    "Age": 27,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andi Lila",
+    "Position": "Defender",
+    "Club": "PAS Giannina",
+    "Country": "Albania",
+    "Age": 30,
+    "Salary": 700000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ermir Lenjani",
+    "Position": "Midfielder",
+    "Club": "Nantes",
+    "Country": "Albania",
+    "Age": 26,
+    "Salary": 1250000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Elseid Hysaj",
+    "Position": "Defender",
+    "Club": "Napoli",
+    "Country": "Albania",
+    "Age": 22,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Lorik Cana",
+    "Position": "Midfielder",
+    "Club": "Nantes",
+    "Country": "Albania",
+    "Age": 32,
+    "Salary": 1000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Frederik Veseli",
+    "Position": "Defender",
+    "Club": "Lugano",
+    "Country": "Albania",
+    "Age": 23,
+    "Salary": 800000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Ansi Agolli",
+    "Position": "Defender",
+    "Club": "Qarabağ",
+    "Country": "Albania",
+    "Age": 33,
+    "Salary": 300000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Migjen Basha",
+    "Position": "Midfielder",
+    "Club": "Como",
+    "Country": "Albania",
+    "Age": 29,
+    "Salary": 800000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ledian Memushaj",
+    "Position": "Midfielder",
+    "Club": "Pescara",
+    "Country": "Albania",
+    "Age": 29,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Armando Sadiku",
+    "Position": "Forward",
+    "Club": "Vaduz",
+    "Country": "Albania",
+    "Age": 25,
+    "Salary": 750000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Left",
+    "Name": "Shkëlzen Gashi",
+    "Position": "Forward",
+    "Club": "States Colorado Rapids",
+    "Country": "Albania",
+    "Age": 27,
+    "Salary": 2750000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Orges Shehi",
+    "Position": "Goalkeeper",
+    "Club": "Skënderbeu Korçë",
+    "Country": "Albania",
+    "Age": 38,
+    "Salary": 125000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Burim Kukeli",
+    "Position": "Midfielder",
+    "Club": "Zürich",
+    "Country": "Albania",
+    "Age": 32,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Taulant Xhaka",
+    "Position": "Midfielder",
+    "Club": "Basel",
+    "Country": "Albania",
+    "Age": 25,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Mërgim Mavraj",
+    "Position": "Defender",
+    "Club": "1. FC Köln",
+    "Country": "Albania",
+    "Age": 30,
+    "Salary": 1750000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sokol Cikalleshi",
+    "Position": "Forward",
+    "Club": "İstanbul Başakşehir",
+    "Country": "Albania",
+    "Age": 25,
+    "Salary": 2800000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Naser Aliji",
+    "Position": "Defender",
+    "Club": "Basel",
+    "Country": "Albania",
+    "Age": 22,
+    "Salary": 700000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Arlind Ajeti",
+    "Position": "Defender",
+    "Club": "Frosinone",
+    "Country": "Albania",
+    "Age": 22,
+    "Salary": 1500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bekim Balaj",
+    "Position": "Forward",
+    "Club": "Rijeka",
+    "Country": "Albania",
+    "Age": 25,
+    "Salary": 2000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ergys Kaçe",
+    "Position": "Midfielder",
+    "Club": "PAOK",
+    "Country": "Albania",
+    "Age": 22,
+    "Salary": 3000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Odise Roshi",
+    "Position": "Midfielder",
+    "Club": "Rijeka",
+    "Country": "Albania",
+    "Age": 25,
+    "Salary": 350000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Amir Abrashi",
+    "Position": "Midfielder",
+    "Club": "SC Freiburg",
+    "Country": "Albania",
+    "Age": 26,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Alban Hoxha",
+    "Position": "Goalkeeper",
+    "Club": "Partizani Tirana",
+    "Country": "Albania",
+    "Age": 28,
+    "Salary": 575000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Hugo Lloris",
+    "Position": "Goalkeeper",
+    "Club": "Tottenham Hotspur",
+    "Country": "France",
+    "Age": 29,
+    "Salary": 24000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Christophe Jallet",
+    "Position": "Defender",
+    "Club": "Lyon",
+    "Country": "France",
+    "Age": 32,
+    "Salary": 2000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Patrice Evra",
+    "Position": "Defender",
+    "Club": "Juventus",
+    "Country": "France",
+    "Age": 35,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Adil Rami",
+    "Position": "Defender",
+    "Club": "Sevilla",
+    "Country": "France",
+    "Age": 30,
+    "Salary": 7000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "N'Golo Kanté",
+    "Position": "Midfielder",
+    "Club": "Leicester City",
+    "Country": "France",
+    "Age": 25,
+    "Salary": 20000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Yohan Cabaye",
+    "Position": "Midfielder",
+    "Club": "Crystal Palace",
+    "Country": "France",
+    "Age": 30,
+    "Salary": 18000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Left",
+    "Name": "Antoine Griezmann",
+    "Position": "Forward",
+    "Club": "Atlético Madrid",
+    "Country": "France",
+    "Age": 25,
+    "Salary": 70000000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Right",
+    "Name": "Dimitri Payet",
+    "Position": "Midfielder",
+    "Club": "West Ham United",
+    "Country": "France",
+    "Age": 29,
+    "Salary": 23000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Olivier Giroud",
+    "Position": "Forward",
+    "Club": "Arsenal",
+    "Country": "France",
+    "Age": 29,
+    "Salary": 25000000,
+    "Goals": 14
+  },
+  {
+    "Foot": "Right",
+    "Name": "André-Pierre Gignac",
+    "Position": "Forward",
+    "Club": "Tigres UANL",
+    "Country": "France",
+    "Age": 30,
+    "Salary": 8000000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Right",
+    "Name": "Anthony Martial",
+    "Position": "Forward",
+    "Club": "Manchester United",
+    "Country": "France",
+    "Age": 20,
+    "Salary": 32000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Morgan Schneiderlin",
+    "Position": "Midfielder",
+    "Club": "Manchester United",
+    "Country": "France",
+    "Age": 26,
+    "Salary": 30000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Eliaquim Mangala",
+    "Position": "Defender",
+    "Club": "Manchester City",
+    "Country": "France",
+    "Age": 25,
+    "Salary": 23000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Blaise Matuidi",
+    "Position": "Midfielder",
+    "Club": "Paris Saint-Germain",
+    "Country": "France",
+    "Age": 29,
+    "Salary": 30000000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Both",
+    "Name": "Paul Pogba",
+    "Position": "Midfielder",
+    "Club": "Juventus",
+    "Country": "France",
+    "Age": 23,
+    "Salary": 70000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Steve Mandanda",
+    "Position": "Goalkeeper",
+    "Club": "Marseille",
+    "Country": "France",
+    "Age": 31,
+    "Salary": 10000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Lucas Digne",
+    "Position": "Defender",
+    "Club": "Roma",
+    "Country": "France",
+    "Age": 22,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Moussa Sissoko",
+    "Position": "Midfielder",
+    "Club": "Newcastle United",
+    "Country": "France",
+    "Age": 26,
+    "Salary": 13000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bacary Sagna",
+    "Position": "Defender",
+    "Club": "Manchester City",
+    "Country": "France",
+    "Age": 33,
+    "Salary": 7000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kingsley Coman",
+    "Position": "Midfielder",
+    "Club": "Bayern Munich",
+    "Country": "France",
+    "Age": 19,
+    "Salary": 17000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Laurent Koscielny",
+    "Position": "Defender",
+    "Club": "Arsenal",
+    "Country": "France",
+    "Age": 30,
+    "Salary": 22000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Samuel Umtiti",
+    "Position": "Defender",
+    "Club": "Lyon",
+    "Country": "France",
+    "Age": 22,
+    "Salary": 15000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Benoît Costil",
+    "Position": "Goalkeeper",
+    "Club": "Rennes",
+    "Country": "France",
+    "Age": 28,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Costel Pantilimon",
+    "Position": "Goalkeeper",
+    "Club": "Watford",
+    "Country": "Romania",
+    "Age": 29,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Alexandru Mățel",
+    "Position": "Defender",
+    "Club": "Dinamo Zagreb",
+    "Country": "Romania",
+    "Age": 26,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Răzvan Raț",
+    "Position": "Defender",
+    "Club": "Rayo Vallecano",
+    "Country": "Romania",
+    "Age": 35,
+    "Salary": 500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Cosmin Moți",
+    "Position": "Defender",
+    "Club": "Ludogorets Razgrad",
+    "Country": "Romania",
+    "Age": 31,
+    "Salary": 1250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ovidiu Hoban",
+    "Position": "Midfielder",
+    "Club": "Hapoel Be'er Sheva",
+    "Country": "Romania",
+    "Age": 33,
+    "Salary": 800000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Vlad Chiricheș",
+    "Position": "Defender",
+    "Club": "Napoli",
+    "Country": "Romania",
+    "Age": 26,
+    "Salary": 5500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Alexandru Chipciu",
+    "Position": "Midfielder",
+    "Club": "Steaua București",
+    "Country": "Romania",
+    "Age": 27,
+    "Salary": 2000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mihai Pintilii",
+    "Position": "Midfielder",
+    "Club": "Steaua București",
+    "Country": "Romania",
+    "Age": 31,
+    "Salary": 1000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Denis Alibec",
+    "Position": "Forward",
+    "Club": "Astra Giurgiu",
+    "Country": "Romania",
+    "Age": 25,
+    "Salary": 2500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Nicolae Stanciu",
+    "Position": "Midfielder",
+    "Club": "Steaua București",
+    "Country": "Romania",
+    "Age": 23,
+    "Salary": 3500000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Both",
+    "Name": "Gabriel Torje",
+    "Position": "Midfielder",
+    "Club": "Osmanlıspor",
+    "Country": "Romania",
+    "Age": 26,
+    "Salary": 4000000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ciprian Tătărușanu",
+    "Position": "Goalkeeper",
+    "Club": "Fiorentina",
+    "Country": "Romania",
+    "Age": 30,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Claudiu Keșerü",
+    "Position": "Forward",
+    "Club": "Ludogorets Razgrad",
+    "Country": "Romania",
+    "Age": 29,
+    "Salary": 4000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Florin Andone",
+    "Position": "Forward",
+    "Club": "Córdoba",
+    "Country": "Romania",
+    "Age": 23,
+    "Salary": 2500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Valerică Găman",
+    "Position": "Defender",
+    "Club": "Astra Giurgiu",
+    "Country": "Romania",
+    "Age": 27,
+    "Salary": 2200000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Steliano Filip",
+    "Position": "Defender",
+    "Club": "Dinamo București",
+    "Country": "Romania",
+    "Age": 22,
+    "Salary": 1250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Lucian Sânmărtean",
+    "Position": "Midfielder",
+    "Club": "Arabia Al-Ittihad",
+    "Country": "Romania",
+    "Age": 36,
+    "Salary": 300000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Andrei Prepeliță",
+    "Position": "Midfielder",
+    "Club": "Ludogorets Razgrad",
+    "Country": "Romania",
+    "Age": 30,
+    "Salary": 1900000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bogdan Stancu",
+    "Position": "Forward",
+    "Club": "Gençlerbirliği",
+    "Country": "Romania",
+    "Age": 28,
+    "Salary": 4000000,
+    "Goals": 9
+  },
+  {
+    "Foot": "Right",
+    "Name": "Adrian Popa",
+    "Position": "Midfielder",
+    "Club": "Steaua București",
+    "Country": "Romania",
+    "Age": 27,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Dragoș Grigore",
+    "Position": "Defender",
+    "Club": "Al-Sailiya",
+    "Country": "Romania",
+    "Age": 29,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Cristian Săpunaru",
+    "Position": "Defender",
+    "Club": "Pandurii Târgu Jiu",
+    "Country": "Romania",
+    "Age": 32,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Silviu Lung Jr.",
+    "Position": "Goalkeeper",
+    "Club": "Astra Giurgiu",
+    "Country": "Romania",
+    "Age": 27,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Yann Sommer",
+    "Position": "Goalkeeper",
+    "Club": "Borussia Mönchengladbach",
+    "Country": "Switzerland",
+    "Age": 27,
+    "Salary": 10000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Stephan Lichtsteiner",
+    "Position": "Defender",
+    "Club": "Juventus",
+    "Country": "Switzerland",
+    "Age": 32,
+    "Salary": 6000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Left",
+    "Name": "François Moubandje",
+    "Position": "Defender",
+    "Club": "Toulouse",
+    "Country": "Switzerland",
+    "Age": 25,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Nico Elvedi",
+    "Position": "Defender",
+    "Club": "Borussia Mönchengladbach",
+    "Country": "Switzerland",
+    "Age": 19,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Steve von Bergen",
+    "Position": "Defender",
+    "Club": "Young Boys",
+    "Country": "Switzerland",
+    "Age": 33,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Michael Lang",
+    "Position": "Defender",
+    "Club": "Basel",
+    "Country": "Switzerland",
+    "Age": 25,
+    "Salary": 4250000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Breel Embolo",
+    "Position": "Forward",
+    "Club": "Basel",
+    "Country": "Switzerland",
+    "Age": 19,
+    "Salary": 20000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Fabian Frei",
+    "Position": "Midfielder",
+    "Club": "Mainz 05",
+    "Country": "Switzerland",
+    "Age": 27,
+    "Salary": 3000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Haris Seferović",
+    "Position": "Forward",
+    "Club": "Eintracht Frankfurt",
+    "Country": "Switzerland",
+    "Age": 24,
+    "Salary": 5500000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Left",
+    "Name": "Granit Xhaka",
+    "Position": "Midfielder",
+    "Club": "Borussia Mönchengladbach",
+    "Country": "Switzerland",
+    "Age": 23,
+    "Salary": 35000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Valon Behrami",
+    "Position": "Midfielder",
+    "Club": "Watford",
+    "Country": "Switzerland",
+    "Age": 31,
+    "Salary": 2500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marwin Hitz",
+    "Position": "Goalkeeper",
+    "Club": "FC Augsburg",
+    "Country": "Switzerland",
+    "Age": 28,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ricardo Rodríguez",
+    "Position": "Defender",
+    "Club": "VfL Wolfsburg",
+    "Country": "Switzerland",
+    "Age": 23,
+    "Salary": 25000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Denis Zakaria",
+    "Position": "Midfielder",
+    "Club": "Young Boys",
+    "Country": "Switzerland",
+    "Age": 19,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Blerim Džemaili",
+    "Position": "Midfielder",
+    "Club": "Genoa",
+    "Country": "Switzerland",
+    "Age": 30,
+    "Salary": 3500000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gélson Fernandes",
+    "Position": "Midfielder",
+    "Club": "Rennes",
+    "Country": "Switzerland",
+    "Age": 29,
+    "Salary": 3000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Shani Tarashaj",
+    "Position": "Forward",
+    "Club": "Grasshoppers",
+    "Country": "Switzerland",
+    "Age": 21,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Admir Mehmedi",
+    "Position": "Forward",
+    "Club": "Bayer Leverkusen",
+    "Country": "Switzerland",
+    "Age": 25,
+    "Salary": 5000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Eren Derdiyok",
+    "Position": "Forward",
+    "Club": "Kasımpaşa",
+    "Country": "Switzerland",
+    "Age": 27,
+    "Salary": 4600000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Johan Djourou",
+    "Position": "Defender",
+    "Club": "Hamburger SV",
+    "Country": "Switzerland",
+    "Age": 29,
+    "Salary": 3500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roman Bürki",
+    "Position": "Goalkeeper",
+    "Club": "Borussia Dortmund",
+    "Country": "Switzerland",
+    "Age": 25,
+    "Salary": 6000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Fabian Schär",
+    "Position": "Defender",
+    "Club": "1899 Hoffenheim",
+    "Country": "Switzerland",
+    "Age": 24,
+    "Salary": 4000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Left",
+    "Name": "Xherdan Shaqiri",
+    "Position": "Midfielder",
+    "Club": "Stoke City",
+    "Country": "Switzerland",
+    "Age": 24,
+    "Salary": 15000000,
+    "Goals": 17
+  },
+  {
+    "Foot": "Right",
+    "Name": "Joe Hart",
+    "Position": "Goalkeeper",
+    "Club": "Manchester City",
+    "Country": "England",
+    "Age": 29,
+    "Salary": 17000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kyle Walker",
+    "Position": "Defender",
+    "Club": "Tottenham Hotspur",
+    "Country": "England",
+    "Age": 26,
+    "Salary": 15000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Danny Rose",
+    "Position": "Defender",
+    "Club": "Tottenham Hotspur",
+    "Country": "England",
+    "Age": 25,
+    "Salary": 14000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "James Milner",
+    "Position": "Midfielder",
+    "Club": "Liverpool",
+    "Country": "England",
+    "Age": 30,
+    "Salary": 15000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gary Cahill",
+    "Position": "Defender",
+    "Club": "Chelsea",
+    "Country": "England",
+    "Age": 30,
+    "Salary": 16000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Chris Smalling",
+    "Position": "Defender",
+    "Club": "Manchester United",
+    "Country": "England",
+    "Age": 26,
+    "Salary": 20000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Raheem Sterling",
+    "Position": "Midfielder",
+    "Club": "Manchester City",
+    "Country": "England",
+    "Age": 21,
+    "Salary": 45000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Both",
+    "Name": "Adam Lallana",
+    "Position": "Midfielder",
+    "Club": "Liverpool",
+    "Country": "England",
+    "Age": 28,
+    "Salary": 19000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Harry Kane",
+    "Position": "Forward",
+    "Club": "Tottenham Hotspur",
+    "Country": "England",
+    "Age": 22,
+    "Salary": 40000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Wayne Rooney",
+    "Position": "Forward",
+    "Club": "Manchester United",
+    "Country": "England",
+    "Age": 30,
+    "Salary": 35000000,
+    "Goals": 52
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jamie Vardy",
+    "Position": "Forward",
+    "Club": "Leicester City",
+    "Country": "England",
+    "Age": 29,
+    "Salary": 18000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Nathaniel Clyne",
+    "Position": "Defender",
+    "Club": "Liverpool",
+    "Country": "England",
+    "Age": 25,
+    "Salary": 21000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Fraser Forster",
+    "Position": "Goalkeeper",
+    "Club": "Southampton",
+    "Country": "England",
+    "Age": 28,
+    "Salary": 15000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jordan Henderson",
+    "Position": "Midfielder",
+    "Club": "Liverpool",
+    "Country": "England",
+    "Age": 25,
+    "Salary": 28000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Daniel Sturridge",
+    "Position": "Forward",
+    "Club": "Liverpool",
+    "Country": "England",
+    "Age": 26,
+    "Salary": 25000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "John Stones",
+    "Position": "Defender",
+    "Club": "Everton",
+    "Country": "England",
+    "Age": 22,
+    "Salary": 28000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Eric Dier",
+    "Position": "Midfielder",
+    "Club": "Tottenham Hotspur",
+    "Country": "England",
+    "Age": 22,
+    "Salary": 18000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jack Wilshere",
+    "Position": "Midfielder",
+    "Club": "Arsenal",
+    "Country": "England",
+    "Age": 24,
+    "Salary": 23000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ross Barkley",
+    "Position": "Midfielder",
+    "Club": "Everton",
+    "Country": "England",
+    "Age": 22,
+    "Salary": 22000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Dele Alli",
+    "Position": "Midfielder",
+    "Club": "Tottenham Hotspur",
+    "Country": "England",
+    "Age": 20,
+    "Salary": 20000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ryan Bertrand",
+    "Position": "Defender",
+    "Club": "Southampton",
+    "Country": "England",
+    "Age": 26,
+    "Salary": 14000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marcus Rashford",
+    "Position": "Forward",
+    "Club": "Manchester United",
+    "Country": "England",
+    "Age": 18,
+    "Salary": 6000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tom Heaton",
+    "Position": "Goalkeeper",
+    "Club": "Burnley",
+    "Country": "England",
+    "Age": 30,
+    "Salary": 3000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Igor Akinfeev",
+    "Position": "Goalkeeper",
+    "Club": "CSKA Moscow",
+    "Country": "Russia",
+    "Age": 30,
+    "Salary": 14000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roman Shishkin",
+    "Position": "Defender",
+    "Club": "Lokomotiv Moscow",
+    "Country": "Russia",
+    "Age": 29,
+    "Salary": 3000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Igor Smolnikov",
+    "Position": "Defender",
+    "Club": "Zenit Saint Petersburg",
+    "Country": "Russia",
+    "Age": 27,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sergei Ignashevich",
+    "Position": "Defender",
+    "Club": "CSKA Moscow",
+    "Country": "Russia",
+    "Age": 36,
+    "Salary": 200000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roman Neustädter",
+    "Position": "Defender",
+    "Club": "Schalke 04",
+    "Country": "Russia",
+    "Age": 28,
+    "Salary": 7000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Aleksei Berezutski",
+    "Position": "Defender",
+    "Club": "CSKA Moscow",
+    "Country": "Russia",
+    "Age": 33,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Igor Denisov",
+    "Position": "Midfielder",
+    "Club": "Dynamo Moscow",
+    "Country": "Russia",
+    "Age": 32,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Denis Glushakov",
+    "Position": "Midfielder",
+    "Club": "Spartak Moscow",
+    "Country": "Russia",
+    "Age": 29,
+    "Salary": 5000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Aleksandr Kokorin",
+    "Position": "Forward",
+    "Club": "Zenit Saint Petersburg",
+    "Country": "Russia",
+    "Age": 25,
+    "Salary": 7000000,
+    "Goals": 11
+  },
+  {
+    "Foot": "Right",
+    "Name": "Fyodor Smolov",
+    "Position": "Forward",
+    "Club": "Krasnodar",
+    "Country": "Russia",
+    "Age": 26,
+    "Salary": 8000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Both",
+    "Name": "Pavel Mamayev",
+    "Position": "Midfielder",
+    "Club": "Krasnodar",
+    "Country": "Russia",
+    "Age": 27,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Yuri Lodygin",
+    "Position": "Goalkeeper",
+    "Club": "Zenit Saint Petersburg",
+    "Country": "Russia",
+    "Age": 26,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Aleksandr Golovin",
+    "Position": "Midfielder",
+    "Club": "CSKA Moscow",
+    "Country": "Russia",
+    "Age": 20,
+    "Salary": 3000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Vasili Berezutski",
+    "Position": "Defender",
+    "Club": "CSKA Moscow",
+    "Country": "Russia",
+    "Age": 33,
+    "Salary": 3000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roman Shirokov",
+    "Position": "Midfielder",
+    "Club": "CSKA Moscow",
+    "Country": "Russia",
+    "Age": 34,
+    "Salary": 1000000,
+    "Goals": 13
+  },
+  {
+    "Foot": "Right",
+    "Name": "Guilherme Marinato",
+    "Position": "Goalkeeper",
+    "Club": "Lokomotiv Moscow",
+    "Country": "Russia",
+    "Age": 30,
+    "Salary": 6000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Oleg Shatov",
+    "Position": "Midfielder",
+    "Club": "Zenit Saint Petersburg",
+    "Country": "Russia",
+    "Age": 25,
+    "Salary": 14000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Oleg Ivanov",
+    "Position": "Midfielder",
+    "Club": "Terek Grozny",
+    "Country": "Russia",
+    "Age": 29,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Aleksandr Samedov",
+    "Position": "Midfielder",
+    "Club": "Lokomotiv Moscow",
+    "Country": "Russia",
+    "Age": 31,
+    "Salary": 4000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Left",
+    "Name": "Dmitri Torbinski",
+    "Position": "Midfielder",
+    "Club": "Krasnodar",
+    "Country": "Russia",
+    "Age": 32,
+    "Salary": 1000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Georgi Shchennikov",
+    "Position": "Defender",
+    "Club": "CSKA Moscow",
+    "Country": "Russia",
+    "Age": 25,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Artem Dzyuba",
+    "Position": "Forward",
+    "Club": "Zenit Saint Petersburg",
+    "Country": "Russia",
+    "Age": 27,
+    "Salary": 10000000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Left",
+    "Name": "Dmitri Kombarov",
+    "Position": "Defender",
+    "Club": "Spartak Moscow",
+    "Country": "Russia",
+    "Age": 29,
+    "Salary": 5000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ján Mucha",
+    "Position": "Goalkeeper",
+    "Club": "Slovan Bratislava",
+    "Country": "Slovakia",
+    "Age": 33,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Peter Pekarík",
+    "Position": "Defender",
+    "Club": "Hertha BSC",
+    "Country": "Slovakia",
+    "Age": 29,
+    "Salary": 2500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Martin Škrtel",
+    "Position": "Defender",
+    "Club": "Liverpool",
+    "Country": "Slovakia",
+    "Age": 31,
+    "Salary": 10000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ján Ďurica",
+    "Position": "Defender",
+    "Club": "Lokomotiv Moscow",
+    "Country": "Slovakia",
+    "Age": 34,
+    "Salary": 250000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Norbert Gyömbér",
+    "Position": "Defender",
+    "Club": "Roma",
+    "Country": "Slovakia",
+    "Age": 23,
+    "Salary": 750000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ján Greguš",
+    "Position": "Midfielder",
+    "Club": "Republic Baumit Jablonec",
+    "Country": "Slovakia",
+    "Age": 25,
+    "Salary": 2800000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Vladimír Weiss",
+    "Position": "Midfielder",
+    "Club": "Al-Gharafa",
+    "Country": "Slovakia",
+    "Age": 26,
+    "Salary": 3200000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ondrej Duda",
+    "Position": "Midfielder",
+    "Club": "Legia Warsaw",
+    "Country": "Slovakia",
+    "Age": 21,
+    "Salary": 500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Stanislav Šesták",
+    "Position": "Forward",
+    "Club": "Ferencváros",
+    "Country": "Slovakia",
+    "Age": 33,
+    "Salary": 4500000,
+    "Goals": 13
+  },
+  {
+    "Foot": "Both",
+    "Name": "Miroslav Stoch",
+    "Position": "Midfielder",
+    "Club": "Bursaspor",
+    "Country": "Slovakia",
+    "Age": 26,
+    "Salary": 300000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Adam Nemec",
+    "Position": "Forward",
+    "Club": "Willem II",
+    "Country": "Slovakia",
+    "Age": 30,
+    "Salary": 700000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ján Novota",
+    "Position": "Goalkeeper",
+    "Club": "Rapid Wien",
+    "Country": "Slovakia",
+    "Age": 32,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Patrik Hrošovský",
+    "Position": "Midfielder",
+    "Club": "Republic Viktoria Plzeň",
+    "Country": "Slovakia",
+    "Age": 24,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Milan Škriniar",
+    "Position": "Defender",
+    "Club": "Sampdoria",
+    "Country": "Slovakia",
+    "Age": 21,
+    "Salary": 700000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tomáš Hubočan",
+    "Position": "Defender",
+    "Club": "Dynamo Moscow",
+    "Country": "Slovakia",
+    "Age": 30,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Kornel Saláta",
+    "Position": "Defender",
+    "Club": "Slovan Bratislava",
+    "Country": "Slovakia",
+    "Age": 31,
+    "Salary": 35000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Marek Hamšík",
+    "Position": "Midfielder",
+    "Club": "Napoli",
+    "Country": "Slovakia",
+    "Age": 28,
+    "Salary": 750000,
+    "Goals": 17
+  },
+  {
+    "Foot": "Right",
+    "Name": "Dušan Švento",
+    "Position": "Defender",
+    "Club": "1. FC Köln",
+    "Country": "Slovakia",
+    "Age": 30,
+    "Salary": 8000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Juraj Kucka",
+    "Position": "Midfielder",
+    "Club": "Milan",
+    "Country": "Slovakia",
+    "Age": 29,
+    "Salary": 3000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Róbert Mak",
+    "Position": "Midfielder",
+    "Club": "PAOK",
+    "Country": "Slovakia",
+    "Age": 25,
+    "Salary": 2000000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Right",
+    "Name": "Michal Ďuriš",
+    "Position": "Forward",
+    "Club": "Republic Viktoria Plzeň",
+    "Country": "Slovakia",
+    "Age": 28,
+    "Salary": 350000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Viktor Pečovský",
+    "Position": "Midfielder",
+    "Club": "Žilina",
+    "Country": "Slovakia",
+    "Age": 33,
+    "Salary": 1000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Matúš Kozáčik",
+    "Position": "Goalkeeper",
+    "Club": "Republic Viktoria Plzeň",
+    "Country": "Slovakia",
+    "Age": 32,
+    "Salary": 600000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Wayne Hennessey",
+    "Position": "Goalkeeper",
+    "Club": "Crystal Palace",
+    "Country": "Wales",
+    "Age": 29,
+    "Salary": 3500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Chris Gunter",
+    "Position": "Defender",
+    "Club": "Reading",
+    "Country": "Wales",
+    "Age": 26,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Neil Taylor",
+    "Position": "Defender",
+    "Club": "Swansea City",
+    "Country": "Wales",
+    "Age": 27,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ben Davies",
+    "Position": "Defender",
+    "Club": "Tottenham Hotspur",
+    "Country": "Wales",
+    "Age": 23,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "James Chester",
+    "Position": "Defender",
+    "Club": "West Bromwich Albion",
+    "Country": "Wales",
+    "Age": 27,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ashley Williams",
+    "Position": "Defender",
+    "Club": "Swansea City",
+    "Country": "Wales",
+    "Age": 31,
+    "Salary": 6500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Joe Allen",
+    "Position": "Midfielder",
+    "Club": "Liverpool",
+    "Country": "Wales",
+    "Age": 26,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andy King",
+    "Position": "Midfielder",
+    "Club": "Leicester City",
+    "Country": "Wales",
+    "Age": 27,
+    "Salary": 3500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Hal Robson-Kanu",
+    "Position": "Forward",
+    "Club": "Reading",
+    "Country": "Wales",
+    "Age": 27,
+    "Salary": 2000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Both",
+    "Name": "Aaron Ramsey",
+    "Position": "Midfielder",
+    "Club": "Arsenal",
+    "Country": "Wales",
+    "Age": 25,
+    "Salary": 30000000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Left",
+    "Name": "Gareth Bale",
+    "Position": "Forward",
+    "Club": "Real Madrid",
+    "Country": "Wales",
+    "Age": 26,
+    "Salary": 80000000,
+    "Goals": 19
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Owain Fôn Williams",
+    "Position": "Goalkeeper",
+    "Club": "Inverness Caledonian Thistle",
+    "Country": "Wales",
+    "Age": 29,
+    "Salary": 250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "George Williams",
+    "Position": "Forward",
+    "Club": "Gillingham",
+    "Country": "Wales",
+    "Age": 20,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "David Edwards",
+    "Position": "Midfielder",
+    "Club": "Wolverhampton Wanderers",
+    "Country": "Wales",
+    "Age": 30,
+    "Salary": 850000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jazz Richards",
+    "Position": "Defender",
+    "Club": "Fulham",
+    "Country": "Wales",
+    "Age": 25,
+    "Salary": 750000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Joe Ledley",
+    "Position": "Midfielder",
+    "Club": "Crystal Palace",
+    "Country": "Wales",
+    "Age": 29,
+    "Salary": 3500000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "David Cotterill",
+    "Position": "Forward",
+    "Club": "Birmingham City",
+    "Country": "Wales",
+    "Age": 28,
+    "Salary": 750000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sam Vokes",
+    "Position": "Forward",
+    "Club": "Burnley",
+    "Country": "Wales",
+    "Age": 26,
+    "Salary": 3500000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "James Collins",
+    "Position": "Defender",
+    "Club": "West Ham United",
+    "Country": "Wales",
+    "Age": 32,
+    "Salary": 2000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jonathan Williams",
+    "Position": "Midfielder",
+    "Club": "Milton Keynes Dons",
+    "Country": "Wales",
+    "Age": 22,
+    "Salary": 750000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Danny Ward",
+    "Position": "Goalkeeper",
+    "Club": "Liverpool",
+    "Country": "Wales",
+    "Age": 22,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "David Vaughan",
+    "Position": "Midfielder",
+    "Club": "Nottingham Forest",
+    "Country": "Wales",
+    "Age": 33,
+    "Salary": 1250000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Simon Church",
+    "Position": "Forward",
+    "Club": "Aberdeen",
+    "Country": "Wales",
+    "Age": 27,
+    "Salary": 500000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Manuel Neuer",
+    "Position": "Goalkeeper",
+    "Club": "Bayern Munich",
+    "Country": "Germany",
+    "Age": 30,
+    "Salary": 45000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Shkodran Mustafi",
+    "Position": "Defender",
+    "Club": "Valencia",
+    "Country": "Germany",
+    "Age": 24,
+    "Salary": 20000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jonas Hector",
+    "Position": "Defender",
+    "Club": "1. FC Köln",
+    "Country": "Germany",
+    "Age": 26,
+    "Salary": 11000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Benedikt Höwedes",
+    "Position": "Defender",
+    "Club": "Schalke 04",
+    "Country": "Germany",
+    "Age": 28,
+    "Salary": 16000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Mats Hummels",
+    "Position": "Defender",
+    "Club": "Borussia Dortmund",
+    "Country": "Germany",
+    "Age": 27,
+    "Salary": 38000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sami Khedira",
+    "Position": "Midfielder",
+    "Club": "Juventus",
+    "Country": "Germany",
+    "Age": 29,
+    "Salary": 20000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bastian Schweinsteiger",
+    "Position": "Midfielder",
+    "Club": "Manchester United",
+    "Country": "Germany",
+    "Age": 31,
+    "Salary": 12000000,
+    "Goals": 23
+  },
+  {
+    "Foot": "Left",
+    "Name": "Mesut Özil",
+    "Position": "Midfielder",
+    "Club": "Arsenal",
+    "Country": "Germany",
+    "Age": 27,
+    "Salary": 50000000,
+    "Goals": 19
+  },
+  {
+    "Foot": "Right",
+    "Name": "André Schürrle",
+    "Position": "Midfielder",
+    "Club": "VfL Wolfsburg",
+    "Country": "Germany",
+    "Age": 25,
+    "Salary": 18000000,
+    "Goals": 20
+  },
+  {
+    "Foot": "Left",
+    "Name": "Lukas Podolski",
+    "Position": "Forward",
+    "Club": "Galatasaray",
+    "Country": "Germany",
+    "Age": 31,
+    "Salary": 8000000,
+    "Goals": 48
+  },
+  {
+    "Foot": "Right",
+    "Name": "Julian Draxler",
+    "Position": "Midfielder",
+    "Club": "VfL Wolfsburg",
+    "Country": "Germany",
+    "Age": 22,
+    "Salary": 24000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bernd Leno",
+    "Position": "Goalkeeper",
+    "Club": "Bayer Leverkusen",
+    "Country": "Germany",
+    "Age": 24,
+    "Salary": 16000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Thomas Müller",
+    "Position": "Forward",
+    "Club": "Bayern Munich",
+    "Country": "Germany",
+    "Age": 26,
+    "Salary": 75000000,
+    "Goals": 31
+  },
+  {
+    "Foot": "Right",
+    "Name": "Emre Can",
+    "Position": "Midfielder",
+    "Club": "Liverpool",
+    "Country": "Germany",
+    "Age": 22,
+    "Salary": 18000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Julian Weigl",
+    "Position": "Midfielder",
+    "Club": "Borussia Dortmund",
+    "Country": "Germany",
+    "Age": 20,
+    "Salary": 14000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Antonio Rüdiger",
+    "Position": "Defender",
+    "Club": "Roma",
+    "Country": "Germany",
+    "Age": 23,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jérôme Boateng",
+    "Position": "Defender",
+    "Club": "Bayern Munich",
+    "Country": "Germany",
+    "Age": 27,
+    "Salary": 40000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Toni Kroos",
+    "Position": "Midfielder",
+    "Club": "Real Madrid",
+    "Country": "Germany",
+    "Age": 26,
+    "Salary": 50000000,
+    "Goals": 11
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mario Götze",
+    "Position": "Midfielder",
+    "Club": "Bayern Munich",
+    "Country": "Germany",
+    "Age": 24,
+    "Salary": 35000000,
+    "Goals": 17
+  },
+  {
+    "Foot": "Right",
+    "Name": "Leroy Sané",
+    "Position": "Midfielder",
+    "Club": "Schalke 04",
+    "Country": "Germany",
+    "Age": 20,
+    "Salary": 13000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Joshua Kimmich",
+    "Position": "Defender",
+    "Club": "Bayern Munich",
+    "Country": "Germany",
+    "Age": 21,
+    "Salary": 15000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Marc-André ter Stegen",
+    "Position": "Goalkeeper",
+    "Club": "Barcelona",
+    "Country": "Germany",
+    "Age": 24,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Mario Gómez",
+    "Position": "Forward",
+    "Club": "Beşiktaş",
+    "Country": "Germany",
+    "Age": 30,
+    "Salary": 18000000,
+    "Goals": 27
+  },
+  {
+    "Foot": "Right",
+    "Name": "Michael McGovern",
+    "Position": "Goalkeeper",
+    "Club": "Hamilton Academical",
+    "Country": "Northern Ireland",
+    "Age": 31,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Conor McLaughlin",
+    "Position": "Defender",
+    "Club": "Fleetwood Town",
+    "Country": "Northern Ireland",
+    "Age": 24,
+    "Salary": 250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Shane Ferguson",
+    "Position": "Midfielder",
+    "Club": "Millwall",
+    "Country": "Northern Ireland",
+    "Age": 24,
+    "Salary": 750000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gareth McAuley",
+    "Position": "Defender",
+    "Club": "West Bromwich Albion",
+    "Country": "Northern Ireland",
+    "Age": 36,
+    "Salary": 1000000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Both",
+    "Name": "Jonny Evans",
+    "Position": "Defender",
+    "Club": "West Bromwich Albion",
+    "Country": "Northern Ireland",
+    "Age": 28,
+    "Salary": 6000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Chris Baird",
+    "Position": "Defender",
+    "Club": "Derby County",
+    "Country": "Northern Ireland",
+    "Age": 34,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Niall McGinn",
+    "Position": "Midfielder",
+    "Club": "Aberdeen",
+    "Country": "Northern Ireland",
+    "Age": 28,
+    "Salary": 750000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Steven Davis",
+    "Position": "Midfielder",
+    "Club": "Southampton",
+    "Country": "Northern Ireland",
+    "Age": 31,
+    "Salary": 6000000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Right",
+    "Name": "Will Grigg",
+    "Position": "Forward",
+    "Club": "Wigan Athletic",
+    "Country": "Northern Ireland",
+    "Age": 24,
+    "Salary": 1500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kyle Lafferty",
+    "Position": "Forward",
+    "Club": "Birmingham City",
+    "Country": "Northern Ireland",
+    "Age": 28,
+    "Salary": 2000000,
+    "Goals": 17
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Conor Washington",
+    "Position": "Forward",
+    "Club": "Queens Park Rangers",
+    "Country": "Northern Ireland",
+    "Age": 24,
+    "Salary": 2000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roy Carroll",
+    "Position": "Goalkeeper",
+    "Club": "Notts County",
+    "Country": "Northern Ireland",
+    "Age": 38,
+    "Salary": 150000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Corry Evans",
+    "Position": "Midfielder",
+    "Club": "Blackburn Rovers",
+    "Country": "Northern Ireland",
+    "Age": 25,
+    "Salary": 1250000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Stuart Dallas",
+    "Position": "Midfielder",
+    "Club": "Leeds United",
+    "Country": "Northern Ireland",
+    "Age": 25,
+    "Salary": 1500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Luke McCullough",
+    "Position": "Defender",
+    "Club": "Doncaster Rovers",
+    "Country": "Northern Ireland",
+    "Age": 22,
+    "Salary": 250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Oliver Norwood",
+    "Position": "Midfielder",
+    "Club": "Reading",
+    "Country": "Northern Ireland",
+    "Age": 25,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Paddy McNair",
+    "Position": "Defender",
+    "Club": "Manchester United",
+    "Country": "Northern Ireland",
+    "Age": 21,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Aaron Hughes",
+    "Position": "Defender",
+    "Club": "Melbourne City",
+    "Country": "Northern Ireland",
+    "Age": 36,
+    "Salary": 350000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jamie Ward",
+    "Position": "Midfielder",
+    "Club": "Nottingham Forest",
+    "Country": "Northern Ireland",
+    "Age": 30,
+    "Salary": 1750000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Craig Cathcart",
+    "Position": "Defender",
+    "Club": "Watford",
+    "Country": "Northern Ireland",
+    "Age": 27,
+    "Salary": 4000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Josh Magennis",
+    "Position": "Forward",
+    "Club": "Kilmarnock",
+    "Country": "Northern Ireland",
+    "Age": 26,
+    "Salary": 300000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Lee Hodson",
+    "Position": "Defender",
+    "Club": "Milton Keynes Dons",
+    "Country": "Northern Ireland",
+    "Age": 24,
+    "Salary": 350000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Alan Mannus",
+    "Position": "Goalkeeper",
+    "Club": "St Johnstone",
+    "Country": "Northern Ireland",
+    "Age": 34,
+    "Salary": 450000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Wojciech Szczęsny",
+    "Position": "Goalkeeper",
+    "Club": "Roma",
+    "Country": "Poland",
+    "Age": 26,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Michał Pazdan",
+    "Position": "Defender",
+    "Club": "Legia Warsaw",
+    "Country": "Poland",
+    "Age": 28,
+    "Salary": 1700000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Artur Jędrzejczyk",
+    "Position": "Defender",
+    "Club": "Legia Warsaw",
+    "Country": "Poland",
+    "Age": 28,
+    "Salary": 2700000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Thiago Cionek",
+    "Position": "Defender",
+    "Club": "Palermo",
+    "Country": "Poland",
+    "Age": 30,
+    "Salary": 900000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Krzysztof Mączyński",
+    "Position": "Midfielder",
+    "Club": "Wisła Kraków",
+    "Country": "Poland",
+    "Age": 29,
+    "Salary": 1000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tomasz Jodłowiec",
+    "Position": "Midfielder",
+    "Club": "Legia Warsaw",
+    "Country": "Poland",
+    "Age": 30,
+    "Salary": 1500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Arkadiusz Milik",
+    "Position": "Forward",
+    "Club": "Ajax",
+    "Country": "Poland",
+    "Age": 22,
+    "Salary": 10000000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Karol Linetty",
+    "Position": "Midfielder",
+    "Club": "Lech Poznań",
+    "Country": "Poland",
+    "Age": 21,
+    "Salary": 3200000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Robert Lewandowski",
+    "Position": "Forward",
+    "Club": "Bayern Munich",
+    "Country": "Poland",
+    "Age": 27,
+    "Salary": 75000000,
+    "Goals": 34
+  },
+  {
+    "Foot": "Right",
+    "Name": "Grzegorz Krychowiak",
+    "Position": "Midfielder",
+    "Club": "Sevilla",
+    "Country": "Poland",
+    "Age": 26,
+    "Salary": 30000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kamil Grosicki",
+    "Position": "Midfielder",
+    "Club": "Rennes",
+    "Country": "Poland",
+    "Age": 27,
+    "Salary": 4500000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Right",
+    "Name": "Artur Boruc",
+    "Position": "Goalkeeper",
+    "Club": "Bournemouth",
+    "Country": "Poland",
+    "Age": 36,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mariusz Stępiński",
+    "Position": "Forward",
+    "Club": "Ruch Chorzów",
+    "Country": "Poland",
+    "Age": 21,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jakub Wawrzyniak",
+    "Position": "Defender",
+    "Club": "Lechia Gdańsk",
+    "Country": "Poland",
+    "Age": 32,
+    "Salary": 350000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kamil Glik",
+    "Position": "Defender",
+    "Club": "Torino",
+    "Country": "Poland",
+    "Age": 28,
+    "Salary": 10000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jakub Błaszczykowski",
+    "Position": "Midfielder",
+    "Club": "Fiorentina",
+    "Country": "Poland",
+    "Age": 30,
+    "Salary": 7000000,
+    "Goals": 16
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sławomir Peszko",
+    "Position": "Midfielder",
+    "Club": "Lechia Gdańsk",
+    "Country": "Poland",
+    "Age": 31,
+    "Salary": 400000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bartosz Salamon",
+    "Position": "Defender",
+    "Club": "Cagliari",
+    "Country": "Poland",
+    "Age": 25,
+    "Salary": 2200000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Piotr Zieliński",
+    "Position": "Midfielder",
+    "Club": "Empoli",
+    "Country": "Poland",
+    "Age": 22,
+    "Salary": 12000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Łukasz Piszczek",
+    "Position": "Defender",
+    "Club": "Borussia Dortmund",
+    "Country": "Poland",
+    "Age": 31,
+    "Salary": 6000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bartosz Kapustka",
+    "Position": "Midfielder",
+    "Club": "Cracovia",
+    "Country": "Poland",
+    "Age": 19,
+    "Salary": 2500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Łukasz Fabiański",
+    "Position": "Goalkeeper",
+    "Club": "Swansea City",
+    "Country": "Poland",
+    "Age": 31,
+    "Salary": 7000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Filip Starzyński",
+    "Position": "Midfielder",
+    "Club": "Zagłębie Lubin",
+    "Country": "Poland",
+    "Age": 25,
+    "Salary": 1000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Denys Boyko",
+    "Position": "Goalkeeper",
+    "Club": "Beşiktaş",
+    "Country": "Ukraine",
+    "Age": 28,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bohdan Butko",
+    "Position": "Defender",
+    "Club": "Amkar Perm",
+    "Country": "Ukraine",
+    "Age": 25,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Yevhen Khacheridi",
+    "Position": "Defender",
+    "Club": "Dynamo Kyiv",
+    "Country": "Ukraine",
+    "Age": 28,
+    "Salary": 8500000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Anatoliy Tymoshchuk",
+    "Position": "Midfielder",
+    "Club": "Kairat Almaty",
+    "Country": "Ukraine",
+    "Age": 37,
+    "Salary": 200000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Oleksandr Kucher",
+    "Position": "Defender",
+    "Club": "Shakhtar Donetsk",
+    "Country": "Ukraine",
+    "Age": 33,
+    "Salary": 1200000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Taras Stepanenko",
+    "Position": "Midfielder",
+    "Club": "Shakhtar Donetsk",
+    "Country": "Ukraine",
+    "Age": 26,
+    "Salary": 8000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Andriy Yarmolenko",
+    "Position": "Midfielder",
+    "Club": "Dynamo Kyiv",
+    "Country": "Ukraine",
+    "Age": 26,
+    "Salary": 22000000,
+    "Goals": 24
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roman Zozulya",
+    "Position": "Forward",
+    "Club": "Dnipro Dnipropetrovsk",
+    "Country": "Ukraine",
+    "Age": 26,
+    "Salary": 3500000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Viktor Kovalenko",
+    "Position": "Midfielder",
+    "Club": "Shakhtar Donetsk",
+    "Country": "Ukraine",
+    "Age": 20,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Yevhen Konoplyanka",
+    "Position": "Midfielder",
+    "Club": "Sevilla",
+    "Country": "Ukraine",
+    "Age": 26,
+    "Salary": 25000000,
+    "Goals": 13
+  },
+  {
+    "Foot": "Right",
+    "Name": "Yevhen Seleznyov",
+    "Position": "Forward",
+    "Club": "Kuban Krasnodar",
+    "Country": "Ukraine",
+    "Age": 30,
+    "Salary": 3000000,
+    "Goals": 11
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andriy Pyatov",
+    "Position": "Goalkeeper",
+    "Club": "Shakhtar Donetsk",
+    "Country": "Ukraine",
+    "Age": 31,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Vyacheslav Shevchuk",
+    "Position": "Defender",
+    "Club": "Shakhtar Donetsk",
+    "Country": "Ukraine",
+    "Age": 37,
+    "Salary": 200000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Ruslan Rotan",
+    "Position": "Midfielder",
+    "Club": "Dnipro Dnipropetrovsk",
+    "Country": "Ukraine",
+    "Age": 34,
+    "Salary": 1000000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Right",
+    "Name": "Pylyp Budkivskyi",
+    "Position": "Forward",
+    "Club": "Zorya Luhansk",
+    "Country": "Ukraine",
+    "Age": 24,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Serhiy Sydorchuk",
+    "Position": "Midfielder",
+    "Club": "Dynamo Kyiv",
+    "Country": "Ukraine",
+    "Age": 25,
+    "Salary": 4500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Artem Fedetskyi",
+    "Position": "Defender",
+    "Club": "Dnipro Dnipropetrovsk",
+    "Country": "Ukraine",
+    "Age": 31,
+    "Salary": 2500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Serhiy Rybalka",
+    "Position": "Midfielder",
+    "Club": "Dynamo Kyiv",
+    "Country": "Ukraine",
+    "Age": 26,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Denys Harmash",
+    "Position": "Midfielder",
+    "Club": "Dynamo Kyiv",
+    "Country": "Ukraine",
+    "Age": 26,
+    "Salary": 5000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Yaroslav Rakitskiy",
+    "Position": "Defender",
+    "Club": "Shakhtar Donetsk",
+    "Country": "Ukraine",
+    "Age": 26,
+    "Salary": 10000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Left",
+    "Name": "Oleksandr Zinchenko",
+    "Position": "Midfielder",
+    "Club": "Ufa",
+    "Country": "Ukraine",
+    "Age": 19,
+    "Salary": 4000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Both",
+    "Name": "Oleksandr Karavayev",
+    "Position": "Midfielder",
+    "Club": "Zorya Luhansk",
+    "Country": "Ukraine",
+    "Age": 24,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mykyta Shevchenko",
+    "Position": "Goalkeeper",
+    "Club": "Zorya Luhansk",
+    "Country": "Ukraine",
+    "Age": 23,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ivan Vargić",
+    "Position": "Goalkeeper",
+    "Club": "Rijeka",
+    "Country": "Croatia",
+    "Age": 29,
+    "Salary": 1750000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Šime Vrsaljko",
+    "Position": "Defender",
+    "Club": "Sassuolo",
+    "Country": "Croatia",
+    "Age": 24,
+    "Salary": 9000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ivan Strinić",
+    "Position": "Defender",
+    "Club": "Napoli",
+    "Country": "Croatia",
+    "Age": 28,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Ivan Perišić",
+    "Position": "Midfielder",
+    "Club": "Internazionale",
+    "Country": "Croatia",
+    "Age": 27,
+    "Salary": 19000000,
+    "Goals": 12
+  },
+  {
+    "Foot": "Right",
+    "Name": "Vedran Ćorluka",
+    "Position": "Defender",
+    "Club": "Lokomotiv Moscow",
+    "Country": "Croatia",
+    "Age": 30,
+    "Salary": 11000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tin Jedvaj",
+    "Position": "Defender",
+    "Club": "Bayer Leverkusen",
+    "Country": "Croatia",
+    "Age": 20,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ivan Rakitić",
+    "Position": "Midfielder",
+    "Club": "Barcelona",
+    "Country": "Croatia",
+    "Age": 28,
+    "Salary": 45000000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mateo Kovačić",
+    "Position": "Midfielder",
+    "Club": "Real Madrid",
+    "Country": "Croatia",
+    "Age": 22,
+    "Salary": 20000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andrej Kramarić",
+    "Position": "Forward",
+    "Club": "1899 Hoffenheim",
+    "Country": "Croatia",
+    "Age": 24,
+    "Salary": 5000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Both",
+    "Name": "Luka Modrić",
+    "Position": "Midfielder",
+    "Club": "Real Madrid",
+    "Country": "Croatia",
+    "Age": 30,
+    "Salary": 50000000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Darijo Srna",
+    "Position": "Defender",
+    "Club": "Shakhtar Donetsk",
+    "Country": "Croatia",
+    "Age": 34,
+    "Salary": 5000000,
+    "Goals": 21
+  },
+  {
+    "Foot": "Right",
+    "Name": "Lovre Kalinić",
+    "Position": "Goalkeeper",
+    "Club": "Hajduk Split",
+    "Country": "Croatia",
+    "Age": 26,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gordon Schildenfeld",
+    "Position": "Defender",
+    "Club": "Dinamo Zagreb",
+    "Country": "Croatia",
+    "Age": 31,
+    "Salary": 1500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Both",
+    "Name": "Marcelo Brozović",
+    "Position": "Midfielder",
+    "Club": "Internazionale",
+    "Country": "Croatia",
+    "Age": 23,
+    "Salary": 15000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ante Ćorić",
+    "Position": "Midfielder",
+    "Club": "Dinamo Zagreb",
+    "Country": "Croatia",
+    "Age": 19,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Nikola Kalinić",
+    "Position": "Forward",
+    "Club": "Fiorentina",
+    "Country": "Croatia",
+    "Age": 28,
+    "Salary": 15000000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mario Mandžukić",
+    "Position": "Forward",
+    "Club": "Juventus",
+    "Country": "Croatia",
+    "Age": 30,
+    "Salary": 19000000,
+    "Goals": 21
+  },
+  {
+    "Foot": "Both",
+    "Name": "Marko Rog",
+    "Position": "Midfielder",
+    "Club": "Dinamo Zagreb",
+    "Country": "Croatia",
+    "Age": 20,
+    "Salary": 6000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Milan Badelj",
+    "Position": "Midfielder",
+    "Club": "Fiorentina",
+    "Country": "Croatia",
+    "Age": 27,
+    "Salary": 7000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marko Pjaca",
+    "Position": "Forward",
+    "Club": "Dinamo Zagreb",
+    "Country": "Croatia",
+    "Age": 21,
+    "Salary": 7000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Domagoj Vida",
+    "Position": "Defender",
+    "Club": "Dynamo Kyiv",
+    "Country": "Croatia",
+    "Age": 27,
+    "Salary": 7500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Duje Čop",
+    "Position": "Forward",
+    "Club": "Málaga",
+    "Country": "Croatia",
+    "Age": 26,
+    "Salary": 3000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Danijel Subašić",
+    "Position": "Goalkeeper",
+    "Club": "Monaco",
+    "Country": "Croatia",
+    "Age": 31,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Petr Čech",
+    "Position": "Goalkeeper",
+    "Club": "Arsenal",
+    "Country": "Czech Republic",
+    "Age": 34,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Pavel Kadeřábek",
+    "Position": "Defender",
+    "Club": "1899 Hoffenheim",
+    "Country": "Czech Republic",
+    "Age": 24,
+    "Salary": 3500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Michal Kadlec",
+    "Position": "Defender",
+    "Club": "Fenerbahçe",
+    "Country": "Czech Republic",
+    "Age": 31,
+    "Salary": 2000000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Right",
+    "Name": "Theodor Gebre Selassie",
+    "Position": "Defender",
+    "Club": "Werder Bremen",
+    "Country": "Czech Republic",
+    "Age": 29,
+    "Salary": 3000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roman Hubník",
+    "Position": "Defender",
+    "Club": "Republic Viktoria Plzeň",
+    "Country": "Czech Republic",
+    "Age": 32,
+    "Salary": 400000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tomáš Sivok",
+    "Position": "Defender",
+    "Club": "Bursaspor",
+    "Country": "Czech Republic",
+    "Age": 32,
+    "Salary": 2500000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tomáš Necid",
+    "Position": "Forward",
+    "Club": "Bursaspor",
+    "Country": "Czech Republic",
+    "Age": 26,
+    "Salary": 4500000,
+    "Goals": 9
+  },
+  {
+    "Foot": "Both",
+    "Name": "David Limberský",
+    "Position": "Defender",
+    "Club": "Republic Viktoria Plzeň",
+    "Country": "Czech Republic",
+    "Age": 32,
+    "Salary": 1500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bořek Dočkal",
+    "Position": "Midfielder",
+    "Club": "Republic Sparta Prague",
+    "Country": "Czech Republic",
+    "Age": 27,
+    "Salary": 2750000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Both",
+    "Name": "Tomáš Rosický",
+    "Position": "Midfielder",
+    "Club": "Arsenal",
+    "Country": "Czech Republic",
+    "Age": 35,
+    "Salary": 1500000,
+    "Goals": 22
+  },
+  {
+    "Foot": "Left",
+    "Name": "Daniel Pudil",
+    "Position": "Midfielder",
+    "Club": "Sheffield Wednesday",
+    "Country": "Czech Republic",
+    "Age": 30,
+    "Salary": 1500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Milan Škoda",
+    "Position": "Forward",
+    "Club": "Republic Slavia Prague",
+    "Country": "Czech Republic",
+    "Age": 30,
+    "Salary": 1500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jaroslav Plašil",
+    "Position": "Midfielder",
+    "Club": "Bordeaux",
+    "Country": "Czech Republic",
+    "Age": 34,
+    "Salary": 1000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Daniel Kolář",
+    "Position": "Midfielder",
+    "Club": "Republic Viktoria Plzeň",
+    "Country": "Czech Republic",
+    "Age": 30,
+    "Salary": 1750000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "David Pavelka",
+    "Position": "Midfielder",
+    "Club": "Kasımpaşa",
+    "Country": "Czech Republic",
+    "Age": 25,
+    "Salary": 900000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tomáš Vaclík",
+    "Position": "Goalkeeper",
+    "Club": "Basel",
+    "Country": "Czech Republic",
+    "Age": 27,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marek Suchý",
+    "Position": "Defender",
+    "Club": "Basel",
+    "Country": "Czech Republic",
+    "Age": 28,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Josef Šural",
+    "Position": "Midfielder",
+    "Club": "Republic Sparta Prague",
+    "Country": "Czech Republic",
+    "Age": 26,
+    "Salary": 1750000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ladislav Krejčí",
+    "Position": "Midfielder",
+    "Club": "Republic Sparta Prague",
+    "Country": "Czech Republic",
+    "Age": 23,
+    "Salary": 3750000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jiří Skalák",
+    "Position": "Midfielder",
+    "Club": "Brighton",
+    "Country": "Czech Republic",
+    "Age": 24,
+    "Salary": 1250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "David Lafata",
+    "Position": "Forward",
+    "Club": "Republic Sparta Prague",
+    "Country": "Czech Republic",
+    "Age": 34,
+    "Salary": 1000000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Both",
+    "Name": "Vladimír Darida",
+    "Position": "Midfielder",
+    "Club": "Hertha BSC",
+    "Country": "Czech Republic",
+    "Age": 25,
+    "Salary": 7000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tomáš Koubek",
+    "Position": "Goalkeeper",
+    "Club": "Republic Slovan Liberec",
+    "Country": "Czech Republic",
+    "Age": 23,
+    "Salary": 900000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Iker Casillas",
+    "Position": "Goalkeeper",
+    "Club": "Porto",
+    "Country": "Spain",
+    "Age": 35,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "César Azpilicueta",
+    "Position": "Defender",
+    "Club": "Chelsea",
+    "Country": "Spain",
+    "Age": 26,
+    "Salary": 20000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gerard Piqué",
+    "Position": "Defender",
+    "Club": "Barcelona",
+    "Country": "Spain",
+    "Age": 29,
+    "Salary": 40000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marc Bartra",
+    "Position": "Defender",
+    "Club": "Barcelona",
+    "Country": "Spain",
+    "Age": 25,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sergio Busquets",
+    "Position": "Midfielder",
+    "Club": "Barcelona",
+    "Country": "Spain",
+    "Age": 27,
+    "Salary": 50000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andrés Iniesta",
+    "Position": "Midfielder",
+    "Club": "Barcelona",
+    "Country": "Spain",
+    "Age": 32,
+    "Salary": 35000000,
+    "Goals": 13
+  },
+  {
+    "Foot": "Both",
+    "Name": "Álvaro Morata",
+    "Position": "Forward",
+    "Club": "Juventus",
+    "Country": "Spain",
+    "Age": 23,
+    "Salary": 25000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Koke",
+    "Position": "Midfielder",
+    "Club": "Atlético Madrid",
+    "Country": "Spain",
+    "Age": 24,
+    "Salary": 50000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Lucas Vázquez",
+    "Position": "Forward",
+    "Club": "Real Madrid",
+    "Country": "Spain",
+    "Age": 24,
+    "Salary": 7500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Cesc Fàbregas",
+    "Position": "Midfielder",
+    "Club": "Chelsea",
+    "Country": "Spain",
+    "Age": 29,
+    "Salary": 45000000,
+    "Goals": 14
+  },
+  {
+    "Foot": "Both",
+    "Name": "Pedro",
+    "Position": "Forward",
+    "Club": "Chelsea",
+    "Country": "Spain",
+    "Age": 28,
+    "Salary": 23000000,
+    "Goals": 16
+  },
+  {
+    "Foot": "Right",
+    "Name": "Héctor Bellerín",
+    "Position": "Defender",
+    "Club": "Arsenal",
+    "Country": "Spain",
+    "Age": 21,
+    "Salary": 13000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "David de Gea",
+    "Position": "Goalkeeper",
+    "Club": "Manchester United",
+    "Country": "Spain",
+    "Age": 25,
+    "Salary": 35000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Thiago",
+    "Position": "Midfielder",
+    "Club": "Bayern Munich",
+    "Country": "Spain",
+    "Age": 25,
+    "Salary": 25000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sergio Ramos",
+    "Position": "Defender",
+    "Club": "Real Madrid",
+    "Country": "Spain",
+    "Age": 30,
+    "Salary": 40000000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Juanfran",
+    "Position": "Defender",
+    "Club": "Atlético Madrid",
+    "Country": "Spain",
+    "Age": 31,
+    "Salary": 16000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mikel San José",
+    "Position": "Defender",
+    "Club": "Athletic Bilbao",
+    "Country": "Spain",
+    "Age": 27,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jordi Alba",
+    "Position": "Defender",
+    "Club": "Barcelona",
+    "Country": "Spain",
+    "Age": 27,
+    "Salary": 35000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Left",
+    "Name": "Bruno Soriano",
+    "Position": "Midfielder",
+    "Club": "Villarreal",
+    "Country": "Spain",
+    "Age": 31,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Aritz Aduriz",
+    "Position": "Forward",
+    "Club": "Athletic Bilbao",
+    "Country": "Spain",
+    "Age": 35,
+    "Salary": 3000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "David Silva",
+    "Position": "Midfielder",
+    "Club": "Manchester City",
+    "Country": "Spain",
+    "Age": 30,
+    "Salary": 38000000,
+    "Goals": 23
+  },
+  {
+    "Foot": "Right",
+    "Name": "Nolito",
+    "Position": "Forward",
+    "Club": "Celta Vigo",
+    "Country": "Spain",
+    "Age": 29,
+    "Salary": 15000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sergio Rico",
+    "Position": "Goalkeeper",
+    "Club": "Sevilla",
+    "Country": "Spain",
+    "Age": 22,
+    "Salary": 10000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Volkan Babacan",
+    "Position": "Goalkeeper",
+    "Club": "İstanbul Başakşehir",
+    "Country": "Turkey",
+    "Age": 27,
+    "Salary": 7500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Semih Kaya",
+    "Position": "Defender",
+    "Club": "Galatasaray",
+    "Country": "Turkey",
+    "Age": 25,
+    "Salary": 7500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Hakan Balta",
+    "Position": "Defender",
+    "Club": "Galatasaray",
+    "Country": "Turkey",
+    "Age": 33,
+    "Salary": 1200000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ahmet Yılmaz Çalık",
+    "Position": "Defender",
+    "Club": "Gençlerbirliği",
+    "Country": "Turkey",
+    "Age": 21,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Nuri Şahin",
+    "Position": "Midfielder",
+    "Club": "Borussia Dortmund",
+    "Country": "Turkey",
+    "Age": 27,
+    "Salary": 7500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Hakan Çalhanoğlu",
+    "Position": "Midfielder",
+    "Club": "Bayer Leverkusen",
+    "Country": "Turkey",
+    "Age": 22,
+    "Salary": 18000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gökhan Gönül",
+    "Position": "Defender",
+    "Club": "Fenerbahçe",
+    "Country": "Turkey",
+    "Age": 31,
+    "Salary": 6500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Selçuk İnan",
+    "Position": "Midfielder",
+    "Club": "Galatasaray",
+    "Country": "Turkey",
+    "Age": 31,
+    "Salary": 7000000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Right",
+    "Name": "Cenk Tosun",
+    "Position": "Forward",
+    "Club": "Beşiktaş",
+    "Country": "Turkey",
+    "Age": 25,
+    "Salary": 7000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Both",
+    "Name": "Arda Turan",
+    "Position": "Midfielder",
+    "Club": "Barcelona",
+    "Country": "Turkey",
+    "Age": 29,
+    "Salary": 35000000,
+    "Goals": 17
+  },
+  {
+    "Foot": "Right",
+    "Name": "Olcay Şahan",
+    "Position": "Midfielder",
+    "Club": "Beşiktaş",
+    "Country": "Turkey",
+    "Age": 29,
+    "Salary": 7500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Onur Kıvrak",
+    "Position": "Goalkeeper",
+    "Club": "Trabzonspor",
+    "Country": "Turkey",
+    "Age": 28,
+    "Salary": 7000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "İsmail Köybaşı",
+    "Position": "Defender",
+    "Club": "Beşiktaş",
+    "Country": "Turkey",
+    "Age": 26,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Oğuzhan Özyakup",
+    "Position": "Midfielder",
+    "Club": "Beşiktaş",
+    "Country": "Turkey",
+    "Age": 23,
+    "Salary": 9500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Both",
+    "Name": "Mehmet Topal",
+    "Position": "Midfielder",
+    "Club": "Fenerbahçe",
+    "Country": "Turkey",
+    "Age": 30,
+    "Salary": 12000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ozan Tufan",
+    "Position": "Midfielder",
+    "Club": "Fenerbahçe",
+    "Country": "Turkey",
+    "Age": 21,
+    "Salary": 7500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Both",
+    "Name": "Burak Yılmaz",
+    "Position": "Forward",
+    "Club": "Beijing Guoan",
+    "Country": "Turkey",
+    "Age": 30,
+    "Salary": 5500000,
+    "Goals": 19
+  },
+  {
+    "Foot": "Left",
+    "Name": "Caner Erkin",
+    "Position": "Midfielder",
+    "Club": "Fenerbahçe",
+    "Country": "Turkey",
+    "Age": 27,
+    "Salary": 11000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Yunus Mallı",
+    "Position": "Midfielder",
+    "Club": "1. FSV Mainz 05",
+    "Country": "Turkey",
+    "Age": 24,
+    "Salary": 9000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Volkan Şen",
+    "Position": "Midfielder",
+    "Club": "Fenerbahçe",
+    "Country": "Turkey",
+    "Age": 28,
+    "Salary": 5250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Emre Mor",
+    "Position": "Forward",
+    "Club": "FC Nordsjælland",
+    "Country": "Turkey",
+    "Age": 18,
+    "Salary": 100000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Şener Özbayraklı",
+    "Position": "Defender",
+    "Club": "Fenerbahçe",
+    "Country": "Turkey",
+    "Age": 26,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Harun Tekin",
+    "Position": "Goalkeeper",
+    "Club": "Bursaspor",
+    "Country": "Turkey",
+    "Age": 26,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Thibaut Courtois",
+    "Position": "Goalkeeper",
+    "Club": "Chelsea",
+    "Country": "Belgium",
+    "Age": 24,
+    "Salary": 35000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Toby Alderweireld",
+    "Position": "Defender",
+    "Club": "Tottenham Hotspur",
+    "Country": "Belgium",
+    "Age": 27,
+    "Salary": 22000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Thomas Vermaelen",
+    "Position": "Defender",
+    "Club": "Barcelona",
+    "Country": "Belgium",
+    "Age": 30,
+    "Salary": 4000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Radja Nainggolan",
+    "Position": "Midfielder",
+    "Club": "Roma",
+    "Country": "Belgium",
+    "Age": 28,
+    "Salary": 27000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jan Vertonghen",
+    "Position": "Defender",
+    "Club": "Tottenham Hotspur",
+    "Country": "Belgium",
+    "Age": 29,
+    "Salary": 21000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Axel Witsel",
+    "Position": "Midfielder",
+    "Club": "Zenit Saint Petersburg",
+    "Country": "Belgium",
+    "Age": 27,
+    "Salary": 28000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kevin De Bruyne",
+    "Position": "Forward",
+    "Club": "Manchester City",
+    "Country": "Belgium",
+    "Age": 24,
+    "Salary": 60000000,
+    "Goals": 12
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marouane Fellaini",
+    "Position": "Midfielder",
+    "Club": "Manchester United",
+    "Country": "Belgium",
+    "Age": 28,
+    "Salary": 19000000,
+    "Goals": 15
+  },
+  {
+    "Foot": "Left",
+    "Name": "Romelu Lukaku",
+    "Position": "Forward",
+    "Club": "Everton",
+    "Country": "Belgium",
+    "Age": 23,
+    "Salary": 35000000,
+    "Goals": 11
+  },
+  {
+    "Foot": "Both",
+    "Name": "Eden Hazard",
+    "Position": "Forward",
+    "Club": "Chelsea",
+    "Country": "Belgium",
+    "Age": 25,
+    "Salary": 70000000,
+    "Goals": 12
+  },
+  {
+    "Foot": "Both",
+    "Name": "Yannick Ferreira Carrasco",
+    "Position": "Forward",
+    "Club": "Atlético Madrid",
+    "Country": "Belgium",
+    "Age": 22,
+    "Salary": 20000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Simon Mignolet",
+    "Position": "Goalkeeper",
+    "Club": "Liverpool",
+    "Country": "Belgium",
+    "Age": 28,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jean-François Gillet",
+    "Position": "Goalkeeper",
+    "Club": "Mechelen",
+    "Country": "Belgium",
+    "Age": 37,
+    "Salary": 400000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Dries Mertens",
+    "Position": "Forward",
+    "Club": "Napoli",
+    "Country": "Belgium",
+    "Age": 29,
+    "Salary": 17000000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jason Denayer",
+    "Position": "Defender",
+    "Club": "Galatasaray",
+    "Country": "Belgium",
+    "Age": 20,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Thomas Meunier",
+    "Position": "Defender",
+    "Club": "ClubBrugge",
+    "Country": "Belgium",
+    "Age": 24,
+    "Salary": 6000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Divock Origi",
+    "Position": "Forward",
+    "Club": "Liverpool",
+    "Country": "Belgium",
+    "Age": 21,
+    "Salary": 9000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Christian Kabasele",
+    "Position": "Defender",
+    "Club": "Genk",
+    "Country": "Belgium",
+    "Age": 25,
+    "Salary": 6000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Mousa Dembélé",
+    "Position": "Midfielder",
+    "Club": "Tottenham Hotspur",
+    "Country": "Belgium",
+    "Age": 28,
+    "Salary": 16000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Christian Benteke",
+    "Position": "Forward",
+    "Club": "Liverpool",
+    "Country": "Belgium",
+    "Age": 25,
+    "Salary": 30000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jordan Lukaku",
+    "Position": "Defender",
+    "Club": "Oostende",
+    "Country": "Belgium",
+    "Age": 21,
+    "Salary": 3000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Michy Batshuayi",
+    "Position": "Forward",
+    "Club": "Marseille",
+    "Country": "Belgium",
+    "Age": 22,
+    "Salary": 14000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Laurent Ciman",
+    "Position": "Defender",
+    "Club": "Montreal Impact",
+    "Country": "Belgium",
+    "Age": 30,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gianluigi Buffon",
+    "Position": "Goalkeeper",
+    "Club": "Juventus",
+    "Country": "Italy",
+    "Age": 38,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mattia De Sciglio",
+    "Position": "Defender",
+    "Club": "Milan",
+    "Country": "Italy",
+    "Age": 23,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Giorgio Chiellini",
+    "Position": "Defender",
+    "Club": "Juventus",
+    "Country": "Italy",
+    "Age": 31,
+    "Salary": 15000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Matteo Darmian",
+    "Position": "Defender",
+    "Club": "Manchester United",
+    "Country": "Italy",
+    "Age": 26,
+    "Salary": 15000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Angelo Ogbonna",
+    "Position": "Defender",
+    "Club": "West Ham United",
+    "Country": "Italy",
+    "Age": 28,
+    "Salary": 9000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Antonio Candreva",
+    "Position": "Midfielder",
+    "Club": "Lazio",
+    "Country": "Italy",
+    "Age": 29,
+    "Salary": 25000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Left",
+    "Name": "Simone Zaza",
+    "Position": "Forward",
+    "Club": "Juventus",
+    "Country": "Italy",
+    "Age": 24,
+    "Salary": 11000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Alessandro Florenzi",
+    "Position": "Midfielder",
+    "Club": "Roma",
+    "Country": "Italy",
+    "Age": 25,
+    "Salary": 20000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Graziano Pellè",
+    "Position": "Forward",
+    "Club": "Southampton",
+    "Country": "Italy",
+    "Age": 30,
+    "Salary": 11000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Left",
+    "Name": "Thiago Motta",
+    "Position": "Midfielder",
+    "Club": "Paris Saint-Germain",
+    "Country": "Italy",
+    "Age": 33,
+    "Salary": 3000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ciro Immobile",
+    "Position": "Forward",
+    "Club": "Torino",
+    "Country": "Italy",
+    "Age": 26,
+    "Salary": 10000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Salvatore Sirigu",
+    "Position": "Goalkeeper",
+    "Club": "Paris Saint-Germain",
+    "Country": "Italy",
+    "Age": 29,
+    "Salary": 9000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Federico Marchetti",
+    "Position": "Goalkeeper",
+    "Club": "Lazio",
+    "Country": "Italy",
+    "Age": 33,
+    "Salary": 5500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Stefano Sturaro",
+    "Position": "Midfielder",
+    "Club": "Juventus",
+    "Country": "Italy",
+    "Age": 23,
+    "Salary": 10000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andrea Barzagli",
+    "Position": "Defender",
+    "Club": "Juventus",
+    "Country": "Italy",
+    "Age": 35,
+    "Salary": 3000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Daniele De Rossi",
+    "Position": "Midfielder",
+    "Club": "Roma",
+    "Country": "Italy",
+    "Age": 32,
+    "Salary": 7000000,
+    "Goals": 17
+  },
+  {
+    "Foot": "Right",
+    "Name": "Éder",
+    "Position": "Forward",
+    "Club": "Internazionale",
+    "Country": "Italy",
+    "Age": 29,
+    "Salary": 15000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Both",
+    "Name": "Marco Parolo",
+    "Position": "Midfielder",
+    "Club": "Lazio",
+    "Country": "Italy",
+    "Age": 31,
+    "Salary": 7500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Leonardo Bonucci",
+    "Position": "Defender",
+    "Club": "Juventus",
+    "Country": "Italy",
+    "Age": 29,
+    "Salary": 30000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Lorenzo Insigne",
+    "Position": "Forward",
+    "Club": "Napoli",
+    "Country": "Italy",
+    "Age": 25,
+    "Salary": 25000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Federico Bernardeschi",
+    "Position": "Midfielder",
+    "Club": "Fiorentina",
+    "Country": "Italy",
+    "Age": 22,
+    "Salary": 15000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Stephan El Shaarawy",
+    "Position": "Forward",
+    "Club": "Roma",
+    "Country": "Italy",
+    "Age": 23,
+    "Salary": 15000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Emanuele Giaccherini",
+    "Position": "Midfielder",
+    "Club": "Bologna",
+    "Country": "Italy",
+    "Age": 31,
+    "Salary": 4000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Left",
+    "Name": "Keiren Westwood",
+    "Position": "Goalkeeper",
+    "Club": "Sheffield Wednesday",
+    "Country": "Republic of Ireland",
+    "Age": 31,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Séamus Coleman",
+    "Position": "Defender",
+    "Club": "Everton",
+    "Country": "Republic of Ireland",
+    "Age": 27,
+    "Salary": 19000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ciaran Clark",
+    "Position": "Defender",
+    "Club": "Aston Villa",
+    "Country": "Republic of Ireland",
+    "Age": 26,
+    "Salary": 4500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "John O'Shea",
+    "Position": "Defender",
+    "Club": "Sunderland",
+    "Country": "Republic of Ireland",
+    "Age": 35,
+    "Salary": 1000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Richard Keogh",
+    "Position": "Defender",
+    "Club": "Derby County",
+    "Country": "Republic of Ireland",
+    "Age": 29,
+    "Salary": 1800000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Glenn Whelan",
+    "Position": "Midfielder",
+    "Club": "Stoke City",
+    "Country": "Republic of Ireland",
+    "Age": 32,
+    "Salary": 3000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Both",
+    "Name": "Aiden McGeady",
+    "Position": "Midfielder",
+    "Club": "Everton",
+    "Country": "Republic of Ireland",
+    "Age": 30,
+    "Salary": 4500000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "James McCarthy",
+    "Position": "Midfielder",
+    "Club": "Everton",
+    "Country": "Republic of Ireland",
+    "Age": 25,
+    "Salary": 17000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Shane Long",
+    "Position": "Forward",
+    "Club": "Southampton",
+    "Country": "Republic of Ireland",
+    "Age": 29,
+    "Salary": 10000000,
+    "Goals": 16
+  },
+  {
+    "Foot": "Right",
+    "Name": "Robbie Keane",
+    "Position": "Forward",
+    "Club": "States LA Galaxy",
+    "Country": "Republic of Ireland",
+    "Age": 35,
+    "Salary": 1000000,
+    "Goals": 67
+  },
+  {
+    "Foot": "Left",
+    "Name": "James McClean",
+    "Position": "Midfielder",
+    "Club": "West Bromwich Albion",
+    "Country": "Republic of Ireland",
+    "Age": 27,
+    "Salary": 3000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Shane Duffy",
+    "Position": "Defender",
+    "Club": "Blackburn Rovers",
+    "Country": "Republic of Ireland",
+    "Age": 24,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jeff Hendrick",
+    "Position": "Midfielder",
+    "Club": "Derby County",
+    "Country": "Republic of Ireland",
+    "Age": 24,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jonathan Walters",
+    "Position": "Forward",
+    "Club": "Stoke City",
+    "Country": "Republic of Ireland",
+    "Age": 32,
+    "Salary": 3500000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Cyrus Christie",
+    "Position": "Defender",
+    "Club": "Derby County",
+    "Country": "Republic of Ireland",
+    "Age": 23,
+    "Salary": 1000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Shay Given",
+    "Position": "Goalkeeper",
+    "Club": "Stoke City",
+    "Country": "Republic of Ireland",
+    "Age": 40,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Stephen Ward",
+    "Position": "Defender",
+    "Club": "Burnley",
+    "Country": "Republic of Ireland",
+    "Age": 30,
+    "Salary": 1000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "David Meyler",
+    "Position": "Midfielder",
+    "Club": "Hull City",
+    "Country": "Republic of Ireland",
+    "Age": 27,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Robbie Brady",
+    "Position": "Midfielder",
+    "Club": "Norwich City",
+    "Country": "Republic of Ireland",
+    "Age": 24,
+    "Salary": 6000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Left",
+    "Name": "Wes Hoolahan",
+    "Position": "Midfielder",
+    "Club": "Norwich City",
+    "Country": "Republic of Ireland",
+    "Age": 34,
+    "Salary": 2000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Daryl Murphy",
+    "Position": "Forward",
+    "Club": "Ipswich Town",
+    "Country": "Republic of Ireland",
+    "Age": 33,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Stephen Quinn",
+    "Position": "Midfielder",
+    "Club": "Reading",
+    "Country": "Republic of Ireland",
+    "Age": 30,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Darren Randolph",
+    "Position": "Goalkeeper",
+    "Club": "West Ham United",
+    "Country": "Republic of Ireland",
+    "Age": 29,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andreas Isaksson",
+    "Position": "Goalkeeper",
+    "Club": "Kasımpaşa",
+    "Country": "Sweden",
+    "Age": 34,
+    "Salary": 1200000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Mikael Lustig",
+    "Position": "Defender",
+    "Club": "Celtic",
+    "Country": "Sweden",
+    "Age": 29,
+    "Salary": 3500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Erik Johansson",
+    "Position": "Defender",
+    "Club": "Copenhagen",
+    "Country": "Sweden",
+    "Age": 27,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Andreas Granqvist",
+    "Position": "Defender",
+    "Club": "Krasnodar",
+    "Country": "Sweden",
+    "Age": 31,
+    "Salary": 8000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Left",
+    "Name": "Martin Olsson",
+    "Position": "Defender",
+    "Club": "Norwich City",
+    "Country": "Sweden",
+    "Age": 28,
+    "Salary": 4000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Emil Forsberg",
+    "Position": "Midfielder",
+    "Club": "RB Leipzig",
+    "Country": "Sweden",
+    "Age": 24,
+    "Salary": 4000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sebastian Larsson",
+    "Position": "Midfielder",
+    "Club": "Sunderland",
+    "Country": "Sweden",
+    "Age": 31,
+    "Salary": 3500000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Albin Ekdal",
+    "Position": "Midfielder",
+    "Club": "Hamburger SV",
+    "Country": "Sweden",
+    "Age": 26,
+    "Salary": 4500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Kim Källström",
+    "Position": "Midfielder",
+    "Club": "Grasshopper",
+    "Country": "Sweden",
+    "Age": 33,
+    "Salary": 1500000,
+    "Goals": 16
+  },
+  {
+    "Foot": "Both",
+    "Name": "Zlatan Ibrahimović",
+    "Position": "Forward",
+    "Club": "Paris Saint-Germain",
+    "Country": "Sweden",
+    "Age": 34,
+    "Salary": 15000000,
+    "Goals": 62
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marcus Berg",
+    "Position": "Forward",
+    "Club": "Panathinaikos",
+    "Country": "Sweden",
+    "Age": 29,
+    "Salary": 5000000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Robin Olsen",
+    "Position": "Goalkeeper",
+    "Club": "Copenhagen",
+    "Country": "Sweden",
+    "Age": 26,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Pontus Jansson",
+    "Position": "Defender",
+    "Club": "Torino",
+    "Country": "Sweden",
+    "Age": 25,
+    "Salary": 1300000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Victor Lindelöf",
+    "Position": "Defender",
+    "Club": "Benfica",
+    "Country": "Sweden",
+    "Age": 21,
+    "Salary": 2500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Oscar Hiljemark",
+    "Position": "Midfielder",
+    "Club": "Palermo",
+    "Country": "Sweden",
+    "Age": 23,
+    "Salary": 3000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Pontus Wernbloom",
+    "Position": "Midfielder",
+    "Club": "CSKA Moscow",
+    "Country": "Sweden",
+    "Age": 29,
+    "Salary": 10000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ludwig Augustinsson",
+    "Position": "Defender",
+    "Club": "Copenhagen",
+    "Country": "Sweden",
+    "Age": 22,
+    "Salary": 3000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Oscar Lewicki",
+    "Position": "Midfielder",
+    "Club": "Malmö FF",
+    "Country": "Sweden",
+    "Age": 23,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Emir Kujović",
+    "Position": "Forward",
+    "Club": "IFK Norrköping",
+    "Country": "Sweden",
+    "Age": 27,
+    "Salary": 1000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "John Guidetti",
+    "Position": "Forward",
+    "Club": "Celta Vigo",
+    "Country": "Sweden",
+    "Age": 24,
+    "Salary": 4000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jimmy Durmaz",
+    "Position": "Midfielder",
+    "Club": "Olympiacos",
+    "Country": "Sweden",
+    "Age": 27,
+    "Salary": 3750000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Erkan Zengin",
+    "Position": "Midfielder",
+    "Club": "Trabzonspor",
+    "Country": "Sweden",
+    "Age": 30,
+    "Salary": 3300000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Unknown",
+    "Name": "Patrik Carlgren",
+    "Position": "Goalkeeper",
+    "Club": "AIK",
+    "Country": "Sweden",
+    "Age": 24,
+    "Salary": 800000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Robert Almer",
+    "Position": "Goalkeeper",
+    "Club": "Austria Wien",
+    "Country": "Austria",
+    "Age": 32,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "György Garics",
+    "Position": "Midfielder",
+    "Club": "Darmstadt 98",
+    "Country": "Austria",
+    "Age": 32,
+    "Salary": 750000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Both",
+    "Name": "Aleksandar Dragović",
+    "Position": "Defender",
+    "Club": "Dynamo Kyiv",
+    "Country": "Austria",
+    "Age": 25,
+    "Salary": 13000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Martin Hinteregger",
+    "Position": "Defender",
+    "Club": "Borussia Mönchengladbach",
+    "Country": "Austria",
+    "Age": 23,
+    "Salary": 9000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Christian Fuchs",
+    "Position": "Defender",
+    "Club": "Leicester City",
+    "Country": "Austria",
+    "Age": 30,
+    "Salary": 4500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Stefan Ilsanker",
+    "Position": "Midfielder",
+    "Club": "RB Leipzig",
+    "Country": "Austria",
+    "Age": 27,
+    "Salary": 1800000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Marko Arnautović",
+    "Position": "Forward",
+    "Club": "Stoke City",
+    "Country": "Austria",
+    "Age": 27,
+    "Salary": 8000000,
+    "Goals": 11
+  },
+  {
+    "Foot": "Left",
+    "Name": "David Alaba",
+    "Position": "Midfielder",
+    "Club": "Bayern Munich",
+    "Country": "Austria",
+    "Age": 23,
+    "Salary": 45000000,
+    "Goals": 11
+  },
+  {
+    "Foot": "Both",
+    "Name": "Rubin Okotie",
+    "Position": "Forward",
+    "Club": "1860 München",
+    "Country": "Austria",
+    "Age": 29,
+    "Salary": 1300000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Zlatko Junuzović",
+    "Position": "Midfielder",
+    "Club": "Werder Bremen",
+    "Country": "Austria",
+    "Age": 28,
+    "Salary": 7000000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Right",
+    "Name": "Martin Harnik",
+    "Position": "Midfielder",
+    "Club": "VfB Stuttgart",
+    "Country": "Austria",
+    "Age": 29,
+    "Salary": 3500000,
+    "Goals": 14
+  },
+  {
+    "Foot": "Right",
+    "Name": "Heinz Lindner",
+    "Position": "Goalkeeper",
+    "Club": "Eintracht Frankfurt",
+    "Country": "Austria",
+    "Age": 25,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Markus Suttner",
+    "Position": "Defender",
+    "Club": "Ingolstadt 04",
+    "Country": "Austria",
+    "Age": 29,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Julian Baumgartlinger",
+    "Position": "Midfielder",
+    "Club": "Mainz 05",
+    "Country": "Austria",
+    "Age": 28,
+    "Salary": 4000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sebastian Prödl",
+    "Position": "Defender",
+    "Club": "Watford",
+    "Country": "Austria",
+    "Age": 28,
+    "Salary": 4000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Left",
+    "Name": "Kevin Wimmer",
+    "Position": "Defender",
+    "Club": "Tottenham Hotspur",
+    "Country": "Austria",
+    "Age": 23,
+    "Salary": 6500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Florian Klein",
+    "Position": "Defender",
+    "Club": "VfB Stuttgart",
+    "Country": "Austria",
+    "Age": 29,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Alessandro Schöpf",
+    "Position": "Midfielder",
+    "Club": "Schalke 04",
+    "Country": "Austria",
+    "Age": 22,
+    "Salary": 4000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Lukas Hinterseer",
+    "Position": "Forward",
+    "Club": "Ingolstadt 04",
+    "Country": "Austria",
+    "Age": 25,
+    "Salary": 2000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Marcel Sabitzer",
+    "Position": "Midfielder",
+    "Club": "RB Leipzig",
+    "Country": "Austria",
+    "Age": 22,
+    "Salary": 4000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Left",
+    "Name": "Marc Janko",
+    "Position": "Forward",
+    "Club": "Basel",
+    "Country": "Austria",
+    "Age": 32,
+    "Salary": 1750000,
+    "Goals": 26
+  },
+  {
+    "Foot": "Both",
+    "Name": "Jakob Jantscher",
+    "Position": "Midfielder",
+    "Club": "Luzern",
+    "Country": "Austria",
+    "Age": 27,
+    "Salary": 1500000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ramazan Özcan",
+    "Position": "Goalkeeper",
+    "Club": "Ingolstadt 04",
+    "Country": "Austria",
+    "Age": 31,
+    "Salary": 1250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Gábor Király",
+    "Position": "Goalkeeper",
+    "Club": "Haladás",
+    "Country": "Hungary",
+    "Age": 40,
+    "Salary": 250000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ádám Lang",
+    "Position": "Defender",
+    "Club": "Videoton",
+    "Country": "Hungary",
+    "Age": 23,
+    "Salary": 700000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Mihály Korhut",
+    "Position": "Defender",
+    "Club": "Debrecen",
+    "Country": "Hungary",
+    "Age": 27,
+    "Salary": 450000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Tamás Kádár",
+    "Position": "Defender",
+    "Club": "Lech Poznań",
+    "Country": "Hungary",
+    "Age": 26,
+    "Salary": 750000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Attila Fiola",
+    "Position": "Defender",
+    "Club": "Puskás Akadémia",
+    "Country": "Hungary",
+    "Age": 26,
+    "Salary": 750000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Ákos Elek",
+    "Position": "Midfielder",
+    "Club": "Diósgyőri VTK",
+    "Country": "Hungary",
+    "Age": 27,
+    "Salary": 600000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Balázs Dzsudzsák",
+    "Position": "Forward",
+    "Club": "Bursaspor",
+    "Country": "Hungary",
+    "Age": 29,
+    "Salary": 6250000,
+    "Goals": 18
+  },
+  {
+    "Foot": "Both",
+    "Name": "Ádám Nagy",
+    "Position": "Midfielder",
+    "Club": "Ferencváros",
+    "Country": "Hungary",
+    "Age": 20,
+    "Salary": 1000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ádám Szalai",
+    "Position": "Forward",
+    "Club": "Hannover 96",
+    "Country": "Hungary",
+    "Age": 28,
+    "Salary": 2500000,
+    "Goals": 8
+  },
+  {
+    "Foot": "Both",
+    "Name": "Zoltán Gera",
+    "Position": "Forward",
+    "Club": "Ferencváros",
+    "Country": "Hungary",
+    "Age": 37,
+    "Salary": 500000,
+    "Goals": 24
+  },
+  {
+    "Foot": "Right",
+    "Name": "Krisztián Németh",
+    "Position": "Forward",
+    "Club": "Al-Gharafa",
+    "Country": "Hungary",
+    "Age": 27,
+    "Salary": 1400000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Dénes Dibusz",
+    "Position": "Goalkeeper",
+    "Club": "Ferencváros",
+    "Country": "Hungary",
+    "Age": 25,
+    "Salary": 1200000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Dániel Böde",
+    "Position": "Forward",
+    "Club": "Ferencváros",
+    "Country": "Hungary",
+    "Age": 29,
+    "Salary": 800000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gergő Lovrencsics",
+    "Position": "Midfielder",
+    "Club": "Lech Poznań",
+    "Country": "Hungary",
+    "Age": 27,
+    "Salary": 800000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "László Kleinheisler",
+    "Position": "Midfielder",
+    "Club": "Werder Bremen",
+    "Country": "Hungary",
+    "Age": 22,
+    "Salary": 600000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ádám Pintér",
+    "Position": "Defender",
+    "Club": "Ferencváros",
+    "Country": "Hungary",
+    "Age": 27,
+    "Salary": 650000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Nemanja Nikolić",
+    "Position": "Forward",
+    "Club": "Legia Warsaw",
+    "Country": "Hungary",
+    "Age": 28,
+    "Salary": 3500000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Left",
+    "Name": "Zoltán Stieber",
+    "Position": "Midfielder",
+    "Club": "1. FC Nürnberg",
+    "Country": "Hungary",
+    "Age": 27,
+    "Salary": 1300000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Tamás Priskin",
+    "Position": "Forward",
+    "Club": "Slovan Bratislava",
+    "Country": "Hungary",
+    "Age": 29,
+    "Salary": 700000,
+    "Goals": 17
+  },
+  {
+    "Foot": "Right",
+    "Name": "Richárd Guzmics",
+    "Position": "Defender",
+    "Club": "Wisła Kraków",
+    "Country": "Hungary",
+    "Age": 29,
+    "Salary": 750000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Barnabás Bese",
+    "Position": "Defender",
+    "Club": "MTK Budapest",
+    "Country": "Hungary",
+    "Age": 22,
+    "Salary": 350000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Péter Gulácsi",
+    "Position": "Goalkeeper",
+    "Club": "RB Leipzig",
+    "Country": "Hungary",
+    "Age": 26,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Roland Juhász",
+    "Position": "Defender",
+    "Club": "Videoton",
+    "Country": "Hungary",
+    "Age": 32,
+    "Salary": 1000000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Hannes Þór Halldórsson",
+    "Position": "Goalkeeper",
+    "Club": "Bodø/Glimt",
+    "Country": "Iceland",
+    "Age": 32,
+    "Salary": 400000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Birkir Már Sævarsson",
+    "Position": "Defender",
+    "Club": "Hammarby IF",
+    "Country": "Iceland",
+    "Age": 31,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Haukur Heiðar Hauksson",
+    "Position": "Defender",
+    "Club": "AIK",
+    "Country": "Iceland",
+    "Age": 24,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Hjörtur Hermannsson",
+    "Position": "Defender",
+    "Club": "IFK Göteborg",
+    "Country": "Iceland",
+    "Age": 21,
+    "Salary": 200000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Sverrir Ingi Ingason",
+    "Position": "Defender",
+    "Club": "Lokeren",
+    "Country": "Iceland",
+    "Age": 22,
+    "Salary": 900000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ragnar Sigurðsson",
+    "Position": "Defender",
+    "Club": "Krasnodar",
+    "Country": "Iceland",
+    "Age": 29,
+    "Salary": 6000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Jóhann Berg Guðmundsson",
+    "Position": "Forward",
+    "Club": "Charlton Athletic",
+    "Country": "Iceland",
+    "Age": 25,
+    "Salary": 2000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Birkir Bjarnason",
+    "Position": "Midfielder",
+    "Club": "Basel",
+    "Country": "Iceland",
+    "Age": 28,
+    "Salary": 2500000,
+    "Goals": 6
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kolbeinn Sigþórsson",
+    "Position": "Forward",
+    "Club": "Nantes",
+    "Country": "Iceland",
+    "Age": 26,
+    "Salary": 3000000,
+    "Goals": 19
+  },
+  {
+    "Foot": "Right",
+    "Name": "Gylfi Sigurðsson",
+    "Position": "Midfielder",
+    "Club": "Swansea City",
+    "Country": "Iceland",
+    "Age": 26,
+    "Salary": 11000000,
+    "Goals": 12
+  },
+  {
+    "Foot": "Right",
+    "Name": "Alfreð Finnbogason",
+    "Position": "Forward",
+    "Club": "Augsburg",
+    "Country": "Iceland",
+    "Age": 27,
+    "Salary": 3500000,
+    "Goals": 7
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ögmundur Kristinsson",
+    "Position": "Goalkeeper",
+    "Club": "Hammarby IF",
+    "Country": "Iceland",
+    "Age": 26,
+    "Salary": 350000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ingvar Jónsson",
+    "Position": "Goalkeeper",
+    "Club": "Sandefjord",
+    "Country": "Iceland",
+    "Age": 26,
+    "Salary": 100000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Kári Árnason",
+    "Position": "Midfielder",
+    "Club": "Malmö FF",
+    "Country": "Iceland",
+    "Age": 33,
+    "Salary": 600000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Jón Daði Böðvarsson",
+    "Position": "Forward",
+    "Club": "Kaiserslautern",
+    "Country": "Iceland",
+    "Age": 24,
+    "Salary": 800000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Rúnar Már Sigurjónsson",
+    "Position": "Midfielder",
+    "Club": "GIF Sundsvall",
+    "Country": "Iceland",
+    "Age": 25,
+    "Salary": 400000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Aron Gunnarsson",
+    "Position": "Midfielder",
+    "Club": "Cardiff City",
+    "Country": "Iceland",
+    "Age": 27,
+    "Salary": 3000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Both",
+    "Name": "Theódór Elmar Bjarnason",
+    "Position": "Defender",
+    "Club": "AGF",
+    "Country": "Iceland",
+    "Age": 29,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Hörður Björgvin Magnússon",
+    "Position": "Defender",
+    "Club": "Cesena",
+    "Country": "Iceland",
+    "Age": 23,
+    "Salary": 500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Emil Hallfreðsson",
+    "Position": "Midfielder",
+    "Club": "Udinese",
+    "Country": "Iceland",
+    "Age": 31,
+    "Salary": 3000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Arnór Ingvi Traustason",
+    "Position": "Defender",
+    "Club": "IFK Norrköping",
+    "Country": "Iceland",
+    "Age": 23,
+    "Salary": 800000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "Eiður Guðjohnsen",
+    "Position": "Forward",
+    "Club": "Molde FK",
+    "Country": "Iceland",
+    "Age": 37,
+    "Salary": 300000,
+    "Goals": 25
+  },
+  {
+    "Foot": "Both",
+    "Name": "Ari Freyr Skúlason",
+    "Position": "Defender",
+    "Club": "OB",
+    "Country": "Iceland",
+    "Age": 29,
+    "Salary": 700000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Rui Patrício",
+    "Position": "Goalkeeper",
+    "Club": "Sporting CP",
+    "Country": "Portugal",
+    "Age": 28,
+    "Salary": 14000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Bruno Alves",
+    "Position": "Defender",
+    "Club": "Fenerbahçe",
+    "Country": "Portugal",
+    "Age": 34,
+    "Salary": 2200000,
+    "Goals": 10
+  },
+  {
+    "Foot": "Right",
+    "Name": "Pepe",
+    "Position": "Defender",
+    "Club": "Real Madrid",
+    "Country": "Portugal",
+    "Age": 33,
+    "Salary": 6000000,
+    "Goals": 3
+  },
+  {
+    "Foot": "Right",
+    "Name": "José Fonte",
+    "Position": "Defender",
+    "Club": "Southampton",
+    "Country": "Portugal",
+    "Age": 32,
+    "Salary": 5000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Raphaël Guerreiro",
+    "Position": "Defender",
+    "Club": "Lorient",
+    "Country": "Portugal",
+    "Age": 22,
+    "Salary": 7500000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ricardo Carvalho",
+    "Position": "Defender",
+    "Club": "Monaco",
+    "Country": "Portugal",
+    "Age": 38,
+    "Salary": 500000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Both",
+    "Name": "Cristiano Ronaldo",
+    "Position": "Forward",
+    "Club": "Real Madrid",
+    "Country": "Portugal",
+    "Age": 31,
+    "Salary": 110000000,
+    "Goals": 56
+  },
+  {
+    "Foot": "Right",
+    "Name": "João Moutinho",
+    "Position": "Midfielder",
+    "Club": "Monaco",
+    "Country": "Portugal",
+    "Age": 29,
+    "Salary": 18000000,
+    "Goals": 4
+  },
+  {
+    "Foot": "Both",
+    "Name": "Éder",
+    "Position": "Forward",
+    "Club": "Lille",
+    "Country": "Portugal",
+    "Age": 28,
+    "Salary": 5000000,
+    "Goals": 2
+  },
+  {
+    "Foot": "Right",
+    "Name": "João Mário",
+    "Position": "Midfielder",
+    "Club": "Sporting CP",
+    "Country": "Portugal",
+    "Age": 23,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Vieirinha",
+    "Position": "Midfielder",
+    "Club": "Wolfsburg",
+    "Country": "Portugal",
+    "Age": 30,
+    "Salary": 8000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Left",
+    "Name": "Anthony Lopes",
+    "Position": "Goalkeeper",
+    "Club": "Lyon",
+    "Country": "Portugal",
+    "Age": 25,
+    "Salary": 12000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Danilo",
+    "Position": "Midfielder",
+    "Club": "Porto",
+    "Country": "Portugal",
+    "Age": 24,
+    "Salary": 8000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "William Carvalho",
+    "Position": "Midfielder",
+    "Club": "Sporting CP",
+    "Country": "Portugal",
+    "Age": 24,
+    "Salary": 26000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "André Gomes",
+    "Position": "Midfielder",
+    "Club": "Valencia",
+    "Country": "Portugal",
+    "Age": 22,
+    "Salary": 18000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Renato Sanches",
+    "Position": "Midfielder",
+    "Club": "Benfica",
+    "Country": "Portugal",
+    "Age": 18,
+    "Salary": 10000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Both",
+    "Name": "Nani",
+    "Position": "Forward",
+    "Club": "Fenerbahçe",
+    "Country": "Portugal",
+    "Age": 29,
+    "Salary": 16000000,
+    "Goals": 18
+  },
+  {
+    "Foot": "Right",
+    "Name": "Rafa Silva",
+    "Position": "Midfielder",
+    "Club": "Braga",
+    "Country": "Portugal",
+    "Age": 23,
+    "Salary": 11000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Left",
+    "Name": "Eliseu",
+    "Position": "Defender",
+    "Club": "Benfica",
+    "Country": "Portugal",
+    "Age": 32,
+    "Salary": 2000000,
+    "Goals": 1
+  },
+  {
+    "Foot": "Right",
+    "Name": "Ricardo Quaresma",
+    "Position": "Forward",
+    "Club": "Beşiktaş",
+    "Country": "Portugal",
+    "Age": 32,
+    "Salary": 4000000,
+    "Goals": 5
+  },
+  {
+    "Foot": "Right",
+    "Name": "Cédric Soares",
+    "Position": "Defender",
+    "Club": "Southampton",
+    "Country": "Portugal",
+    "Age": 24,
+    "Salary": 11000000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Eduardo",
+    "Position": "Goalkeeper",
+    "Club": "Dinamo Zagreb",
+    "Country": "Portugal",
+    "Age": 33,
+    "Salary": 1500000,
+    "Goals": 0
+  },
+  {
+    "Foot": "Right",
+    "Name": "Adrien Silva",
+    "Position": "Midfielder",
+    "Club": "Sporting CP",
+    "Country": "Portugal",
+    "Age": 27,
+    "Salary": 14000000,
+    "Goals": 0
+  }
+]
