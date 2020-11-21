@@ -208,8 +208,8 @@ class DataGenie:
         if self.nl4dv_instance.alias_url is not None and os.path.isfile(self.nl4dv_instance.alias_url):
             self.nl4dv_instance.alias_value = json.load(open(self.nl4dv_instance.alias_url, 'r', encoding='utf-8'))
 
-        elif self.nl4dv_instance.alias_value is not None:
-            for attr in self.nl4dv_instance.alias_value:
+        if self.nl4dv_instance.alias_value is not None:
+            for attr in self.nl4dv_instance.alias_value.keys():
                 if attr in self.data_attribute_map:
                     self.data_attribute_map[attr]['aliases'].extend(self.nl4dv_instance.alias_value[attr])
 
