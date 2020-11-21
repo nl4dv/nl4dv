@@ -17,8 +17,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Natural Language toolkit for Data Visualization">
+    <meta name="description" content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
     <meta name="author" content="Arpit Narechania">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://nl4dv.github.io/nl4dv/">
+	<meta property="og:title" content="NL4DV">
+	<meta property="og:description" content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
+	<meta property="og:image" content="https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png">
+	<meta property="og:video" content="https://youtu.be/U5uDyILweu8">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://nl4dv.github.io/nl4dv/">
+	<meta property="twitter:title" content="NL4DV">
+	<meta property="twitter:description" content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
+	<meta property="twitter:image" content="https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png">
+	<meta property="twitter:site" content="@arpitnarechania">
+	<meta property="twitter:creator" content="@arpitnarechania">
+
     <link rel="shortcut icon" href="./assets/images/favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
           rel='stylesheet' type='text/css'>
@@ -93,14 +111,14 @@
                                                     <p>A local distributable. Download</p>
                                                     <p style="font-size:1.1rem;">
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.2.tar.gz"
-                                                        target="_blank">nl4dv-0.0.2.tar.gz</a></b>
+                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.3.tar.gz"
+                                                        target="_blank">nl4dv-0.0.3.tar.gz</a></b>
                                                         &nbsp;&nbsp;<i>or</i>&nbsp;&nbsp;
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.2.zip"
-                                                        target="_blank">nl4dv-0.0.2.zip</a></b>
+                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.3.zip"
+                                                        target="_blank">nl4dv-0.0.3.zip</a></b>
                                                     </p>
-                                                    <p>Accordingly, run <code class="language-bash">pip install nl4dv-0.0.2.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-0.0.2.zip</code>.</p>
+                                                    <p>Accordingly, run <code class="language-bash">pip install nl4dv-0.0.3.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-0.0.3.zip</code>.</p>
                                                 </li>
                                             </ol>
                                             <b>Note:</b> We recommend installing NL4DV in a  <a href="https://pypi.org/project/virtualenv/" target="_blank">virtual
@@ -124,7 +142,7 @@
                                         <ol>
                                             <li>
                                                 <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
-                                                    CoreNLP</a>:</p>
+                                                    CoreNLP</a> (<b style="color:red;">recommended</b>):</p>
                                                 <ul>
                                                     <li>
                                                         <p>
@@ -355,6 +373,7 @@ print(output)</code></pre>
                                 <div class="block">
                                     <p>As we plan additional features to add new features / improve the toolkit, we <b style="color:red;">recommend</b> users/developers to be aware of the following: </p>
                                     <ul>
+                                        <li><p><b>Dependency parser output variations.</b><br/>The dependencies returned by CoreNLP, CoreNLP Server, and Spacy are sometimes different. The current parser logic was developed for CoreNLP, hence it'll work best. However, we are upgrading the rules to work consistently across all dependency parsers.</p></li>
                                         <li><p><b>Attribute data types.</b><br/>Verify the attribute types (e.g., nominal, temporal) that are detected by NL4DV and override them if they are incorrect as they will most likely lead to erroneous visualizations. The current attribute datatype detection logic is heuristics based and we are currently working towards a major improvement that semantically infers the data type from both, the attribute's name and its value.</p>
                                         </li>
                                         <li><p><b>Filter task.</b><br/>NL4DV applies the filter task by matching the condition against each data point but does not encode the involved attributes in the visualization. This was a design decision taken to avoid recommending a complex visualization due to too many encoded attributes.</p></li>
@@ -442,174 +461,186 @@ print(output)</code></pre>
                         <section id="api-reference" class="doc-section">
                             <h2 class="section-title">API Reference</h2>
                             <div class="section-block">
-                                <p>NL4DV exposes a simple, intuitive API for developers to consume.</p>
-                                <ul class="list">
-                                    <li>
-                                        <h4>class NL4DV.nl4dv</h4>
-                                        <p>User facing class that takes in and processes users' natural language
-                                            specifications (queries).</p>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.analyze_query()</h4>
-                                        <p>Processes the user query and returns a JSON specification of attributes,
-                                            tasks, and visualizations.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: query(str) - natural language query.</li>
-                                            <li><b>return</b>: `dict()` containing attributeMap, taskMap, and visList.
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.render_vis()</h4>
-                                        <p>Processes the user query and returns a VegaLite() object of the best, most
-                                            relevant visualization.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: query(str) - natural language query.</li>
-                                            <li><b>return</b>: `VegaLite` object</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_data()</h4>
-                                        <p>Sets the dataset.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: data_url(str) - path to location of data file.</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_alias_map()</h4>
-                                        <p>Sets the alias map</p>
-                                        <ul class="list">
-                                            <li><b>args</b>:
-                                                <ul>
-                                                    <li>alias_map(dict) - `dict` of the alias map.</li>
-                                                    <li>alias_url(str) - path to location of alias file.</li>
-                                                </ul>
-                                            </li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_thresholds()</h4>
-                                        <p>Sets the string matching, other thresholds.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: thresholds (dict).</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                    <pre><code class="language-python">{
-    'synonymity': 95,
-    'string_similarity': 85
-}</code></pre>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_importance_scores()</h4>
-                                        <p>Sets the Scoring Weights for the way attributes / tasks and visualizations
-                                            are detected.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: scores (dict).</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                        <pre><code class="language-python">{
-    'attribute': {
-        'attribute_exact_match': 1,
-        'attribute_similarity_match': 0.9,
-        'attribute_alias_exact_match': 0.8,
-        'attribute_alias_similarity_match': 0.75,
-        'attribute_synonym_match': 0.5,
-        'attribute_domain_value_match': 0.5,
-    },
-    'task': {
-        'explicit': 1,
-        'implicit': 0.5,
-    },
-    'vis': {
-        'explicit': 1
-    }
-}</code></pre>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_attribute_datatype()</h4>
-                                        <p>Set (override) the attribute datatypes (detected by NL4DV).
-                                        </p>
-                                        <ul class="list">
-                                            <li><b>args</b>: attr_type_obj (dict).</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                        <pre><code class="language-python">{
-    "Year": "T", # Temporal
-    "Rank": "O", # Ordinal
-    "Salary": "Q", # Quantitative
-    "Gender": "N" # Nominal
-}</code></pre>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_dependency_parser()</h4>
-                                        <p>Set the dependency parser to be used in the Tasks detector module.<br/>
-                                            e.g. {"name": "stanford", "model":
-                                            "stanford-english-corenlp-2018-10-05-models.jar","parser":
-                                            "stanford-parser.jar")}</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: config (dict)</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                        <pre><code class="language-python">{
-    "name": "stanford",
-    "model": "stanford-english-corenlp-2018-10-05-models.jar",
-    "parser": "stanford-parser.jar"
-}</code></pre>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_reserve_words()</h4>
-                                        <p>Set the custom STOPWORDS that should NOT be removed from the query, as they
-                                            might be present in the domain.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: reserve_words (list)</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                        <pre><code class="language-python">["A"] # "A" - although an article (like 'a/an/the') should be retained for e.g., in a grades dataset.</code></pre>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_ignore_words()</h4>
-                                        <p>Set the words that should be IGNORED in the query, i.e. NOT lead to the
-                                            detection of attributes and tasks.
-                                        </p>
-                                        <ul class="list">
-                                            <li><b>args</b>: ignore_words (list)</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                        <pre><code class="language-python">["movie"] # in a movies dataset may lead to the detection of "Scary Movie"</code></pre>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.set_label_attribute()</h4>
-                                        <p>Set the Label attribute for the dataset, i.e. one that defines what the
-                                            dataset is about.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: label_attribute (str)</li>
-                                            <li><b>return</b>: None</li>
-                                        </ul>
-                                        <pre><code class="language-python">["Model"] # Model attribute will NOT be detected explicitly when *other* attributes are present.</code></pre>
-                                        <p><b>Explanation: </b> Correlate horsepower and MPG for sports car models" should NOT apply an explicit attribute for models since there are two explicit attributes already present.</p>
-                                    </li>
-                                    <li>
-                                        <h4>nl4dv.get_metadata()</h4>
-                                        <p>Get the metadata object after processing the dataset.</p>
-                                        <ul class="list">
-                                            <li><b>args</b>: None</li>
-                                            <li><b>return</b>: `dict()` containing the attributes their domains and
-                                                ranges.
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <p>NL4DV exposes a simple, intuitive API for developers to consume. The below methods can be called on the <b>nl4dv_instance</b> object that is created after initializing NL4DV like <code class="language-python">nl4dv_instance = NL4DV()</code>.</p>
+                                <table class="bordered-table" style="table-layout: fixed; width: 100%;">
+                                    <colgroup>
+                                        <col style="width:30%">
+                                        <col style="width:40%">
+                                        <col style="width:30%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Params</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>NL4DV(*)</td>
+                                            <td>
+                                                <p><code class="language-python">data_url</code> (str)</p>
+                                                <p><code class="language-python">data_value</code> (list|dict|pandas DataFrame)</p>
+                                                <p><code class="language-python">alias_url</code> (str)</p>
+                                                <p><code class="language-python">alias_value</code> (dict)</p>
+                                                <p><code class="language-python">label_attribute</code> (str)</p>
+                                                <p><code class="language-python">ignore_words</code> (list)</p>
+                                                <p><code class="language-python">reserve_words</code> (list)</p>
+                                                <p><code class="language-python">dependency_parser_config</code> (dict)</p>
+                                                <p><code class="language-python">thresholds</code> (dict)</p>
+                                                <p><code class="language-python">importance_scores</code> (dict)</p>
+                                                <p><code class="language-python">debug</code> (bool)</p>
+                                            </td>
+                                            <td>
+                                                <p>NL4DV constructor that accepts these parameters. These parameters can be set using separate function calls as well; check below.</p>
+                                                <span><b>Returns:</b> <code class="language-python">nl4dv_instance</code>. </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>analyze_query(query=None,debug=False,verbose=False)</td>
+                                            <td>
+                                                <p><code class="language-python">query</code> (str)</p>
+                                                <p><code class="language-python">debug</code> (str)</p>
+                                                <p><code class="language-python">dialog</code> (str) (coming soon!)</p>
+                                            </td>
+                                            <td>
+                                                <p>Analyzes the input query.</p>
+                                                <span><b>Returns:</b> a JSON specification of attributes, tasks, and visualizations.</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>render_vis(query=None)</td>
+                                            <td>
+                                                <p><code class="language-python">query</code> (str)</p>
+                                                <span><b>Example:</b> <i>"visualize mpg."</i></span>
+                                            </td>
+                                            <td>
+                                                <p>Processes the input query and returns a VegaLite() object of the best, most relevant visualization.</p>
+                                                <span><b>Returns:</b> VegaLite()</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_data(data_url=None, data_value=None)</td>
+                                            <td>
+                                                <p><code class="language-python">data_url</code> (str)</p>
+                                                <span><b>Example:</b><i>"euro.csv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv" target="_blank">sample</a>) | "euro.tsv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.tsv" target="_blank">sample</a>) | "euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.json" target="_blank">sample</a>) </i></span>
+                                                <div class="separator"><i>Or</i></div>
+                                                <p><code class="language-python">data_value</code> (list|dict|pandas.DataFrame)</p>
+                                                <span><b>Example:</b><br/>
+                                                    <ul>
+                                                        <li><b>list</b>:&nbsp;&nbsp;<pre><code class="language-json">[{"acceleration": 19,
+"salary": 1000},
+{"acceleration": 21,
+"salary": 1320}]</code></pre></li>
+                                                        <li><b>dict</b>:&nbsp;&nbsp;<pre><code class="language-json">{ "acceleration": [19, 21],
+"salary": [1000, 1320]}</code></pre></li>
+                                                        <li><b>DataFrame</b>:&nbsp;&nbsp;<code class="language-python">pandas.DataFrame()</code> instance.</li>
+                                                    </ul>
+                                                </span>
+                                            </td>
+                                            <td>Sets the dataset to query against.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_alias(alias_url=None, alias_value=None)</td>
+                                            <td>
+                                                <p><code class="language-python">alias_url</code> (str)</p>
+                                                <span>
+                                                    <b>Example:</b><i>"aliases/euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json" target="_blank">sample</a>)</i>
+                                                </span>
+                                                <div class="separator"><i>Or</i></div>
+                                                <p><code class="language-python">alias_value</code> (dict)</p>
+                                                <span><b>Example:</b><i>"aliases/cars.json"</i> where the json is like </span>
+                                                <pre><code class="language-python">{"MPG": ["miles per gallon"],
+"Horsepower": ["hp"]}</code></pre>
+                                            </td>
+                                            <td>Sets the alias values.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_thresholds(thresholds=None)</td>
+                                            <td>
+                                                <p><code class="language-python">thresholds</code> (dict)</p>
+                                                <span><b>Example:</b></span>
+                                                <pre><code class="language-python">{"synonymity": 95,
+"string_similarity": 85}</code></pre>
+                                            </td>
+                                            <td>Overrides the default thresholds such as string matching.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_importance_scores(scores=None)</td>
+                                            <td><p><code class="language-python">scores</code> (dict)</p>
+                                                <span><b>Example:</b></span><pre><code class="language-python">{'attribute': {
+    'attribute_exact_match': 1,
+    'attribute_similarity_match': 0.9,
+    'attribute_alias_exact_match': 0.8,
+    'attribute_alias_similarity_match': 0.75,
+    'attribute_synonym_match': 0.5,
+    'attribute_domain_value_match': 0.5,
+},
+'task': {
+    'explicit': 1,
+    'implicit': 0.5,
+},
+'vis': {
+    'explicit': 1
+}}</code></pre></td>
+                                            <td>Sets the Scoring Weights for the way attributes / tasks and visualizations
+                                            are detected.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_attribute_datatype(attr_type_obj=None)</td>
+                                            <td><p><code class="language-python">attr_type_obj</code> (dict)</p>
+                                                <span><b>Example:</b></span><pre><code class="language-python">{"Year": "T", # Temporal
+"Rank": "O", # Ordinal
+"Salary": "Q", # Quantitative
+"Gender": "N" # Nominal}</code></pre></td>
+                                            <td>Override the attribute datatypes that are detected by NL4DV.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_dependency_parser(config=None)</td>
+                                            <td><p><code class="language-python">config</code> (dict)</p>
+                                                <span><b>Example:</b></span><pre><code class="language-python">{"name": "corenlp-server",
+"url": "http://192.168.99.102:9000"}</code></pre></td>
+                                            <td>Set the dependency parser to be used in the Tasks detector module.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_reserve_words(reserve_words=None)</td>
+                                            <td><p><code class="language-python">reserve_words</code> (list)</p>
+                                                <span><b>Example:</b><code class="language-python">["A"] </code></span>
+                                                # "A" - although an article (like 'a/an/the') should be retained in a grades dataset.
+                                            </td>
+                                            <td>Set the custom STOPWORDS that should NOT be removed from the query, as they
+                                            might be present in the domain.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_ignore_words(ignore_words=None)</td>
+                                            <td><p><code class="language-python">ignore_words</code> (list)</p>
+                                            <span><b>Example:</b><code class="language-python">["movie"]</code></span></td>
+                                            <td>Set the words that should be IGNORED in the query, i.e. NOT lead to the detection of attributes and tasks.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_label_attribute(label_attribute=None)</td>
+                                            <td><p><code class="language-python">label_attribute</code> (str)</p>
+                                                <span><b>Example:</b><code class="language-python">["Model"]</code></span>
+                                                # Correlate horsepower and MPG for sports car models" should NOT apply an explicit attribute for models since there are two explicit attributes already present.
+                                            </td>
+                                            <td>Set the words that should be IGNORED in the query, i.e. NOT lead to the detection of attributes and tasks.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>get_metadata()</td>
+                                            <td>-</td>
+                                            <td>Get the metadata object after processing the dataset.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </section>
                         <section id="test" class="doc-section">
                             <h2 class="section-title">Test</h2>
                             <div class="section-block">
-                                <p><i>coming soon...</i></p>
-                                <div class="code-block">
-                                    <pre><code class="language-bash">pytest --cov=nl4dv nl4dv/tests</code></pre>
-                                </div><!--//code-block-->
+                                <p><i>Coming soon.</i></p>
+                                <!--<div class="code-block">-->
+                                    <!--<pre><code class="language-bash">pytest &#45;&#45;cov=nl4dv nl4dv/tests</code></pre>-->
+                                <!--</div>&lt;!&ndash;//code-block&ndash;&gt;-->
                             </div>
                         </section>
                         <section id="contribute" class="doc-section">
@@ -686,6 +717,20 @@ print(output)</code></pre>
                                         Tech Visualization Lab</a> for their support and constructive feedback.</p>
                             </div>
                         </section>
+                        <section id="citation" class="doc-section">
+                            <h2 class="section-title">Citation</h2>
+                            <div class="section-block">
+                                <pre><code class="language-bib">@article{narechaniaNL4DV2020,
+  title = {NL4DV: A Toolkit for Generating Analytic Specifications for Data Visualization from Natural Language Queries},
+  shorttitle = {NL4DV},
+  author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
+  journal = {IEEE Transactions on Visualization and Computer Graphics (TVCG)},
+  doi = {10.1109/TVCG.2020.3030378},
+  year = {2020},
+  publisher = {IEEE}
+}</code></pre>
+                            </div>
+                        </section>
                         <section id="contact" class="doc-section">
                             <h2 class="section-title">Contact Us</h2>
                             <div class="section-block">
@@ -723,6 +768,7 @@ print(output)</code></pre>
                             <a class="nav-link scrollto" href="#test">Test</a>
                             <a class="nav-link scrollto" href="#contribute">Build</a>
                             <a class="nav-link scrollto" href="#credits">Credits</a>
+                            <a class="nav-link scrollto" href="#citation">Citation</a>
                             <a class="nav-link scrollto" href="#contact">Contact Us</a>
                             <a class="nav-link scrollto" href="#license">License</a>
                         </nav><!--//doc-menu-->
@@ -757,6 +803,7 @@ print(output)</code></pre>
 <script type="text/javascript" src="./assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
 <script type="text/javascript" src="./assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>
 <script type="text/javascript" src="./assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+<script src="https://saswatpadhi.github.io/prismjs-bibtex/prism-bibtex.min.js"></script>
 <script type="text/javascript" src="./assets/js/main.js"></script>
 
 </body>
