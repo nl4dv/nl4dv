@@ -28,24 +28,38 @@ class NL4DV:
     """
 
     def __init__(self, data_url=None,
+                 data_value=None,
                  alias_url=None,
-                 alias_map=None,
+                 alias_value=None,
                  label_attribute=None,
                  ignore_words=list(),
                  reserve_words=list(),
                  dependency_parser_config=None,
-                 verbose=False):
+                 thresholds=None,
+                 importance_scores=None,
+                 attribute_datatype=None,
+                 verbose=False,
+                 debug=False):
 
         # inputs
         self.data_url = data_url
+        self.data_value = data_value
         self.alias_url = alias_url
-        self.alias_map = alias_map
+        self.alias_value = alias_value
         self.label_attribute = label_attribute
         self.ignore_words = ignore_words
         self.reserve_words = reserve_words
+        self.dependency_parser_config = dependency_parser_config
         self.verbose = verbose
+        self.debug = debug
 
-        # outputs
+        # Load constants: thresholds, mappings, scores
+        self.vis_keyword_map = constants.vis_keyword_map
+        self.task_keyword_map = constants.task_keyword_map
+        self.match_scores = constants.match_scores
+        self.match_thresholds = constants.match_thresholds
+
+        # Initialize intermediate/output variables
         self.execution_durations = dict()
         self.query_raw = None
         self.query_processed = ""
@@ -57,36 +71,67 @@ class NL4DV:
         self.extracted_attributes = OrderedDict()
         self.vis_list = None
         self.dependencies = list()
-
-        # Load constants: thresholds, mappings, scores
-        self.vis_keyword_map = constants.vis_keyword_map
-        self.task_keyword_map = constants.task_keyword_map
-        self.match_scores = constants.match_scores
-        self.match_thresholds = constants.match_thresholds
+        self.dependency_parser = None
+        self.dependency_parser_instance = None
 
         # Others
         self.dialog = False
-        self.debug = False
 
         # initialize porter stemmer instance
         self.porter_stemmer_instance = PorterStemmer()
 
-        # Set the dependency parser
-        self.dependency_parser = None
-        self.dependency_parser_instance = None
-        self.set_dependency_parser(dependency_parser_config)
-
-        # Internal Class Instances
+        # Initialize internal Class Instances
         self.data_genie_instance = DataGenie(self)  # initialize a DataGenie instance.
         self.query_genie_instance = QueryGenie(self)  # initialize a QueryGenie instance.
         self.attribute_genie_instance = AttributeGenie(self)   # initialize a AttributeGenie instance.
         self.task_genie_instance = TaskGenie(self)  # initialize a TaskGenie instance.
         self.vis_genie_instance = VisGenie(self)   # initialize a VisGenie instance.
 
+        # Set the Data if passed data_url or data_value is not None
+        if self.data_url is not None:
+            self.set_data(data_url = self.data_url)
+        elif self.data_value is not None:
+            self.set_data(data_value = self.data_value)
+
+        # Set the Aliases if passed alias_url or alias_value is not None
+        if self.alias_url is not None:
+            self.set_alias_map(alias_url = self.alias_url)
+        elif self.alias_value is not None:
+            self.set_alias_map(alias_value = self.alias_value)
+
+        # Set the dependency parser if config is not None
+        if self.dependency_parser_config is not None:
+            self.set_dependency_parser(dependency_parser_config)
+
+        # Set the label attribute, if specified
+        if self.label_attribute is not None:
+            self.set_label_attribute(label_attribute=self.label_attribute)
+
+        # Set the ignore_words, if specified
+        if self.ignore_words is not None:
+            self.set_ignore_words(ignore_words = self.ignore_words)
+
+        # Set the reserve_words, if specified
+        if self.reserve_words is not None:
+            self.set_reserve_words(reserve_words = self.reserve_words)
+
+        # Set the thresholds, e.g., string matching
+        if thresholds is not None:
+            self.set_thresholds(thresholds=thresholds)
+
+        # Set the importance scores, i.e., weights assigned to different ways in which attributes, tasks, and vis are detected/inferred.
+        if importance_scores is not None:
+            self.set_importance_scores(scores=importance_scores)
+
+        # Override the attribute datatypes
+        if attribute_datatype is not None:
+            self.set_attribute_datatype(attr_type_obj=attribute_datatype)
+
+
     # returns a VegaLite object of the best (1st) visualization after analyzing the query.
-    def render_vis(self, query_raw):
+    def render_vis(self, query):
         # type: (str) -> VegaLite
-        response = self.analyze_query(query_raw)
+        response = self.analyze_query(query=query)
         if len(response['visList']) == 0:
             print("No best Viz; please try again.")
             return VegaLite({})
@@ -95,15 +140,16 @@ class NL4DV:
     # ToDo:- Discuss support for non-ascii characters? Fallback from unicode to ascii good enough?
     # ToDo:- Discuss ERROR Handling
     # ToDo:- Utilities to perform unit conversion (eg. seconds > minutes). Problem: Tedious to infer base unit from data. - LATER
-    def analyze_query(self, query_raw, dialog=False, debug=False):
+    def analyze_query(self, query=None, dialog=None, debug=None, verbose=None):
         # type: (str) -> dict
 
         self.execution_durations = dict()
-        self.dialog = dialog
-        self.debug = debug
+        self.dialog = dialog if dialog is not None else self.dialog
+        self.debug = debug if debug is not None else self.debug
+        self.verbose = verbose if verbose is not None else self.verbose
 
         # If not a follow-up query, reset the output variables.
-        if not dialog:
+        if not self.dialog:
             self.extracted_vis_type = None
             self.extracted_vis_token = None
             self.extracted_tasks = OrderedDict()
@@ -111,7 +157,7 @@ class NL4DV:
             self.vis_list = None
 
         # CLEAN AND PROCESS QUERY
-        self.query_raw = query_raw
+        self.query_raw = query
         helpers.cond_print("Raw Query: " + self.query_raw, self.verbose)
         st = time.time()
         self.query_processed = self.query_genie_instance.process_query(self.query_raw)
@@ -165,7 +211,8 @@ class NL4DV:
             'debug': {'execution_durations': self.execution_durations},
             'query_raw': self.query_raw,
             'query': self.query_processed,
-            'dataset': self.data_url,
+            'dataset': self.data_url if self.data_url else self.data_value,
+            'alias': self.alias_url if self.alias_url else self.alias_value,
             'visList': self.vis_list,
             'attributeMap': self.extracted_attributes,
             'taskMap': self.extracted_tasks,
@@ -173,7 +220,7 @@ class NL4DV:
             'contextObj': None
         }
 
-        return output if debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
+        return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
     # Update the attribute datatypes that were not correctly detected by NL4DV
     def set_attribute_datatype(self, attr_type_obj):
@@ -196,29 +243,28 @@ class NL4DV:
         return self.data_genie_instance.set_reserve_words(reserve_words=reserve_words)
 
     # Sets the AliasMap
-    def set_alias_map(self, alias_map=None, alias_url=None):
-        return self.data_genie_instance.set_alias_map(alias_map=alias_map, alias_url=alias_url)
+    def set_alias_map(self, alias_value=None, alias_url=None):
+        return self.data_genie_instance.set_alias_map(alias_value=alias_value, alias_url=alias_url)
 
     # Sets the Dataset
-    def set_data(self, data_url=None):
-        return self.data_genie_instance.set_data(data_url=data_url)
+    def set_data(self, data_url=None, data_value=None):
+        return self.data_genie_instance.set_data(data_url=data_url, data_value=data_value)
 
     # Sets the String Matching, Domain Word Limit, ... Thresholds
     def set_thresholds(self, thresholds):
         for t in thresholds:
             if t in self.match_thresholds and (isinstance(thresholds[t], float) or isinstance(thresholds[t], int)):
                 self.match_thresholds[t] = thresholds[t]
-        return True
 
     # Sets the Scoring Weights for the way attributes / tasks and visualizations are detected.
     def set_importance_scores(self, scores):
+        # domain = {'attribute', 'task', 'vis'}
         for domain in scores.keys():
             if domain in self.match_scores and isinstance(scores[domain], dict):
+                # setting = {'attribute_exact_match', 'attribute_similarity_match', 'attribute_alias_exact_match', ... so on}
                 for setting in scores[domain].keys():
                     if setting in self.match_scores[domain] and isinstance(scores[domain][setting], float):
-                        self.match_scores[domain] = scores[domain][setting]
-
-        return True
+                        self.match_scores[domain][setting] = scores[domain][setting]
 
     # Get the dataset metadata
     def get_metadata(self):
