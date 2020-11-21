@@ -87,47 +87,13 @@ class DataGenie:
         self.rows = 0
 
         if self.nl4dv_instance.data_url is not None:
-
-            # If LOCAL FILE
-            if os.path.isfile(self.nl4dv_instance.data_url):
-
-                # local variables
-                reader = None
-                json_data = None
-                attributes = list()
-
-                if self.nl4dv_instance.data_url.lower().endswith('.csv'):
-                    reader = csv.reader(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'),delimiter=',')
-                    attributes = next(reader)  # assumes headers are in the first line
-                elif self.nl4dv_instance.data_url.lower().endswith('.tsv'):
-                    reader = csv.reader(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'),delimiter='\t')
-                    attributes = next(reader)  # assumes headers are in the first line
-                elif self.nl4dv_instance.data_url.lower().endswith('.json'):
-                    json_data = json.load(open(self.nl4dv_instance.data_url, 'r', encoding='utf-8'))
-                    attributes = json_data[0].keys()
-
-                # initialize properties in Attribute Map
-                # implies file is either .csv or .tsv
-                if reader is not None:
-                    for line in reader:
-                        data_obj = dict()
-                        for i in range(len(line)):
-                            # Don't consider attribute names that are empty or just whitespaces
-                            if attributes[i] and attributes[i].strip():
-                                data_obj[attributes[i]] = line[i]
-                        self.data.append(data_obj)
-                else:
-                    # JSON file
-                    for data_obj in json_data:
-                        self.data.append(data_obj)
-            else:
-                # Possible URL
-                if self.nl4dv_instance.data_url.lower().endswith('.csv'):
-                    self.data = pd.read_csv(self.nl4dv_instance.data_url, sep=',').to_dict('records')
-                elif self.nl4dv_instance.data_url.lower().endswith('.tsv'):
-                    self.data = pd.read_csv(self.nl4dv_instance.data_url, sep='\t').to_dict('records')
-                elif self.nl4dv_instance.data_url.lower().endswith('.json'):
-                    self.data = pd.read_json(self.nl4dv_instance.data_url).to_dict('records')
+            # Possible Local FILE or HTTP URL
+            if self.nl4dv_instance.data_url.lower().endswith('.csv'):
+                self.data = pd.read_csv(self.nl4dv_instance.data_url, sep=',').to_dict('records')
+            elif self.nl4dv_instance.data_url.lower().endswith('.tsv'):
+                self.data = pd.read_csv(self.nl4dv_instance.data_url, sep='\t').to_dict('records')
+            elif self.nl4dv_instance.data_url.lower().endswith('.json'):
+                self.data = pd.read_json(self.nl4dv_instance.data_url).to_dict('records')
 
         elif self.nl4dv_instance.data_value is not None:
             if isinstance(data_value, pd.DataFrame):
