@@ -121,11 +121,7 @@ class DataGenie:
             elif isinstance(data_value, list):
                 self.data = data_value
             elif isinstance(data_value, dict):
-                for attribute, values in enumerate(data_value):
-                    data_obj = dict()
-                    for val in values:
-                        data_obj[attribute] = val
-                    self.data.append(data_obj)
+                self.data = pd.DataFrame(data_value).to_dict('records')
             self.rows = len(self.data)
 
         # initialize properties in Attribute Map
