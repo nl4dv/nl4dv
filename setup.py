@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='nl4dv',
-    version='0.0.2',
+    version='0.0.3',
     author='Arpit Narechania',
     author_email='arpitnarechania@gatech.edu',
     packages=find_packages(),
@@ -18,7 +18,7 @@ setup(
     scripts=[],
     url='https://github.com/nl4dv/nl4dv',
     license='LICENSE',
-    description='Natural Language Toolkit for Data Visualization',
+    description='NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).',
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=[
