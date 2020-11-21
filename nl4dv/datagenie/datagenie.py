@@ -5,6 +5,7 @@ import sys
 from dateparser import parse
 from nl4dv.utils import constants, error_codes, helpers
 import os
+import pandas as pd
 
 class DataGenie:
     """
@@ -26,10 +27,16 @@ class DataGenie:
         self.set_reserve_words(reserve_words=self.nl4dv_instance.reserve_words)
 
         # set data and extract attributes
-        self.set_data(data_url=self.nl4dv_instance.data_url)
+        self.set_data(data_url=self.nl4dv_instance.data_url, data_value=self.nl4dv_instance.data_value)
 
         # set alias map
-        self.set_alias_map(alias_url=self.nl4dv_instance.alias_url, alias_map=self.nl4dv_instance.alias_map)
+        self.set_alias_map(alias_url=self.nl4dv_instance.alias_url, alias_value=self.nl4dv_instance.alias_value)
+
+        # Other initializations
+        self.data_attribute_map = dict()
+        self.data = list()
+        self.rows = 0
+
 
     # Update the attribute datatypes that were not correctly detected by NL4DV
     def set_attribute_datatype(self, attr_type_obj):
@@ -63,13 +70,14 @@ class DataGenie:
         return True
 
     # Sets the Dataset
-    def set_data(self, data_url=None):
+    def set_data(self, data_url=None, data_value=None):
         # type: (str) -> bool
         """
         User can choose to manually initialize data
 
         """
         self.nl4dv_instance.data_url = data_url
+        self.nl4dv_instance.data_value = data_value
 
         # initialize values
         self.data_attribute_map = dict()
@@ -94,19 +102,6 @@ class DataGenie:
                 attributes = json_data[0].keys()
 
             # initialize properties in Attribute Map
-            for attr in attributes:
-                # Don't consider attribute names that are empty or just whitespaces
-                if attr and attr.strip():
-                    self.data_attribute_map[attr] = {
-                        'domain': set(),
-                        'isLabelAttribute': attr == self.nl4dv_instance.label_attribute,
-                        'summary': dict(),
-                        'dataTypeList': list(), # temporary to determine datatype
-                        'dataType': '',
-                        'aliases': list(),
-                    }
-
-            # initialize properties in Attribute Map
             # implies file is either .csv or .tsv
             if reader is not None:
                 for line in reader:
@@ -123,81 +118,105 @@ class DataGenie:
                     self.data.append(data_obj)
                     self.rows += 1
 
-            # infer attribute datatypes and compute summary (range, domain)
-            for datum in self.data:
-                for attr in self.data_attribute_map.keys():
-                    attr_val = datum[attr]
+        elif self.nl4dv_instance.data_value is not None:
+            if isinstance(data_value, pd.DataFrame):
+                self.data = data_value.to_dict('records')
+            elif isinstance(data_value, list):
+                self.data = data_value
+            elif isinstance(data_value, dict):
+                for attribute, values in enumerate(data_value):
+                    data_obj = dict()
+                    for val in values:
+                        data_obj[attribute] = val
+                    self.data.append(data_obj)
+            self.rows = len(self.data)
 
-                    # Check for Numeric (float, int)
-                    if helpers.isfloat(attr_val) or helpers.isint(attr_val):
-                        attr_datatype = constants.attribute_types['QUANTITATIVE']
-                        self.populate_dataset_meta(attr, attr_val, attr_datatype)
+        # initialize properties in Attribute Map
+        if len(self.data) > 0:
+            for attr in self.data[0].keys():
+                # Don't consider attribute names that are empty or just whitespaces
+                if attr and attr.strip():
+                    self.data_attribute_map[attr] = {
+                        'domain': set(),
+                        'isLabelAttribute': attr == self.nl4dv_instance.label_attribute,
+                        'summary': dict(),
+                        'dataTypeList': list(), # temporary to determine datatype
+                        'dataType': '',
+                        'aliases': list(),
+                    }
 
-                    # Check for Datetime
-                    # ToDo:- Works fine for datetime strings. Not for others like Epochs and Int-only Years (e.g. 2018) which get captured above.
-                    # ToDo:- It is VERY risky to switch this elif block with the if block above
-                    elif helpers.isdate(attr_val)[0]:
-                        attr_datatype = constants.attribute_types['TEMPORAL']
-                        self.populate_dataset_meta(attr, attr_val, attr_datatype)
+        # infer attribute datatypes and compute summary (range, domain)
+        for datum in self.data:
+            for attr in self.data_attribute_map.keys():
+                attr_val = datum[attr]
 
-                    # Otherwise set as Nominal
-                    else:
-                        attr_datatype = constants.attribute_types['NOMINAL']
-                        self.populate_dataset_meta(attr, attr_val, attr_datatype)
+                # Check for Numeric (float, int)
+                if helpers.isfloat(attr_val) or helpers.isint(attr_val):
+                    attr_datatype = constants.attribute_types['QUANTITATIVE']
+                    self.populate_dataset_meta(attr, attr_val, attr_datatype)
 
-                    # Irrespective of above assignment, make a list of attribute types for each data row
-                    # to take best decision on heterogeneous data with multiple datatypes
-                    self.data_attribute_map[attr]['dataTypeList'].append(attr_datatype)
+                # Check for Datetime
+                # ToDo:- Works fine for datetime strings. Not for others like Epochs and Int-only Years (e.g. 2018) which get captured above.
+                # ToDo:- It is VERY risky to switch this elif block with the if block above
+                elif helpers.isdate(attr_val)[0]:
+                    attr_datatype = constants.attribute_types['TEMPORAL']
+                    self.populate_dataset_meta(attr, attr_val, attr_datatype)
 
-            # Determine the Datatype based on majority of values.
-            # Also Override a few datatypes set above based on rules such as NOMINAL to ORDINAL if all values are unique such as Sr. 1, Sr. 2, ...
-            for attr in self.data_attribute_map:
-                # most common attribute type
-                attr_datatype = Counter(self.data_attribute_map[attr]['dataTypeList']).most_common(1)[0][0]
+                # Otherwise set as Nominal
+                else:
+                    attr_datatype = constants.attribute_types['NOMINAL']
+                    self.populate_dataset_meta(attr, attr_val, attr_datatype)
 
-                # if it's quantitative but with less than or equal to 12 unique values, then it's ordinal.
-                # eg. 1, 2, 3, ..., 12 (months of a year)
-                # eg. -3, -2, -1, 0, 1, 2, 3 (likert ratings)
-                if attr_datatype == constants.attribute_types['QUANTITATIVE'] and len(
-                        self.data_attribute_map[attr]['domain']) <= 12:
-                    attr_datatype = constants.attribute_types['ORDINAL']
-                    self.populate_dataset_meta_for_attr(attr, attr_datatype)
+                # Irrespective of above assignment, make a list of attribute types for each data row
+                # to take best decision on heterogeneous data with multiple datatypes
+                self.data_attribute_map[attr]['dataTypeList'].append(attr_datatype)
 
-                # If an attribute has (almnost) no repeating value, then mark it as the label attribute.
-                # eg. primary/unique key of the table? Car1 , Car2, Car3, ...
-                # Almost == 90% heuristic-based
-                if attr_datatype == constants.attribute_types['NOMINAL'] and len(self.data_attribute_map[attr]['domain']) > 0.9 * self.rows:
-                    self.nl4dv_instance.label_attribute = attr
-                    self.data_attribute_map[attr]['isLabelAttribute'] = True
+        # Determine the Datatype based on majority of values.
+        # Also Override a few datatypes set above based on rules such as NOMINAL to ORDINAL if all values are unique such as Sr. 1, Sr. 2, ...
+        for attr in self.data_attribute_map:
+            # most common attribute type
+            attr_datatype = Counter(self.data_attribute_map[attr]['dataTypeList']).most_common(1)[0][0]
 
-                # Set the final data type
-                self.data_attribute_map[attr]['dataType'] = attr_datatype
+            # if it's quantitative but with less than or equal to 12 unique values, then it's ordinal.
+            # eg. 1, 2, 3, ..., 12 (months of a year)
+            # eg. -3, -2, -1, 0, 1, 2, 3 (likert ratings)
+            if attr_datatype == constants.attribute_types['QUANTITATIVE'] and len(
+                    self.data_attribute_map[attr]['domain']) <= 12:
+                attr_datatype = constants.attribute_types['ORDINAL']
+                self.populate_dataset_meta_for_attr(attr, attr_datatype)
 
-                # Presentation
-                self.prepare_output(attr, attr_datatype)
+            # If an attribute has (almnost) no repeating value, then mark it as the label attribute.
+            # eg. primary/unique key of the table? Car1 , Car2, Car3, ...
+            # Almost == 90% heuristic-based
+            if attr_datatype == constants.attribute_types['NOMINAL'] and len(self.data_attribute_map[attr]['domain']) > 0.9 * self.rows:
+                self.nl4dv_instance.label_attribute = attr
+                self.data_attribute_map[attr]['isLabelAttribute'] = True
 
+            # Set the final data type
+            self.data_attribute_map[attr]['dataType'] = attr_datatype
 
-            return True
+            # Presentation
+            self.prepare_output(attr, attr_datatype)
 
-        return False
+        return True
 
     # Sets the Alias Map
-    def set_alias_map(self, alias_map=None, alias_url=None):
+    def set_alias_map(self, alias_value=None, alias_url=None):
         # type: (dict, str) -> bool
         """
         User can choose to manually initialize data
 
         """
         self.nl4dv_instance.alias_url= alias_url
-        self.nl4dv_instance.alias_map = alias_map
+        self.nl4dv_instance.alias_value = alias_value
 
         if self.nl4dv_instance.alias_url is not None and os.path.isfile(self.nl4dv_instance.alias_url):
-            self.nl4dv_instance.alias_map = json.load(open(self.nl4dv_instance.alias_url, 'r', encoding='utf-8'))
+            self.nl4dv_instance.alias_value = json.load(open(self.nl4dv_instance.alias_url, 'r', encoding='utf-8'))
 
-        if self.nl4dv_instance.alias_map is not None:
-            for attr in self.nl4dv_instance.alias_map:
+        elif self.nl4dv_instance.alias_value is not None:
+            for attr in self.nl4dv_instance.alias_value:
                 if attr in self.data_attribute_map:
-                    self.data_attribute_map[attr]['aliases'].extend(self.nl4dv_instance.alias_map[attr])
+                    self.data_attribute_map[attr]['aliases'].extend(self.nl4dv_instance.alias_value[attr])
 
         return True
 
