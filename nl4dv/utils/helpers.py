@@ -172,7 +172,7 @@ def isdate(datum):
     try:
         if datum == '' or str(datum).isspace():
             return False, None
-        return True, parse(datum, fuzzy=False)
+        return True, parse(str(datum), fuzzy=False)
         # parsed_obj = parse(datum, settings=constants.dateparser_settings)
         # return parsed_obj is not None, parsed_obj
     except AttributeError:

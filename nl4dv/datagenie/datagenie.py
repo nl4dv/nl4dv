@@ -47,9 +47,8 @@ class DataGenie:
     def set_attribute_datatype(self, attr_type_obj):
         # Set new datatype
         for attribute, data_type in attr_type_obj.items():
-            self.data_attribute_map[attribute]['dataType'] = data_type
-
             if data_type in constants.attribute_types.values():
+                self.data_attribute_map[attribute]['dataType'] = data_type
                 self.populate_dataset_meta_for_attr(attribute, data_type)
             else:
                 helpers.cond_print("Invalid Target DataType. Choose from " + str(constants.attribute_types.values()), debug=True)
