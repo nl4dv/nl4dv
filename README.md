@@ -7,15 +7,15 @@
 * Analytic tasks, and
 * Visualizations (Vega-Lite specifications)
 
-With this output, users can 
-  - Create Visualizations in Python using Natural Language, and/or
-  - Add a Natural Language interface to your existing Visualization systems.
+With this output, developers can 
+  - Create visualizations in Python using natural language, and/or
+  - Add a natural language interface to their existing visualization systems.
 
 
 ![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png)
 
-## Setup Instructions, API Documentation, and Examples
-These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4dv/).
+### Setup Instructions, API Documentation, and Examples
+These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4dv/documentation.html).
 
 ### Credits
 NL4DV was created by 
@@ -23,7 +23,7 @@ NL4DV was created by
 
 We thank <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a> for helping build some of our debugger applications and members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
-### Citation
+##### Citation
 
 ```bibTeX
 @article{narechaniaNL4DV2020,
