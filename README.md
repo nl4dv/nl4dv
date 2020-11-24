@@ -14,7 +14,7 @@ With this output, users can
 
 ![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png)
 
-### Setup Instructions, API Documentation, and Examples
+## Setup Instructions, API Documentation, and Examples
 These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4dv/).
 
 ### Credits
@@ -23,7 +23,7 @@ NL4DV was created by
 
 We thank <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a> for helping build some of our debugger applications and members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
-## Citation
+### Citation
 
 ```bibTeX
 @article{narechaniaNL4DV2020,
