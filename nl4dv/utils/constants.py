@@ -191,3 +191,88 @@ vl_attribute_types = {
     'T': 'temporal',
     'O': 'ordinal',
 }
+
+# Regular Expressions with their corresponding FORMATs and Examples
+
+# REGEX #1
+# Format:
+    # MM*DD*YY(YY) where * => {. : / ,}
+# Examples:
+    # 12.24.2019
+    # 12:24:2019
+    # 12-24-2019
+    # 12/24/2019
+    # 1/24/2019
+    # 07/24/2019
+    # 1/24/20
+
+# REGEX #2
+# Format:
+    # YY(YY)*MM*DD where * => {. : / ,}
+# Examples:
+    # 2019.12.24
+    # 2019.12.24
+    # 2019-12-24
+    # 2019/12/24
+    # 2019/1/24
+    # 2019/07/24
+    # 20/1/24
+
+# REGEX #3
+# Format:
+    # DD*MM*YY(YY) where * => {. : / ,}
+# Examples:
+    # 24.12.2019
+    # 24:12:2019
+    # 24-12-2019
+    # 24/12/2019
+    # 24/1/2019
+    # 24/07/2019
+    # 24/1/20
+
+# REGEX #4
+# Formats:
+    # DD*MMM(M)*YYY(Y) where * => {. : / , - <space>}
+# Examples:
+    # 8-January-2019
+    # 31 Dec 19
+
+# REGEX #5
+# Format:
+    # DD*MMM(M) where * => {. : / , - <space>}
+# Examples:
+    # 31-January
+    # 1 Jul
+
+# REGEX #6
+# Formats:
+    # MMM(M)*DD*YYY(Y) where * => {. : / , - <space>}
+# Examples:
+    # January-8-2019
+    # Dec 31 19
+
+# REGEX #7
+# Format:
+    # MMM(M)*DD where * => {. : / , - <space>}
+# Examples:
+    # January-31
+    # Jul 1
+
+# REGEX #8
+# Format:
+    # YYYY
+# Examples:
+    # 2018
+    # 1929
+
+
+date_regexes = [
+    "([1][0-2]|[0]?[1-9])[-:.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-:.\/]([1-9][0-9]{3}|[0-9]{2})",
+    "([1-9][0-9]{3}|[0-9]{2})[-:.\/]([1][0-2]|[0]?[1-9])[-:.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])",
+    "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-:.\/]([1][0-2]|[0]?[1-9])[-:.\/]([1-9][0-9]{3}|[0-9]{2})"
+    "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1-9][0-9]{3}|[0-9]{2})",
+    "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)",
+    "(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s]([1-9][0-9]{3}|[0-9]{2})",
+    "(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1|2][0-9]|[3][0|1]|[0]?[1-9])",
+    "([1-9][0-9]{3})"
+]
