@@ -151,13 +151,14 @@ class DataGenie:
             # most common attribute type
             attr_datatype = Counter(self.data_attribute_map[attr]['dataTypeList']).most_common(1)[0][0]
 
-            # if it's quantitative but with less than or equal to 12 unique values, then it's ordinal.
-            # eg. 1, 2, 3, ..., 12 (months of a year)
-            # eg. -3, -2, -1, 0, 1, 2, 3 (likert ratings)
-            if attr_datatype == constants.attribute_types['QUANTITATIVE'] and len(
-                    self.data_attribute_map[attr]['domain']) <= 12:
-                attr_datatype = constants.attribute_types['ORDINAL']
-                self.populate_dataset_meta_for_attr(attr, attr_datatype)
+            ## NOTE: For all practical purposes, let QUANTITATIVE be the determined Data Type. If an attribute is known to be ORDINAL, it can be set using the set_attribute_datatype() API.
+            # # if it's quantitative but with less than or equal to 12 unique values, then it's ordinal.
+            # # eg. 1, 2, 3, ..., 12 (months of a year)
+            # # eg. -3, -2, -1, 0, 1, 2, 3 (likert ratings)
+            # if attr_datatype == constants.attribute_types['QUANTITATIVE'] and len(
+            #         self.data_attribute_map[attr]['domain']) <= 12:
+            #     attr_datatype = constants.attribute_types['ORDINAL']
+            #     self.populate_dataset_meta_for_attr(attr, attr_datatype)
 
             # If an attribute has (almnost) no repeating value, then mark it as the label attribute.
             # eg. primary/unique key of the table? Car1 , Car2, Car3, ...
