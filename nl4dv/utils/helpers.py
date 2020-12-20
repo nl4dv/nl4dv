@@ -8,6 +8,8 @@ import Levenshtein
 from datetime import date, datetime
 import copy
 from nl4dv.utils import constants
+import json
+
 
 WORD = re.compile(r'\w+')
 
@@ -223,3 +225,12 @@ def format_str_to_date(str, format):
         return datetime.strptime(str, format)
     except Exception as e:
         return None
+
+
+class CustomJSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, set):
+            return list(obj)
+        if isinstance(obj, (date, datetime)):
+            return obj.strftime("%Y/%m/%d")
+        return json.JSONEncoder.default(self, obj)
