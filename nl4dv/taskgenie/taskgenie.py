@@ -327,7 +327,6 @@ class TaskGenie:
                     negation_phrase = dep[0][0]
 
                 if keyword is not None and amount is not None and operator_phrase is not None:
-                    # print(keyword, amount, operator_phrase)
                     if self.nl4dv_instance.task_keyword_map[operator_phrase][0][0] == "filter" and operator_phrase != "between":
                         operator = self.nl4dv_instance.task_keyword_map[operator_phrase][0][1]
                         if has_negation:
@@ -565,7 +564,6 @@ class TaskGenie:
     def get_attributes_values(self, attribute, amount):
         amount_formatted = amount
         if self.nl4dv_instance.data_genie_instance.data_attribute_map[attribute]["dataType"] == constants.attribute_types['TEMPORAL']:
-            print(amount)
             is_date, unformatted_date_obj = helpers.isdate(amount)
             if is_date:
                 for format in constants.date_regexes[unformatted_date_obj['regex_id']][0]:
