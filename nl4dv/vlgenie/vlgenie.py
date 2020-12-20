@@ -134,7 +134,7 @@ class VLGenie():
             else:
                 for attr in task['attributes']:
                     symbol = constants.operator_symbol_mapping[task["operator"]]
-                    self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(attr, symbol, task["values"][0])})
+                    self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} "{}"'.format(attr, symbol, task["values"][0])})
 
     def set_data(self, dataUrl):
         # type: (list) -> None
