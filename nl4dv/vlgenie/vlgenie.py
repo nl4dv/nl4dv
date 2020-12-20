@@ -1,4 +1,4 @@
-from nl4dv.utils import constants
+from nl4dv.utils import constants, helpers
 
 
 class VLGenie():
@@ -134,7 +134,10 @@ class VLGenie():
             else:
                 for attr in task['attributes']:
                     symbol = constants.operator_symbol_mapping[task["operator"]]
-                    self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} "{}"'.format(attr, symbol, task["values"][0])})
+                    if helpers.isfloat(task["values"][0]) or helpers.isint(task["values"][0]):
+                        self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(attr, symbol, task["values"][0])})
+                    elif helpers.isdate(task["values"][0]):
+                        self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} "{}"'.format(attr, symbol, task["values"][0])})
 
     def set_data(self, dataUrl):
         # type: (list) -> None
