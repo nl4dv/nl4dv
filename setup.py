@@ -22,12 +22,10 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=[
-        "dateparser~=0.7.6",
         "fuzzywuzzy~=0.8.1",
         "nltk~=3.5",
         "pytest~=3.10.1",
         "pytest-cov~=2.6.0",
-        "python-dateutil~=2.6.1",
         "python-Levenshtein~=0.12.0",
         "si-prefix~=1.2.2",
         "spacy~=2.2",

@@ -5,8 +5,6 @@ import math
 from collections import Counter, MutableMapping
 from fuzzywuzzy import fuzz
 import Levenshtein
-# from dateparser import parse
-from dateutil.parser import parse
 from datetime import date, datetime
 import copy
 from nl4dv.utils import constants
