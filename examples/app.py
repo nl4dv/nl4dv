@@ -77,8 +77,8 @@ def setData():
     dataset = request.form['dataset']
     if dataset is not None:
         datafile_obj = dataset.rsplit(".")
-        nl4dv_instance.data_genie_instance.set_data(data_url=os.path.join("assets", "data", datafile_obj[0] + ".csv"))
-        nl4dv_instance.data_genie_instance.set_alias_map(alias_url=os.path.join("assets", "aliases", datafile_obj[0] + ".json"))
+        nl4dv_instance.set_data(data_url=os.path.join("assets", "data", datafile_obj[0] + ".csv"))
+        nl4dv_instance.set_alias_map(alias_url=os.path.join("assets", "aliases", datafile_obj[0] + ".json"))
         return get_dataset_meta()
     else:
         raise ValueError('Data not provided')
@@ -90,7 +90,7 @@ def setIgnoreList():
         return jsonify({"message":"NL4DV NOT initialized"})
 
     ignore_words = request.form['ignore_words']
-    nl4dv_instance.data_genie_instance.set_ignore_words(ignore_words=json.loads(ignore_words))
+    nl4dv_instance.set_ignore_words(ignore_words=json.loads(ignore_words))
     return jsonify({'message': 'Ignore List Set successfully'})
 
 
@@ -142,7 +142,7 @@ def setAttributeDataType():
         return jsonify({"message":"NL4DV NOT initialized"})
 
     attr_type_obj = request.form['attr_type_obj']
-    nl4dv_instance.data_genie_instance.set_attribute_datatype(json.loads(attr_type_obj))
+    nl4dv_instance.set_attribute_datatype(json.loads(attr_type_obj))
     return get_dataset_meta()
 
 
@@ -156,10 +156,11 @@ def application_homepage():
 
 def get_dataset_meta():
     global nl4dv_instance
+    dataset_meta = nl4dv_instance.get_metadata()
     output = {
-        "summary": nl4dv_instance.data_genie_instance.data_attribute_map,
+        "summary": dataset_meta,
         "rowCount": nl4dv_instance.data_genie_instance.rows,
-        "columnCount": len(nl4dv_instance.data_genie_instance.data_attribute_map.keys())
+        "columnCount": len(dataset_meta.keys())
     }
     return jsonify(output)
 
