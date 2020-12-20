@@ -505,7 +505,7 @@ class AttributeGenie:
                     if attr in self.nl4dv_instance.keyword_attribute_mapping[k]:
                        del self.nl4dv_instance.keyword_attribute_mapping[k][attr]
 
-        # 4) delete unwanted keywords in the finalized attributes
+        # Delete unwanted keywords in the finalized attributes
         copy_attribute_keyword_mapping = copy.deepcopy(self.nl4dv_instance.attribute_keyword_mapping)
         for attr in copy_attribute_keyword_mapping:
             for k in copy_attribute_keyword_mapping[attr]:
@@ -537,6 +537,17 @@ class AttributeGenie:
                     query_attributes[attr]['isAmbiguous'] = False
                     query_attributes[attr]["ambiguity"] = list()
                     query_attributes[attr]["meta"]["confidence"] = 100
+
+        # Clean-up both attribute and keyword mappings, if they are EMPTY / None.
+        copy_attribute_keyword_mapping = copy.deepcopy(self.nl4dv_instance.attribute_keyword_mapping)
+        for attr in copy_attribute_keyword_mapping:
+            if not self.nl4dv_instance.attribute_keyword_mapping[attr]:
+                del self.nl4dv_instance.attribute_keyword_mapping[attr]
+
+        copy_keyword_attribute_mapping = copy.deepcopy(self.nl4dv_instance.keyword_attribute_mapping)
+        for keyword in copy_keyword_attribute_mapping:
+            if not self.nl4dv_instance.keyword_attribute_mapping[keyword]:
+                del self.nl4dv_instance.keyword_attribute_mapping[keyword]
 
         return query_attributes
 
