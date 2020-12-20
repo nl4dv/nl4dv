@@ -2,6 +2,7 @@
 import os
 import time
 from collections import OrderedDict
+import json
 
 # Third-Party Libraries
 import spacy
@@ -243,7 +244,7 @@ class NL4DV:
 
     # Get the dataset metadata
     def get_metadata(self):
-        return self.data_genie_instance.data_attribute_map
+        return json.loads(json.dumps(self.data_genie_instance.data_attribute_map, cls=helpers.CustomJSONEncoder))
 
     # Create a dependency parser instance
     def set_dependency_parser(self, config):
