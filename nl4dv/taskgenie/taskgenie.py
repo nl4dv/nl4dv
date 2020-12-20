@@ -341,12 +341,14 @@ class TaskGenie:
                         if task not in task_map:
                             task_map[task] = list()
 
+                        _attributes = list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys())
+                        _value = self.get_attributes_values(_attributes[0], amount)
                         _tasks = self.generate_tasks(task_name=task,
-                                                     attributes=list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys()),
+                                                     attributes=_attributes,
                                                      operator_phrase=operator_phrase,
                                                      query_phrase=[keyword],
                                                      operator=operator,
-                                                     values=[float(amount)],
+                                                     values=[_value],
                                                      inference_type='explicit',
                                                      allow_subset=False)
 
@@ -397,12 +399,15 @@ class TaskGenie:
                         if task not in task_map:
                             task_map[task] = list()
 
+                        _attributes = list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys())
+                        _from_value = self.get_attributes_values(_attributes[0], from_amount)
+                        _to_value = self.get_attributes_values(_attributes[0], to_amount)
                         _tasks = self.generate_tasks(task_name=task,
-                                                     attributes=list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys()),
+                                                     attributes=_attributes,
                                                      operator_phrase=operator_phrase,
                                                      query_phrase=[keyword],
                                                      operator=operator,
-                                                     values=[float(from_amount), float(to_amount)],
+                                                     values=[_from_value, _to_value],
                                                      inference_type='explicit',
                                                      allow_subset=False)
 
@@ -556,3 +561,20 @@ class TaskGenie:
                             task_map[task].append(task_obj)
 
         return task_map
+
+    def get_attributes_values(self, attribute, amount):
+        amount_formatted = amount
+        if self.nl4dv_instance.data_genie_instance.data_attribute_map[attribute]["dataType"] == constants.attribute_types['TEMPORAL']:
+            print(amount)
+            is_date, unformatted_date_obj = helpers.isdate(amount)
+            if is_date:
+                for format in constants.date_regexes[unformatted_date_obj['regex_id']][0]:
+                    # Vega-Lite can understand "%Y/%m/%d" for temporal fields in the filter transforms.
+                    date_obj = helpers.format_str_to_date("/".join(unformatted_date_obj["regex_matches"]), format)
+                    if date_obj is not None:
+                        amount_formatted = date_obj.strftime("%Y/%m/%d")
+                        break
+        elif self.nl4dv_instance.data_genie_instance.data_attribute_map[attribute]["dataType"] == constants.attribute_types['QUANTITATIVE']:
+            amount_formatted = float(amount)
+
+        return amount_formatted
