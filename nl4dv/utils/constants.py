@@ -1,11 +1,11 @@
 # Map of "visualizations" that can be explicitly requested and their corresponding keywords to look for in the query.
 # allow ' ' (space) in keywords? eg. bar chart / scatter plot ,etc ?
 vis_keyword_map = {
-    'barchart': {'bar chart', 'barchart'},
+    'barchart': {'bar chart', 'barchart', 'bar graph'},
     'scatterplot': {'scatter plot', 'scatterplot', 'scatter'},
     'boxplot': {'box plot', 'boxplot'},
-    'linechart': {'time series', 'timeseries', 'linechart', 'line chart'},
-    'areachart': {'area chart', 'areachart'},
+    'linechart': {'time series', 'timeseries', 'linechart', 'line chart', 'line graph'},
+    'areachart': {'area chart', 'areachart', 'area graph'},
     'stripplot': {'tick plot', 'tickplot', 'strip plot', 'stripplot'},
     'piechart': {'pie chart', 'piechart'},
     'donutchart': {'donut chart', 'donutchart'},
