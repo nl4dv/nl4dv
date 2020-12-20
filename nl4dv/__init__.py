@@ -64,6 +64,7 @@ class NL4DV:
         self.execution_durations = dict()
         self.query_raw = None
         self.query_processed = ""
+        self.query_for_task_inference = ""
         self.query_tokens = list()
         self.query_ngrams = dict()
         self.extracted_vis_type = None
@@ -139,7 +140,6 @@ class NL4DV:
         self.query_processed = self.query_genie_instance.process_query(self.query_raw)
         self.query_tokens = self.query_genie_instance.clean_query_and_get_query_tokens(self.query_processed, self.reserve_words, self.ignore_words)
         self.query_ngrams = self.query_genie_instance.get_query_ngrams(' '.join(self.query_tokens))
-        self.dependencies = self.query_genie_instance.create_dependency_tree(self.query_processed)
         helpers.cond_print("Processed Query: " + self.query_processed, self.verbose)
         self.execution_durations['clean_query'] = time.time() - st
 
@@ -156,6 +156,8 @@ class NL4DV:
 
         # DETECT IMPLICIT AND EXPLICIT TASKS
         st = time.time()
+        self.query_for_task_inference = self.task_genie_instance.prepare_query_for_task_inference(self.query_processed)
+        self.dependencies = self.task_genie_instance.create_dependency_tree(self.query_for_task_inference)
         task_map = self.task_genie_instance.extract_explicit_tasks_from_dependencies(self.dependencies)
 
         # Filters from Domain Values
