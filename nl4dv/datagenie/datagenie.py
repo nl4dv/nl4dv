@@ -270,18 +270,18 @@ class DataGenie:
         # Remove NANs which are supposedly NOT unique
         self.data_attribute_map[attr]['domain'] = set(filter(lambda x: x == x, self.data_attribute_map[attr]['domain']))
 
-        # Convert the set into a sorted list
+        # Set > Sorted List > Set
         try:
-            # works for all numbers, all strings
             if attr_datatype == constants.attribute_types['QUANTITATIVE']:
-                self.data_attribute_map[attr]['domain'] = sorted([float(a) for a in self.data_attribute_map[attr]['domain']])
+                self.data_attribute_map[attr]['domain'] = set(sorted([float(a) for a in self.data_attribute_map[attr]['domain']]))
             elif attr_datatype == constants.attribute_types['TEMPORAL']:
-                self.data_attribute_map[attr]['domain'] = sorted(self.data_attribute_map[attr]['domain'], reverse=True)
+                self.data_attribute_map[attr]['domain'] = set(sorted(self.data_attribute_map[attr]['domain']))
+                self.data_attribute_map[attr]['domainMeta']['raw'] = set(sorted(self.data_attribute_map[attr]['domainMeta']['raw']))
             else:
-                self.data_attribute_map[attr]['domain'] = sorted(self.data_attribute_map[attr]['domain'])
+                self.data_attribute_map[attr]['domain'] = set(sorted(self.data_attribute_map[attr]['domain']))
         except Exception as e:
             # works for hybrid numbers + strings combinations
-            self.data_attribute_map[attr]['domain'] = sorted([str(a) for a in self.data_attribute_map[attr]['domain']])
+            self.data_attribute_map[attr]['domain'] = set(sorted([str(a) for a in self.data_attribute_map[attr]['domain']]))
 
         # Delete the keys that are now redundant
         self.delete_unwanted_keys(attr, attr_datatype)
