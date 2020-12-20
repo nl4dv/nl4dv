@@ -12,18 +12,6 @@ vis_keyword_map = {
     'histogram': {'histogram'}
 }
 
-vis_to_task_mapping = {
-    'barchart': ['distribution','derived_value'],
-    'scatterplot': ['correlation'],
-    'boxplot': ['distribution'],
-    'linechart': ['trend'],
-    'areachart': ['trend'],
-    'stripplot': ['distribution'],
-    'piechart': ['distribution','derived_value'],
-    'donutchart': ['distribution','derived_value'],
-    'histogram': ['distribution']
-}
-
 # Map of "tasks" that can be performed and their corresponding keywords to look for in the query.
 task_keyword_map = {
 
@@ -84,6 +72,7 @@ task_keyword_map = {
     # -----------------------------------------
     # Characterize Distribution
     # -----------------------------------------
+    "distribute": [("distribution", None)],
     "distribution": [("distribution", None)],
     "range": [("distribution", None)],
     "extent": [("distribution", None)],
@@ -101,9 +90,6 @@ task_keyword_map = {
     # -----------------------------------------
     "correlation": [("correlation", None)],
     "correlate": [("correlation", None)],
-    "relation": [("correlation", None)],
-    "relationship": [("correlation", None)],
-    "relate": [("correlation", None)],
     # -----------------------------------------
     # Negation
     # -----------------------------------------
@@ -118,9 +104,6 @@ task_keyword_map = {
     # Trend
     # -----------------------------------------
     "trend": [("trend", None)]
-
-    # ToDo:- Detect Negations using dependency parsing and/or algorithms !
-
 }
 
 # scores given to attribute/ task/ vis matches of different types
