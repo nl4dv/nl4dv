@@ -6,6 +6,7 @@ from dateparser import parse
 from nl4dv.utils import constants, error_codes, helpers
 import os
 import pandas as pd
+from datetime import datetime
 
 class DataGenie:
     """
@@ -112,66 +113,64 @@ class DataGenie:
                 if attr and attr.strip():
                     self.data_attribute_map[attr] = {
                         'domain': set(),
+                        'domainMeta': dict(),
                         'isLabelAttribute': attr == self.nl4dv_instance.label_attribute,
                         'summary': dict(),
                         'dataTypeList': list(), # temporary to determine datatype
                         'dataType': '',
+                        'dataTypeMeta': dict(),  # Used for for e.g., temporal attributes when they conform to a certain format
                         'aliases': list(),
                     }
 
         # infer attribute datatypes and compute summary (range, domain)
         for datum in self.data:
             for attr in self.data_attribute_map.keys():
-                attr_val = datum[attr]
-
-                # Check for Numeric (float, int)
-                if helpers.isfloat(attr_val) or helpers.isint(attr_val):
-                    attr_datatype = constants.attribute_types['QUANTITATIVE']
-                    self.populate_dataset_meta(attr, attr_val, attr_datatype)
-
                 # Check for Datetime
-                # ToDo:- Works fine for datetime strings. Not for others like Epochs and Int-only Years (e.g. 2018) which get captured above.
-                # ToDo:- It is VERY risky to switch this elif block with the if block above
-                elif helpers.isdate(attr_val)[0]:
-                    attr_datatype = constants.attribute_types['TEMPORAL']
-                    self.populate_dataset_meta(attr, attr_val, attr_datatype)
-
+                is_date, unformatted_date_obj = helpers.isdate(datum[attr])
+                if is_date:
+                    attr_datatype_for_majority = constants.attribute_types['TEMPORAL'] + "-" + str(unformatted_date_obj["regex_id"])
+                # Check for Numeric (float, int)
+                elif helpers.isfloat(datum[attr]) or helpers.isint(datum[attr]):
+                    attr_datatype_for_majority = constants.attribute_types['QUANTITATIVE']
                 # Otherwise set as Nominal
                 else:
-                    attr_datatype = constants.attribute_types['NOMINAL']
-                    self.populate_dataset_meta(attr, attr_val, attr_datatype)
+                    attr_datatype_for_majority = constants.attribute_types['NOMINAL']
 
-                # Irrespective of above assignment, make a list of attribute types for each data row
-                # to take best decision on heterogeneous data with multiple datatypes
-                self.data_attribute_map[attr]['dataTypeList'].append(attr_datatype)
+                # Append the list of attribute types for each data row to take best decision on heterogeneous data with multiple datatypes
+                self.data_attribute_map[attr]['dataTypeList'].append(attr_datatype_for_majority)
 
         # Determine the Datatype based on majority of values.
         # Also Override a few datatypes set above based on rules such as NOMINAL to ORDINAL if all values are unique such as Sr. 1, Sr. 2, ...
         for attr in self.data_attribute_map:
-            # most common attribute type
+            # By default, set the attribute datatype to the most common attribute
             attr_datatype = Counter(self.data_attribute_map[attr]['dataTypeList']).most_common(1)[0][0]
 
-            ## NOTE: For all practical purposes, let QUANTITATIVE be the determined Data Type. If an attribute is known to be ORDINAL, it can be set using the set_attribute_datatype() API.
-            # # if it's quantitative but with less than or equal to 12 unique values, then it's ordinal.
-            # # eg. 1, 2, 3, ..., 12 (months of a year)
-            # # eg. -3, -2, -1, 0, 1, 2, 3 (likert ratings)
-            # if attr_datatype == constants.attribute_types['QUANTITATIVE'] and len(
-            #         self.data_attribute_map[attr]['domain']) <= 12:
-            #     attr_datatype = constants.attribute_types['ORDINAL']
-            #     self.populate_dataset_meta_for_attr(attr, attr_datatype)
+            # If attr_datatype is Temporal (e.g., T-1, T-2, T-n where 'n' corresponds to the n'th index of the date_regex array.
+            # Then: PROCESS this and eventually strip the '-n' from the datatype
+            if not (attr_datatype in [constants.attribute_types['QUANTITATIVE'], constants.attribute_types['NOMINAL']]):
 
-            # If an attribute has (almnost) no repeating value, then mark it as the label attribute.
-            # eg. primary/unique key of the table? Car1 , Car2, Car3, ...
-            # Almost == 90% heuristic-based
-            if attr_datatype == constants.attribute_types['NOMINAL'] and len(self.data_attribute_map[attr]['domain']) > 0.9 * self.rows:
-                self.nl4dv_instance.label_attribute = attr
-                self.data_attribute_map[attr]['isLabelAttribute'] = True
+                # If there is at least one instance of 'T-2' (DD*MM*YY(YY)), in the `dataTypeList`, set the regex_id to this, even if 'T-1' is the majority.
+                if 'T-2' in self.data_attribute_map[attr]['dataTypeList']:
+                    attr_datatype = 'T-2'
+
+                # Strip the '-n' from the datatype
+                attr_datatype_split = attr_datatype.split("-")
+                attr_datatype = attr_datatype_split[0]
+
+                # Set the final data type
+                self.data_attribute_map[attr]['dataTypeMeta'] = {
+                    "regex_id": attr_datatype_split[1]
+                }
+
+                # Add raw data to the domain's metadata. Only for Temporal Attributes.
+                if not 'raw' in self.data_attribute_map[attr]['domainMeta']:
+                    self.data_attribute_map[attr]['domainMeta']['raw'] = set()
 
             # Set the final data type
             self.data_attribute_map[attr]['dataType'] = attr_datatype
 
-            # Presentation
-            self.prepare_output(attr, attr_datatype)
+            # Update the dataset metadata for each attribute
+            self.populate_dataset_meta_for_attr(attr, attr_datatype)
 
     # Sets the Alias Map
     def set_alias_map(self, alias_value=None, alias_url=None):
@@ -212,25 +211,30 @@ class DataGenie:
                 self.data_attribute_map[attr]['summary']['min'] = attr_val
 
         elif attr_datatype == constants.attribute_types['TEMPORAL']:
-            parsed_status, parsed_attr_val = helpers.isdate(attr_val)
-            if parsed_status:
-                self.data_attribute_map[attr]['domain'].add(parsed_attr_val)
-            else:
-                parsed_attr_val = float('NaN')
+            is_date, unformatted_date_obj = helpers.isdate(attr_val)
+            parsed_attr_val = None
+            if is_date:
+                for format in constants.date_regexes[unformatted_date_obj['regex_id']][0]:
+                    parsed_attr_val = helpers.format_str_to_date("/".join(unformatted_date_obj["regex_matches"]), format)
+                    if parsed_attr_val is not None:
+                        self.data_attribute_map[attr]['domain'].add(parsed_attr_val)
+                        self.data_attribute_map[attr]['domainMeta']['raw'].add(attr_val)
+                        break
 
-            # Compute Max and Min of the attribute datetime
-            if 'start' not in self.data_attribute_map[attr]['summary']:
-                self.data_attribute_map[attr]['summary']['start'] = parsed_attr_val
+            if parsed_attr_val is not None:
+                # Compute Max and Min of the attribute datetime
+                if 'start' not in self.data_attribute_map[attr]['summary']:
+                    self.data_attribute_map[attr]['summary']['start'] = parsed_attr_val
 
-            if 'end' not in self.data_attribute_map[attr]['summary']:
-                self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
+                if 'end' not in self.data_attribute_map[attr]['summary']:
+                    self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
 
-            # print(parsed_status, attr_val, parsed_attr_val, self.data_attribute_map[attr]['summary']['end'])
-            if parsed_attr_val > self.data_attribute_map[attr]['summary']['end']:
-                self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
+                # print(parsed_status, attr_val, parsed_attr_val, self.data_attribute_map[attr]['summary']['end'])
+                if parsed_attr_val > self.data_attribute_map[attr]['summary']['end']:
+                    self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
 
-            if parsed_attr_val < self.data_attribute_map[attr]['summary']['start']:
-                self.data_attribute_map[attr]['summary']['start'] = parsed_attr_val
+                if parsed_attr_val < self.data_attribute_map[attr]['summary']['start']:
+                    self.data_attribute_map[attr]['summary']['start'] = parsed_attr_val
 
         else:
             attr_val = str(attr_val)
@@ -250,23 +254,31 @@ class DataGenie:
         # For each value in the dataset, add to the attribute map (domain, range)
         self.data_attribute_map[attr]['domain'] = set()
         for datum in self.data:
-            attr_val = datum[attr]
-            self.populate_dataset_meta(attr, attr_val, attr_datatype)
+            self.populate_dataset_meta(attr, datum[attr], attr_datatype)
 
-        # Presentation
-        self.prepare_output(attr, attr_datatype)
+        # If an attribute has (almost) no repeating value, then mark it as the label attribute.
+        # eg. primary/unique key of the table? Car1 , Car2, Car3, ...
+        # Almost == 90% (heuristic-based)
+        if attr_datatype == constants.attribute_types['NOMINAL'] and len(self.data_attribute_map[attr]['domain']) > 0.9 * self.rows:
+            self.nl4dv_instance.label_attribute = attr
+            self.data_attribute_map[attr]['isLabelAttribute'] = True
 
-    def prepare_output(self, attr, attr_datatype):
+        # Sort domain values, remove unwanted keys, etc.
+        self.format_data_attribute_map(attr, attr_datatype)
+
+    def format_data_attribute_map(self, attr, attr_datatype):
         # Remove NANs which are supposedly NOT unique
         self.data_attribute_map[attr]['domain'] = set(filter(lambda x: x == x, self.data_attribute_map[attr]['domain']))
 
         # Convert the set into a sorted list
         try:
             # works for all numbers, all strings
-            if attr_datatype in [constants.attribute_types['QUANTITATIVE'], constants.attribute_types['ORDINAL']]:
+            if attr_datatype == constants.attribute_types['QUANTITATIVE']:
                 self.data_attribute_map[attr]['domain'] = sorted([float(a) for a in self.data_attribute_map[attr]['domain']])
+            elif attr_datatype == constants.attribute_types['TEMPORAL']:
+                self.data_attribute_map[attr]['domain'] = sorted(self.data_attribute_map[attr]['domain'], reverse=True)
             else:
-                self.data_attribute_map[attr]['domain'] = sorted([a for a in self.data_attribute_map[attr]['domain']])
+                self.data_attribute_map[attr]['domain'] = sorted(self.data_attribute_map[attr]['domain'])
         except Exception as e:
             # works for hybrid numbers + strings combinations
             self.data_attribute_map[attr]['domain'] = sorted([str(a) for a in self.data_attribute_map[attr]['domain']])

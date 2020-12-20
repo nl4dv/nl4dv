@@ -164,24 +164,24 @@ def isint(datum):
     return a == b
 
 
-# # Dateparser settings
-# dateparser_settings = dict()
-# dateparser_settings['PREFER_DAY_OF_MONTH'] = 'first'
-# dateparser_settings['RELATIVE_BASE'] = datetime(2020, 1, 1)
 def isdate(datum):
     try:
         if datum == '' or str(datum).isspace():
             return False, None
-        return True, parse(str(datum), fuzzy=False)
-        # parsed_obj = parse(datum, settings=constants.dateparser_settings)
-        # return parsed_obj is not None, parsed_obj
-    except AttributeError:
-        return False, None
-    except ValueError:
-        return False, None
-    except OverflowError:
-        return False, None
 
+        for idx, regex_list in enumerate(constants.date_regexes):
+            regex = re.compile(regex_list[1])
+            match = regex.match(str(datum))
+            if match is not None:
+                dateobj = dict()
+                dateobj["regex_id"] = idx
+                dateobj["regex_matches"] = list(match.groups())
+                return True, dateobj
+
+    except Exception as e:
+        pass
+
+    return False, None
 
 # Trim the output LIST based on the debug parameter
 def delete_keys_from_list(array, keys):
@@ -218,3 +218,10 @@ def common_member(a, b):
         return True
     else:
         return False
+
+
+def format_str_to_date(str, format):
+    try:
+        return datetime.strptime(str, format)
+    except Exception as e:
+        return None
