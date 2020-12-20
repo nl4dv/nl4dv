@@ -23,21 +23,21 @@ class QueryGenie:
             except Exception as e:
                 parsed_tokens.append(token)
 
-        # Clean sentence of non-alphanumerical characters
-        query_processed = re.sub(r'[^A-Za-z0-9]+', ' ', ' '.join(parsed_tokens))
-
         # Convert to lowercase
-        query_lower = query_processed.lower()
+        query_lower = ' '.join(parsed_tokens).lower()
 
         return query_lower
 
     def clean_query_and_get_query_tokens(self, query, reserve_words, ignore_words):
 
+        # Clean sentence of non-alphanumerical characters
+        query_alphanumeric = re.sub(r'[^A-Za-z0-9]+', ' ', query)
+
         # Set the stopwords from reserve words and ignore words
         self.stopwords_set = self.stopwords_set.difference(set(reserve_words)).union(set(ignore_words))
 
         # Create token set and filter out standard stopwords
-        query_tokens = list(filter(lambda token: token not in self.stopwords_set, word_tokenize(query)))
+        query_tokens = list(filter(lambda token: token not in self.stopwords_set, word_tokenize(query_alphanumeric)))
 
         return query_tokens
 
