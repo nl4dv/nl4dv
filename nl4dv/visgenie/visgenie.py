@@ -41,9 +41,12 @@ class VisGenie:
                 # Create a SORTED list of attributes and their datatypes to match the keys of the VisReco dictionary. e.g. `QQ`, `QNO`, ...
                 attr_list, attr_type_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
 
-                # The Attribute-Datatype combination (e.g. QQNN) is NOT yet supported. Continue.
-                if attr_type_str not in vis_design_combos:
-                    continue
+                # The Attribute-Datatype combination (e.g. TT, QQQQ) is NOT yet supported. Continue.
+                if attr_type_str not in vis_design_combos or not vis_design_combos[attr_type_str]["support"]:
+                    vis_object = self.create_datatable_vis(attr_list)
+                    if vis_object not in vis_objects and vis_object["score"] > 0:
+                        vis_objects.append(vis_object)
+                        continue
 
                 # Is at least one task supported for the Designs. Used to disambiguate/choose between tasks for e.g. `distribution` and `derived value`.
                 design_has_valid_task = any([t in vis_design_combos[attr_type_str]["tasks"] for t in self.nl4dv_instance.extracted_tasks])
@@ -51,51 +54,42 @@ class VisGenie:
                 # Is at least one vis supported for the Designs. Used to disambiguate/choose between mark types for e.g. `bar` and `tick`.
                 design_has_valid_vis = self.nl4dv_instance.extracted_vis_type is not None and self.nl4dv_instance.extracted_vis_type in vis_design_combos[attr_type_str]["visualizations"]
 
-                # NL4DV does not support ALL attribute type combinations yet, e.g. T vs T vs T. We don"t have Vega-Lite encodings for these.
-                if attr_type_str in vis_design_combos \
-                        and vis_design_combos[attr_type_str]["support"]:
+                # For each combination, there are multiple design solutions, e.g. histogram or strip plot for a "quantitative (Q)" attribute
+                for d_counter in range(len(vis_design_combos[attr_type_str]["designs"])):
 
-                    # For each combination, there are multiple design solutions, e.g. histogram or strip plot for a "quantitative (Q)" attribute
-                    for d_counter in range(len(vis_design_combos[attr_type_str]["designs"])):
+                    # Create reference to a design that matches the attribute combination.
+                    design = copy.deepcopy(vis_design_combos[attr_type_str]["designs"][d_counter])
 
-                        # Create reference to a design that matches the attribute combination.
-                        design = copy.deepcopy(vis_design_combos[attr_type_str]["designs"][d_counter])
+                    # Filter the DESIGN based on TASKs
+                    if design_has_valid_task and design["task"] not in self.nl4dv_instance.extracted_tasks:
+                        continue
 
-                        # Filter the DESIGN based on TASKs
-                        if design_has_valid_task and design["task"] not in self.nl4dv_instance.extracted_tasks:
-                            continue
+                    # Filter the DESIGN based on explicit VISUALIZATIONS
+                    if design_has_valid_vis and self.nl4dv_instance.extracted_vis_type != design["vis_type"]:
+                        continue
 
-                        # Filter the DESIGN based on explicit VISUALIZATIONS
-                        if design_has_valid_vis and self.nl4dv_instance.extracted_vis_type != design["vis_type"]:
-                            continue
+                    # Generate Vega-Lite specification along with it"s relevance score for the attribute and task combination.
+                    vl_genie_instance = self.get_vis(design, attr_type_str, attr_list)
 
-                        # Generate Vega-Lite specification along with it"s relevance score for the attribute and task combination.
-                        vl_genie_instance = self.get_vis(design, attr_type_str, attr_list)
+                    # This is the Score object that helps prioritize between AMBIGUOUS attributes
+                    confidence_obj = dict()
+                    for attr in attr_list:
+                        confidence_obj[attr] = 0 if "confidence" not in self.nl4dv_instance.extracted_attributes[attr]["meta"] else self.nl4dv_instance.extracted_attributes[attr]["meta"]["confidence"]/100
 
-                        # This is the Score object that helps prioritize between AMBIGUOUS attributes
-                        confidence_obj = dict()
-                        for attr in attr_list:
-                            confidence_obj[attr] = 0 if "confidence" not in self.nl4dv_instance.extracted_attributes[attr]["meta"] else self.nl4dv_instance.extracted_attributes[attr]["meta"]["confidence"]/100
-
-                        if vl_genie_instance is not None:
-                            vis_object = {
-                                "score": sum(vl_genie_instance.score_obj.values()) + sum(confidence_obj.values()),
-                                "scoreObj": vl_genie_instance.score_obj,
-                                "confidenceObj": confidence_obj,
-                                "attributes": attr_list,
-                                "queryPhrase": self.nl4dv_instance.extracted_vis_token,
-                                "visType": self.nl4dv_instance.extracted_vis_type,
-                                "tasks": list(self.nl4dv_instance.extracted_tasks.keys()),
-                                "inferenceType": 'implicit' if self.nl4dv_instance.extracted_vis_type is None else 'explicit',
-                                "vlSpec": vl_genie_instance.vl_spec
-                            }
-                            if vis_object not in vis_objects and vis_object["score"] > 0:
-                                vis_objects.append(vis_object)
-
-                else:
-                    vis_object = self.create_datatable_vis(attr_list)
-                    if vis_object not in vis_objects and vis_object["score"] > 0:
-                        vis_objects.append(vis_object)
+                    if vl_genie_instance is not None:
+                        vis_object = {
+                            "score": sum(vl_genie_instance.score_obj.values()) + sum(confidence_obj.values()),
+                            "scoreObj": vl_genie_instance.score_obj,
+                            "confidenceObj": confidence_obj,
+                            "attributes": attr_list,
+                            "queryPhrase": self.nl4dv_instance.extracted_vis_token,
+                            "visType": self.nl4dv_instance.extracted_vis_type,
+                            "tasks": list(self.nl4dv_instance.extracted_tasks.keys()),
+                            "inferenceType": 'implicit' if self.nl4dv_instance.extracted_vis_type is None else 'explicit',
+                            "vlSpec": vl_genie_instance.vl_spec
+                        }
+                        if vis_object not in vis_objects and vis_object["score"] > 0:
+                            vis_objects.append(vis_object)
 
         return list(sorted(vis_objects, key=lambda o: o["score"], reverse=True))
 
@@ -275,8 +269,9 @@ class VisGenie:
             vl_genie_instance.score_obj["by_vis"] += self.nl4dv_instance.match_scores['vis']['explicit']
 
         else:
-            # There are a few designs tagged as "not_suggested_by_default",
-            # e.g., in absence of a task, there's no need to show both DERIVED_VALUE (barchart + mean) and DISTRIBUTION (stripplot) implicit tasked visualizations
+            # A few designs can be tagged as "not_suggested_by_default",
+            # e.g. 1: in absence of a task, there's no need to show both DERIVED_VALUE (barchart + mean) and DISTRIBUTION (stripplot) implicit tasked visualizations
+            # e.g. 2: for a specific task, if there are 2 equivalent visual recommendations, e.g. line chart and area chart, nl4dv could suggest just one to keep it simple.
             if design["not_suggested_by_default"]:
                 return None
 
