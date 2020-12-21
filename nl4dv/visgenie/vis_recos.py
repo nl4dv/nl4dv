@@ -139,7 +139,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'tick',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -182,7 +182,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'tick',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
