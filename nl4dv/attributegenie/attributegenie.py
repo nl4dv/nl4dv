@@ -1,6 +1,7 @@
 from nl4dv.utils import constants, helpers
 import copy
 import nltk
+from nltk import word_tokenize
 
 
 class AttributeGenie:
@@ -297,7 +298,7 @@ class AttributeGenie:
 
             # Look for domain value matches ONLY for ordinal and nominal variables.
             # For timeseries and quantitative  attribute types, it is difficult to map numbers to attributes AND this is computationally inefficient due to their domain size.
-            if self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"] not in ['N','O']:
+            if self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"] in ['Q','T']:
                 continue
 
             # RESET for each Attribute
@@ -327,29 +328,27 @@ class AttributeGenie:
                         keyword_value_mapping[attr][ngram_str].add(value_raw)
                         add_attribute = True
 
-                    # elif self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"] == 'T' and helpers.isdate(ngram_str)[0]:
-                    #     parsed_value = helpers.isdate(ngram_str)[1]
-                    #     value_keyword_mapping[attr][parsed_value] = ngram_str
-                    #
-                    #     if ngram_str not in keyword_value_mapping[attr]:
-                    #         keyword_value_mapping[attr][ngram_str] = set()
-                    #     keyword_value_mapping[attr][ngram_str].add(parsed_value)
-                    #
-                    #     add_attribute = True
                     else:
 
                         string_similarity_score = helpers.compute_similarity(ngram_str, value,'token_similarity')
+
+                        # Check 1: Token Similarity score should be 100, i.e. at least 1 word/n-gram in the query must match the attribute domain value
                         if string_similarity_score == 100:
-                            # Value - Keyword
-                            value_keyword_mapping[attr][value_raw] = ngram_str
 
-                            # Keyword - Value
-                            if len(ngram_str.split()) <= len(value.split()):
-                                if ngram_str not in keyword_value_mapping[attr]:
-                                    keyword_value_mapping[attr][ngram_str] = set()
-                                keyword_value_mapping[attr][ngram_str].add(value_raw)
+                            # Check 2: The matched attribute domain value must either be of length >= 2, i.e. 2 words OR 1/2 words.
+                            ngram_tokens = list(word_tokenize(ngram_str))
+                            value_tokens = list(word_tokenize(value))
+                            if len(ngram_tokens) >= 2 or (len(ngram_tokens) == 1 and len(value_tokens) == 2):
+                                # Value - Keyword
+                                value_keyword_mapping[attr][value_raw] = ngram_str
 
-                            add_attribute = True
+                                # Keyword - Value
+                                if len(ngram_str.split()) <= len(value.split()):
+                                    if ngram_str not in keyword_value_mapping[attr]:
+                                        keyword_value_mapping[attr][ngram_str] = set()
+                                    keyword_value_mapping[attr][ngram_str].add(value_raw)
+
+                                add_attribute = True
 
                 if add_attribute:
                     # Required: To filter out keyword subsets that point to the same attribute, e.g. science fiction, fiction, science
