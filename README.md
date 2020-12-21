@@ -12,7 +12,7 @@ With this output, developers can
   - Add a natural language interface to their existing visualization systems.
 
 
-![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png)
+![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.gif)
 
 ### Setup Instructions, API Documentation, and Examples
 These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4dv/documentation.html).
