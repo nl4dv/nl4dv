@@ -19,7 +19,7 @@ function execute(){
     var query_sets = ["fullyspecified-attributes-tasks-vis", "underspecified-attributes-tasks", "underspecified-attributes-vis", "underspecified-attributes", "other-examples"]
     var executionTimes = [];
     for(var query_file_index=0; query_file_index<query_sets.length; query_file_index++){
-        var url = "assets/queries/" + (query_file_index+1).toString() + "-" + query_sets[query_file_index] + ".txt?version=" + Math.random()
+        var url = "assets/queries/" + (query_file_index+1).toString() + "-" + query_sets[query_file_index] + ".tsv?version=" + Math.random()
         var current_dataset = "";
         var table = document.getElementById(query_sets[query_file_index] + "-table");
         $.ajax({

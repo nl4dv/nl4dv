@@ -9,11 +9,11 @@ import os
 class TestQueriesClass:
 
     _files = [
-              '1-fullyspecified-attributes-tasks-vis.txt',
-              '2-underspecified-attributes-tasks.txt',
-              '3-underspecified-attributes-vis.txt',
-              '4-underspecified-attributes.txt',
-              'debugger_batch_queries.txt',
+              '1-fullyspecified-attributes-tasks-vis.tsv',
+              '2-underspecified-attributes-tasks.tsv',
+              '3-underspecified-attributes-vis.tsv',
+              '4-underspecified-attributes.tsv',
+              'debugger_batch_queries.tsv',
               'vis_matrix_queries.tsv'
               ]
 
