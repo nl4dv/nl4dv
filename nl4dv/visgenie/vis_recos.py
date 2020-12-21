@@ -24,7 +24,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'boxplot',
-            'not_suggested_by_default': True,
+            'not_suggested_by_default': False,
             'mark': 'boxplot',
             'mandatory': ['x'],
             'priority': ['x'],
@@ -80,7 +80,7 @@ vis_design_combos = {
         },{
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y'],
             'priority': ['x'],
@@ -139,7 +139,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
-            'not_suggested_by_default': True,
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -182,7 +182,7 @@ vis_design_combos = {
         }, {
             'task': 'distribution',
             'vis_type': 'stripplot',
-            'not_suggested_by_default': True,
+            'not_suggested_by_default': False,
             'mark': 'tick',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -207,7 +207,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y'],
             'priority': ['y', 'x'],
@@ -307,7 +307,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['color', 'x'],
@@ -317,7 +317,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'x'],
@@ -404,7 +404,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['color', 'x'],
@@ -414,7 +414,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'x'],
@@ -749,7 +749,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -759,7 +759,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -910,7 +910,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['y', 'column', 'x'],
@@ -921,7 +921,7 @@ vis_design_combos = {
         }, {
             'task': 'derived_value',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'color'],
             'priority': ['y', 'color', 'x'],
@@ -1013,7 +1013,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'color', 'x'],
@@ -1060,7 +1060,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'color', 'x'],
@@ -1114,7 +1114,7 @@ vis_design_combos = {
         }, {
             'task': 'trend',
             'vis_type': 'areachart',
-            'not_suggested_by_default': False,
+            'not_suggested_by_default': True,
             'mark': 'area',
             'mandatory': ['x', 'y', 'column', 'color'],
             'priority': ['column', 'color', 'x'],
