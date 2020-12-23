@@ -252,7 +252,7 @@ class TaskGenie:
         # Infer Tasks from the EXPLICIT TASK UTTERANCES
         if dependencies is not None:
 
-            # Case 0: CORRELATION, and DISTRIBUTION
+            # Case 0: CORRELATION
             k1, k2, operator_phrase = None, None, None
             for dep_index, dep in enumerate(dependencies[0]):
 
@@ -327,7 +327,7 @@ class TaskGenie:
 
                             k1, k2, operator_phrase = None, None, None
 
-            # Case 1: DERIVED_VALUE, FIND_EXTREMUM and TREND. 1 Task Keyword to 1 Attribute Keyword Mapping
+            # Case 1: DERIVED_VALUE, FIND_EXTREMUM and TREND.
             keyword, operator_phrase = None, None
             for dep_index, dep in enumerate(dependencies[0]):
 
@@ -366,7 +366,7 @@ class TaskGenie:
 
                     keyword, operator_phrase = None, None
 
-            # Case 2: Takes care of numeric FILTERS e.g '...less than 50'
+            # Case 2: Numeric + Temporal FILTERS e.g '...less than 50', '...since 1946'
             keyword, amount, operator_phrase, has_negation, negation_phrase = None, None, None, False, None
             for dep_index, dep in enumerate(dependencies[0]):
 
@@ -442,7 +442,7 @@ class TaskGenie:
 
                         keyword, amount, operator_phrase, has_negation, negation_phrase = None, None, None, False, None
 
-            # Case 3: Takes care of numeric FILTERS e.g '...between 5 and 10'
+            # Case 3: Numeric + Temporal FILTERS e.g '...between 5 and 10', '...between 2017/12/1 and 2018/1/1'
             keyword, from_amount, to_amount, operator_phrase, has_negation, negation_phrase = None, None, None, None, False, None
             for dep_index, dep in enumerate(dependencies[0]):
 
@@ -502,20 +502,35 @@ class TaskGenie:
 
                         keyword, amount, operator_phrase, has_negation, negation_phrase = None, None, None, False, None
 
-            # Case 4: DISTRIBUTION single task keyword
-            for operator_phrase in self.nl4dv_instance.task_keyword_map:
-                if self.nl4dv_instance.task_keyword_map[operator_phrase][0][0] == "distribution":
-                    if operator_phrase in self.nl4dv_instance.query_processed:
-                        # It exists, create distribution task
-                        task = 'distribution'
-                        if task not in task_map:
-                            task_map[task] = list()
+            # Case 4: DISTRIBUTION e.g., '...distribution of salaries'
+            keyword, operator_phrase = None, None
+            for dep_index, dep in enumerate(dependencies[0]):
 
+                # OPTIONAL:
+                if dep[1] in ['amod', 'nsubj', 'nmod', 'dobj', 'compound', 'dep']:
+                    if dep[0][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[2][0] in self.nl4dv_instance.task_keyword_map:
+                        operator_phrase = dep[2][0]
+                        keyword = dep[0][0]
+
+                    if dep[2][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[0][0] in self.nl4dv_instance.task_keyword_map:
+                        operator_phrase = dep[0][0]
+                        keyword = dep[2][0]
+
+                if keyword is not None and operator_phrase is not None:
+                    task = self.nl4dv_instance.task_keyword_map[operator_phrase][0][0]
+                    if task not in task_map:
+                        task_map[task] = list()
+
+                    # These tasks requires at most 1 Attribute to make sense
+                    if task in ["distribution"]:
+                        operator = self.nl4dv_instance.task_keyword_map[operator_phrase][0][1]
+                        _keyword = self.nl4dv_instance.special_keyword_map_for_tasks[keyword]
+                        _attributes = list(self.nl4dv_instance.keyword_attribute_mapping[_keyword].keys())
                         _tasks = self.generate_tasks(task_name=task,
-                                                     attributes=encodeable_attributes,
+                                                     attributes=_attributes,
                                                      operator_phrase=operator_phrase,
-                                                     query_phrase=[list(self.nl4dv_instance.attribute_keyword_mapping[a].keys())[0] for a in encodeable_attributes],
-                                                     operator=None,
+                                                     query_phrase=[_keyword],
+                                                     operator=operator,
                                                      values=[],
                                                      inference_type='explicit',
                                                      allow_subset=False)
@@ -523,6 +538,8 @@ class TaskGenie:
                         for _task in _tasks:
                             if _task not in task_map[task]:
                                 task_map[task].append(_task)
+
+                    keyword, operator_phrase = None, None
 
         return task_map
 
