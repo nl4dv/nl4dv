@@ -314,6 +314,19 @@ class VisGenie:
             # Append the scores
             vl_genie_instance.score_obj["by_attributes"] += self.nl4dv_instance.extracted_attributes[attr]["matchScore"]
 
+            # Try and apply a FILTER task even to the DataTable fallback visualization.
+            for task in self.nl4dv_instance.extracted_tasks:
+                for task_instance in self.nl4dv_instance.extracted_tasks[task]:
+                    if task == "filter":
+                        # If there is NO Datatype Ambiguity, then apply the Filter Task. Else let it be the way it is.
+                        # Datatype ambiguity example: "Content Rating > 5" is NOT possible because Content Rating is a Nominal attribute.
+                        if not (task_instance["isValueAmbiguous"] and task_instance["meta"]["value_ambiguity_type"] == "datatype"):
+                            vl_genie_instance.set_tasks_to_datatable(None, task_instance)
+                            vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
+
+        # Since we are counting the `by_task` score multiple times (equal to the number of columns), we need to normalize it to a VIS level.
+        vl_genie_instance.score_obj["by_task"] /= len(sorted_combo)
+
         #  Set the data
         vl_genie_instance.set_data(self.nl4dv_instance.data_url)
 

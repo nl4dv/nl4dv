@@ -68,17 +68,41 @@ class VLGenie():
 
     def create_and_add_column_to_datatable(self, attr):
 
-            # VL specification for a column of text. Use the row_number as the y_axis encoding to render vertically. Sly!
-            column = {
-                "width": 150,
-                "title": attr,
-                "mark": "text",
-                "encoding": {
-                    "text": {"field": attr, "type": "nominal"},
-                    "y": {"field": "row_number", "type": "ordinal", "axis": None}
-                }
+        # VL specification for a column of text. Use the row_number as the y_axis encoding to render vertically. Sly!
+        column = {
+            "width": 150,
+            "title": attr,
+            "mark": "text",
+            "transform": [],
+            "encoding": {
+                "text": {"field": attr, "type": "nominal"},
+                "y": {"field": "row_number", "type": "ordinal", "axis": None}
             }
-            self.vl_spec["hconcat"].append(column)
+        }
+        self.vl_spec["hconcat"].append(column)
+
+    def set_tasks_to_datatable(self, dim, task):
+        
+        for column in self.vl_spec["hconcat"]:
+            if task["task"] == 'filter':
+                if task["operator"] == 'IN':
+                    for attr in task['attributes']:
+                        column['transform'].append({'filter': {"field": attr, "oneOf": task["values"]}})
+                elif task["operator"] == 'RANGE':
+                    for attr in task['attributes']:
+                        column['transform'].append({"filter": {"field": attr, "range": task["values"]}})
+                elif task["operator"] == 'NOT RANGE':
+                    for attr in task['attributes']:
+                        # self.vl_spec['transform'].append({"filter": {"field": attr, "gte": task["values"][1], "lte": task["values"][0]}})
+                        column['transform'].append({"filter": {"not": {"field": attr, "range": task["values"]}}})
+                else:
+                    for attr in task['attributes']:
+                        symbol = constants.operator_symbol_mapping[task["operator"]]
+                        if helpers.isfloat(task["values"][0]) or helpers.isint(task["values"][0]):
+                            column['transform'].append({'filter':'lower(datum["{}"]) {} {}'.format(attr, symbol, task["values"][0])})
+                        elif helpers.isdate(task["values"][0]):
+                            column['transform'].append({'filter':'lower(datum["{}"]) {} "{}"'.format(attr, symbol, task["values"][0])})
+
 
     def unset_encoding(self, dim):
         if dim in self.vl_spec['encoding']:
