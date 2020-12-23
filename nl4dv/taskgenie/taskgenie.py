@@ -573,6 +573,7 @@ class TaskGenie:
                 for combination in combinations:
                     combo = list(combination)
 
+                    # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
                     if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False):
                         continue
 
