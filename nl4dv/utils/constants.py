@@ -42,8 +42,10 @@ task_keyword_map = {
     # -----------------------------------------
     # Filter
     # -----------------------------------------
-    "after": [("filter", "GT")],  # Todo: dep parser can't detect
-    "before": [("filter", "LT")],  # Todo: dep parser can't detect
+    "after": [("filter", "GT")],
+    "before": [("filter", "LT")],
+    "since": [("filter", "GT")],
+    "until": [("filter", "LT")],
     "more": [("filter", "GT")],
     "high": [("filter", "GT")],
     "over": [("filter", "GT")],
@@ -178,7 +180,7 @@ vl_attribute_types = {
 # Regular Expressions with their corresponding FORMATs and Examples
 date_regexes = [
     # Format:
-        # MM*DD*YY(YY) where * => {. : / ,}
+        # MM*DD*YY(YY) where * ∈ {. - /}
     # Examples:
         # 12.24.2019
         # 12:24:2019
@@ -187,9 +189,9 @@ date_regexes = [
         # 1/24/2019
         # 07/24/2019
         # 1/24/20
-    [['%m/%d/%Y', '%m/%d/%y'], "([1][0-2]|[0]?[1-9])[-:.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-:.\/]([1-9][0-9]{3}|[0-9]{2})"],
+    [['%m/%d/%Y', '%m/%d/%y'], "([1][0-2]|[0]?[1-9])[-.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/]([1-9][0-9]{3}|[0-9]{2})"],
     # Format:
-        # YY(YY)*MM*DD where * => {. : / ,}
+        # YY(YY)*MM*DD where * ∈ {. - /}
     # Examples:
         # 2019.12.24
         # 2019.12.24
@@ -198,9 +200,9 @@ date_regexes = [
         # 2019/1/24
         # 2019/07/24
         # 20/1/24
-    [['%Y/%m/%d', '%y/%m/%d'], "([1-9][0-9]{3}|[0-9]{2})[-:.\/]([1][0-2]|[0]?[1-9])[-:.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])"],
+    [['%Y/%m/%d', '%y/%m/%d'], "([1-9][0-9]{3}|[0-9]{2})[-.\/]([1][0-2]|[0]?[1-9])[-.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])"],
     # Format:
-        # DD*MM*YY(YY) where * => {. : / ,}
+        # DD*MM*YY(YY) where * ∈ {. - /}
     # Examples:
         # 24.12.2019
         # 24:12:2019
@@ -209,27 +211,27 @@ date_regexes = [
         # 24/1/2019
         # 24/07/2019
         # 24/1/20
-    [['%d/%m/%Y', '%d/%m/%y'], "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-:.\/]([1][0-2]|[0]?[1-9])[-:.\/]([1-9][0-9]{3}|[0-9]{2})"],
+    [['%d/%m/%Y', '%d/%m/%y'], "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/]([1][0-2]|[0]?[1-9])[-.\/]([1-9][0-9]{3}|[0-9]{2})"],
     # Formats:
-        # DD*MMM(M)*YY(YY) where * => {. : / , - <space>}
+        # DD*MMM(M)*YY(YY) where * ∈ {. - / <space>}
     # Examples:
         # 8-January-2019
         # 31 Dec 19
     [['%d/%b/%Y', '%d/%B/%Y', '%d/%b/%y', '%d/%B/%y'], "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1-9][0-9]{3}|[0-9]{2})"],
     # Format:
-        # DD*MMM(M) where * => {. : / , - <space>}
+        # DD*MMM(M) where * ∈ {. - / <space>}
     # Examples:
         # 31-January
         # 1 Jul
     [['%d/%b', '%d/%B'], "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"],
     # Formats:
-        # MMM(M)*DD*YYY(Y) where * => {. : / , - <space>}
+        # MMM(M)*DD*YYY(Y) where * ∈ {. - / <space>}
     # Examples:
         # January-8-2019
         # Dec 31 19
     [['%b/%d/%Y', '%B/%d/%Y', '%b/%d/%y', '%B/%d/%y'], "(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s]([1-9][0-9]{3}|[0-9]{2})"],
     # Format:
-        # MMM(M)*DD where * => {. : / , - <space>}
+        # MMM(M)*DD where * ∈ {. - / <space>}
     # Examples:
         # January-31
         # Jul 1
