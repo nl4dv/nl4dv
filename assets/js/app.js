@@ -7,12 +7,12 @@ $(document).ready(function(){
         if(key==="other-examples"){
             for(let dataset in queryMap[key]){
                 for(let queryObj of queryMap[key][dataset]){
-                    queryOutputMap["queryId-"+queryObj.queryId] = queryObj.vlSpecs;
+                    queryOutputMap["queryId-"+queryObj.queryId] = queryObj.output;
                 }
             }
         }else {
             for(let queryObj of queryMap[key]){
-                queryOutputMap["queryId-"+queryObj.queryId] = queryObj.vlSpecs;
+                queryOutputMap["queryId-"+queryObj.queryId] = queryObj.output;
             }
         }
     }
@@ -26,19 +26,19 @@ $(document).ready(function(){
             }else if(sideNavPillId==="v-pills-us-tab"){
                 populateQueryContainer(queryMap['underspecified-attributes'], "queryContainer-us-attributes");
             }else if(sideNavPillId==="v-pills-otr-tab"){
-                populateQueryContainer(queryMap['other-examples']['cars'], "queryContainer-otr-cars");
+                populateQueryContainer(queryMap['other-examples']['cars-w-year'], "queryContainer-otr-cars");
             }
             activeSideNavPillId = sideNavPillId;
         }
     });
 
     $(".usTab").click(function (evt) {
-       let tabId =  $(this).attr('id'), queryType = tabId.replace("tab-us-","");
+       let tabId =  $(this).attr('id'), queryType = tabId.split("tab-us-")[1];
        populateQueryContainer(queryMap['underspecified-'+queryType],"queryContainer-us-"+queryType);
     });
 
     $(".otrTab").click(function (evt) {
-        let tabId =  $(this).attr('id'), dataset = tabId.split('-')[2];
+        let tabId =  $(this).attr('id'), dataset = tabId.split('tab-otr-')[1];
         populateQueryContainer(queryMap['other-examples'][dataset],"queryContainer-otr-"+dataset);
     });
 
@@ -79,21 +79,20 @@ $(document).ready(function(){
                     panel.style.maxHeight = null;
                 } else {
                     let queryId = $(this).parent().attr("id");
-                    let vlSpecs = queryOutputMap[queryId];
+                    let visList = queryOutputMap[queryId]["visList"];
                     let htmlStr = "";
-                    for(let chartIdx in vlSpecs){
-                        let vlSpec = vlSpecs[chartIdx];
+                    for(let chartIdx in visList){
+                        let vlSpec = visList[chartIdx];
                         let chartId = queryId + "-" + "chart-" + chartIdx;
                         htmlStr += "<div id='"+chartId+"' class='visThumbnail'>test</div>"
                     }
                     d3.select("#" + queryId).select(".queryPanel").html(htmlStr);
-                    for(let chartIdx in vlSpecs){
-                        let vlSpec = vlSpecs[chartIdx];
+                    for(let chartIdx in visList){
+                        let vlSpec = visList[chartIdx]["vlSpec"];
                         let chartId = queryId + "-" + "chart-" + chartIdx;
                         vegaEmbed('#'+chartId, vlSpec);
                     }
-
-                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    panel.style.maxHeight = (panel.scrollHeight + 20) + "px";
                     panel.style.border = "1px solid lightgray";
                 }
             }
@@ -122,5 +121,5 @@ $(document).ready(function(){
 
     populateQueryContainer(queryMap['fullyspecified-attributes-tasks-vis'], "queryContainer-fs");
     populateQueryContainer(queryMap['underspecified-attributes'], "queryContainer-us-attributes");
-    populateQueryContainer(queryMap['other-examples']['cars'], "queryContainer-otr-cars");
+    populateQueryContainer(queryMap['other-examples']['cars-w-year'], "queryContainer-otr-cars-w-year");
 });

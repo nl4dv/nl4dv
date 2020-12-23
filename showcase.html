@@ -137,7 +137,7 @@
 
                             <section id="sample-queries" class="doc-section">
                                 <h2 class="section-title">Sample Queries</h2>
-                                <div id="fullyspecified-queries" class="section-block">
+                                <div id="fs-queries" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h3 class="block-title">Fully Specified</h3>
@@ -157,7 +157,7 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
-                                <div id="underspecified-queries" class="section-block">
+                                <div id="us-queries" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h3 class="block-title">Under Specified</h3>
@@ -166,9 +166,9 @@
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
-                                                    <a class="nav-item nav-link active usTab" id="tab-us-attributes" data-toggle="tab" href="#nav-tab-us-attributes" role="tab" aria-controls="nav-tab-us-attributes" aria-selected="true">Attributes-only</a>
-                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-tasks" data-toggle="tab" href="#nav-tab-us-attributes-tasks" role="tab" aria-controls="nav-tab-us-attributes-tasks" aria-selected="false">Attributes + Tasks</a>
-                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-vis" data-toggle="tab" href="#nav-tab-us-attributes-vis" role="tab" aria-controls="nav-tab-us-attributes-vis" aria-selected="false">Attributes + Visualizations</a>
+                                                    <a class="nav-item nav-link active usTab" id="tab-us-attributes" data-toggle="tab" href="#nav-tab-us-attributes" role="tab" aria-controls="nav-tab-us-attributes" aria-selected="true"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes-only</a>
+                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-tasks" data-toggle="tab" href="#nav-tab-us-attributes-tasks" role="tab" aria-controls="nav-tab-us-attributes-tasks" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Tasks</a>
+                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-vis" data-toggle="tab" href="#nav-tab-us-attributes-vis" role="tab" aria-controls="nav-tab-us-attributes-vis" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Visualizations</a>
                                                 </div>
                                             </nav>
                                             <div class="tab-content" >
@@ -229,14 +229,14 @@
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
-                                                    <a class="nav-item nav-link active otrTab" id="tab-otr-cars" data-toggle="tab" href="#nav-tab-otr-cars" role="tab" aria-controls="nav-tab-otr-cars" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
-                                                    <a class="nav-item nav-link otrTab" id="tab-otr-movies" data-toggle="tab" href="#nav-tab-otr-movies" role="tab" aria-controls="nav-tab-otr-movies" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
+                                                    <a class="nav-item nav-link active otrTab" id="tab-otr-cars-w-year" data-toggle="tab" href="#nav-tab-otr-cars-w-year" role="tab" aria-controls="nav-tab-otr-cars-w-year" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
+                                                    <a class="nav-item nav-link otrTab" id="tab-otr-movies-w-year" data-toggle="tab" href="#nav-tab-otr-movies-w-year" role="tab" aria-controls="nav-tab-otr-movies-w-year" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
                                                     <a class="nav-item nav-link otrTab" id="tab-otr-superstore" data-toggle="tab" href="#nav-tab-otr-superstore" role="tab" aria-controls="nav-tab-otr-superstore" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
                                                 </div>
                                             </nav>
                                             <div class="tab-content">
                                                 <br/>
-                                                <div class="tab-pane fade show active" id="nav-tab-otr-cars" role="tabpanel" aria-labelledby="tab-otr-cars">
+                                                <div class="tab-pane fade show active" id="nav-tab-otr-cars-w-year" role="tabpanel" aria-labelledby="tab-otr-cars-w-year">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
                                                     </p>
@@ -246,10 +246,10 @@
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-otr-cars" class="queryContainer">
+                                                    <div id="queryContainer-otr-cars-w-year" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-otr-movies" role="tabpanel" aria-labelledby="tab-otr-movies">
+                                                <div class="tab-pane fade" id="nav-tab-otr-movies-w-year" role="tabpanel" aria-labelledby="tab-otr-movies-w-year">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
                                                     </p>
@@ -259,7 +259,7 @@
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-otr-movies" class="queryContainer">
+                                                    <div id="queryContainer-otr-movies-w-year" class="queryContainer">
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="nav-tab-otr-superstore" role="tabpanel" aria-labelledby="tab-otr-superstore">
@@ -295,8 +295,8 @@
                                 </nav><!--//doc-menu-->
                                 <a class="nav-link scrollto" href="#sample-queries">Sample Queries</a>
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#fullyspecified-queries">Fully Specified</a>
-                                    <a class="nav-link scrollto" href="#underspecified-queries">Underspecified</a>
+                                    <a class="nav-link scrollto" href="#fs-queries">Fully Specified</a>
+                                    <a class="nav-link scrollto" href="#us-queries">Underspecified</a>
                                     <a class="nav-link scrollto" href="#more-queries">More Queries</a>
                                 </nav><!--//doc-menu-->
                             </nav><!--//nav-->
