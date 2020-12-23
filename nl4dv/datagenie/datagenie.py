@@ -7,6 +7,7 @@ from nl4dv.utils import constants, error_codes, helpers
 import os
 import pandas as pd
 from datetime import datetime
+import requests
 
 class DataGenie:
     """
@@ -176,14 +177,15 @@ class DataGenie:
     def set_alias_map(self, alias_value=None, alias_url=None):
         # type: (dict, str) -> None
         """
-        User can choose to manually initialize data
+        User can choose to manually initialize aliases
 
         """
         self.nl4dv_instance.alias_url= alias_url
         self.nl4dv_instance.alias_value = alias_value
 
-        if self.nl4dv_instance.alias_url is not None and os.path.isfile(self.nl4dv_instance.alias_url):
-            self.nl4dv_instance.alias_value = json.load(open(self.nl4dv_instance.alias_url, 'r', encoding='utf-8'))
+        if self.nl4dv_instance.alias_url is not None:
+            # self.nl4dv_instance.alias_value = json.load(open(self.nl4dv_instance.alias_url, 'r', encoding='utf-8'))
+            self.nl4dv_instance.alias_value = json.loads(requests.get(self.nl4dv_instance.alias_url).text)
 
         if self.nl4dv_instance.alias_value is not None:
             for attr in self.nl4dv_instance.alias_value.keys():
