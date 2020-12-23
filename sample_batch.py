@@ -5,6 +5,14 @@ import json
 import pandas as pd
 
 # -------------------- File INPUT ---------------------------
+# ignore_words
+ignore_words_dict = {
+    "movies-w-year.csv": ["movie", "movies", "colored", "color", "colors"],
+    "superstore.csv": ["colored", "color", "colors"],
+    "cars-w-year.csv": ["car", "colored", "color", "colors"],
+    "euro.csv": ["colored", "color", "colors"],
+}
+
 # Dependency parser configuration
 dependency_parser_config = {'name': 'corenlp','model': os.path.join("examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("examples","assets","jars","stanford-parser.jar")}
 
@@ -42,6 +50,9 @@ for query_file in query_files:
                                    label_attribute=label_attribute,
                                    dependency_parser_config=dependency_parser_config
                                    )
+
+        # Set Ignore words
+        nl4dv_instance.set_ignore_words(ignore_words=ignore_words_dict[row["Datafile"]])
 
         # Analyze the query using NL4DV
         nl4dv_response = nl4dv_instance.analyze_query(query)
