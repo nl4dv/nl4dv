@@ -332,14 +332,13 @@ class AttributeGenie:
                         # Check 1: Token Similarity score should be 100, i.e. at least 1 word/n-gram in the query must match the attribute domain value
                         if string_similarity_score == 100:
 
+                            # [OLD] Check 2: The matched n-gram must contain 2 or more words/tokens.
+                            # if len(ngram_tokens) >= 2:
 
-                            # [OLD] Check 2: The matched attribute domain value must either be of length >= 2, i.e. 2 words OR be 1 of 2 possible words.
-                            # if len(ngram_tokens) >= 2 or (len(ngram_tokens) == 1 and len(value_tokens) == 2):
-                            # value_tokens = list(word_tokenize(value))
-
-                            # Check 2: The matched n-gram must contain 2 or more words/tokens.
+                            # Check 2: The matched attribute domain value must either be of length >= 2, i.e. 2 words OR be 1 of 2 possible words.
+                            value_tokens = list(word_tokenize(value))
                             ngram_tokens = list(word_tokenize(ngram_str))
-                            if len(ngram_tokens) >= 2:
+                            if len(ngram_tokens) >= 2 or (len(ngram_tokens) == 1 and len(value_tokens) == 2):
                                 # Value - Keyword
                                 value_keyword_mapping[attr][value_raw] = ngram_str
 
