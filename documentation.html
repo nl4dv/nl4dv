@@ -374,7 +374,97 @@ print(output)</code></pre>
                                     <p>As we plan additional features to add new features / improve the toolkit, we <b style="color:red;">recommend</b> users/developers to be aware of the following: </p>
                                     <ul>
                                         <li><p><b>Dependency parser output variations.</b><br/>The dependency tree returned by CoreNLP, CoreNLP Server, and Spacy are sometimes different. The current parser logic was developed for CoreNLP, hence it'll work best. However, we are upgrading the rules to work consistently across all dependency parsers.</p></li>
-                                        <li><p><b>Attribute data types.</b><br/>Verify the attribute types (e.g., nominal, temporal) that are detected by NL4DV and override them if they are incorrect as they will most likely lead to erroneous visualizations. The current attribute datatype detection logic is heuristics based and we are currently working towards a major improvement that semantically infers the data type from both, the attribute's name and its value.</p>
+                                        <li>
+                                            <p><b>Attribute data types.</b></p>
+                                            <p>Verify the attribute types (e.g., nominal, temporal) that are detected by NL4DV and override them if they are incorrect as they will most likely lead to erroneous visualizations. The current attribute datatype detection logic is based on heuristics and we are currently working towards a major improvement that semantically infers the data type from both, the attribute's name and its value.</p>
+                                            <p><b>For Temporal attributes</b>, NL4DV relies on Regular Expressions to detect common date formats <span style="color:red">(listed in the order of priority in case of conflicts)</span>.</p>
+                                            <div class="bordered-table">
+                                                <table >
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Supported Date Formats <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes" target="_blank">(Codes: 1989 C standard)</a></th>
+                                                            <th>Examples</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><p><code class="language-python">%m*%d*%Y</code> or <code class="language-python">%m*%d*%y</code>  where * ∈ {. - /}</p></td>
+                                                            <td>
+                                                                <ul>
+                                                                    <li>12.24.2019</li>
+                                                                    <li>12/24/2019</li>
+                                                                    <li>1-24-19</li>
+                                                                    <li>09.24.20</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><p><code class="language-python">%Y*%m*%d</code> or <code class="language-python">%y*%m*%d</code>  where * ∈ {. - /}</p></td>
+                                                            <td>
+                                                                <ul>
+                                                                    <li>2019.12.24</li>
+                                                                    <li>2019/12/24</li>
+                                                                    <li>19-1-24</li>
+                                                                    <li>20.09.24</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><p><code class="language-python">%d*%m*%Y</code> or <code class="language-python">%d*%m*%y</code>  where * ∈ {. - /}</p></td>
+                                                            <td>
+                                                                <ul>
+                                                                    <li>24.12.2019</li>
+                                                                    <li>24/12/2019</li>
+                                                                    <li>24-1-19</li>
+                                                                    <li>24.09.20</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><p><code class="language-python">%d/%b/%Y</code> or <code class="language-python">%d/%B/%Y</code> or <code class="language-python">%d/%b/%y</code> or <code class="language-python">%d/%B/%y</code> where * ∈ {. - / space}</p></td>
+                                                            <td>
+                                                                <ul>
+                                                                    <li>8-January-2019</li>
+                                                                    <li>31 Dec 19</li>
+                                                                    <li>1/Jan/19</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><p><code class="language-python">%d*%b</code> or <code class="language-python">%d*%B</code>  where * ∈ {. - / space}</p></td>
+                                                            <td>
+                                                                <ul>
+                                                                    <li>8-January</li>
+                                                                    <li>31 Dec</li>
+                                                                    <li>1/Jan</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><p><code class="language-python">%b/%d/%Y</code> or <code class="language-python">%B/%d/%Y</code> or <code class="language-python">%b/%d/%y</code> or <code class="language-python">%B/%d/%y</code> where * ∈ {. - / space}</p></td>
+                                                            <td>
+                                                                <ul>
+                                                                    <li>January-8-2019</li>
+                                                                    <li>Dec 31 19</li>
+                                                                    <li>Jan/1/19</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><p><code class="language-python">%Y</code></p></td>
+                                                            <td>
+                                                                <b style="color:red">Only the following series</b>:
+                                                                <ul>
+                                                                    <li>18XX (e.g., 1801)</li>
+                                                                    <li>19XX (e.g., 1929)</li>
+                                                                    <li>20XX (e.g., 2010)</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <br/>
                                         </li>
                                         <li><p><b>Filter task.</b><br/>NL4DV applies the filter task by matching the condition against each data point but does not encode the involved attributes in the visualization. This was a design decision taken to avoid recommending a complex visualization due to too many encoded attributes.</p></li>
                                         <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior research workss; we encourage users/developers to modify them to suit their specific requirements.</p></li>
