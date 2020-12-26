@@ -28,7 +28,7 @@ We thank <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab
 ##### Citation
 
 ```bibTeX
-@article{narechaniaNL4DV2020,
+@article{narechania2020nl4dv,
   title = {{NL4DV}: A {Toolkit} for Generating {Analytic Specifications} for {Data Visualization} from {Natural Language} Queries},
   shorttitle = {{NL4DV}},
   author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
