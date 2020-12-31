@@ -168,13 +168,13 @@ class VLGenie():
                     elif helpers.isdate(task["values"][0]):
                         self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} "{}"'.format(attr, symbol, task["values"][0])})
 
-    def set_data(self, dataUrl):
+    def set_data(self, dataUrl, dataType="csv"):
         # type: (list) -> None
         """
         Set domain data for the visualization
 
         """
-        self.vl_spec['data'] = {'url': dataUrl, 'format': {'type': 'csv'}}
+        self.vl_spec['data'] = {'url': dataUrl, 'format': {'type': dataType}}
 
     def add_tick_format(self):
         for dim in self.vl_spec['encoding']:

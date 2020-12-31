@@ -293,7 +293,7 @@ class VisGenie:
 
         #  Finally, let"s set the data and Rock"n Roll!
         # ------------------
-        vl_genie_instance.set_data(self.nl4dv_instance.data_url)
+        vl_genie_instance.set_data(self.nl4dv_instance.data_url, self.nl4dv_instance.data_url_type)
         # ------------------
 
         return vl_genie_instance
@@ -328,7 +328,7 @@ class VisGenie:
         vl_genie_instance.score_obj["by_task"] /= len(sorted_combo)
 
         #  Set the data
-        vl_genie_instance.set_data(self.nl4dv_instance.data_url)
+        vl_genie_instance.set_data(self.nl4dv_instance.data_url, self.nl4dv_instance.data_url_type)
 
         # Create the Visualization object to return
         vis_object = {

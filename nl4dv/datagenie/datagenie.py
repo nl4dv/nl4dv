@@ -78,6 +78,7 @@ class DataGenie:
         """
         self.nl4dv_instance.data_url = data_url if data_url is not None else self.nl4dv_instance.data_url
         self.nl4dv_instance.data_value = data_value if data_value is not None else self.nl4dv_instance.data_value
+        self.nl4dv_instance.data_url_type = None
 
         # initialize values
         self.data_attribute_map = dict()
@@ -87,10 +88,13 @@ class DataGenie:
         if self.nl4dv_instance.data_url is not None:
             # Possible Local FILE or HTTP URL
             if self.nl4dv_instance.data_url.lower().endswith('.csv'):
+                self.nl4dv_instance.data_url_type = "csv"
                 self.data = pd.read_csv(self.nl4dv_instance.data_url, sep=',').to_dict('records')
             elif self.nl4dv_instance.data_url.lower().endswith('.tsv'):
+                self.nl4dv_instance.data_url_type = "tsv"
                 self.data = pd.read_csv(self.nl4dv_instance.data_url, sep='\t').to_dict('records')
             elif self.nl4dv_instance.data_url.lower().endswith('.json'):
+                self.nl4dv_instance.data_url_type = "json"
                 self.data = pd.read_json(self.nl4dv_instance.data_url).to_dict('records')
 
         elif self.nl4dv_instance.data_value is not None:
