@@ -112,14 +112,19 @@ class VLGenie():
         return self.vl_spec['encoding'][dim]
 
     def set_encoding_aggregate(self, dim, aggregate):
-        self.vl_spec['encoding'][dim]['aggregate'] = aggregate
+        if aggregate is not None:
+            self.vl_spec['encoding'][dim]['aggregate'] = aggregate
+        else:
+            if 'aggregate' in self.vl_spec['encoding'][dim]:
+                del self.vl_spec['encoding'][dim]['aggregate']
 
-    def set_encoding(self, dim, attr, attr_type, aggregate=None):
+    def set_encoding(self, dim, attr, attr_type, aggregate):
 
         self.vl_spec['encoding'][dim] = dict()
         self.vl_spec['encoding'][dim]['field'] = attr
         self.vl_spec['encoding'][dim]['type'] = constants.vl_attribute_types[attr_type]
-        self.vl_spec['encoding'][dim]['aggregate'] = aggregate
+        if aggregate is not None:
+            self.vl_spec['encoding'][dim]['aggregate'] = aggregate
 
         if dim == 'x':
             if self.bin:
