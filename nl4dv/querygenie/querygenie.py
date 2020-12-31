@@ -43,9 +43,11 @@ class QueryGenie:
 
     # 1-time generation of query N-GRAMS
     def get_query_ngrams(self, query):
+        # Do NOT check for n_grams with numeric entities in the domain. They tend to produce erroneous results, especially due to the TOKEN based similarity algorithm.
+        query_alpha_str = ''.join([i for i in query if not i.isdigit()])
         ngrams = dict()
-        for i in range(len(query.split()), 0, -1):
-            for ngram in helpers.get_ngrams(query, i):
+        for i in range(len(query_alpha_str.split()), 0, -1):
+            for ngram in helpers.get_ngrams(query_alpha_str, i):
                 ngram_str = ((' '.join(map(str, ngram))).rstrip()).lower()
                 ngrams[ngram_str] = dict()
                 ngrams[ngram_str]['raw'] = ngram
