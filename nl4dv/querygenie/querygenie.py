@@ -4,11 +4,13 @@ import nltk
 from nltk import word_tokenize
 from si_prefix import si_parse
 from nltk.corpus import stopwords
+import inflect
 
 
 class QueryGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
+        self.inflect_engine = inflect.engine()
 
         # Stopwords
         self.stopwords_set = set(stopwords.words('english'))
@@ -19,22 +21,29 @@ class QueryGenie:
         parsed_tokens = []
         for token in word_tokenize(query):
             try:
-                parsed_tokens.append(str(int(si_parse(token))))
+                # print(token[len(token) - 2:])
+                if self.inflect_engine.singular_noun(token) and token[len(token) - 2:] != 'ss':
+                    parsed_tokens.append(self.inflect_engine.singular_noun(token))
+                else:
+                    parsed_tokens.append(str(int(si_parse(token))))
             except Exception as e:
                 parsed_tokens.append(token)
 
         # Convert to lowercase
         query_lower = ' '.join(parsed_tokens).lower()
+        # print(query_lower)
 
         return query_lower
 
-    def clean_query_and_get_query_tokens(self, query, reserve_words, ignore_words):
+    def clean_query_and_get_query_tokens(self, query, reserve_words, ignore_words, dialog=None):
 
         # Clean sentence of non-alphanumerical characters
         query_alphanumeric = re.sub(r'[^A-Za-z0-9]+', ' ', query)
 
         # Set the stopwords from reserve words and ignore words
         self.stopwords_set = self.stopwords_set.difference(set(reserve_words)).union(set(ignore_words))
+        if dialog is not None:
+            self.stopwords_set = self.stopwords_set.difference(set(self.nl4dv_instance.followup_reserve_words)).union(set(ignore_words))
 
         # Create token set and filter out standard stopwords
         query_tokens = list(filter(lambda token: token not in self.stopwords_set, word_tokenize(query_alphanumeric)))

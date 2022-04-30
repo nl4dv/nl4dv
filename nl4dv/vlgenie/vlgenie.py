@@ -82,7 +82,7 @@ class VLGenie():
         self.vl_spec["hconcat"].append(column)
 
     def set_tasks_to_datatable(self, dim, task):
-        
+
         for column in self.vl_spec["hconcat"]:
             if task["task"] == 'filter':
                 if task["operator"] == 'IN':
@@ -131,7 +131,8 @@ class VLGenie():
                 self.vl_spec['encoding'][dim]['bin'] = True
 
     def set_task(self, dim, task):
-        if task["task"] == 'find_extremum':
+        # print(task)
+        if task["task"] == 'find_extremum' or task["task"] == "sort":
             if dim is None:
                 dim = 'y'
             if task["operator"] == 'MIN':

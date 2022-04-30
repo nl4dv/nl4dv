@@ -1,3 +1,4 @@
+from difflib import context_diff
 from nl4dv import NL4DV
 import os
 import json
@@ -7,7 +8,10 @@ from jinja2 import TemplateNotFound
 # Import our Example Applications
 from applications.datatone import datatone_routes
 from applications.vleditor import vleditor_routes
+from applications.vllearner import vllearner_routes
 from applications.mmplot import mmplot_routes
+from applications.mindmap import mindmap_routes
+from applications.chatbot import chatbot_routes
 
 # Import our Debugging Applications
 from debuggers.debugger_single import debugger_single_routes
@@ -125,6 +129,16 @@ def setImportanceScores():
         raise ValueError('Importance Scores not a JSON string')
 
 
+@app.route('/update_query', methods=['POST'])
+def update_query():
+    global nl4dv_instance
+    if nl4dv_instance is None:
+        return jsonify({"message":"NL4DV NOT initialized"})
+
+    ambiguity_obj = request.get_json()
+    return json.dumps(nl4dv_instance.update_query(ambiguity_obj))
+
+
 @app.route('/analyze_query', methods=['POST'])
 def analyze_query():
     global nl4dv_instance
@@ -132,8 +146,50 @@ def analyze_query():
         return jsonify({"message":"NL4DV NOT initialized"})
 
     query = request.form['query']
+    # print(request.form['dialog'])
+    dialog = True if 'dialog' in request.form and request.form['dialog'] == 'true' else False
+    if request.form['dialog'] == "auto":
+        dialog = "auto"
+
+
+    if dialog is True:
+        dialog_id = int(request.form['dialog_id'])
+        query_id = int(request.form['query_id'])
+
+        return json.dumps(nl4dv_instance.analyze_query(query, dialog=dialog, dialog_id=dialog_id, query_id=query_id, debug=True))
+
+    if dialog == "auto":
+        return json.dumps(nl4dv_instance.analyze_query(query, dialog=dialog, debug=True))
+
     return json.dumps(nl4dv_instance.analyze_query(query, debug=True))
 
+
+@app.route('/flushConversation', methods=['POST'])
+def flushConversation():
+    global nl4dv_instance
+    if nl4dv_instance is None:
+        return jsonify({"message":"NL4DV NOT initialized"})
+
+    query_id = request.form['query_id']
+    dialog_id = request.form['dialog_id']
+    try:
+        nl4dv_instance.delete_dialogs(dialog_id=dialog_id, query_id=query_id)
+    except Exception as e:
+        return jsonify({"message": "Some error occurred flushing the conversation."})
+    return jsonify({"message": "Conversation flushed."})
+
+
+@app.route('/flushAllConversations', methods=['POST'])
+def flushAllConversations():
+    global nl4dv_instance
+    if nl4dv_instance is None:
+        return jsonify({"message":"NL4DV NOT initialized"})
+
+    try:
+        nl4dv_instance.delete_dialogs(dialog_id=None, query_id=None)
+    except Exception as e:
+        return jsonify({"message": "Some error occurred flushing all conversations."})
+    return jsonify({"message": "All conversations flushed."})
 
 @app.route('/setAttributeDataType', methods=['POST'])
 def setAttributeDataType():
@@ -167,7 +223,10 @@ def get_dataset_meta():
 if __name__ == "__main__":
     app.register_blueprint(datatone_routes.datatone_bp, url_prefix='/datatone')
     app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
+    app.register_blueprint(vllearner_routes.vllearner_bp, url_prefix='/vllearner')
     app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
+    app.register_blueprint(mindmap_routes.mindmap_bp, url_prefix='/mindmap')
+    app.register_blueprint(chatbot_routes.chatbot_bp, url_prefix='/chatbot')
 
     app.register_blueprint(debugger_single_routes.debugger_single_bp, url_prefix='/debugger_single')
     app.register_blueprint(debugger_batch_routes.debugger_batch_bp, url_prefix='/debugger_batch')

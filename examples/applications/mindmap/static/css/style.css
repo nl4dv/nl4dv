@@ -1,0 +1,113 @@
+body {
+  margin: 0px;
+}
+
+#mindmap-svg {
+  height: calc(100vh - 150px);
+  width: 100%;
+}
+#mindmap-svg:focus {
+  outline: none;
+}
+#mindmap-svg .mindmap-node--editable {
+  cursor: all-scroll;
+}
+#mindmap-svg .mindmap-node--editable > a {
+  pointer-events: none;
+}
+#mindmap-svg .mindmap-subnode-group {
+  align-items: center;
+  border-left: 4px solid #6a6a6a;
+  display: flex;
+  margin-left: 15px;
+  padding: 5px;
+}
+#mindmap-svg .mindmap-subnode-group a {
+  color: #212121;
+  font-family: "Raleway";
+  font-size: 16px;
+  padding: 2px 5px;
+}
+#mindmap-svg .mindmap-connection {
+  fill: transparent;
+  stroke: #6a6a6a;
+  stroke-dasharray: 10px 4px;
+  stroke-width: 2px;
+}
+
+.mindmap-node .node-body {
+  background-color: #fff;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-top: 30px;
+  /* min-height: 60px;
+  min-width: 125px; */
+}
+.mindmap-node .node-body .options {
+  display: none;
+  position: absolute;
+  margin-top: -30px;
+}
+.mindmap-node .node-body .options .option {
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 25px;
+  color: #999;
+}
+.mindmap-node .node-body .options .option:hover.add-item {
+  color: #19bb19;
+}
+.mindmap-node .node-body .options .option:hover.edit-item {
+  color: #666565;
+}
+.mindmap-node .node-body .options .option:hover.remove-item {
+  color: #ee6969;
+}
+.mindmap-node:hover .node-body {
+  background-color: rgb(235, 250, 251);
+}
+.mindmap-node:hover .node-body .options {
+  display: flex;
+}
+.mindmap-node span {
+  color: #212121;
+  font-size: 22px;
+  display: inline-block;
+  padding: 4px;
+  margin: 10px;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s ease-out;
+}
+/* .mindmap-node span:hover {
+  cursor: pointer;
+} */
+
+
+.blinking{
+  animation:blinkingText .8s infinite;
+}
+@keyframes blinkingText{
+  0%{     color: #f44242;    }
+  /*49%{    color: transparent; }*/
+  50%{    color: transparent; }
+  /*99%{    color:transparent;  }*/
+  100%{   color: #f44242;    }
+}
+
+.blinkingBorder{
+  animation:blinkingBorder .8s infinite;
+}
+@keyframes blinkingBorder{
+  0%{     border: 1px solid #f44242;    }
+  /*49%{    color: transparent; }*/
+  50%{    border: 1px solid lightgray; }
+  /*99%{    color:transparent;  }*/
+  100%{   border: 1px solid #f44242;    }
+}
+
+
+.blinkingButton{
+  animation:blinkingBg 0.8s infinite;
+}

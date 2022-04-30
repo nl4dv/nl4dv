@@ -22,7 +22,7 @@ body{
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
     width: 100%;
-    height: 250px;
+    /* height: 250px; */
 }
 
 .card:hover .img-wrapper img {
