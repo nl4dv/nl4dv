@@ -94,6 +94,16 @@
                             <h2 class="section-title">Setup</h2>
                             <div id="install" class="section-block">
                                 <h3 class="block-title">Installation</h3>
+
+                                <br/>
+                                <p>
+                                    <b class="text-danger"><u>IMPORTANT</u>:
+                                    A new release with Conversational Interaction capabilities is <a href="https://pypi.org/project/nl4dv/" target="_blank">Coming Soon on PyPi</a>. Stay tuned!</b>
+                                    <br/>
+                                    Until then, you can locally build and install the toolkit from the <b><a href="https://github.com/nl4dv/nl4dv/tree/ci_review" target="_blank">ci_review</a></b> branch.
+                                    Keep reading to install the current version (with single utterance interaction) and/or read the Documentation.
+                                </p>
+
                                 <div class="code-block">
                                     <ol class="list">
                                         <li>
@@ -111,18 +121,22 @@
                                                     <p>A local distributable. Download</p>
                                                     <p style="font-size:1.1rem;">
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.6.tar.gz"
+                                                        href="https://github.com/nl4dv/nl4dv/archive/2.0.0tar.gz"
                                                         target="_blank">nl4dv-0.0.6.tar.gz</a></b>
                                                         &nbsp;&nbsp;<i>or</i>&nbsp;&nbsp;
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/0.0.6.zip"
+                                                        href="https://github.com/nl4dv/nl4dv/archive/2.0.0zip"
                                                         target="_blank">nl4dv-0.0.6.zip</a></b>
                                                     </p>
                                                     <p>Accordingly, run <code class="language-bash">pip install nl4dv-0.0.6.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-0.0.6.zip</code>.</p>
                                                 </li>
                                             </ol>
-                                            <b>Note:</b> We recommend installing NL4DV in a  <a href="https://pypi.org/project/virtualenv/" target="_blank">virtual
+
+                                            <p>
+                                                <b>Note:</b> We recommend installing NL4DV in a  <a href="https://pypi.org/project/virtualenv/" target="_blank">virtual
                                                     environment</a> as it avoids version conflicts with globally installed packages.
+                                            </p>
+
                                 </div><!--//code-block-->
                             </div><!--//section-block-->
                             <div id="post-installation" class="section-block">
@@ -142,7 +156,7 @@
                                         <ol>
                                             <li>
                                                 <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
-                                                    CoreNLP</a> (<b style="color:red;">recommended</b>):</p>
+                                                    CoreNLP</a> (<b class="text-danger">recommended</b>):</p>
                                                 <ul>
                                                     <li>
                                                         <p>
@@ -196,7 +210,7 @@
                                 </ol>
                             </div><!--//section-block-->
                             <div id="sample-code" class="section-block">
-                                <h3 class="block-title">Sample Code</h3>
+                                <h3 class="block-title">Sample Code (Single Utterance Interaction)</h3>
                                 <div class="row">
                                     <div class="col-md-12 col-12">
                                         <p>If everything went well in the Installation and Post Installation steps above, you are all set.
@@ -360,18 +374,30 @@ print(output)</code></pre>
                                          src="assets/images/example.png" alt="Example"/>
                                 </div>
                             </div><!--//section-block-->
+
+                            <div id="sample-code-ci" class="section-block">
+                                <h3 class="block-title">Sample Code (Conversational Interaction)</h3>
+                                <div class="row">
+                                    <div class="col-md-12 col-12">
+                                        <p>Use the below <b>Sample Code</b> to get started with Conversational Interaction. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/master/sample-ci.py" target="_blank">here</a>.</p>
+                                        <img style="width: 80%; border: 1px solid lightgray;" class="img-fluid img-center"
+                                     src="assets/images/showcase/conversational-interaction-sample.png" alt="Conversation Interaction Sample Code"/>
+                                    </div>
+                                </div><!--//row-->
+                            </div><!--//section-block-->
+
                             <section id="docker" class="section-block">
                                 <h3 class="block-title">Docker</h3>
                                 <div class="block">
                                     <p>NL4DV is containerized into a <b><a href="https://hub.docker.com/r/arpitnarechania/nl4dv" target="_blank">Docker Image</a></b>. This image comes pre-installed with NL4DV, Spacy, Stanford CoreNLP, and a few datasets with a web application as a <b>Demo</b>. Install it using:</p>
                                     <p><code class="language-bash">docker pull arpitnarechania/nl4dv</code></p>
-                                    <p><b>Note:</b> This mode of installation <b style="color:red;">does not</b> require the Post Installation steps. For more informations, follow the detailed instructions in the <b><a href="https://github.com/nl4dv/nl4dv-docker" target="_blank">Github repository (nl4dv-docker)</a></b>.</p>
+                                    <p><b>Note:</b> This mode of installation <b class="text-danger">does not</b> require the Post Installation steps. For more informations, follow the detailed instructions in the <b><a href="https://github.com/nl4dv/nl4dv-docker" target="_blank">Github repository (nl4dv-docker)</a></b>.</p>
                                 </div>
                             </section>
                             <section id="author-notes" class="section-block">
                                 <h3 class="block-title">Message from Creators</h3>
                                 <div class="block">
-                                    <p>As we plan additional features to add new features / improve the toolkit, we <b style="color:red;">recommend</b> users/developers to be aware of the following: </p>
+                                    <p>As we plan additional features to add new features / improve the toolkit, we <b class="text-danger">recommend</b> users/developers to be aware of the following: </p>
                                     <ul>
                                         <li><p><b>Dependency parser output variations.</b><br/>The dependency tree returned by CoreNLP, CoreNLP Server, and Spacy are sometimes different. The current parser logic was developed for CoreNLP, hence it'll work best. However, we are upgrading the rules to work consistently across all dependency parsers.</p></li>
                                         <li>
@@ -581,6 +607,8 @@ print(output)</code></pre>
                                                 <p><code class="language-python">importance_scores</code> (dict)</p>
                                                 <p><code class="language-python">attribute_datatype</code> (dict)</p>
                                                 <p><code class="language-python">debug</code> (bool)</p>
+                                                <p><code class="language-python">explicit_followup_keywords</code> (dict)</p>
+                                                <p><code class="language-python">implicit_followup_keywords</code> (dict)</p>
                                             </td>
                                             <td>
                                                 <p>NL4DV constructor that accepts these parameters. These parameters can be set using separate function calls as well; check below.</p>
@@ -592,12 +620,47 @@ print(output)</code></pre>
                                             <td>
                                                 <p><code class="language-python">query</code> (str)</p>
                                                 <p><code class="language-python">debug</code> (str)</p>
-                                                <p><code class="language-python">dialog</code> (str) (coming soon!)</p>
+                                                <p><code class="language-python">dialog</code> (bool or str='auto', optional)</p>
+                                                <p><code class="language-python">dialog_id</code> (str, optional)</p>
+                                                <p><code class="language-python">query_id</code> (str, optional)</p>
                                             </td>
                                             <td>
                                                 <p>Analyzes the input query.</p>
                                                 <span><b>Returns:</b> a JSON specification of attributes, tasks, and visualizations.</span>
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td>update_query(ambiguity_obj=None)</td>
+                                            <td><p><code class="language-python">ambiguity_obj</code> (dict)</p>
+                                                <span><b>Example:</b></span><pre><code class="language-python">
+{
+"dialog_id": "0", "query_id": "0",
+"attribute": {"medals": "Gold Medals"},
+"value": {"hockey": "Ice Hockey", "skating": "Speed Skating"}
+}
+                                                </code></pre></td>
+                                            <td>Resolve attribute-level and value-level ambiguities by setting the correct entities to the corresponding keywords (phrase) in the query.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>get_dialogs(dialog_id=None, query_id=None)</td>
+                                            <td>
+                                                <p><code class="language-python">dialog_id</code> (str)</p>
+                                                <p><code class="language-python">query_id</code> (str)</p>
+                                            </td>
+                                            <td>Get a specific dialog (if dialog_id is provided), a specific query in a dialog (if both dialog_id and query_id are provided), or all dialogs (if none of dialog_id and query_id are provided). Returns the requested entities as JSON specifications.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>delete_dialogs(dialog_id=None, query_id=None)</td>
+                                            <td>
+                                                <p><code class="language-python">dialog_id</code> (str)</p>
+                                                <p><code class="language-python">query_id</code> (str)</p>
+                                            </td>
+                                            <td>Delete a specific dialog (if dialog_id is provided), a specific query in a dialog (if both dialog_id and query_id are provided), or all dialogs (if none of dialog_id and query_id are provided), practically resetting the corresponding NL4DV instance. Returns the deleted entities as JSON specifications.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>undo()</td>
+                                            <td></td>
+                                            <td>Delete the most recently processed query; returns the deleted entity as a JSON specification.</td>
                                         </tr>
                                         <tr>
                                             <td>render_vis(query=None)</td>
@@ -655,6 +718,26 @@ print(output)</code></pre>
 "string_similarity": 85}</code></pre>
                                             </td>
                                             <td>Overrides the default thresholds such as string matching.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_explicit_followup_keywords(explicit_followup_keyword_map=None)</td>
+                                            <td>
+                                                <p><code class="language-python">explicit_followup_keyword_map</code> (dict)</p>
+                                                <span><b>Example:</b></span>
+                                                <pre><code class="language-python">{"put": [("addition", "add")],
+"add": [("addition", "add")]}</code></pre>
+                                            </td>
+                                            <td>Overrides the default explicit_followup_keywords map. The dictionary must be formatted as the following: The key must be the keyword string, and the value must be a list. The list must contain only one element that is a 2-tuple. The first element in the 2-tuple represents the noun version of the follow-up operation (it MUST come from these words - (addition, removal, replacement), and the second element represents the verb version of the follow-up operation (add, remove, replace). </td>
+                                        </tr>
+                                        <tr>
+                                            <td>set_implicit_followup_keywords(implicit_followup_keyword_map=None)</td>
+                                            <td>
+                                                <p><code class="language-python">implicit_followup_keyword_map</code> (dict)</p>
+                                                <span><b>Example:</b></span>
+                                                <pre><code class="language-python">"also": [("also", "add")],
+"as well": [("aswell", "add")]}</code></pre>
+                                            </td>
+                                            <td>Overrides the default implicit_followup_keyword_map map. The dictionary must be formatted as the following: The key must be the keyword string, and the value must be a list. The list must contain only one element that is a 2-tuple. The first element in the 2-tuple represents the concatenated version of the token with no spaces, and the second element represents the verb version of the follow-up operation (add, remove, replace). </td>
                                         </tr>
                                         <tr>
                                             <td>set_importance_scores(scores=None)</td>
@@ -798,13 +881,11 @@ print(output)</code></pre>
                                     NL4DV was created by <a target="_blank"
                                                             href="https://www.cc.gatech.edu/~anarechania3">Arpit
                                     Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun
-                                    Srinivasan</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John
+                                    Srinivasan</a>, <a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John
                                     Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech
                                     Visualization Lab</a>.
                                 </p>
-                                <p>We thank <a href="https://www.linkedin.com/in/rmitra34/" target="_blank">Rishab Mitra</a> for helping build some of
-                                    our debugger applications and members of the <a target="_blank"
-                                                                                     href="http://vis.gatech.edu/">Georgia
+                                <p>We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia
                                         Tech Visualization Lab</a> for their support and constructive feedback.</p>
                             </div>
                         </section>
@@ -850,7 +931,8 @@ print(output)</code></pre>
                             <nav class="doc-sub-menu nav flex-column">
                                 <a class="nav-link scrollto" href="#install">Installation</a>
                                 <a class="nav-link scrollto" href="#post-installation">Post Installation</a>
-                                <a class="nav-link scrollto" href="#sample-code">Sample Code</a>
+                                <a class="nav-link scrollto" href="#sample-code">Sample Code (Single Utterance Interaction)</a>
+                                <a class="nav-link scrollto" href="#sample-code-ci">Sample Code (Conversational Interaction)</a>
                                 <a class="nav-link scrollto" href="#docker">Docker</a>
                                 <a class="nav-link scrollto" href="#author-notes">Message from Creators</a>
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
@@ -876,7 +958,7 @@ print(output)</code></pre>
     <div class="container">
         <p>
             NL4DV: Natural Language toolkit for Data Visualization.<br/>
-            <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2020</small>
+            <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2022</small>
         </p>
         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
         <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a
@@ -898,5 +980,5 @@ print(output)</code></pre>
 <script type="text/javascript" src="./assets/js/main.js"></script>
 
 </body>
-</html> 
+</html>
 

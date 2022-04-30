@@ -1,6 +1,5630 @@
 queryMap = {
-  "fullyspecified-attributes-tasks-vis": [
-    {
+  "conversational-examples": {
+    "movies-w-year": [{
+        "queryId": 122,
+        "query": "Visualize the distribution of rotten tomatoes rating across all movies",
+        "output": {
+          "query_raw": "Visualize the distribution of rotten tomatoes rating across all movies",
+          "query": "visualize the distribution of rotten tomato rating across all movie",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Rotten Tomatoes Rating"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Rotten Tomatoes Rating",
+                    "type": "quantitative",
+                    "bin": true,
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Rotten Tomatoes Rating",
+                    "type": "quantitative",
+                    "aggregate": "count",
+                    "axis": {
+                      "format": "s"
+                    }
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Rotten Tomatoes Rating"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "tick",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Rotten Tomatoes Rating",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Title"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Rotten Tomatoes Rating"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "boxplot",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Rotten Tomatoes Rating",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Title"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Rotten Tomatoes Rating": {
+              "name": "Rotten Tomatoes Rating",
+              "queryPhrase": [
+                "rotten tomato rating"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Rotten Tomatoes Rating"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Rotten Tomatoes Rating": {
+              "rotten tomato rating": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 123,
+        "query": "How about imdb rating?",
+        "output": {
+          "query_raw": "How about imdb rating?",
+          "query": "how about imdb rating ?",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "IMDB Rating"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "IMDB Rating",
+                    "type": "quantitative",
+                    "bin": true,
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "IMDB Rating",
+                    "type": "quantitative",
+                    "aggregate": "count",
+                    "axis": {
+                      "format": "s"
+                    }
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "IMDB Rating"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "tick",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "IMDB Rating",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Title"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "IMDB Rating"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "boxplot",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "IMDB Rating",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Title"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "IMDB Rating": {
+              "name": "IMDB Rating",
+              "queryPhrase": [
+                "imdb rating"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "IMDB Rating"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "IMDB Rating": {
+              "imdb rating": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 124,
+        "query": "Add content rating to the visualization",
+        "output": {
+          "query_raw": "Add content rating to the visualization",
+          "query": "add content rating to the visualization",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "IMDB Rating",
+              "Content Rating"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "IMDB Rating",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "Content Rating",
+                  "type": "nominal"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "IMDB Rating": {
+              "name": "IMDB Rating",
+              "queryPhrase": [
+                "imdb rating"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Content Rating": {
+              "name": "Content Rating",
+              "queryPhrase": [
+                "content rating"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "attributes": [
+                "IMDB Rating"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "IMDB Rating": {
+              "imdb rating": 1
+            },
+            "Content Rating": {
+              "content rating": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 125,
+        "query": "Show the average budget of movies per genre",
+        "output": {
+          "query_raw": "Show the average budget of movies per genre",
+          "query": "show the average budget of movie per genre",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Production Budget",
+              "Genre"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Production Budget",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "Genre",
+                  "type": "nominal"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Genre": {
+              "name": "Genre",
+              "queryPhrase": [
+                "genre"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Production Budget": {
+              "name": "Production Budget",
+              "queryPhrase": [
+                "budget"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Genre": {
+              "genre": 1
+            },
+            "Production Budget": {
+              "budget": 0.9
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 126,
+        "query": "Can you show it over the years?",
+        "output": {
+          "query_raw": "Can you show it over the years?",
+          "query": "can you show it over the year ?",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Production Budget",
+                "Genre",
+                "Release Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Production Budget",
+                    "type": "quantitative",
+                    "aggregate": "mean",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Genre",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Release Year",
+                    "type": "temporal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Production Budget",
+                "Genre",
+                "Release Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Production Budget",
+                    "type": "quantitative",
+                    "aggregate": "mean",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Genre",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Release Year",
+                    "type": "temporal"
+                  },
+                  "color": {
+                    "field": "Genre",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Production Budget",
+                "Genre",
+                "Release Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Production Budget",
+                    "type": "quantitative",
+                    "aggregate": "mean",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "x": {
+                    "field": "Genre",
+                    "type": "nominal"
+                  },
+                  "column": {
+                    "field": "Release Year",
+                    "type": "temporal"
+                  },
+                  "color": {
+                    "field": "Genre",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Release Year": {
+              "name": "Release Year",
+              "queryPhrase": [
+                "year"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Genre": {
+              "name": "Genre",
+              "queryPhrase": [
+                "genre"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Production Budget": {
+              "name": "Production Budget",
+              "queryPhrase": [
+                "budget"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Release Year": {
+              "year": 0.9
+            },
+            "Genre": {
+              "genre": 1
+            },
+            "Production Budget": {
+              "budget": 0.9
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 127,
+        "query": "I want to see creative type instead of genre.",
+        "output": {
+          "query_raw": "I want to see creative type instead of genre.",
+          "query": "i want to see creative type instead of genre .",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Production Budget",
+                "Creative Type",
+                "Release Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Production Budget",
+                    "type": "quantitative",
+                    "aggregate": "mean",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Creative Type",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Release Year",
+                    "type": "temporal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Production Budget",
+                "Creative Type",
+                "Release Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Production Budget",
+                    "type": "quantitative",
+                    "aggregate": "mean",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Creative Type",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Release Year",
+                    "type": "temporal"
+                  },
+                  "color": {
+                    "field": "Creative Type",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Production Budget",
+                "Creative Type",
+                "Release Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Production Budget",
+                    "type": "quantitative",
+                    "aggregate": "mean",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "x": {
+                    "field": "Creative Type",
+                    "type": "nominal"
+                  },
+                  "column": {
+                    "field": "Release Year",
+                    "type": "temporal"
+                  },
+                  "color": {
+                    "field": "Creative Type",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Release Year": {
+              "name": "Release Year",
+              "queryPhrase": [
+                "year"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Production Budget": {
+              "name": "Production Budget",
+              "queryPhrase": [
+                "budget"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Creative Type": {
+              "name": "Creative Type",
+              "queryPhrase": [
+                "creative type"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Release Year": {
+              "year": 0.9
+            },
+            "Production Budget": {
+              "budget": 0.9
+            },
+            "Creative Type": {
+              "creative type": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 128,
+        "query": "Give me a bar chart of average running time per genre",
+        "output": {
+          "query_raw": "Give me a bar chart of average running time per genre",
+          "query": "give me a bar chart of average running time per genre",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Running Time",
+              "Genre"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Running Time",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "Genre",
+                  "type": "nominal"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Running Time": {
+              "name": "Running Time",
+              "queryPhrase": [
+                "running time"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Genre": {
+              "name": "Genre",
+              "queryPhrase": [
+                "genre"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "attributes": [
+                "Running Time"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Running Time": {
+              "running time": 1
+            },
+            "Genre": {
+              "genre": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 129,
+        "query": "Show me the median instead of the average",
+        "output": {
+          "query_raw": "Show me the median instead of the average",
+          "query": "show me the median instead of the average",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Running Time",
+              "Genre"
+            ],
+            "queryPhrase": null,
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Running Time",
+                  "type": "quantitative",
+                  "aggregate": "median",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "Genre",
+                  "type": "nominal"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Running Time": {
+              "name": "Running Time",
+              "queryPhrase": [
+                "running time"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Genre": {
+              "name": "Genre",
+              "queryPhrase": [
+                "genre"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "median",
+              "operator": "MEDIAN",
+              "values": [],
+              "attributes": [
+                "Running Time"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Running Time": {
+              "running time": 1
+            },
+            "Genre": {
+              "genre": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 130,
+        "query": "Sort in descending order",
+        "output": {
+          "query_raw": "Sort in descending order",
+          "query": "sort in descending order",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Running Time",
+              "Genre"
+            ],
+            "queryPhrase": null,
+            "visType": "barchart",
+            "tasks": [
+              "derived_value",
+              "sort"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Running Time",
+                  "type": "quantitative",
+                  "aggregate": "median",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "Genre",
+                  "type": "nominal",
+                  "sort": "-y"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Running Time": {
+              "name": "Running Time",
+              "queryPhrase": [
+                "running time"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Genre": {
+              "name": "Genre",
+              "queryPhrase": [
+                "genre"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "median",
+              "operator": "MEDIAN",
+              "values": [],
+              "attributes": [
+                "Running Time"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }],
+            "sort": [{
+                "task": "sort",
+                "queryPhrase": "sort",
+                "operator": "MIN",
+                "values": [],
+                "attributes": [
+                  "Running Time"
+                ],
+                "inferenceType": "explicit",
+                "followup_type": "add"
+              },
+              {
+                "task": "sort",
+                "queryPhrase": "descending",
+                "operator": "MAX",
+                "values": [],
+                "attributes": [
+                  "Running Time"
+                ],
+                "inferenceType": "explicit",
+                "followup_type": "add"
+              }
+            ]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Running Time": {
+              "running time": 1
+            },
+            "Genre": {
+              "genre": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      }
+    ],
+    "cars-w-year": [{
+        "queryId": 131,
+        "query": "Show the number of cars from each origin",
+        "output": {
+          "query_raw": "Show the number of cars from each origin",
+          "query": "show the number of car from each origin",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Origin"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal"
+                },
+                "y": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Origin": {
+              "name": "Origin",
+              "queryPhrase": [
+                "origin"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Origin"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Origin": {
+              "origin": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 132,
+        "query": "Can you show how the number varies over the years?",
+        "output": {
+          "query_raw": "Can you show how the number varies over the years?",
+          "query": "can you show how the number vary over the year ?",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Origin",
+                "Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "trend"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Year",
+                    "type": "temporal"
+                  },
+                  "y": {
+                    "field": "Year",
+                    "type": "temporal",
+                    "aggregate": "count"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Origin",
+                "Year"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "trend"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "column": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Year",
+                    "type": "temporal"
+                  },
+                  "y": {
+                    "field": "Year",
+                    "type": "temporal",
+                    "aggregate": "count"
+                  },
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Year": {
+              "name": "Year",
+              "queryPhrase": [
+                "year"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Origin": {
+              "name": "Origin",
+              "queryPhrase": [
+                "origin"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Origin",
+                "Year"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Year": {
+              "year": 1
+            },
+            "Origin": {
+              "origin": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 133,
+        "query": "Remove the cars from Japan",
+        "output": {
+          "query_raw": "Remove the cars from Japan",
+          "query": "remove the car from japan",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Origin",
+                "Year"
+              ],
+              "queryPhrase": "REMOVE",
+              "visType": null,
+              "tasks": [
+                "trend",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Year",
+                    "type": "temporal"
+                  },
+                  "y": {
+                    "field": "Year",
+                    "type": "temporal",
+                    "aggregate": "count"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "Origin",
+                    "oneOf": [
+                      "Europe",
+                      "US"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Origin",
+                "Year"
+              ],
+              "queryPhrase": "REMOVE",
+              "visType": null,
+              "tasks": [
+                "trend",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "line",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "column": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Year",
+                    "type": "temporal"
+                  },
+                  "y": {
+                    "field": "Year",
+                    "type": "temporal",
+                    "aggregate": "count"
+                  },
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "Origin",
+                    "oneOf": [
+                      "Europe",
+                      "US"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Origin": {
+              "name": "Origin",
+              "queryPhrase": [
+                "japan"
+              ],
+              "inferenceType": "implicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Year": {
+              "name": "Year",
+              "queryPhrase": [
+                "year"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Origin",
+                "Year"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }],
+            "filter": [{
+              "task": "filter",
+              "queryPhrase": [
+                "japan"
+              ],
+              "operator": "IN",
+              "values": [
+                "Europe",
+                "US"
+              ],
+              "attributes": [
+                "Origin"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Origin": {
+              "japan": 0.5
+            },
+            "Year": {
+              "year": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 134,
+        "query": "Correlate displacement and mpg",
+        "output": {
+          "query_raw": "Correlate displacement and mpg",
+          "query": "correlate displacement and mpg",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "MPG",
+              "Displacement"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
+              },
+              "encoding": {
+                "x": {
+                  "field": "MPG",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "y": {
+                  "field": "Displacement",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "tooltip": {
+                  "field": "Model"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "MPG": {
+              "name": "MPG",
+              "queryPhrase": [
+                "mpg"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Displacement": {
+              "name": "Displacement",
+              "queryPhrase": [
+                "displacement"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": "correlate",
+              "operator": null,
+              "values": [],
+              "attributes": [
+                "MPG",
+                "Displacement"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "MPG": {
+              "mpg": 1
+            },
+            "Displacement": {
+              "displacement": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 135,
+        "query": "Group by origin",
+        "output": {
+          "query_raw": "Group by origin",
+          "query": "group by origin",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "MPG",
+                "Displacement",
+                "Origin"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "MPG",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Displacement",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "MPG",
+                "Displacement",
+                "Origin"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "MPG",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Displacement",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "MPG": {
+              "name": "MPG",
+              "queryPhrase": [
+                "mpg"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Displacement": {
+              "name": "Displacement",
+              "queryPhrase": [
+                "displacement"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Origin": {
+              "name": "Origin",
+              "queryPhrase": [
+                "origin"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "MPG",
+                "Displacement"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "MPG": {
+              "mpg": 1
+            },
+            "Displacement": {
+              "displacement": 1
+            },
+            "Origin": {
+              "origin": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 136,
+        "query": "Replace displacement with weight",
+        "output": {
+          "query_raw": "Replace displacement with weight",
+          "query": "replace displacement with weight",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "MPG",
+                "Weight",
+                "Origin"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "MPG",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Weight",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "MPG",
+                "Weight",
+                "Origin"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "MPG",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Weight",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Origin",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "MPG": {
+              "name": "MPG",
+              "queryPhrase": [
+                "mpg"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Origin": {
+              "name": "Origin",
+              "queryPhrase": [
+                "origin"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Weight": {
+              "name": "Weight",
+              "queryPhrase": [
+                "weight"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "MPG",
+                "Weight"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "MPG": {
+              "mpg": 1
+            },
+            "Origin": {
+              "origin": 1
+            },
+            "Weight": {
+              "weight": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 137,
+        "query": "Show the distribution of cars for each number of cylinders",
+        "output": {
+          "query_raw": "Show the distribution of cars for each number of cylinders",
+          "query": "show the distribution of car for each number of cylinder",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "bin": true,
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "aggregate": "count",
+                    "axis": {
+                      "format": "s"
+                    }
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "tick",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "boxplot",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Cylinders": {
+              "name": "Cylinders",
+              "queryPhrase": [
+                "cylinder"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Cylinders"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Cylinders": {
+              "cylinder": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 138,
+        "query": "I want to only see the cars that have a horspower of less than 70",
+        "output": {
+          "query_raw": "I want to only see the cars that have a horspower of less than 70",
+          "query": "i want to only see the car that have a horspower of less than 70",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "bin": true,
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "aggregate": "count",
+                    "axis": {
+                      "format": "s"
+                    }
+                  }
+                },
+                "transform": [{
+                  "filter": "lower(datum[\"Horsepower\"]) < 70.0"
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "tick",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [{
+                  "filter": "lower(datum[\"Horsepower\"]) < 70.0"
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "boxplot",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [{
+                  "filter": "lower(datum[\"Horsepower\"]) < 70.0"
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Horsepower": {
+              "name": "Horsepower",
+              "queryPhrase": [
+                "horspower"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Cylinders": {
+              "name": "Cylinders",
+              "queryPhrase": [
+                "cylinder"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Cylinders"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }],
+            "filter": [{
+              "task": "filter",
+              "queryPhrase": "less",
+              "operator": "LT",
+              "values": [
+                70
+              ],
+              "attributes": [
+                "Horsepower"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Horsepower": {
+              "horspower": 0.9
+            },
+            "Cylinders": {
+              "cylinder": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 139,
+        "query": "Remove the cars that have a displacement of more than 100",
+        "output": {
+          "query_raw": "Remove the cars that have a displacement of more than 100",
+          "query": "remove the car that have a displacement of more than 100",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": "REMOVE",
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "bin": true,
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "aggregate": "count",
+                    "axis": {
+                      "format": "s"
+                    }
+                  }
+                },
+                "transform": [{
+                    "filter": "lower(datum[\"Horsepower\"]) < 70.0"
+                  },
+                  {
+                    "filter": "lower(datum[\"Displacement\"]) < 100.0"
+                  }
+                ],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": "REMOVE",
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "tick",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [{
+                    "filter": "lower(datum[\"Horsepower\"]) < 70.0"
+                  },
+                  {
+                    "filter": "lower(datum[\"Displacement\"]) < 100.0"
+                  }
+                ],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Cylinders"
+              ],
+              "queryPhrase": "REMOVE",
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "boxplot",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Cylinders",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Model"
+                  }
+                },
+                "transform": [{
+                    "filter": "lower(datum[\"Horsepower\"]) < 70.0"
+                  },
+                  {
+                    "filter": "lower(datum[\"Displacement\"]) < 100.0"
+                  }
+                ],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Displacement": {
+              "name": "Displacement",
+              "queryPhrase": [
+                "displacement"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Horsepower": {
+              "name": "Horsepower",
+              "queryPhrase": [
+                "horspower"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Cylinders": {
+              "name": "Cylinders",
+              "queryPhrase": [
+                "cylinder"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Cylinders"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }],
+            "filter": [{
+                "task": "filter",
+                "queryPhrase": "less",
+                "operator": "LT",
+                "values": [
+                  70
+                ],
+                "attributes": [
+                  "Horsepower"
+                ],
+                "inferenceType": "explicit",
+                "followup_type": "nothing"
+              },
+              {
+                "task": "filter",
+                "queryPhrase": "more",
+                "operator": "LT",
+                "values": [
+                  100
+                ],
+                "attributes": [
+                  "Displacement"
+                ],
+                "inferenceType": "explicit",
+                "followup_type": "nothing"
+              }
+            ]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Displacement": {
+              "displacement": 1
+            },
+            "Horsepower": {
+              "horspower": 0.9
+            },
+            "Cylinders": {
+              "cylinder": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      }
+    ],
+    "euro": [{
+        "queryId": 140,
+        "query": "Show me the total number of players for each foot",
+        "output": {
+          "query_raw": "Show me the total number of players for each foot",
+          "query": "show me the total number of player for each foot",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Foot"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "x": {
+                  "field": "Foot",
+                  "type": "nominal"
+                },
+                "y": {
+                  "field": "Foot",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Foot": {
+              "name": "Foot",
+              "queryPhrase": [
+                "foot"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Foot"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Foot": {
+              "foot": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 141,
+        "query": "Please visualize this for each country now",
+        "output": {
+          "query_raw": "Please visualize this for each country now",
+          "query": "please visualize thi for each country now",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Country",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Country",
+                    "type": "nominal"
+                  },
+                  "y": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "size": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "aggregate": "count"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Country",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Country",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "y": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "aggregate": "count"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Country": {
+              "name": "Country",
+              "queryPhrase": [
+                "country"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Foot": {
+              "name": "Foot",
+              "queryPhrase": [
+                "foot"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Country",
+                "Foot"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Country": {
+              "country": 1
+            },
+            "Foot": {
+              "foot": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 142,
+        "query": "I want to only see the goalkeepers now",
+        "output": {
+          "query_raw": "I want to only see the goalkeepers now",
+          "query": "i want to only see the goalkeeper now",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Country",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Country",
+                    "type": "nominal"
+                  },
+                  "y": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "size": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "aggregate": "count"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "Position",
+                    "oneOf": [
+                      "Goalkeeper"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Country",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Country",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "y": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "aggregate": "count"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "Position",
+                    "oneOf": [
+                      "Goalkeeper"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Position": {
+              "name": "Position",
+              "queryPhrase": [
+                "goalkeeper"
+              ],
+              "inferenceType": "implicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Country": {
+              "name": "Country",
+              "queryPhrase": [
+                "country"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Foot": {
+              "name": "Foot",
+              "queryPhrase": [
+                "foot"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Country",
+                "Foot"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }],
+            "filter": [{
+              "task": "filter",
+              "queryPhrase": [
+                "goalkeeper"
+              ],
+              "operator": "IN",
+              "values": [
+                "Goalkeeper"
+              ],
+              "attributes": [
+                "Position"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Position": {
+              "goalkeeper": 0.5
+            },
+            "Country": {
+              "country": 1
+            },
+            "Foot": {
+              "foot": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 143,
+        "query": "Visualize a distribution plot of goals",
+        "output": {
+          "query_raw": "Visualize a distribution plot of goals",
+          "query": "visualize a distribution plot of goal",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Goals"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "bin": true,
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "aggregate": "count",
+                    "axis": {
+                      "format": "s"
+                    }
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Goals"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "tick",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Goals"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "distribution"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "boxplot",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Goals": {
+              "name": "Goals",
+              "queryPhrase": [
+                "goal"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Goals"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Goals": {
+              "goal": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 144,
+        "query": "As a boxplot now",
+        "output": {
+          "query_raw": "As a boxplot now",
+          "query": "a a boxplot now",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Goals"
+            ],
+            "queryPhrase": "boxplot",
+            "visType": "boxplot",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "boxplot",
+                "tooltip": true
+              },
+              "encoding": {
+                "x": {
+                  "field": "Goals",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "tooltip": {
+                  "field": "Name"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Goals": {
+              "name": "Goals",
+              "queryPhrase": [
+                "goal"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Goals"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Goals": {
+              "goal": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 145,
+        "query": "I want to see salary instead of goals now",
+        "output": {
+          "query_raw": "I want to see salary instead of goals now",
+          "query": "i want to see salary instead of goal now",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Salary"
+            ],
+            "queryPhrase": null,
+            "visType": "boxplot",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "boxplot",
+                "tooltip": true
+              },
+              "encoding": {
+                "x": {
+                  "field": "Salary",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "tooltip": {
+                  "field": "Name"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Salary": {
+              "name": "Salary",
+              "queryPhrase": [
+                "salary"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Salary"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Salary": {
+              "salary": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 146,
+        "query": "Correlate goals and salary",
+        "output": {
+          "query_raw": "Correlate goals and salary",
+          "query": "correlate goal and salary",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Salary",
+              "Goals"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
+              },
+              "encoding": {
+                "x": {
+                  "field": "Salary",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "y": {
+                  "field": "Goals",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "tooltip": {
+                  "field": "Name"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Salary": {
+              "name": "Salary",
+              "queryPhrase": [
+                "salary"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Goals": {
+              "name": "Goals",
+              "queryPhrase": [
+                "goal"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": "correlate",
+              "operator": null,
+              "values": [],
+              "attributes": [
+                "Salary",
+                "Goals"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Salary": {
+              "salary": 1
+            },
+            "Goals": {
+              "goal": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 147,
+        "query": "Group by foot",
+        "output": {
+          "query_raw": "Group by foot",
+          "query": "group by foot",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Salary",
+                "Goals",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Salary",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Salary",
+                "Goals",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Salary",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Salary": {
+              "name": "Salary",
+              "queryPhrase": [
+                "salary"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Goals": {
+              "name": "Goals",
+              "queryPhrase": [
+                "goal"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Foot": {
+              "name": "Foot",
+              "queryPhrase": [
+                "foot"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Salary",
+                "Goals"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Salary": {
+              "salary": 1
+            },
+            "Goals": {
+              "goal": 1
+            },
+            "Foot": {
+              "foot": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 148,
+        "query": "Show only left footed players",
+        "output": {
+          "query_raw": "Show only left footed players",
+          "query": "show only left footed player",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Salary",
+                "Goals",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Salary",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "Foot",
+                    "oneOf": [
+                      "Left"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Salary",
+                "Goals",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Salary",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "Foot",
+                    "oneOf": [
+                      "Left"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Foot": {
+              "name": "Foot",
+              "queryPhrase": [
+                "left"
+              ],
+              "inferenceType": "implicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Salary": {
+              "name": "Salary",
+              "queryPhrase": [
+                "salary"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Goals": {
+              "name": "Goals",
+              "queryPhrase": [
+                "goal"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Salary",
+                "Goals"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }],
+            "filter": [{
+              "task": "filter",
+              "queryPhrase": [
+                "left"
+              ],
+              "operator": "IN",
+              "values": [
+                "Left"
+              ],
+              "attributes": [
+                "Foot"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Foot": {
+              "left": 0.5
+            },
+            "Salary": {
+              "salary": 1
+            },
+            "Goals": {
+              "goal": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 149,
+        "query": "Also show only the forwards",
+        "output": {
+          "query_raw": "Also show only the forwards",
+          "query": "also show only the forward",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Salary",
+                "Goals",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Salary",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [{
+                    "filter": {
+                      "field": "Foot",
+                      "oneOf": [
+                        "Left"
+                      ]
+                    }
+                  },
+                  {
+                    "filter": {
+                      "field": "Position",
+                      "oneOf": [
+                        "Forward"
+                      ]
+                    }
+                  }
+                ],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Salary",
+                "Goals",
+                "Foot"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Salary",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Foot",
+                    "type": "nominal"
+                  },
+                  "tooltip": {
+                    "field": "Name"
+                  }
+                },
+                "transform": [{
+                    "filter": {
+                      "field": "Foot",
+                      "oneOf": [
+                        "Left"
+                      ]
+                    }
+                  },
+                  {
+                    "filter": {
+                      "field": "Position",
+                      "oneOf": [
+                        "Forward"
+                      ]
+                    }
+                  }
+                ],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Position": {
+              "name": "Position",
+              "queryPhrase": [
+                "forward"
+              ],
+              "inferenceType": "implicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Foot": {
+              "name": "Foot",
+              "queryPhrase": [
+                "left"
+              ],
+              "inferenceType": "implicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Salary": {
+              "name": "Salary",
+              "queryPhrase": [
+                "salary"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Goals": {
+              "name": "Goals",
+              "queryPhrase": [
+                "goal"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Salary",
+                "Goals"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }],
+            "filter": [{
+                "task": "filter",
+                "queryPhrase": [
+                  "left"
+                ],
+                "operator": "IN",
+                "values": [
+                  "Left"
+                ],
+                "attributes": [
+                  "Foot"
+                ],
+                "inferenceType": "explicit",
+                "followup_type": "nothing"
+              },
+              {
+                "task": "filter",
+                "queryPhrase": [
+                  "forward"
+                ],
+                "operator": "IN",
+                "values": [
+                  "Forward"
+                ],
+                "attributes": [
+                  "Position"
+                ],
+                "inferenceType": "explicit",
+                "followup_type": "nothing"
+              }
+            ]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Position": {
+              "forward": 0.5
+            },
+            "Foot": {
+              "left": 0.5
+            },
+            "Salary": {
+              "salary": 1
+            },
+            "Goals": {
+              "goal": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "3"
+        }
+      }
+    ],
+    "superstore": [{
+        "queryId": 150,
+        "query": "Show the average profit for each state",
+        "output": {
+          "query_raw": "Show the average profit for each state",
+          "query": "show the average profit for each state",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Profit",
+              "State"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "State",
+                  "type": "nominal"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Profit": {
+              "name": "Profit",
+              "queryPhrase": [
+                "profit"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "State": {
+              "name": "State",
+              "queryPhrase": [
+                "state"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Profit": {
+              "profit": 1
+            },
+            "State": {
+              "state": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 151,
+        "query": "Display the total instead of the average",
+        "output": {
+          "query_raw": "Display the total instead of the average",
+          "query": "display the total instead of the average",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Profit",
+              "State"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "sum",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "State",
+                  "type": "nominal"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Profit": {
+              "name": "Profit",
+              "queryPhrase": [
+                "profit"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "State": {
+              "name": "State",
+              "queryPhrase": [
+                "state"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Profit": {
+              "profit": 1
+            },
+            "State": {
+              "state": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 152,
+        "query": "Show the visualization with each category as well",
+        "output": {
+          "query_raw": "Show the visualization with each category as well",
+          "query": "show the visualization with each category a well",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Profit",
+                "Category",
+                "State"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Profit",
+                    "type": "quantitative",
+                    "aggregate": "sum",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "x": {
+                    "field": "Category",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "State",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Profit",
+                "Category",
+                "State"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Profit",
+                    "type": "quantitative",
+                    "aggregate": "sum",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Category",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "State",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Category",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Profit",
+                "Category",
+                "State"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "size": {
+                    "field": "Profit",
+                    "type": "quantitative",
+                    "aggregate": "sum"
+                  },
+                  "x": {
+                    "field": "Category",
+                    "type": "nominal"
+                  },
+                  "y": {
+                    "field": "State",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Category": {
+              "name": "Category",
+              "queryPhrase": [
+                "category"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Profit": {
+              "name": "Profit",
+              "queryPhrase": [
+                "profit"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "State": {
+              "name": "State",
+              "queryPhrase": [
+                "state"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Category": {
+              "category": 1
+            },
+            "Profit": {
+              "profit": 1
+            },
+            "State": {
+              "state": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 153,
+        "query": "Correlate sales and profit",
+        "output": {
+          "query_raw": "Correlate sales and profit",
+          "query": "correlate sale and profit",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Profit",
+              "Sales"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
+              },
+              "encoding": {
+                "x": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "y": {
+                  "field": "Sales",
+                  "type": "quantitative",
+                  "axis": {
+                    "format": "s"
+                  }
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Profit": {
+              "name": "Profit",
+              "queryPhrase": [
+                "profit"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Sales": {
+              "name": "Sales",
+              "queryPhrase": [
+                "sale"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": "correlate",
+              "operator": null,
+              "values": [],
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Profit": {
+              "profit": 1
+            },
+            "Sales": {
+              "sale": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 154,
+        "query": "Group by region",
+        "output": {
+          "query_raw": "Group by region",
+          "query": "group by region",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Profit",
+                "Sales",
+                "Region"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Profit",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Sales",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Region",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Profit",
+                "Sales",
+                "Region"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Profit",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Sales",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Region",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Region",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Profit": {
+              "name": "Profit",
+              "queryPhrase": [
+                "profit"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Sales": {
+              "name": "Sales",
+              "queryPhrase": [
+                "sale"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Region": {
+              "name": "Region",
+              "queryPhrase": [
+                "region"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Profit": {
+              "profit": 1
+            },
+            "Sales": {
+              "sale": 1
+            },
+            "Region": {
+              "region": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 155,
+        "query": "Show category instead of region",
+        "output": {
+          "query_raw": "Show category instead of region",
+          "query": "show category instead of region",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Profit",
+                "Sales",
+                "Category"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Profit",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Sales",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "color": {
+                    "field": "Category",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Profit",
+                "Sales",
+                "Category"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "correlation"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "x": {
+                    "field": "Profit",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "y": {
+                    "field": "Sales",
+                    "type": "quantitative",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Category",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Category",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "Profit": {
+              "name": "Profit",
+              "queryPhrase": [
+                "profit"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Sales": {
+              "name": "Sales",
+              "queryPhrase": [
+                "sale"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Category": {
+              "name": "Category",
+              "queryPhrase": [
+                "category"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "followup_type": null
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Profit": {
+              "profit": 1
+            },
+            "Sales": {
+              "sale": 1
+            },
+            "Category": {
+              "category": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      },
+      {
+        "queryId": 156,
+        "query": "Display the total amount of items for each category",
+        "output": {
+          "query_raw": "Display the total amount of items for each category",
+          "query": "display the total amount of item for each category",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Quantity",
+              "Category"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Quantity",
+                  "type": "quantitative",
+                  "aggregate": "sum",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "Category",
+                  "type": "nominal"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "Category": {
+              "name": "Category",
+              "queryPhrase": [
+                "category"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Quantity": {
+              "name": "Quantity",
+              "queryPhrase": [
+                "amount"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "attributes": [
+                "Quantity"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "Category": {
+              "category": 1
+            },
+            "Quantity": {
+              "amount": 0.5
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "0"
+        }
+      },
+      {
+        "queryId": 157,
+        "query": "Only show the items from California",
+        "output": {
+          "query_raw": "Only show the items from California",
+          "query": "only show the item from california",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+            "attributes": [
+              "Quantity",
+              "Category"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value",
+              "filter"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
+              },
+              "encoding": {
+                "y": {
+                  "field": "Quantity",
+                  "type": "quantitative",
+                  "aggregate": "sum",
+                  "axis": {
+                    "format": "s"
+                  }
+                },
+                "x": {
+                  "field": "Category",
+                  "type": "nominal"
+                }
+              },
+              "transform": [{
+                "filter": {
+                  "field": "State",
+                  "oneOf": [
+                    "California"
+                  ]
+                }
+              }],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
+                }
+              }
+            }
+          }],
+          "attributeMap": {
+            "State": {
+              "name": "State",
+              "queryPhrase": [
+                "california"
+              ],
+              "inferenceType": "implicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Category": {
+              "name": "Category",
+              "queryPhrase": [
+                "category"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Quantity": {
+              "name": "Quantity",
+              "queryPhrase": [
+                "amount"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "attributes": [
+                "Quantity"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }],
+            "filter": [{
+              "task": "filter",
+              "queryPhrase": [
+                "california"
+              ],
+              "operator": "IN",
+              "values": [
+                "California"
+              ],
+              "attributes": [
+                "State"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "State": {
+              "california": 0.5
+            },
+            "Category": {
+              "category": 1
+            },
+            "Quantity": {
+              "amount": 0.5
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "1"
+        }
+      },
+      {
+        "queryId": 158,
+        "query": "Add segment to the visualization now",
+        "output": {
+          "query_raw": "Add segment to the visualization now",
+          "query": "add segment to the visualization now",
+          "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+          "alias": null,
+          "visList": [{
+              "attributes": [
+                "Quantity",
+                "Category",
+                "Segment"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Quantity",
+                    "type": "quantitative",
+                    "aggregate": "sum",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "x": {
+                    "field": "Category",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Segment",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "State",
+                    "oneOf": [
+                      "California"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Quantity",
+                "Category",
+                "Segment"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "bar",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "y": {
+                    "field": "Quantity",
+                    "type": "quantitative",
+                    "aggregate": "sum",
+                    "axis": {
+                      "format": "s"
+                    }
+                  },
+                  "column": {
+                    "field": "Category",
+                    "type": "nominal"
+                  },
+                  "x": {
+                    "field": "Segment",
+                    "type": "nominal"
+                  },
+                  "color": {
+                    "field": "Category",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "State",
+                    "oneOf": [
+                      "California"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                "Quantity",
+                "Category",
+                "Segment"
+              ],
+              "queryPhrase": null,
+              "visType": null,
+              "tasks": [
+                "derived_value",
+                "filter"
+              ],
+              "inferenceType": "implicit",
+              "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                  "type": "point",
+                  "tooltip": true
+                },
+                "encoding": {
+                  "size": {
+                    "field": "Quantity",
+                    "type": "quantitative",
+                    "aggregate": "sum"
+                  },
+                  "x": {
+                    "field": "Category",
+                    "type": "nominal"
+                  },
+                  "y": {
+                    "field": "Segment",
+                    "type": "nominal"
+                  }
+                },
+                "transform": [{
+                  "filter": {
+                    "field": "State",
+                    "oneOf": [
+                      "California"
+                    ]
+                  }
+                }],
+                "data": {
+                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                }
+              }
+            }
+          ],
+          "attributeMap": {
+            "State": {
+              "name": "State",
+              "queryPhrase": [
+                "california"
+              ],
+              "inferenceType": "implicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Category": {
+              "name": "Category",
+              "queryPhrase": [
+                "category"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Quantity": {
+              "name": "Quantity",
+              "queryPhrase": [
+                "amount"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            },
+            "Segment": {
+              "name": "Segment",
+              "queryPhrase": [
+                "segment"
+              ],
+              "inferenceType": "explicit",
+              "isAmbiguous": false,
+              "ambiguity": []
+            }
+          },
+          "taskMap": {
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "attributes": [
+                "Quantity"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }],
+            "filter": [{
+              "task": "filter",
+              "queryPhrase": [
+                "california"
+              ],
+              "operator": "IN",
+              "values": [
+                "California"
+              ],
+              "attributes": [
+                "State"
+              ],
+              "inferenceType": "explicit",
+              "followup_type": "nothing"
+            }]
+          },
+          "followUpQuery": true,
+          "contextObj": null,
+          "attributeMapping": {
+            "State": {
+              "california": 0.5
+            },
+            "Category": {
+              "category": 1
+            },
+            "Quantity": {
+              "amount": 0.5
+            },
+            "Segment": {
+              "segment": 1
+            }
+          },
+          "followUpConfidence": null,
+          "ambiguity": {
+            "attribute": {},
+            "value": {}
+          },
+          "dialogId": "0",
+          "queryId": "2"
+        }
+      }
+    ]
+  },
+  "fullyspecified-attributes-tasks-vis": [{
       "queryId": 1,
       "query": "show me a scatter plot of budget and gross for romantic comedy movies released between 1990 and 2000",
       "output": {
@@ -19,84 +5643,81 @@ queryMap = {
         "query": "show me a scatter plot of budget and gross for romantic comedy movies released between 1990 and 2000",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 7.3,
-            "scoreObj": {
-              "by_attributes": 1.8,
-              "by_task": 2.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 7.3,
+          "scoreObj": {
+            "by_attributes": 1.8,
+            "by_task": 2.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Worldwide Gross": 1,
+            "Production Budget": 1
+          },
+          "attributes": [
+            "Worldwide Gross",
+            "Production Budget"
+          ],
+          "queryPhrase": "scatter plot",
+          "visType": "scatterplot",
+          "tasks": [
+            "filter",
+            "correlation"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "point",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Worldwide Gross": 1,
-              "Production Budget": 1
-            },
-            "attributes": [
-              "Worldwide Gross",
-              "Production Budget"
-            ],
-            "queryPhrase": "scatter plot",
-            "visType": "scatterplot",
-            "tasks": [
-              "filter",
-              "correlation"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "point",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Worldwide Gross",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "Production Budget",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Title"
+            "encoding": {
+              "x": {
+                "field": "Worldwide Gross",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Release Year",
-                    "range": [
-                      "1990/01/01",
-                      "2000/01/01"
-                    ]
-                  }
-                },
-                {
-                  "filter": {
-                    "field": "Genre",
-                    "oneOf": [
-                      "Romantic Comedy"
-                    ]
-                  }
+              "y": {
+                "field": "Production Budget",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
+              },
+              "tooltip": {
+                "field": "Title"
+              }
+            },
+            "transform": [{
+                "filter": {
+                  "field": "Release Year",
+                  "range": [
+                    "1990/01/01",
+                    "2000/01/01"
+                  ]
                 }
+              },
+              {
+                "filter": {
+                  "field": "Genre",
+                  "oneOf": [
+                    "Romantic Comedy"
+                  ]
+                }
+              }
+            ],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Worldwide Gross": {
             "name": "Worldwide Gross",
@@ -192,8 +5813,7 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
+          "filter": [{
               "task": "filter",
               "queryPhrase": "between",
               "operator": "RANGE",
@@ -233,25 +5853,23 @@ queryMap = {
               }
             }
           ],
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Worldwide Gross",
-                "Production Budget"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Worldwide Gross",
+              "Production Budget"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -276,78 +5894,75 @@ queryMap = {
         "query": "show me the budget and gross for adventure movies released since 2000/1/1 as a scatterplot",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 7.3,
-            "scoreObj": {
-              "by_attributes": 1.8,
-              "by_task": 2.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 7.3,
+          "scoreObj": {
+            "by_attributes": 1.8,
+            "by_task": 2.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Worldwide Gross": 1,
+            "Production Budget": 1
+          },
+          "attributes": [
+            "Worldwide Gross",
+            "Production Budget"
+          ],
+          "queryPhrase": "scatterplot",
+          "visType": "scatterplot",
+          "tasks": [
+            "filter",
+            "correlation"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "point",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Worldwide Gross": 1,
-              "Production Budget": 1
-            },
-            "attributes": [
-              "Worldwide Gross",
-              "Production Budget"
-            ],
-            "queryPhrase": "scatterplot",
-            "visType": "scatterplot",
-            "tasks": [
-              "filter",
-              "correlation"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "point",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Worldwide Gross",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "Production Budget",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Title"
+            "encoding": {
+              "x": {
+                "field": "Worldwide Gross",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [
-                {
-                  "filter": "lower(datum[\"Release Year\"]) > \"2000/01/01\""
-                },
-                {
-                  "filter": {
-                    "field": "Genre",
-                    "oneOf": [
-                      "Adventure"
-                    ]
-                  }
+              "y": {
+                "field": "Production Budget",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
+              },
+              "tooltip": {
+                "field": "Title"
+              }
+            },
+            "transform": [{
+                "filter": "lower(datum[\"Release Year\"]) > \"2000/01/01\""
+              },
+              {
+                "filter": {
+                  "field": "Genre",
+                  "oneOf": [
+                    "Adventure"
+                  ]
                 }
+              }
+            ],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Worldwide Gross": {
             "name": "Worldwide Gross",
@@ -443,8 +6058,7 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
+          "filter": [{
               "task": "filter",
               "queryPhrase": "since",
               "operator": "GT",
@@ -483,25 +6097,23 @@ queryMap = {
               }
             }
           ],
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Worldwide Gross",
-                "Production Budget"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Worldwide Gross",
+              "Production Budget"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -526,66 +6138,62 @@ queryMap = {
         "query": "what was the total gross of the harry potter franchise as a barchart ?",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 4.9,
-            "scoreObj": {
-              "by_attributes": 0.9,
-              "by_task": 2,
-              "by_vis": 1
+        "visList": [{
+          "score": 4.9,
+          "scoreObj": {
+            "by_attributes": 0.9,
+            "by_task": 2,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Worldwide Gross": 1
+          },
+          "attributes": [
+            "Worldwide Gross"
+          ],
+          "queryPhrase": "barchart",
+          "visType": "barchart",
+          "tasks": [
+            "derived_value",
+            "filter"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Worldwide Gross": 1
+            "encoding": {
+              "x": {
+                "field": "Worldwide Gross",
+                "type": "quantitative",
+                "aggregate": "sum",
+                "axis": {
+                  "format": "s"
+                }
+              }
             },
-            "attributes": [
-              "Worldwide Gross"
-            ],
-            "queryPhrase": "barchart",
-            "visType": "barchart",
-            "tasks": [
-              "derived_value",
-              "filter"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Worldwide Gross",
-                  "type": "quantitative",
-                  "aggregate": "sum",
-                  "axis": {
-                    "format": "s"
-                  }
-                }
-              },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Title",
-                    "oneOf": [
-                      "Harry Potter and the Order of the Phoenix",
-                      "Harry Potter and the Half-Blood Prince",
-                      "Harry Potter and the Prisoner of Azkaban",
-                      "Harry Potter and the Goblet of Fire",
-                      "Harry Potter and the Chamber of Secrets"
-                    ]
-                  }
-                }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+            "transform": [{
+              "filter": {
+                "field": "Title",
+                "oneOf": [
+                  "Harry Potter and the Order of the Phoenix",
+                  "Harry Potter and the Half-Blood Prince",
+                  "Harry Potter and the Prisoner of Azkaban",
+                  "Harry Potter and the Goblet of Fire",
+                  "Harry Potter and the Chamber of Secrets"
+                ]
+              }
+            }],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Worldwide Gross": {
             "name": "Worldwide Gross",
@@ -641,50 +6249,46 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": "total",
-              "operator": "SUM",
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Worldwide Gross"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": "total",
+            "operator": "SUM",
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Worldwide Gross"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "filter": [
-            {
-              "task": "filter",
-              "queryPhrase": [
-                "harry potter"
-              ],
-              "operator": "IN",
-              "values": [
-                "Harry Potter and the Order of the Phoenix",
-                "Harry Potter and the Half-Blood Prince",
-                "Harry Potter and the Prisoner of Azkaban",
-                "Harry Potter and the Goblet of Fire",
-                "Harry Potter and the Chamber of Secrets"
-              ],
-              "matchScore": 1,
-              "attributes": [
-                "Title"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": true,
-              "meta": {
-                "value_ambiguity_type": "domain_value"
-              }
+          }],
+          "filter": [{
+            "task": "filter",
+            "queryPhrase": [
+              "harry potter"
+            ],
+            "operator": "IN",
+            "values": [
+              "Harry Potter and the Order of the Phoenix",
+              "Harry Potter and the Half-Blood Prince",
+              "Harry Potter and the Prisoner of Azkaban",
+              "Harry Potter and the Goblet of Fire",
+              "Harry Potter and the Chamber of Secrets"
+            ],
+            "matchScore": 1,
+            "attributes": [
+              "Title"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": true,
+            "meta": {
+              "value_ambiguity_type": "domain_value"
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -709,55 +6313,53 @@ queryMap = {
         "query": "show me distribution of gross as a strip plot",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 3.9,
-            "scoreObj": {
-              "by_attributes": 0.9,
-              "by_task": 1,
-              "by_vis": 1
+        "visList": [{
+          "score": 3.9,
+          "scoreObj": {
+            "by_attributes": 0.9,
+            "by_task": 1,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Worldwide Gross": 1
+          },
+          "attributes": [
+            "Worldwide Gross"
+          ],
+          "queryPhrase": "strip plot",
+          "visType": "stripplot",
+          "tasks": [
+            "distribution"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "tick",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Worldwide Gross": 1
-            },
-            "attributes": [
-              "Worldwide Gross"
-            ],
-            "queryPhrase": "strip plot",
-            "visType": "stripplot",
-            "tasks": [
-              "distribution"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "tick",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Worldwide Gross",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Title"
+            "encoding": {
+              "x": {
+                "field": "Worldwide Gross",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "tooltip": {
+                "field": "Title"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Worldwide Gross": {
             "name": "Worldwide Gross",
@@ -783,24 +6385,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": "distribution",
-              "operator": null,
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Worldwide Gross"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": "distribution",
+            "operator": null,
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Worldwide Gross"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -825,61 +6425,59 @@ queryMap = {
         "query": "visualize the distribution of budget as a histogram",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 3.9,
-            "scoreObj": {
-              "by_attributes": 0.9,
-              "by_task": 1,
-              "by_vis": 1
+        "visList": [{
+          "score": 3.9,
+          "scoreObj": {
+            "by_attributes": 0.9,
+            "by_task": 1,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Production Budget": 1
+          },
+          "attributes": [
+            "Production Budget"
+          ],
+          "queryPhrase": "histogram",
+          "visType": "histogram",
+          "tasks": [
+            "distribution"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Production Budget": 1
-            },
-            "attributes": [
-              "Production Budget"
-            ],
-            "queryPhrase": "histogram",
-            "visType": "histogram",
-            "tasks": [
-              "distribution"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Production Budget",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "bin": true,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "Production Budget",
-                  "type": "quantitative",
-                  "aggregate": "count",
-                  "axis": {
-                    "format": "s"
-                  }
+            "encoding": {
+              "x": {
+                "field": "Production Budget",
+                "type": "quantitative",
+                "aggregate": null,
+                "bin": true,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
+              "y": {
+                "field": "Production Budget",
+                "type": "quantitative",
+                "aggregate": "count",
+                "axis": {
+                  "format": "s"
                 }
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Production Budget": {
             "name": "Production Budget",
@@ -905,24 +6503,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": "distribution",
-              "operator": null,
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Production Budget"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": "distribution",
+            "operator": null,
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Production Budget"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -947,56 +6543,54 @@ queryMap = {
         "query": "total budget across genres as a piechart",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 5.9,
-            "scoreObj": {
-              "by_attributes": 1.9,
-              "by_task": 1,
-              "by_vis": 1
+        "visList": [{
+          "score": 5.9,
+          "scoreObj": {
+            "by_attributes": 1.9,
+            "by_task": 1,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Production Budget": 1,
+            "Genre": 1
+          },
+          "attributes": [
+            "Production Budget",
+            "Genre"
+          ],
+          "queryPhrase": "piechart",
+          "visType": "piechart",
+          "tasks": [
+            "derived_value"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "arc",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Production Budget": 1,
-              "Genre": 1
+            "encoding": {
+              "theta": {
+                "field": "Production Budget",
+                "type": "quantitative",
+                "aggregate": "sum"
+              },
+              "color": {
+                "field": "Genre",
+                "type": "nominal",
+                "aggregate": null
+              }
             },
-            "attributes": [
-              "Production Budget",
-              "Genre"
-            ],
-            "queryPhrase": "piechart",
-            "visType": "piechart",
-            "tasks": [
-              "derived_value"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "arc",
-                "tooltip": true
-              },
-              "encoding": {
-                "theta": {
-                  "field": "Production Budget",
-                  "type": "quantitative",
-                  "aggregate": "sum"
-                },
-                "color": {
-                  "field": "Genre",
-                  "type": "nominal",
-                  "aggregate": null
-                }
-              },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Genre": {
             "name": "Genre",
@@ -1044,8 +6638,7 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
+          "derived_value": [{
               "task": "derived_value",
               "queryPhrase": "total",
               "operator": "SUM",
@@ -1102,66 +6695,62 @@ queryMap = {
         "query": "show me an area chart of how comedy movies evolved over the years",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 3.9,
-            "scoreObj": {
-              "by_attributes": 0.9,
-              "by_task": 1,
-              "by_vis": 1
+        "visList": [{
+          "score": 3.9,
+          "scoreObj": {
+            "by_attributes": 0.9,
+            "by_task": 1,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Release Year": 1
+          },
+          "attributes": [
+            "Release Year"
+          ],
+          "queryPhrase": "area chart",
+          "visType": "areachart",
+          "tasks": [
+            "filter",
+            "trend"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "area",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Release Year": 1
+            "encoding": {
+              "x": {
+                "field": "Release Year",
+                "type": "temporal",
+                "aggregate": null
+              },
+              "y": {
+                "field": "Release Year",
+                "type": "temporal",
+                "aggregate": "count"
+              }
             },
-            "attributes": [
-              "Release Year"
-            ],
-            "queryPhrase": "area chart",
-            "visType": "areachart",
-            "tasks": [
-              "filter",
-              "trend"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "area",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Release Year",
-                  "type": "temporal",
-                  "aggregate": null
-                },
-                "y": {
-                  "field": "Release Year",
-                  "type": "temporal",
-                  "aggregate": "count"
-                }
-              },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Genre",
-                    "oneOf": [
-                      "Black Comedy",
-                      "Romantic Comedy",
-                      "Comedy"
-                    ]
-                  }
-                }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+            "transform": [{
+              "filter": {
+                "field": "Genre",
+                "oneOf": [
+                  "Black Comedy",
+                  "Romantic Comedy",
+                  "Comedy"
+                ]
+              }
+            }],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Release Year": {
             "name": "Release Year",
@@ -1215,48 +6804,44 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
-              "task": "filter",
-              "queryPhrase": [
-                "comedy"
-              ],
-              "operator": "IN",
-              "values": [
-                "Black Comedy",
-                "Romantic Comedy",
-                "Comedy"
-              ],
-              "matchScore": 1,
-              "attributes": [
-                "Genre"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": true,
-              "meta": {
-                "value_ambiguity_type": "domain_value"
-              }
+          "filter": [{
+            "task": "filter",
+            "queryPhrase": [
+              "comedy"
+            ],
+            "operator": "IN",
+            "values": [
+              "Black Comedy",
+              "Romantic Comedy",
+              "Comedy"
+            ],
+            "matchScore": 1,
+            "attributes": [
+              "Genre"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": true,
+            "meta": {
+              "value_ambiguity_type": "domain_value"
             }
-          ],
-          "trend": [
-            {
-              "task": "trend",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Release Year"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          }],
+          "trend": [{
+            "task": "trend",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Release Year"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -1281,62 +6866,60 @@ queryMap = {
         "query": "create a stripplot showing average gross across genres",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 4.9,
-            "scoreObj": {
-              "by_attributes": 1.9,
-              "by_task": 1,
-              "by_vis": 0
+        "visList": [{
+          "score": 4.9,
+          "scoreObj": {
+            "by_attributes": 1.9,
+            "by_task": 1,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Worldwide Gross": 1,
+            "Genre": 1
+          },
+          "attributes": [
+            "Worldwide Gross",
+            "Genre"
+          ],
+          "queryPhrase": "stripplot",
+          "visType": "stripplot",
+          "tasks": [
+            "derived_value"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "tick",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Worldwide Gross": 1,
-              "Genre": 1
-            },
-            "attributes": [
-              "Worldwide Gross",
-              "Genre"
-            ],
-            "queryPhrase": "stripplot",
-            "visType": "stripplot",
-            "tasks": [
-              "derived_value"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "tick",
-                "tooltip": true
-              },
-              "encoding": {
-                "y": {
-                  "field": "Worldwide Gross",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "x": {
-                  "field": "Genre",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "tooltip": {
-                  "field": "Title"
+            "encoding": {
+              "y": {
+                "field": "Worldwide Gross",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "x": {
+                "field": "Genre",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "tooltip": {
+                "field": "Title"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Genre": {
             "name": "Genre",
@@ -1384,24 +6967,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": "average",
-              "operator": "AVG",
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Worldwide Gross"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": "average",
+            "operator": "AVG",
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Worldwide Gross"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -1426,8 +7007,7 @@ queryMap = {
         "query": "average production budget of different movie types over the years as a linechart",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 7.8,
             "scoreObj": {
               "by_attributes": 2.8,
@@ -1618,24 +7198,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": "average",
-              "operator": "AVG",
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Production Budget"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": "average",
+            "operator": "AVG",
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Production Budget"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -1660,59 +7238,55 @@ queryMap = {
         "query": "show movies whose production budget equals 200000000 as a barchart",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-        "visList": [
-          {
-            "score": 2,
-            "scoreObj": {
-              "by_attributes": 0,
-              "by_task": 1,
-              "by_vis": 1
+        "visList": [{
+          "score": 2,
+          "scoreObj": {
+            "by_attributes": 0,
+            "by_task": 1,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Title": 0
+          },
+          "attributes": [
+            "Title"
+          ],
+          "queryPhrase": "barchart",
+          "visType": "barchart",
+          "tasks": [
+            "filter",
+            "distribution"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Title": 0
+            "encoding": {
+              "x": {
+                "field": "Title",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "y": {
+                "field": "Title",
+                "type": "nominal",
+                "aggregate": "count"
+              }
             },
-            "attributes": [
-              "Title"
-            ],
-            "queryPhrase": "barchart",
-            "visType": "barchart",
-            "tasks": [
-              "filter",
-              "distribution"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Title",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "y": {
-                  "field": "Title",
-                  "type": "nominal",
-                  "aggregate": "count"
-                }
-              },
-              "transform": [
-                {
-                  "filter": "lower(datum[\"Production Budget\"]) == 200000000.0"
-                }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+            "transform": [{
+              "filter": "lower(datum[\"Production Budget\"]) == 200000000.0"
+            }],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Production Budget": {
             "name": "Production Budget",
@@ -1757,52 +7331,47 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
-              "task": "filter",
-              "queryPhrase": "equals",
-              "operator": "EQ",
-              "values": [
-                200000000
-              ],
-              "matchScore": 1,
-              "attributes": [
-                "Production Budget"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "filter": [{
+            "task": "filter",
+            "queryPhrase": "equals",
+            "operator": "EQ",
+            "values": [
+              200000000
+            ],
+            "matchScore": 1,
+            "attributes": [
+              "Production Budget"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Production Budget"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          }],
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Production Budget"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
       }
     }
   ],
-  "underspecified-attributes-tasks": [
-    {
+  "underspecified-attributes-tasks": [{
       "queryId": 11,
       "query": "show me a distribution of goals",
       "output": {
@@ -1821,8 +7390,7 @@ queryMap = {
         "query": "show me a distribution of goals",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 3,
             "scoreObj": {
               "by_attributes": 1,
@@ -1995,24 +7563,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": "distribution",
-              "operator": null,
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Goals"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": "distribution",
+            "operator": null,
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Goals"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -2037,65 +7603,63 @@ queryMap = {
         "query": "correlate goals and salary",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
-            "score": 5,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": 1,
-              "by_vis": 0
+        "visList": [{
+          "score": 5,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": 1,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Salary": 1,
+            "Goals": 1
+          },
+          "attributes": [
+            "Salary",
+            "Goals"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "correlation"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "point",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Salary": 1,
-              "Goals": 1
-            },
-            "attributes": [
-              "Salary",
-              "Goals"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "correlation"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "point",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Salary",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "Goals",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Name"
+            "encoding": {
+              "x": {
+                "field": "Salary",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
-                "format": {
-                  "type": "csv"
+              "y": {
+                "field": "Goals",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
+              },
+              "tooltip": {
+                "field": "Name"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Salary": {
             "name": "Salary",
@@ -2143,25 +7707,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": "correlate",
-              "operator": null,
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Salary",
-                "Goals"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": "correlate",
+            "operator": null,
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Salary",
+              "Goals"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -2186,59 +7748,55 @@ queryMap = {
         "query": "show me players with salaries more than 60000000",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
-            "score": 1,
-            "scoreObj": {
-              "by_attributes": 0,
-              "by_task": 1,
-              "by_vis": 0
+        "visList": [{
+          "score": 1,
+          "scoreObj": {
+            "by_attributes": 0,
+            "by_task": 1,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Name": 0
+          },
+          "attributes": [
+            "Name"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "filter",
+            "distribution"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Name": 0
+            "encoding": {
+              "x": {
+                "field": "Name",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "y": {
+                "field": "Name",
+                "type": "nominal",
+                "aggregate": "count"
+              }
             },
-            "attributes": [
-              "Name"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "filter",
-              "distribution"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Name",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "y": {
-                  "field": "Name",
-                  "type": "nominal",
-                  "aggregate": "count"
-                }
-              },
-              "transform": [
-                {
-                  "filter": "lower(datum[\"Salary\"]) > 60000000.0"
-                }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
-                "format": {
-                  "type": "csv"
-                }
+            "transform": [{
+              "filter": "lower(datum[\"Salary\"]) > 60000000.0"
+            }],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Salary": {
             "name": "Salary",
@@ -2283,44 +7841,40 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
-              "task": "filter",
-              "queryPhrase": "more",
-              "operator": "GT",
-              "values": [
-                60000000
-              ],
-              "matchScore": 1,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "filter": [{
+            "task": "filter",
+            "queryPhrase": "more",
+            "operator": "GT",
+            "values": [
+              60000000
+            ],
+            "matchScore": 1,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          }],
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -2345,8 +7899,7 @@ queryMap = {
         "query": "which player from france has scored the highest goals",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 4,
             "scoreObj": {
               "by_attributes": 1,
@@ -2390,16 +7943,14 @@ queryMap = {
                   "sort": "-y"
                 }
               },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Country",
-                    "oneOf": [
-                      "France"
-                    ]
-                  }
+              "transform": [{
+                "filter": {
+                  "field": "Country",
+                  "oneOf": [
+                    "France"
+                  ]
                 }
-              ],
+              }],
               "data": {
                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
                 "format": {
@@ -2455,16 +8006,14 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Country",
-                    "oneOf": [
-                      "France"
-                    ]
-                  }
+              "transform": [{
+                "filter": {
+                  "field": "Country",
+                  "oneOf": [
+                    "France"
+                  ]
                 }
-              ],
+              }],
               "data": {
                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
                 "format": {
@@ -2544,46 +8093,42 @@ queryMap = {
           }
         },
         "taskMap": {
-          "find_extremum": [
-            {
-              "task": "find_extremum",
-              "queryPhrase": "highest",
-              "operator": "MAX",
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Goals"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "find_extremum": [{
+            "task": "find_extremum",
+            "queryPhrase": "highest",
+            "operator": "MAX",
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Goals"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "filter": [
-            {
-              "task": "filter",
-              "queryPhrase": [
-                "france"
-              ],
-              "operator": "IN",
-              "values": [
-                "France"
-              ],
-              "matchScore": 1,
-              "attributes": [
-                "Country"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          }],
+          "filter": [{
+            "task": "filter",
+            "queryPhrase": [
+              "france"
+            ],
+            "operator": "IN",
+            "values": [
+              "France"
+            ],
+            "matchScore": 1,
+            "attributes": [
+              "Country"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -2608,61 +8153,59 @@ queryMap = {
         "query": "countries with the highest mean salary",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
-            "score": 6,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": 2,
-              "by_vis": 0
+        "visList": [{
+          "score": 6,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": 2,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Salary": 1,
+            "Country": 1
+          },
+          "attributes": [
+            "Salary",
+            "Country"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "find_extremum",
+            "derived_value"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Salary": 1,
-              "Country": 1
-            },
-            "attributes": [
-              "Salary",
-              "Country"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "find_extremum",
-              "derived_value"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "y": {
-                  "field": "Salary",
-                  "type": "quantitative",
-                  "aggregate": "mean",
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "x": {
-                  "field": "Country",
-                  "type": "nominal",
-                  "aggregate": null,
-                  "sort": "-y"
+            "encoding": {
+              "y": {
+                "field": "Salary",
+                "type": "quantitative",
+                "aggregate": "mean",
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "x": {
+                "field": "Country",
+                "type": "nominal",
+                "aggregate": null,
+                "sort": "-y"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Country": {
             "name": "Country",
@@ -2710,42 +8253,38 @@ queryMap = {
           }
         },
         "taskMap": {
-          "find_extremum": [
-            {
-              "task": "find_extremum",
-              "queryPhrase": "highest",
-              "operator": "MAX",
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "find_extremum": [{
+            "task": "find_extremum",
+            "queryPhrase": "highest",
+            "operator": "MAX",
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": "mean",
-              "operator": "AVG",
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          }],
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": "mean",
+            "operator": "AVG",
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -2770,68 +8309,65 @@ queryMap = {
         "query": "players who scored between 5 and 10 goals and whose age is not more than 25",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
-            "score": 2,
-            "scoreObj": {
-              "by_attributes": 0,
-              "by_task": 2,
-              "by_vis": 0
+        "visList": [{
+          "score": 2,
+          "scoreObj": {
+            "by_attributes": 0,
+            "by_task": 2,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Name": 0
+          },
+          "attributes": [
+            "Name"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "filter",
+            "correlation"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Name": 0
+            "encoding": {
+              "x": {
+                "field": "Name",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "y": {
+                "field": "Name",
+                "type": "nominal",
+                "aggregate": "count"
+              }
             },
-            "attributes": [
-              "Name"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "filter",
-              "correlation"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
+            "transform": [{
+                "filter": "lower(datum[\"Age\"]) < 25.0"
               },
-              "encoding": {
-                "x": {
-                  "field": "Name",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "y": {
-                  "field": "Name",
-                  "type": "nominal",
-                  "aggregate": "count"
+              {
+                "filter": {
+                  "field": "Goals",
+                  "range": [
+                    5,
+                    10
+                  ]
                 }
-              },
-              "transform": [
-                {
-                  "filter": "lower(datum[\"Age\"]) < 25.0"
-                },
-                {
-                  "filter": {
-                    "field": "Goals",
-                    "range": [
-                      5,
-                      10
-                    ]
-                  }
-                }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
-                "format": {
-                  "type": "csv"
-                }
+              }
+            ],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Age": {
             "name": "Age",
@@ -2898,8 +8434,7 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
+          "filter": [{
               "task": "filter",
               "queryPhrase": "not more",
               "operator": "LT",
@@ -2937,25 +8472,23 @@ queryMap = {
               }
             }
           ],
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Age",
-                "Goals"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Age",
+              "Goals"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -2980,70 +8513,67 @@ queryMap = {
         "query": "show me spain players under the age of 30 but with more than 5 goals",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
-            "score": 3,
-            "scoreObj": {
-              "by_attributes": 0,
-              "by_task": 3,
-              "by_vis": 0
+        "visList": [{
+          "score": 3,
+          "scoreObj": {
+            "by_attributes": 0,
+            "by_task": 3,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Name": 0
+          },
+          "attributes": [
+            "Name"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "filter",
+            "correlation"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Name": 0
+            "encoding": {
+              "x": {
+                "field": "Name",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "y": {
+                "field": "Name",
+                "type": "nominal",
+                "aggregate": "count"
+              }
             },
-            "attributes": [
-              "Name"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "filter",
-              "correlation"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
+            "transform": [{
+                "filter": "lower(datum[\"Age\"]) < 30.0"
               },
-              "encoding": {
-                "x": {
-                  "field": "Name",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "y": {
-                  "field": "Name",
-                  "type": "nominal",
-                  "aggregate": "count"
-                }
+              {
+                "filter": "lower(datum[\"Goals\"]) > 5.0"
               },
-              "transform": [
-                {
-                  "filter": "lower(datum[\"Age\"]) < 30.0"
-                },
-                {
-                  "filter": "lower(datum[\"Goals\"]) > 5.0"
-                },
-                {
-                  "filter": {
-                    "field": "Country",
-                    "oneOf": [
-                      "Spain"
-                    ]
-                  }
+              {
+                "filter": {
+                  "field": "Country",
+                  "oneOf": [
+                    "Spain"
+                  ]
                 }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
-                "format": {
-                  "type": "csv"
-                }
+              }
+            ],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Age": {
             "name": "Age",
@@ -3136,8 +8666,7 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
+          "filter": [{
               "task": "filter",
               "queryPhrase": "under",
               "operator": "LT",
@@ -3194,25 +8723,23 @@ queryMap = {
               }
             }
           ],
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Age",
-                "Goals"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Age",
+              "Goals"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -3237,71 +8764,67 @@ queryMap = {
         "query": "show me club wise median salary for spain , portugal and germany players .",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
-            "score": 6,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": 2,
-              "by_vis": 0
+        "visList": [{
+          "score": 6,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": 2,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Salary": 1,
+            "Club": 1
+          },
+          "attributes": [
+            "Salary",
+            "Club"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "derived_value",
+            "filter"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Salary": 1,
-              "Club": 1
-            },
-            "attributes": [
-              "Salary",
-              "Club"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "derived_value",
-              "filter"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "y": {
-                  "field": "Salary",
-                  "type": "quantitative",
-                  "aggregate": "median",
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "x": {
-                  "field": "Club",
-                  "type": "nominal",
-                  "aggregate": null
+            "encoding": {
+              "y": {
+                "field": "Salary",
+                "type": "quantitative",
+                "aggregate": "median",
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Country",
-                    "oneOf": [
-                      "Spain",
-                      "Portugal",
-                      "Germany"
-                    ]
-                  }
-                }
-              ],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "x": {
+                "field": "Club",
+                "type": "nominal",
+                "aggregate": null
+              }
+            },
+            "transform": [{
+              "filter": {
+                "field": "Country",
+                "oneOf": [
+                  "Spain",
+                  "Portugal",
+                  "Germany"
+                ]
+              }
+            }],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Club": {
             "name": "Club",
@@ -3383,50 +8906,46 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": "median",
-              "operator": "MEDIAN",
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": "median",
+            "operator": "MEDIAN",
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "filter": [
-            {
-              "task": "filter",
-              "queryPhrase": [
-                "spain",
-                "portugal",
-                "germany"
-              ],
-              "operator": "IN",
-              "values": [
-                "Spain",
-                "Portugal",
-                "Germany"
-              ],
-              "matchScore": 1,
-              "attributes": [
-                "Country"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          }],
+          "filter": [{
+            "task": "filter",
+            "queryPhrase": [
+              "spain",
+              "portugal",
+              "germany"
+            ],
+            "operator": "IN",
+            "values": [
+              "Spain",
+              "Portugal",
+              "Germany"
+            ],
+            "matchScore": 1,
+            "attributes": [
+              "Country"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -3451,8 +8970,7 @@ queryMap = {
         "query": "show me salaries of left footed players who play as a forward .",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 4.5,
             "scoreObj": {
               "by_attributes": 1,
@@ -3497,8 +9015,7 @@ queryMap = {
                   }
                 }
               },
-              "transform": [
-                {
+              "transform": [{
                   "filter": {
                     "field": "Foot",
                     "oneOf": [
@@ -3562,8 +9079,7 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
+              "transform": [{
                   "filter": {
                     "field": "Foot",
                     "oneOf": [
@@ -3627,8 +9143,7 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
+              "transform": [{
                   "filter": {
                     "field": "Foot",
                     "oneOf": [
@@ -3732,8 +9247,7 @@ queryMap = {
           }
         },
         "taskMap": {
-          "filter": [
-            {
+          "filter": [{
               "task": "filter",
               "queryPhrase": [
                 "left"
@@ -3774,24 +9288,22 @@ queryMap = {
               }
             }
           ],
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -3816,8 +9328,7 @@ queryMap = {
         "query": "find the correlation between player goals and salaries across player foot .",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 7,
             "scoreObj": {
               "by_attributes": 3,
@@ -4020,25 +9531,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": "correlation",
-              "operator": null,
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Salary",
-                "Goals"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": "correlation",
+            "operator": null,
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Salary",
+              "Goals"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -4063,8 +9572,7 @@ queryMap = {
         "query": "show me a distribution of salaries across countries and player positions for right footed players .",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 8,
             "scoreObj": {
               "by_attributes": 3,
@@ -4117,16 +9625,14 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Foot",
-                    "oneOf": [
-                      "Right"
-                    ]
-                  }
+              "transform": [{
+                "filter": {
+                  "field": "Foot",
+                  "oneOf": [
+                    "Right"
+                  ]
                 }
-              ],
+              }],
               "data": {
                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
                 "format": {
@@ -4193,16 +9699,14 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Foot",
-                    "oneOf": [
-                      "Right"
-                    ]
-                  }
+              "transform": [{
+                "filter": {
+                  "field": "Foot",
+                  "oneOf": [
+                    "Right"
+                  ]
                 }
-              ],
+              }],
               "data": {
                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
                 "format": {
@@ -4264,16 +9768,14 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
-                  "filter": {
-                    "field": "Foot",
-                    "oneOf": [
-                      "Right"
-                    ]
-                  }
+              "transform": [{
+                "filter": {
+                  "field": "Foot",
+                  "oneOf": [
+                    "Right"
+                  ]
                 }
-              ],
+              }],
               "data": {
                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
                 "format": {
@@ -4379,46 +9881,42 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": "distribution",
-              "operator": null,
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": "distribution",
+            "operator": null,
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "filter": [
-            {
-              "task": "filter",
-              "queryPhrase": [
-                "right"
-              ],
-              "operator": "IN",
-              "values": [
-                "Right"
-              ],
-              "matchScore": 1,
-              "attributes": [
-                "Foot"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          }],
+          "filter": [{
+            "task": "filter",
+            "queryPhrase": [
+              "right"
+            ],
+            "operator": "IN",
+            "values": [
+              "Right"
+            ],
+            "matchScore": 1,
+            "attributes": [
+              "Foot"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -4443,8 +9941,7 @@ queryMap = {
         "query": "show me a distribution of salaries across countries and player positions for right footed players and age greater than 30 .",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 9,
             "scoreObj": {
               "by_attributes": 3,
@@ -4497,8 +9994,7 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
+              "transform": [{
                   "filter": "lower(datum[\"Age\"]) > 30.0"
                 },
                 {
@@ -4576,8 +10072,7 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
+              "transform": [{
                   "filter": "lower(datum[\"Age\"]) > 30.0"
                 },
                 {
@@ -4650,8 +10145,7 @@ queryMap = {
                   "field": "Name"
                 }
               },
-              "transform": [
-                {
+              "transform": [{
                   "filter": "lower(datum[\"Age\"]) > 30.0"
                 },
                 {
@@ -4790,26 +10284,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": "distribution",
-              "operator": null,
-              "values": [],
-              "matchScore": 1,
-              "attributes": [
-                "Salary"
-              ],
-              "inferenceType": "explicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": "distribution",
+            "operator": null,
+            "values": [],
+            "matchScore": 1,
+            "attributes": [
+              "Salary"
+            ],
+            "inferenceType": "explicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ],
-          "filter": [
-            {
+          }],
+          "filter": [{
               "task": "filter",
               "queryPhrase": "greater",
               "operator": "GT",
@@ -4854,8 +10345,7 @@ queryMap = {
       }
     }
   ],
-  "underspecified-attributes-vis": [
-    {
+  "underspecified-attributes-vis": [{
       "queryId": 23,
       "query": "create a histogram of mpg",
       "output": {
@@ -4874,61 +10364,59 @@ queryMap = {
         "query": "create a histogram of mpg",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 3.5,
-            "scoreObj": {
-              "by_attributes": 1,
-              "by_task": 0.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 3.5,
+          "scoreObj": {
+            "by_attributes": 1,
+            "by_task": 0.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "MPG": 1
+          },
+          "attributes": [
+            "MPG"
+          ],
+          "queryPhrase": "histogram",
+          "visType": "histogram",
+          "tasks": [
+            "distribution"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "MPG": 1
-            },
-            "attributes": [
-              "MPG"
-            ],
-            "queryPhrase": "histogram",
-            "visType": "histogram",
-            "tasks": [
-              "distribution"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "MPG",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "bin": true,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "MPG",
-                  "type": "quantitative",
-                  "aggregate": "count",
-                  "axis": {
-                    "format": "s"
-                  }
+            "encoding": {
+              "x": {
+                "field": "MPG",
+                "type": "quantitative",
+                "aggregate": null,
+                "bin": true,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
+              "y": {
+                "field": "MPG",
+                "type": "quantitative",
+                "aggregate": "count",
+                "axis": {
+                  "format": "s"
                 }
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "MPG": {
             "name": "MPG",
@@ -4954,24 +10442,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "MPG"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "MPG"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -4996,55 +10482,53 @@ queryMap = {
         "query": "visualize acceleration as a boxplot",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 3.5,
-            "scoreObj": {
-              "by_attributes": 1,
-              "by_task": 0.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 3.5,
+          "scoreObj": {
+            "by_attributes": 1,
+            "by_task": 0.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Acceleration": 1
+          },
+          "attributes": [
+            "Acceleration"
+          ],
+          "queryPhrase": "boxplot",
+          "visType": "boxplot",
+          "tasks": [
+            "distribution"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "boxplot",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Acceleration": 1
-            },
-            "attributes": [
-              "Acceleration"
-            ],
-            "queryPhrase": "boxplot",
-            "visType": "boxplot",
-            "tasks": [
-              "distribution"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "boxplot",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Acceleration",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Model"
+            "encoding": {
+              "x": {
+                "field": "Acceleration",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "tooltip": {
+                "field": "Model"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Acceleration": {
             "name": "Acceleration",
@@ -5070,24 +10554,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Acceleration"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Acceleration"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -5112,54 +10594,52 @@ queryMap = {
         "query": "show origin as a bar chart",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 3.5,
-            "scoreObj": {
-              "by_attributes": 1,
-              "by_task": 0.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 3.5,
+          "scoreObj": {
+            "by_attributes": 1,
+            "by_task": 0.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Origin": 1
+          },
+          "attributes": [
+            "Origin"
+          ],
+          "queryPhrase": "bar chart",
+          "visType": "barchart",
+          "tasks": [
+            "distribution"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Origin": 1
+            "encoding": {
+              "x": {
+                "field": "Origin",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "y": {
+                "field": "Origin",
+                "type": "nominal",
+                "aggregate": "count"
+              }
             },
-            "attributes": [
-              "Origin"
-            ],
-            "queryPhrase": "bar chart",
-            "visType": "barchart",
-            "tasks": [
-              "distribution"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Origin",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "y": {
-                  "field": "Origin",
-                  "type": "nominal",
-                  "aggregate": "count"
-                }
-              },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Origin": {
             "name": "Origin",
@@ -5185,24 +10665,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Origin"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Origin"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -5227,65 +10705,63 @@ queryMap = {
         "query": "visualize hp and displacement as a scatterplot",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 5,
-            "scoreObj": {
-              "by_attributes": 1.5,
-              "by_task": 0.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 5,
+          "scoreObj": {
+            "by_attributes": 1.5,
+            "by_task": 0.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Displacement": 1,
+            "Horsepower": 1
+          },
+          "attributes": [
+            "Displacement",
+            "Horsepower"
+          ],
+          "queryPhrase": "scatterplot",
+          "visType": "scatterplot",
+          "tasks": [
+            "correlation"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "point",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Displacement": 1,
-              "Horsepower": 1
-            },
-            "attributes": [
-              "Displacement",
-              "Horsepower"
-            ],
-            "queryPhrase": "scatterplot",
-            "visType": "scatterplot",
-            "tasks": [
-              "correlation"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "point",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Displacement",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "Horsepower",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Model"
+            "encoding": {
+              "x": {
+                "field": "Displacement",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
+              "y": {
+                "field": "Horsepower",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
+              },
+              "tooltip": {
+                "field": "Model"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Displacement": {
             "name": "Displacement",
@@ -5333,25 +10809,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Displacement",
-                "Horsepower"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Displacement",
+              "Horsepower"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -5376,59 +10850,57 @@ queryMap = {
         "query": "show a linechart of horsepower over the years",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 5,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": 0,
-              "by_vis": 1
+        "visList": [{
+          "score": 5,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": 0,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Horsepower": 1,
+            "Year": 1
+          },
+          "attributes": [
+            "Horsepower",
+            "Year"
+          ],
+          "queryPhrase": "linechart",
+          "visType": "linechart",
+          "tasks": [
+            "trend"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "line",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Horsepower": 1,
-              "Year": 1
-            },
-            "attributes": [
-              "Horsepower",
-              "Year"
-            ],
-            "queryPhrase": "linechart",
-            "visType": "linechart",
-            "tasks": [
-              "trend"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "line",
-                "tooltip": true
-              },
-              "encoding": {
-                "y": {
-                  "field": "Horsepower",
-                  "type": "quantitative",
-                  "aggregate": "mean",
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "x": {
-                  "field": "Year",
-                  "type": "temporal",
-                  "aggregate": null
+            "encoding": {
+              "y": {
+                "field": "Horsepower",
+                "type": "quantitative",
+                "aggregate": "mean",
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "x": {
+                "field": "Year",
+                "type": "temporal",
+                "aggregate": null
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Horsepower": {
             "name": "Horsepower",
@@ -5476,25 +10948,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "trend": [
-            {
-              "task": "trend",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Horsepower",
-                "Year"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "trend": [{
+            "task": "trend",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Horsepower",
+              "Year"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -5519,8 +10989,7 @@ queryMap = {
         "query": "show a scatterplot of acceleration and mpg across origins",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 7.5,
             "scoreObj": {
               "by_attributes": 3,
@@ -5723,25 +11192,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "MPG",
-                "Acceleration"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "MPG",
+              "Acceleration"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -5766,8 +11233,7 @@ queryMap = {
         "query": "show an area chart of how acceleration has evolved over the years across origin",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 7,
             "scoreObj": {
               "by_attributes": 3,
@@ -5958,26 +11424,24 @@ queryMap = {
           }
         },
         "taskMap": {
-          "trend": [
-            {
-              "task": "trend",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Acceleration",
-                "Origin",
-                "Year"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "trend": [{
+            "task": "trend",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Acceleration",
+              "Origin",
+              "Year"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -6002,59 +11466,57 @@ queryMap = {
         "query": "visualize origin and cylinders as a barchart",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 5.5,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": 0.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 5.5,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": 0.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Cylinders": 1,
+            "Origin": 1
+          },
+          "attributes": [
+            "Cylinders",
+            "Origin"
+          ],
+          "queryPhrase": "barchart",
+          "visType": "barchart",
+          "tasks": [
+            "derived_value"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Cylinders": 1,
-              "Origin": 1
-            },
-            "attributes": [
-              "Cylinders",
-              "Origin"
-            ],
-            "queryPhrase": "barchart",
-            "visType": "barchart",
-            "tasks": [
-              "derived_value"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "y": {
-                  "field": "Cylinders",
-                  "type": "quantitative",
-                  "aggregate": "mean",
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "x": {
-                  "field": "Origin",
-                  "type": "nominal",
-                  "aggregate": null
+            "encoding": {
+              "y": {
+                "field": "Cylinders",
+                "type": "quantitative",
+                "aggregate": "mean",
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "x": {
+                "field": "Origin",
+                "type": "nominal",
+                "aggregate": null
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Cylinders": {
             "name": "Cylinders",
@@ -6102,24 +11564,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": [],
-              "operator": "AVG",
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Cylinders"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": [],
+            "operator": "AVG",
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Cylinders"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -6144,62 +11604,60 @@ queryMap = {
         "query": "visualize origin and cylinders as a scatter plot",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 4.5,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": -0.5,
-              "by_vis": 1
+        "visList": [{
+          "score": 4.5,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": -0.5,
+            "by_vis": 1
+          },
+          "confidenceObj": {
+            "Cylinders": 1,
+            "Origin": 1
+          },
+          "attributes": [
+            "Cylinders",
+            "Origin"
+          ],
+          "queryPhrase": "scatter plot",
+          "visType": "scatterplot",
+          "tasks": [
+            "derived_value"
+          ],
+          "inferenceType": "explicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "point",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Cylinders": 1,
-              "Origin": 1
-            },
-            "attributes": [
-              "Cylinders",
-              "Origin"
-            ],
-            "queryPhrase": "scatter plot",
-            "visType": "scatterplot",
-            "tasks": [
-              "derived_value"
-            ],
-            "inferenceType": "explicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "point",
-                "tooltip": true
-              },
-              "encoding": {
-                "y": {
-                  "field": "Cylinders",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "x": {
-                  "field": "Origin",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "tooltip": {
-                  "field": "Model"
+            "encoding": {
+              "y": {
+                "field": "Cylinders",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "x": {
+                "field": "Origin",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "tooltip": {
+                "field": "Model"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Cylinders": {
             "name": "Cylinders",
@@ -6247,32 +11705,29 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": [],
-              "operator": "AVG",
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Cylinders"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": [],
+            "operator": "AVG",
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Cylinders"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
       }
     }
   ],
-  "underspecified-attributes": [
-    {
+  "underspecified-attributes": [{
       "queryId": 32,
       "query": "Origin",
       "output": {
@@ -6291,54 +11746,52 @@ queryMap = {
         "query": "origin",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 2.5,
-            "scoreObj": {
-              "by_attributes": 1,
-              "by_task": 0.5,
-              "by_vis": 0
+        "visList": [{
+          "score": 2.5,
+          "scoreObj": {
+            "by_attributes": 1,
+            "by_task": 0.5,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Origin": 1
+          },
+          "attributes": [
+            "Origin"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "distribution"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Origin": 1
+            "encoding": {
+              "x": {
+                "field": "Origin",
+                "type": "nominal",
+                "aggregate": null
+              },
+              "y": {
+                "field": "Origin",
+                "type": "nominal",
+                "aggregate": "count"
+              }
             },
-            "attributes": [
-              "Origin"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "distribution"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Origin",
-                  "type": "nominal",
-                  "aggregate": null
-                },
-                "y": {
-                  "field": "Origin",
-                  "type": "nominal",
-                  "aggregate": "count"
-                }
-              },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Origin": {
             "name": "Origin",
@@ -6364,24 +11817,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Origin"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Origin"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -6406,8 +11857,7 @@ queryMap = {
         "query": "visualize mpg",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 2.5,
             "scoreObj": {
               "by_attributes": 1,
@@ -6580,24 +12030,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "distribution": [
-            {
-              "task": "distribution",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "MPG"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "distribution": [{
+            "task": "distribution",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "MPG"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -6622,59 +12070,57 @@ queryMap = {
         "query": "show mpg across origins",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 4.5,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": 0.5,
-              "by_vis": 0
+        "visList": [{
+          "score": 4.5,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": 0.5,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "MPG": 1,
+            "Origin": 1
+          },
+          "attributes": [
+            "MPG",
+            "Origin"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "derived_value"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "bar",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "MPG": 1,
-              "Origin": 1
-            },
-            "attributes": [
-              "MPG",
-              "Origin"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "derived_value"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "bar",
-                "tooltip": true
-              },
-              "encoding": {
-                "y": {
-                  "field": "MPG",
-                  "type": "quantitative",
-                  "aggregate": "mean",
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "x": {
-                  "field": "Origin",
-                  "type": "nominal",
-                  "aggregate": null
+            "encoding": {
+              "y": {
+                "field": "MPG",
+                "type": "quantitative",
+                "aggregate": "mean",
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
-                }
+              "x": {
+                "field": "Origin",
+                "type": "nominal",
+                "aggregate": null
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "MPG": {
             "name": "MPG",
@@ -6722,24 +12168,22 @@ queryMap = {
           }
         },
         "taskMap": {
-          "derived_value": [
-            {
-              "task": "derived_value",
-              "queryPhrase": [],
-              "operator": "AVG",
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "MPG"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "derived_value": [{
+            "task": "derived_value",
+            "queryPhrase": [],
+            "operator": "AVG",
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "MPG"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -6764,65 +12208,63 @@ queryMap = {
         "query": "weight and acceleration",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 4.5,
-            "scoreObj": {
-              "by_attributes": 2,
-              "by_task": 0.5,
-              "by_vis": 0
+        "visList": [{
+          "score": 4.5,
+          "scoreObj": {
+            "by_attributes": 2,
+            "by_task": 0.5,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Weight": 1,
+            "Acceleration": 1
+          },
+          "attributes": [
+            "Weight",
+            "Acceleration"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "correlation"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "point",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Weight": 1,
-              "Acceleration": 1
-            },
-            "attributes": [
-              "Weight",
-              "Acceleration"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "correlation"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "point",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Weight",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "Acceleration",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Model"
+            "encoding": {
+              "x": {
+                "field": "Weight",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
+              "y": {
+                "field": "Acceleration",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
+              },
+              "tooltip": {
+                "field": "Model"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Weight": {
             "name": "Weight",
@@ -6870,25 +12312,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Weight",
-                "Acceleration"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Weight",
+              "Acceleration"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -6913,65 +12353,63 @@ queryMap = {
         "query": "create a visualization with miles per gallon and horsepower",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
-            "score": 4.3,
-            "scoreObj": {
-              "by_attributes": 1.8,
-              "by_task": 0.5,
-              "by_vis": 0
+        "visList": [{
+          "score": 4.3,
+          "scoreObj": {
+            "by_attributes": 1.8,
+            "by_task": 0.5,
+            "by_vis": 0
+          },
+          "confidenceObj": {
+            "Horsepower": 1,
+            "MPG": 1
+          },
+          "attributes": [
+            "Horsepower",
+            "MPG"
+          ],
+          "queryPhrase": null,
+          "visType": null,
+          "tasks": [
+            "correlation"
+          ],
+          "inferenceType": "implicit",
+          "vlSpec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "mark": {
+              "type": "point",
+              "tooltip": true
             },
-            "confidenceObj": {
-              "Horsepower": 1,
-              "MPG": 1
-            },
-            "attributes": [
-              "Horsepower",
-              "MPG"
-            ],
-            "queryPhrase": null,
-            "visType": null,
-            "tasks": [
-              "correlation"
-            ],
-            "inferenceType": "implicit",
-            "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-              "mark": {
-                "type": "point",
-                "tooltip": true
-              },
-              "encoding": {
-                "x": {
-                  "field": "Horsepower",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "y": {
-                  "field": "MPG",
-                  "type": "quantitative",
-                  "aggregate": null,
-                  "axis": {
-                    "format": "s"
-                  }
-                },
-                "tooltip": {
-                  "field": "Model"
+            "encoding": {
+              "x": {
+                "field": "Horsepower",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
               },
-              "transform": [],
-              "data": {
-                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                "format": {
-                  "type": "csv"
+              "y": {
+                "field": "MPG",
+                "type": "quantitative",
+                "aggregate": null,
+                "axis": {
+                  "format": "s"
                 }
+              },
+              "tooltip": {
+                "field": "Model"
+              }
+            },
+            "transform": [],
+            "data": {
+              "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+              "format": {
+                "type": "csv"
               }
             }
           }
-        ],
+        }],
         "attributeMap": {
           "Horsepower": {
             "name": "Horsepower",
@@ -7017,25 +12455,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Horsepower",
-                "MPG"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Horsepower",
+              "MPG"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -7060,8 +12496,7 @@ queryMap = {
         "query": "displacement cylinders acceleration",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 6.5,
             "scoreObj": {
               "by_attributes": 3,
@@ -7259,25 +12694,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Cylinders",
-                "Displacement"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Cylinders",
+              "Displacement"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -7302,8 +12735,7 @@ queryMap = {
         "query": "show me acceleration and horsepower across origins",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 6.5,
             "scoreObj": {
               "by_attributes": 3,
@@ -7506,25 +12938,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Horsepower",
-                "Acceleration"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Horsepower",
+              "Acceleration"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -7549,8 +12979,7 @@ queryMap = {
         "query": "visualize car weight and number of cylinders over the years",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 6.5,
             "scoreObj": {
               "by_attributes": 3,
@@ -7748,25 +13177,23 @@ queryMap = {
           }
         },
         "taskMap": {
-          "correlation": [
-            {
-              "task": "correlation",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "Cylinders",
-                "Weight"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "correlation": [{
+            "task": "correlation",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "Cylinders",
+              "Weight"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -7791,8 +13218,7 @@ queryMap = {
         "query": "create a chart showing mpg across origin over years",
         "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
         "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-        "visList": [
-          {
+        "visList": [{
             "score": 6,
             "scoreObj": {
               "by_attributes": 3,
@@ -8239,26 +13665,24 @@ queryMap = {
           }
         },
         "taskMap": {
-          "trend": [
-            {
-              "task": "trend",
-              "queryPhrase": [],
-              "operator": null,
-              "values": null,
-              "matchScore": 0.5,
-              "attributes": [
-                "MPG",
-                "Origin",
-                "Year"
-              ],
-              "inferenceType": "implicit",
-              "isAttrAmbiguous": false,
-              "isValueAmbiguous": false,
-              "meta": {
-                "value_ambiguity_type": null
-              }
+          "trend": [{
+            "task": "trend",
+            "queryPhrase": [],
+            "operator": null,
+            "values": null,
+            "matchScore": 0.5,
+            "attributes": [
+              "MPG",
+              "Origin",
+              "Year"
+            ],
+            "inferenceType": "implicit",
+            "isAttrAmbiguous": false,
+            "isValueAmbiguous": false,
+            "meta": {
+              "value_ambiguity_type": null
             }
-          ]
+          }]
         },
         "followUpQuery": false,
         "contextObj": null
@@ -8266,8 +13690,7 @@ queryMap = {
     }
   ],
   "other-examples": {
-    "cars-w-year": [
-      {
+    "cars-w-year": [{
         "queryId": 41,
         "query": "Bar chart of number of cars from each origin",
         "output": {
@@ -8286,54 +13709,52 @@ queryMap = {
           "query": "bar chart of number of cars from each origin",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 3.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 3.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Origin": 1
+            },
+            "attributes": [
+              "Origin"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Origin": 1
+              "encoding": {
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Origin"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Origin": {
               "name": "Origin",
@@ -8359,24 +13780,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Origin"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Origin"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -8401,8 +13820,7 @@ queryMap = {
           "query": "bar chart of average acceleration for cars with each number of cylinders in each place of origin . color by origin . separate into multiple charts by number of cylinders .",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 8,
               "scoreObj": {
                 "by_attributes": 3,
@@ -8657,24 +14075,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Acceleration"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Acceleration"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -8699,8 +14115,7 @@ queryMap = {
           "query": "scatterplot of displacement vs mpg . color by origin .",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -8903,25 +14318,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "MPG",
-                  "Displacement"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "MPG",
+                "Displacement"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -8946,62 +14359,60 @@ queryMap = {
           "query": "bar chart of cylinders versus average mpg",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 6,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 1
+          "visList": [{
+            "score": 6,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "MPG": 1,
+              "Cylinders": 1
+            },
+            "attributes": [
+              "MPG",
+              "Cylinders"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "MPG": 1,
-                "Cylinders": 1
-              },
-              "attributes": [
-                "MPG",
-                "Cylinders"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "MPG",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Cylinders",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
+              "encoding": {
+                "x": {
+                  "field": "MPG",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Cylinders",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "MPG": {
               "name": "MPG",
@@ -9049,24 +14460,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "MPG"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "MPG"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -9091,54 +14500,52 @@ queryMap = {
           "query": "show number of cars from each country",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 2.3,
-              "scoreObj": {
-                "by_attributes": 0.8,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 2.3,
+            "scoreObj": {
+              "by_attributes": 0.8,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Origin": 1
+            },
+            "attributes": [
+              "Origin"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Origin": 1
+              "encoding": {
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Origin"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Origin": {
               "name": "Origin",
@@ -9162,24 +14569,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Origin"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Origin"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -9204,8 +14609,7 @@ queryMap = {
           "query": "graph to show the acceleration for cars from different countries segregated based on number of cylinders",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.3,
               "scoreObj": {
                 "by_attributes": 2.8,
@@ -9406,25 +14810,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Cylinders",
-                  "Acceleration"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Cylinders",
+                "Acceleration"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -9449,62 +14851,60 @@ queryMap = {
           "query": "visualize the distribution of models by weight",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 0
+          "visList": [{
+            "score": 5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Weight": 1,
+              "Model": 1
+            },
+            "attributes": [
+              "Weight",
+              "Model"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "tick",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Weight": 1,
-                "Model": 1
-              },
-              "attributes": [
-                "Weight",
-                "Model"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "tick",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Weight",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Model",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "tooltip": {
-                    "field": "Model"
+              "encoding": {
+                "y": {
+                  "field": "Weight",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Model",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "tooltip": {
+                  "field": "Model"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Model": {
               "name": "Model",
@@ -9552,24 +14952,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": "distribution",
-                "operator": null,
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Model"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": "distribution",
+              "operator": null,
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Model"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -9594,59 +14992,57 @@ queryMap = {
           "query": "visualize the general trend of car model weights over the years",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 4,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0,
-                "by_vis": 0
+          "visList": [{
+            "score": 4,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Weight": 1,
+              "Year": 1
+            },
+            "attributes": [
+              "Weight",
+              "Year"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "line",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Weight": 1,
-                "Year": 1
-              },
-              "attributes": [
-                "Weight",
-                "Year"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "trend"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "line",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Weight",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Year",
-                    "type": "temporal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Weight",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Year",
+                  "type": "temporal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Model": {
               "name": "Model",
@@ -9716,24 +15112,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": "trend",
-                "operator": null,
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Weight"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": true,
-                "meta": {
-                  "value_ambiguity_type": "datatype"
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": "trend",
+              "operator": null,
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Weight"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": true,
+              "meta": {
+                "value_ambiguity_type": "datatype"
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -9758,54 +15152,52 @@ queryMap = {
           "query": "plot count of models by grouped by origin",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 2.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 2.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Origin": 1
+            },
+            "attributes": [
+              "Origin"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Origin": 1
+              "encoding": {
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Origin"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Model": {
               "name": "Model",
@@ -9853,24 +15245,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Origin"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Origin"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -9895,8 +15285,7 @@ queryMap = {
           "query": "visualize distribution of models by number of cyclinders grouped by origin",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.9,
               "scoreObj": {
                 "by_attributes": 2.9,
@@ -10154,24 +15543,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": "distribution",
-                "operator": null,
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Model"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": "distribution",
+              "operator": null,
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Model"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -10196,8 +15583,7 @@ queryMap = {
           "query": "visualize average accelaration based on number of cyclinders a model has summed across different origins",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.8,
               "scoreObj": {
                 "by_attributes": 2.8,
@@ -10474,24 +15860,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Acceleration"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Acceleration"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -10516,54 +15900,52 @@ queryMap = {
           "query": "bar graph to show number of cars from different origins",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 3.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 3.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Origin": 1
+            },
+            "attributes": [
+              "Origin"
+            ],
+            "queryPhrase": "bar graph",
+            "visType": "barchart",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Origin": 1
+              "encoding": {
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Origin"
-              ],
-              "queryPhrase": "bar graph",
-              "visType": "barchart",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Origin": {
               "name": "Origin",
@@ -10589,24 +15971,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Origin"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Origin"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -10631,59 +16011,57 @@ queryMap = {
           "query": "stacked bar chart to show number of cylinders on x axis and count of cars segregated country wise on y axis",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 5.3,
-              "scoreObj": {
-                "by_attributes": 1.8,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.3,
+            "scoreObj": {
+              "by_attributes": 1.8,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Cylinders": 1,
+              "Origin": 1
+            },
+            "attributes": [
+              "Cylinders",
+              "Origin"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Cylinders": 1,
-                "Origin": 1
-              },
-              "attributes": [
-                "Cylinders",
-                "Origin"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Cylinders",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Cylinders",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Cylinders": {
               "name": "Cylinders",
@@ -10729,24 +16107,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Cylinders"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Cylinders"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -10771,8 +16147,7 @@ queryMap = {
           "query": "plot displacement by mpg ' , 'color by origin",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -10975,25 +16350,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "MPG",
-                  "Displacement"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "MPG",
+                "Displacement"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -11018,62 +16391,60 @@ queryMap = {
           "query": "bar graph to show number of cylinders on x axis and average mpg on y axis",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 6,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 1
+          "visList": [{
+            "score": 6,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "MPG": 1,
+              "Cylinders": 1
+            },
+            "attributes": [
+              "MPG",
+              "Cylinders"
+            ],
+            "queryPhrase": "bar graph",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "MPG": 1,
-                "Cylinders": 1
-              },
-              "attributes": [
-                "MPG",
-                "Cylinders"
-              ],
-              "queryPhrase": "bar graph",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "MPG",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Cylinders",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
+              "encoding": {
+                "x": {
+                  "field": "MPG",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Cylinders",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "MPG": {
               "name": "MPG",
@@ -11121,24 +16492,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "MPG"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "MPG"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -11163,65 +16532,63 @@ queryMap = {
           "query": "scatter plot to show horsepower on x axis and acceleration on y axis",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Horsepower": 1,
+              "Acceleration": 1
+            },
+            "attributes": [
+              "Horsepower",
+              "Acceleration"
+            ],
+            "queryPhrase": "scatter plot",
+            "visType": "scatterplot",
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Horsepower": 1,
-                "Acceleration": 1
-              },
-              "attributes": [
-                "Horsepower",
-                "Acceleration"
-              ],
-              "queryPhrase": "scatter plot",
-              "visType": "scatterplot",
-              "tasks": [
-                "correlation"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "point",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Horsepower",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Acceleration",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "tooltip": {
-                    "field": "Model"
+              "encoding": {
+                "x": {
+                  "field": "Horsepower",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Acceleration",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                },
+                "tooltip": {
+                  "field": "Model"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Horsepower": {
               "name": "Horsepower",
@@ -11269,25 +16636,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Horsepower",
-                  "Acceleration"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Horsepower",
+                "Acceleration"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -11312,62 +16677,60 @@ queryMap = {
           "query": "plot average mpg by number of cylinders",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 0
+          "visList": [{
+            "score": 5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "MPG": 1,
+              "Cylinders": 1
+            },
+            "attributes": [
+              "MPG",
+              "Cylinders"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "MPG": 1,
-                "Cylinders": 1
-              },
-              "attributes": [
-                "MPG",
-                "Cylinders"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "point",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "MPG",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Cylinders",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
+              "encoding": {
+                "x": {
+                  "field": "MPG",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Cylinders",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "MPG": {
               "name": "MPG",
@@ -11415,24 +16778,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "MPG"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "MPG"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -11457,59 +16818,57 @@ queryMap = {
           "query": "create a stacked bar chart of the count of models by cylinder , group by origin",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Cylinders": 1,
+              "Origin": 1
+            },
+            "attributes": [
+              "Cylinders",
+              "Origin"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Cylinders": 1,
-                "Origin": 1
-              },
-              "attributes": [
-                "Cylinders",
-                "Origin"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Cylinders",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Cylinders",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Model": {
               "name": "Model",
@@ -11579,24 +16938,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Cylinders"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Cylinders"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -11621,8 +16978,7 @@ queryMap = {
           "query": "create a line graph of average horsepower by year grouped by origin",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 8,
               "scoreObj": {
                 "by_attributes": 3,
@@ -11813,24 +17169,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Horsepower"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Horsepower"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -11855,8 +17209,7 @@ queryMap = {
           "query": "show how horsepower varies each year by origin",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6,
               "scoreObj": {
                 "by_attributes": 3,
@@ -12303,26 +17656,24 @@ queryMap = {
             }
           },
           "taskMap": {
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Horsepower",
-                  "Origin",
-                  "Year"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Horsepower",
+                "Origin",
+                "Year"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -12347,61 +17698,59 @@ queryMap = {
           "query": "histogram of weight , bin width of 500 , min x axis 1500 , max x axis 5500",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 3.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 3.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Weight": 1
+            },
+            "attributes": [
+              "Weight"
+            ],
+            "queryPhrase": "histogram",
+            "visType": "histogram",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Weight": 1
-              },
-              "attributes": [
-                "Weight"
-              ],
-              "queryPhrase": "histogram",
-              "visType": "histogram",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Weight",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "bin": true,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Weight",
-                    "type": "quantitative",
-                    "aggregate": "count",
-                    "axis": {
-                      "format": "s"
-                    }
+              "encoding": {
+                "x": {
+                  "field": "Weight",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "bin": true,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Weight",
+                  "type": "quantitative",
+                  "aggregate": "count",
+                  "axis": {
+                    "format": "s"
                   }
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Weight": {
               "name": "Weight",
@@ -12427,24 +17776,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Weight"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Weight"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -12469,54 +17816,52 @@ queryMap = {
           "query": "bar chart , x axis origin , y axis count of rows",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 3.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 3.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Origin": 1
+            },
+            "attributes": [
+              "Origin"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Origin": 1
+              "encoding": {
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Origin"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Origin": {
               "name": "Origin",
@@ -12542,24 +17887,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Origin"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Origin"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -12584,59 +17927,57 @@ queryMap = {
           "query": "plot year by avg weight",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 4,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0,
-                "by_vis": 0
+          "visList": [{
+            "score": 4,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Weight": 1,
+              "Year": 1
+            },
+            "attributes": [
+              "Weight",
+              "Year"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "line",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Weight": 1,
-                "Year": 1
-              },
-              "attributes": [
-                "Weight",
-                "Year"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "trend"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "line",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Weight",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Year",
-                    "type": "temporal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Weight",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Year",
+                  "type": "temporal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Weight": {
               "name": "Weight",
@@ -12684,25 +18025,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Weight",
-                  "Year"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Weight",
+                "Year"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -12727,8 +18066,7 @@ queryMap = {
           "query": "coloring by orign , plot displacement by mpg",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.4,
               "scoreObj": {
                 "by_attributes": 2.9,
@@ -12931,25 +18269,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "MPG",
-                  "Displacement"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "MPG",
+                "Displacement"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -12974,59 +18310,57 @@ queryMap = {
           "query": "show cars produced by diiferent origin in various cylinders",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 4.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 4.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Cylinders": 1,
+              "Origin": 1
+            },
+            "attributes": [
+              "Cylinders",
+              "Origin"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Cylinders": 1,
-                "Origin": 1
-              },
-              "attributes": [
-                "Cylinders",
-                "Origin"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Cylinders",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Origin",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Cylinders",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Origin",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Cylinders": {
               "name": "Cylinders",
@@ -13074,24 +18408,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Cylinders"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Cylinders"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -13116,62 +18448,60 @@ queryMap = {
           "query": "bar chart , x axis cylinders , y axis mean mpg",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/cars-w-year.json",
-          "visList": [
-            {
-              "score": 6,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 1
+          "visList": [{
+            "score": 6,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "MPG": 1,
+              "Cylinders": 1
+            },
+            "attributes": [
+              "MPG",
+              "Cylinders"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "MPG": 1,
-                "Cylinders": 1
-              },
-              "attributes": [
-                "MPG",
-                "Cylinders"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "MPG",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Cylinders",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
+              "encoding": {
+                "x": {
+                  "field": "MPG",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Cylinders",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "MPG": {
               "name": "MPG",
@@ -13219,32 +18549,29 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "mean",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "MPG"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "mean",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "MPG"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
         }
       }
     ],
-    "movies-w-year": [
-      {
+    "movies-w-year": [{
         "queryId": 67,
         "query": "show me budget, gross, running time, and type for romantic comedy movies released between 1990 and 2000",
         "output": {
@@ -13263,292 +18590,281 @@ queryMap = {
           "query": "show me budget , gross , running time , and type for romantic comedy movies released between 1990 and 2000",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 5.699999999999999,
-              "scoreObj": {
-                "by_attributes": 3.6999999999999997,
-                "by_task": 2,
-                "by_vis": 0
-              },
-              "attributes": [
-                "Running Time",
-                "Worldwide Gross",
-                "Production Budget",
-                "Creative Type"
+          "visList": [{
+            "score": 5.699999999999999,
+            "scoreObj": {
+              "by_attributes": 3.6999999999999997,
+              "by_task": 2,
+              "by_vis": 0
+            },
+            "attributes": [
+              "Running Time",
+              "Worldwide Gross",
+              "Production Budget",
+              "Creative Type"
+            ],
+            "visType": "datatable",
+            "queryPhrase": null,
+            "tasks": [
+              "filter",
+              "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "transform": [{
+                "window": [{
+                  "op": "row_number",
+                  "as": "row_number"
+                }]
+              }],
+              "hconcat": [{
+                  "width": 150,
+                  "title": "Running Time",
+                  "mark": "text",
+                  "transform": [{
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    }
+                  ],
+                  "encoding": {
+                    "text": {
+                      "field": "Running Time",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                },
+                {
+                  "width": 150,
+                  "title": "Worldwide Gross",
+                  "mark": "text",
+                  "transform": [{
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    }
+                  ],
+                  "encoding": {
+                    "text": {
+                      "field": "Worldwide Gross",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                },
+                {
+                  "width": 150,
+                  "title": "Production Budget",
+                  "mark": "text",
+                  "transform": [{
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    }
+                  ],
+                  "encoding": {
+                    "text": {
+                      "field": "Production Budget",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                },
+                {
+                  "width": 150,
+                  "title": "Creative Type",
+                  "mark": "text",
+                  "transform": [{
+                      "filter": {
+                        "field": "Release Year",
+                        "range": [
+                          "1990/01/01",
+                          "2000/01/01"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Genre",
+                        "oneOf": [
+                          "Romantic Comedy"
+                        ]
+                      }
+                    }
+                  ],
+                  "encoding": {
+                    "text": {
+                      "field": "Creative Type",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                }
               ],
-              "visType": "datatable",
-              "queryPhrase": null,
-              "tasks": [
-                "filter",
-                "trend"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "transform": [
-                  {
-                    "window": [
-                      {
-                        "op": "row_number",
-                        "as": "row_number"
-                      }
-                    ]
-                  }
-                ],
-                "hconcat": [
-                  {
-                    "width": 150,
-                    "title": "Running Time",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Running Time",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  },
-                  {
-                    "width": 150,
-                    "title": "Worldwide Gross",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Worldwide Gross",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  },
-                  {
-                    "width": 150,
-                    "title": "Production Budget",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Production Budget",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  },
-                  {
-                    "width": 150,
-                    "title": "Creative Type",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Release Year",
-                          "range": [
-                            "1990/01/01",
-                            "2000/01/01"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Genre",
-                          "oneOf": [
-                            "Romantic Comedy"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Creative Type",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  }
-                ],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Running Time": {
               "name": "Running Time",
@@ -13688,8 +19004,7 @@ queryMap = {
             }
           },
           "taskMap": {
-            "filter": [
-              {
+            "filter": [{
                 "task": "filter",
                 "queryPhrase": "between",
                 "operator": "RANGE",
@@ -13729,28 +19044,26 @@ queryMap = {
                 }
               }
             ],
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Running Time",
-                  "Worldwide Gross",
-                  "Production Budget",
-                  "Creative Type",
-                  "Release Year"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Running Time",
+                "Worldwide Gross",
+                "Production Budget",
+                "Creative Type",
+                "Release Year"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -13775,8 +19088,7 @@ queryMap = {
           "query": "plot worldwide gross over release year split by genre",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6,
               "scoreObj": {
                 "by_attributes": 3,
@@ -14223,26 +19535,24 @@ queryMap = {
             }
           },
           "taskMap": {
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross",
-                  "Genre",
-                  "Release Year"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross",
+                "Genre",
+                "Release Year"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -14267,8 +19577,7 @@ queryMap = {
           "query": "gross across genres regarding content rating",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.4,
               "scoreObj": {
                 "by_attributes": 2.9,
@@ -14514,24 +19823,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -14556,8 +19863,7 @@ queryMap = {
           "query": "budget vs gross income across movie genres",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.3,
               "scoreObj": {
                 "by_attributes": 2.8,
@@ -14760,25 +20066,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross",
-                  "Production Budget"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross",
+                "Production Budget"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -14803,8 +20107,7 @@ queryMap = {
           "query": "scatterplot of worldwide gross by production budget with different colors by major genre",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -15007,25 +20310,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross",
-                  "Production Budget"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross",
+                "Production Budget"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -15050,59 +20351,57 @@ queryMap = {
           "query": "line graph of average production budget across release year",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 6,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 1
+          "visList": [{
+            "score": 6,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Production Budget": 1,
+              "Release Year": 1
+            },
+            "attributes": [
+              "Production Budget",
+              "Release Year"
+            ],
+            "queryPhrase": "line graph",
+            "visType": "linechart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "line",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Production Budget": 1,
-                "Release Year": 1
-              },
-              "attributes": [
-                "Production Budget",
-                "Release Year"
-              ],
-              "queryPhrase": "line graph",
-              "visType": "linechart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "line",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Production Budget",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Release Year",
-                    "type": "temporal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Production Budget",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Release Year",
+                  "type": "temporal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Production Budget": {
               "name": "Production Budget",
@@ -15150,24 +20449,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Production Budget"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -15192,8 +20489,7 @@ queryMap = {
           "query": "line graph of total worldwide gross by major genre , across release year",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 8,
               "scoreObj": {
                 "by_attributes": 3,
@@ -15384,24 +20680,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "total",
-                "operator": "SUM",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Worldwide Gross"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Worldwide Gross"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -15426,65 +20720,63 @@ queryMap = {
           "query": "scatterplot of rotten tomatoes rating by imdb rating",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Rotten Tomatoes Rating": 1,
+              "IMDB Rating": 1
+            },
+            "attributes": [
+              "Rotten Tomatoes Rating",
+              "IMDB Rating"
+            ],
+            "queryPhrase": "scatterplot",
+            "visType": "scatterplot",
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Rotten Tomatoes Rating": 1,
-                "IMDB Rating": 1
-              },
-              "attributes": [
-                "Rotten Tomatoes Rating",
-                "IMDB Rating"
-              ],
-              "queryPhrase": "scatterplot",
-              "visType": "scatterplot",
-              "tasks": [
-                "correlation"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "point",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Rotten Tomatoes Rating",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "IMDB Rating",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "tooltip": {
-                    "field": "Title"
+              "encoding": {
+                "x": {
+                  "field": "Rotten Tomatoes Rating",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "IMDB Rating",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                },
+                "tooltip": {
+                  "field": "Title"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Rotten Tomatoes Rating": {
               "name": "Rotten Tomatoes Rating",
@@ -15532,25 +20824,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Rotten Tomatoes Rating",
-                  "IMDB Rating"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Rotten Tomatoes Rating",
+                "IMDB Rating"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -15575,8 +20865,7 @@ queryMap = {
           "query": "bar chart of total worldwide gross by major genre , by content rating",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 8,
               "scoreObj": {
                 "by_attributes": 3,
@@ -15767,24 +21056,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "total",
-                "operator": "SUM",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Worldwide Gross"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Worldwide Gross"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -15809,54 +21096,52 @@ queryMap = {
           "query": "count of movies by creative type",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 2.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 2.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Creative Type": 1
+            },
+            "attributes": [
+              "Creative Type"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Creative Type": 1
+              "encoding": {
+                "x": {
+                  "field": "Creative Type",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Creative Type",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Creative Type"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Creative Type",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Creative Type",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Creative Type": {
               "name": "Creative Type",
@@ -15882,24 +21167,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Creative Type"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Creative Type"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -15924,59 +21207,57 @@ queryMap = {
           "query": "bar chart of average worldwide gross by major genre",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 6,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 1
+          "visList": [{
+            "score": 6,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Worldwide Gross": 1,
+              "Genre": 1
+            },
+            "attributes": [
+              "Worldwide Gross",
+              "Genre"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Worldwide Gross": 1,
-                "Genre": 1
-              },
-              "attributes": [
-                "Worldwide Gross",
-                "Genre"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Worldwide Gross",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Genre",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Worldwide Gross",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Genre",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Worldwide Gross": {
               "name": "Worldwide Gross",
@@ -16024,24 +21305,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Worldwide Gross"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Worldwide Gross"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -16066,8 +21345,7 @@ queryMap = {
           "query": "give me a bar chart of worldwide gross sum by major genres stacked by content ratings",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 8,
               "scoreObj": {
                 "by_attributes": 3,
@@ -16258,8 +21536,7 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
+            "derived_value": [{
                 "task": "derived_value",
                 "queryPhrase": "sum",
                 "operator": "SUM",
@@ -16316,8 +21593,7 @@ queryMap = {
           "query": "what was the average production budget of movies by year ?",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 4.9,
               "scoreObj": {
                 "by_attributes": 1.9,
@@ -16467,24 +21743,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Production Budget"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -16509,65 +21783,63 @@ queryMap = {
           "query": "plot imdb rating against rotten tomatoes rating .",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 4.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 4.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Rotten Tomatoes Rating": 1,
+              "IMDB Rating": 1
+            },
+            "attributes": [
+              "Rotten Tomatoes Rating",
+              "IMDB Rating"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Rotten Tomatoes Rating": 1,
-                "IMDB Rating": 1
-              },
-              "attributes": [
-                "Rotten Tomatoes Rating",
-                "IMDB Rating"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "correlation"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "point",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Rotten Tomatoes Rating",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "IMDB Rating",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "tooltip": {
-                    "field": "Title"
+              "encoding": {
+                "x": {
+                  "field": "Rotten Tomatoes Rating",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "IMDB Rating",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                },
+                "tooltip": {
+                  "field": "Title"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Rotten Tomatoes Rating": {
               "name": "Rotten Tomatoes Rating",
@@ -16615,25 +21887,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Rotten Tomatoes Rating",
-                  "IMDB Rating"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Rotten Tomatoes Rating",
+                "IMDB Rating"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -16658,59 +21928,57 @@ queryMap = {
           "query": "i want to see trend of production budget by the release year",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 4,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0,
-                "by_vis": 0
+          "visList": [{
+            "score": 4,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Production Budget": 1,
+              "Release Year": 1
+            },
+            "attributes": [
+              "Production Budget",
+              "Release Year"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "line",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Production Budget": 1,
-                "Release Year": 1
-              },
-              "attributes": [
-                "Production Budget",
-                "Release Year"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "trend"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "line",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Production Budget",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Release Year",
-                    "type": "temporal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Production Budget",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Release Year",
+                  "type": "temporal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Production Budget": {
               "name": "Production Budget",
@@ -16758,24 +22026,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": "trend",
-                "operator": null,
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Production Budget"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": true,
-                "meta": {
-                  "value_ambiguity_type": "datatype"
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": "trend",
+              "operator": null,
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": true,
+              "meta": {
+                "value_ambiguity_type": "datatype"
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -16800,59 +22066,57 @@ queryMap = {
           "query": "plot average worldwide growth over major genre",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 4.4,
-              "scoreObj": {
-                "by_attributes": 1.9,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 4.4,
+            "scoreObj": {
+              "by_attributes": 1.9,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Worldwide Gross": 1,
+              "Genre": 1
+            },
+            "attributes": [
+              "Worldwide Gross",
+              "Genre"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Worldwide Gross": 1,
-                "Genre": 1
-              },
-              "attributes": [
-                "Worldwide Gross",
-                "Genre"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Worldwide Gross",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Genre",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Worldwide Gross",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Genre",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Genre": {
               "name": "Genre",
@@ -16900,24 +22164,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -16942,8 +22204,7 @@ queryMap = {
           "query": "stack bar chart of sum ( worldwide gross ) vs. movie genre based on content rating",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7,
               "scoreObj": {
                 "by_attributes": 3,
@@ -17134,24 +22395,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "sum",
-                "operator": "SUM",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Genre"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": true,
-                "meta": {
-                  "value_ambiguity_type": "datatype"
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "sum",
+              "operator": "SUM",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Genre"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": true,
+              "meta": {
+                "value_ambiguity_type": "datatype"
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -17176,54 +22435,52 @@ queryMap = {
           "query": "counts of movies by creative type",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 2.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 2.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Creative Type": 1
+            },
+            "attributes": [
+              "Creative Type"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Creative Type": 1
+              "encoding": {
+                "x": {
+                  "field": "Creative Type",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Creative Type",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Creative Type"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Creative Type",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Creative Type",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Creative Type": {
               "name": "Creative Type",
@@ -17249,24 +22506,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Creative Type"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Creative Type"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -17291,8 +22546,7 @@ queryMap = {
           "query": "rating of movies in imbd and rotten tomatoes",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 4.39,
               "scoreObj": {
                 "by_attributes": 1.8,
@@ -17476,43 +22730,39 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Rotten Tomatoes Rating"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Rotten Tomatoes Rating"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ],
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Rotten Tomatoes Rating",
-                  "IMDB Rating"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": true,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            }],
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Rotten Tomatoes Rating",
+                "IMDB Rating"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": true,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -17537,54 +22787,52 @@ queryMap = {
           "query": "how many films of each creative type",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 2.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 2.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Creative Type": 1
+            },
+            "attributes": [
+              "Creative Type"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Creative Type": 1
+              "encoding": {
+                "x": {
+                  "field": "Creative Type",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Creative Type",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Creative Type"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Creative Type",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Creative Type",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Creative Type": {
               "name": "Creative Type",
@@ -17610,24 +22858,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Creative Type"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Creative Type"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -17652,8 +22898,7 @@ queryMap = {
           "query": "relation between worldwide gross and production budget for each major genre",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -17856,25 +23101,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross",
-                  "Production Budget"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross",
+                "Production Budget"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -17899,52 +23142,50 @@ queryMap = {
           "query": "average production budget by year , 1995 to 2009",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 3,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 1,
-                "by_vis": 0
+          "visList": [{
+            "score": 3,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Production Budget": 1
+            },
+            "attributes": [
+              "Production Budget"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "tick",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Production Budget": 1
+              "encoding": {
+                "x": {
+                  "field": "Production Budget",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
+                  }
+                }
               },
-              "attributes": [
-                "Production Budget"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "tick",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Production Budget",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Production Budget": {
               "name": "Production Budget",
@@ -17970,24 +23211,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Production Budget"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -18012,8 +23251,7 @@ queryMap = {
           "query": "give me the number of movies by running time",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 2.5,
               "scoreObj": {
                 "by_attributes": 1,
@@ -18186,24 +23424,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Running Time"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Running Time"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -18228,8 +23464,7 @@ queryMap = {
           "query": "show me average production budget over release year",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 5,
               "scoreObj": {
                 "by_attributes": 2,
@@ -18379,24 +23614,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Production Budget"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -18421,8 +23654,7 @@ queryMap = {
           "query": "plot average production budget over release year",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 5,
               "scoreObj": {
                 "by_attributes": 2,
@@ -18572,24 +23804,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Production Budget"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Production Budget"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -18614,56 +23844,54 @@ queryMap = {
           "query": "show the total gross of movies by creative type as a piechart .",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 5.9,
-              "scoreObj": {
-                "by_attributes": 1.9,
-                "by_task": 1,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.9,
+            "scoreObj": {
+              "by_attributes": 1.9,
+              "by_task": 1,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Worldwide Gross": 1,
+              "Creative Type": 1
+            },
+            "attributes": [
+              "Worldwide Gross",
+              "Creative Type"
+            ],
+            "queryPhrase": "piechart",
+            "visType": "piechart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "arc",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Worldwide Gross": 1,
-                "Creative Type": 1
+              "encoding": {
+                "theta": {
+                  "field": "Worldwide Gross",
+                  "type": "quantitative",
+                  "aggregate": "sum"
+                },
+                "color": {
+                  "field": "Creative Type",
+                  "type": "nominal",
+                  "aggregate": null
+                }
               },
-              "attributes": [
-                "Worldwide Gross",
-                "Creative Type"
-              ],
-              "queryPhrase": "piechart",
-              "visType": "piechart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "arc",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "theta": {
-                    "field": "Worldwide Gross",
-                    "type": "quantitative",
-                    "aggregate": "sum"
-                  },
-                  "color": {
-                    "field": "Creative Type",
-                    "type": "nominal",
-                    "aggregate": null
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Creative Type": {
               "name": "Creative Type",
@@ -18711,24 +23939,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "total",
-                "operator": "SUM",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Worldwide Gross"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Worldwide Gross"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -18753,8 +23979,7 @@ queryMap = {
           "query": "stacked bar of genre and worldwide gross colored by content rating",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -19000,24 +24225,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -19042,8 +24265,7 @@ queryMap = {
           "query": "give me line charts of worldwide gross over year by major genres",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 5.9,
               "scoreObj": {
                 "by_attributes": 2.9,
@@ -19490,26 +24712,24 @@ queryMap = {
             }
           },
           "taskMap": {
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Worldwide Gross",
-                  "Genre",
-                  "Release Year"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Worldwide Gross",
+                "Genre",
+                "Release Year"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -19534,59 +24754,57 @@ queryMap = {
           "query": "what 's the production budget for movies in different years ?",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 3.9,
-              "scoreObj": {
-                "by_attributes": 1.9,
-                "by_task": 0,
-                "by_vis": 0
+          "visList": [{
+            "score": 3.9,
+            "scoreObj": {
+              "by_attributes": 1.9,
+              "by_task": 0,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Production Budget": 1,
+              "Release Year": 1
+            },
+            "attributes": [
+              "Production Budget",
+              "Release Year"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "line",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Production Budget": 1,
-                "Release Year": 1
-              },
-              "attributes": [
-                "Production Budget",
-                "Release Year"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "trend"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "line",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Production Budget",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Release Year",
-                    "type": "temporal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Production Budget",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Release Year",
+                  "type": "temporal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Production Budget": {
               "name": "Production Budget",
@@ -19634,25 +24852,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "trend": [
-              {
-                "task": "trend",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Production Budget",
-                  "Release Year"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "trend": [{
+              "task": "trend",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Production Budget",
+                "Release Year"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -19677,61 +24893,59 @@ queryMap = {
           "query": "histogram of running time",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/movies-w-year.json",
-          "visList": [
-            {
-              "score": 3.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 3.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Running Time": 1
+            },
+            "attributes": [
+              "Running Time"
+            ],
+            "queryPhrase": "histogram",
+            "visType": "histogram",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Running Time": 1
-              },
-              "attributes": [
-                "Running Time"
-              ],
-              "queryPhrase": "histogram",
-              "visType": "histogram",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Running Time",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "bin": true,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Running Time",
-                    "type": "quantitative",
-                    "aggregate": "count",
-                    "axis": {
-                      "format": "s"
-                    }
+              "encoding": {
+                "x": {
+                  "field": "Running Time",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "bin": true,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Running Time",
+                  "type": "quantitative",
+                  "aggregate": "count",
+                  "axis": {
+                    "format": "s"
                   }
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Running Time": {
               "name": "Running Time",
@@ -19757,32 +24971,29 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Running Time"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Running Time"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
         }
       }
     ],
-    "superstore": [
-      {
+    "superstore": [{
         "queryId": 97,
         "query": "draw a scatterplot of sales vs profit where sales is on the x-axis and points are colored by region",
         "output": {
@@ -19801,8 +25012,7 @@ queryMap = {
           "query": "draw a scatterplot of sales vs profit where sales is on the x-axis and points are colored by region",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -20005,25 +25215,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -20048,54 +25256,52 @@ queryMap = {
           "query": "draw a bar chart of count by sub-category",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 3.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 3.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Category": 1
+            },
+            "attributes": [
+              "Category"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Category": 1
+              "encoding": {
+                "x": {
+                  "field": "Category",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Category",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Category"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Category",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Category",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Category": {
               "name": "Category",
@@ -20121,24 +25327,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Category"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Category"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -20163,8 +25367,7 @@ queryMap = {
           "query": "by ship mode , draw a bar chart of average profit by split by segment",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 8,
               "scoreObj": {
                 "by_attributes": 3,
@@ -20355,24 +25558,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -20397,8 +25598,7 @@ queryMap = {
           "query": "make a stacked bar chart summing profit across region , where profit is colored by ship status",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -20589,24 +25789,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -20631,59 +25829,57 @@ queryMap = {
           "query": "make a bar chart of avgerage profit by state , with state on x axis .",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "State": 1
+            },
+            "attributes": [
+              "Profit",
+              "State"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "State": 1
-              },
-              "attributes": [
-                "Profit",
-                "State"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "State",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "State",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -20731,24 +25927,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -20773,65 +25967,63 @@ queryMap = {
           "query": "how much is the profit for sales for each",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 4.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 0
+          "visList": [{
+            "score": 4.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "Sales": 1
+            },
+            "attributes": [
+              "Profit",
+              "Sales"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "Sales": 1
-              },
-              "attributes": [
-                "Profit",
-                "Sales"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "correlation"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "point",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Sales",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "tooltip": {
-                    "field": "nan"
+              "encoding": {
+                "x": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Sales",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                },
+                "tooltip": {
+                  "field": "nan"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -20879,25 +26071,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -20922,8 +26112,7 @@ queryMap = {
           "query": "what is the average profit of different segments on the ship modes of transport",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7,
               "scoreObj": {
                 "by_attributes": 3,
@@ -21169,24 +26358,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -21211,59 +26398,57 @@ queryMap = {
           "query": "what is the average profit of each country",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 0
+          "visList": [{
+            "score": 5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "Country": 1
+            },
+            "attributes": [
+              "Profit",
+              "Country"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "Country": 1
-              },
-              "attributes": [
-                "Profit",
-                "Country"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Country",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Country": {
               "name": "Country",
@@ -21311,24 +26496,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -21353,59 +26536,57 @@ queryMap = {
           "query": "summarize the total profit by region using by a stacked bar plot",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 0
+          "visList": [{
+            "score": 5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "Region": 1
+            },
+            "attributes": [
+              "Profit",
+              "Region"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "Region": 1
-              },
-              "attributes": [
-                "Profit",
-                "Region"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": "sum",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Region",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "sum",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Region",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -21453,24 +26634,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "total",
-                "operator": "SUM",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "total",
+              "operator": "SUM",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -21495,8 +26674,7 @@ queryMap = {
           "query": "scatterplot profit vs sales with color indicating geographic region of the u.s .",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -21699,25 +26877,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -21742,65 +26918,63 @@ queryMap = {
           "query": "scatterplot of sales vs. profit",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "Sales": 1
+            },
+            "attributes": [
+              "Profit",
+              "Sales"
+            ],
+            "queryPhrase": "scatterplot",
+            "visType": "scatterplot",
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "Sales": 1
-              },
-              "attributes": [
-                "Profit",
-                "Sales"
-              ],
-              "queryPhrase": "scatterplot",
-              "visType": "scatterplot",
-              "tasks": [
-                "correlation"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "point",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Sales",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "tooltip": {
-                    "field": "nan"
+              "encoding": {
+                "x": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Sales",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                },
+                "tooltip": {
+                  "field": "nan"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -21848,25 +27022,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -21891,8 +27063,7 @@ queryMap = {
           "query": "for each data element , draw a circle at ( its sales , profit ) with the proper color by the region",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -22095,25 +27266,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -22138,59 +27307,57 @@ queryMap = {
           "query": "bar graph avg ( profit ) by state",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "State": 1
+            },
+            "attributes": [
+              "Profit",
+              "State"
+            ],
+            "queryPhrase": "bar graph",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "State": 1
-              },
-              "attributes": [
-                "Profit",
-                "State"
-              ],
-              "queryPhrase": "bar graph",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "State",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "State",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -22238,24 +27405,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -22280,8 +27445,7 @@ queryMap = {
           "query": "scatterplot region x=sales y=profit",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -22484,25 +27648,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -22527,8 +27689,7 @@ queryMap = {
           "query": "stacked barchart ship status x=region y=sum ( profit )",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 8,
               "scoreObj": {
                 "by_attributes": 3,
@@ -22719,24 +27880,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "sum",
-                "operator": "SUM",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "sum",
+              "operator": "SUM",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -22761,54 +27920,52 @@ queryMap = {
           "query": "bar chart count by sub-category",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 3.5,
-              "scoreObj": {
-                "by_attributes": 1,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 3.5,
+            "scoreObj": {
+              "by_attributes": 1,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Category": 1
+            },
+            "attributes": [
+              "Category"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Category": 1
+              "encoding": {
+                "x": {
+                  "field": "Category",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Category",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Category"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Category",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Category",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Category": {
               "name": "Category",
@@ -22834,24 +27991,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Category"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Category"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -22876,59 +28031,57 @@ queryMap = {
           "query": "create bar chart based on state and avg ( profit )",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "State": 1
+            },
+            "attributes": [
+              "Profit",
+              "State"
+            ],
+            "queryPhrase": "bar chart",
+            "visType": "barchart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "State": 1
-              },
-              "attributes": [
-                "Profit",
-                "State"
-              ],
-              "queryPhrase": "bar chart",
-              "visType": "barchart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "State",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "State",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -22976,24 +28129,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -23018,59 +28169,57 @@ queryMap = {
           "query": "show a line chart of semi sales by category",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Sales": 1,
+              "Category": 1
+            },
+            "attributes": [
+              "Sales",
+              "Category"
+            ],
+            "queryPhrase": "line chart",
+            "visType": "linechart",
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "line",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Sales": 1,
-                "Category": 1
-              },
-              "attributes": [
-                "Sales",
-                "Category"
-              ],
-              "queryPhrase": "line chart",
-              "visType": "linechart",
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "line",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Sales",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "Category",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Sales",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "Category",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Category": {
               "name": "Category",
@@ -23118,24 +28267,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -23160,8 +28307,7 @@ queryMap = {
           "query": "ship mode bar chart avg ( profit ) by segment )",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -23352,24 +28498,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": [],
-                "operator": "AVG",
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": [],
+              "operator": "AVG",
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -23394,61 +28538,59 @@ queryMap = {
           "query": "show a bar graph by region showing the various ship status",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5.5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 0.5,
-                "by_vis": 1
+          "visList": [{
+            "score": 5.5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 0.5,
+              "by_vis": 1
+            },
+            "confidenceObj": {
+              "Ship Status": 1,
+              "Region": 1
+            },
+            "attributes": [
+              "Ship Status",
+              "Region"
+            ],
+            "queryPhrase": "bar graph",
+            "visType": "barchart",
+            "tasks": [
+              "distribution"
+            ],
+            "inferenceType": "explicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Ship Status": 1,
-                "Region": 1
+              "encoding": {
+                "x": {
+                  "field": "Ship Status",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "color": {
+                  "field": "Region",
+                  "type": "nominal",
+                  "aggregate": null
+                },
+                "y": {
+                  "field": "Ship Status",
+                  "type": "nominal",
+                  "aggregate": "count"
+                }
               },
-              "attributes": [
-                "Ship Status",
-                "Region"
-              ],
-              "queryPhrase": "bar graph",
-              "visType": "barchart",
-              "tasks": [
-                "distribution"
-              ],
-              "inferenceType": "explicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Ship Status",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "color": {
-                    "field": "Region",
-                    "type": "nominal",
-                    "aggregate": null
-                  },
-                  "y": {
-                    "field": "Ship Status",
-                    "type": "nominal",
-                    "aggregate": "count"
-                  }
-                },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Ship Status": {
               "name": "Ship Status",
@@ -23496,25 +28638,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "distribution": [
-              {
-                "task": "distribution",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Ship Status",
-                  "Region"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "distribution": [{
+              "task": "distribution",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Ship Status",
+                "Region"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -23539,65 +28679,63 @@ queryMap = {
           "query": "show correlation between sales and profit",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 0
+          "visList": [{
+            "score": 5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "Sales": 1
+            },
+            "attributes": [
+              "Profit",
+              "Sales"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "correlation"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "point",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "Sales": 1
-              },
-              "attributes": [
-                "Profit",
-                "Sales"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "correlation"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "point",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "x": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "y": {
-                    "field": "Sales",
-                    "type": "quantitative",
-                    "aggregate": null,
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "tooltip": {
-                    "field": "nan"
+              "encoding": {
+                "x": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
+                "y": {
+                  "field": "Sales",
+                  "type": "quantitative",
+                  "aggregate": null,
+                  "axis": {
+                    "format": "s"
                   }
+                },
+                "tooltip": {
+                  "field": "nan"
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -23645,25 +28783,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": "correlation",
-                "operator": null,
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": "correlation",
+              "operator": null,
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -23688,8 +28824,7 @@ queryMap = {
           "query": "show profit vs sales as scatter plot ' , 'use a different color for each region",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 7.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -23892,25 +29027,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -23935,59 +29068,57 @@ queryMap = {
           "query": "show the average profit by state",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 5,
-              "scoreObj": {
-                "by_attributes": 2,
-                "by_task": 1,
-                "by_vis": 0
+          "visList": [{
+            "score": 5,
+            "scoreObj": {
+              "by_attributes": 2,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "confidenceObj": {
+              "Profit": 1,
+              "State": 1
+            },
+            "attributes": [
+              "Profit",
+              "State"
+            ],
+            "queryPhrase": null,
+            "visType": null,
+            "tasks": [
+              "derived_value"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "mark": {
+                "type": "bar",
+                "tooltip": true
               },
-              "confidenceObj": {
-                "Profit": 1,
-                "State": 1
-              },
-              "attributes": [
-                "Profit",
-                "State"
-              ],
-              "queryPhrase": null,
-              "visType": null,
-              "tasks": [
-                "derived_value"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "mark": {
-                  "type": "bar",
-                  "tooltip": true
-                },
-                "encoding": {
-                  "y": {
-                    "field": "Profit",
-                    "type": "quantitative",
-                    "aggregate": "mean",
-                    "axis": {
-                      "format": "s"
-                    }
-                  },
-                  "x": {
-                    "field": "State",
-                    "type": "nominal",
-                    "aggregate": null
+              "encoding": {
+                "y": {
+                  "field": "Profit",
+                  "type": "quantitative",
+                  "aggregate": "mean",
+                  "axis": {
+                    "format": "s"
                   }
                 },
-                "transform": [],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+                "x": {
+                  "field": "State",
+                  "type": "nominal",
+                  "aggregate": null
+                }
+              },
+              "transform": [],
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -24035,24 +29166,22 @@ queryMap = {
             }
           },
           "taskMap": {
-            "derived_value": [
-              {
-                "task": "derived_value",
-                "queryPhrase": "average",
-                "operator": "AVG",
-                "values": [],
-                "matchScore": 1,
-                "attributes": [
-                  "Profit"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "derived_value": [{
+              "task": "derived_value",
+              "queryPhrase": "average",
+              "operator": "AVG",
+              "values": [],
+              "matchScore": 1,
+              "attributes": [
+                "Profit"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -24077,8 +29206,7 @@ queryMap = {
           "query": "can you create a graph showing sales and profit by region ?",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
+          "visList": [{
               "score": 6.5,
               "scoreObj": {
                 "by_attributes": 3,
@@ -24281,25 +29409,23 @@ queryMap = {
             }
           },
           "taskMap": {
-            "correlation": [
-              {
-                "task": "correlation",
-                "queryPhrase": [],
-                "operator": null,
-                "values": null,
-                "matchScore": 0.5,
-                "attributes": [
-                  "Profit",
-                  "Sales"
-                ],
-                "inferenceType": "implicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "correlation": [{
+              "task": "correlation",
+              "queryPhrase": [],
+              "operator": null,
+              "values": null,
+              "matchScore": 0.5,
+              "attributes": [
+                "Profit",
+                "Sales"
+              ],
+              "inferenceType": "implicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null
@@ -24324,201 +29450,189 @@ queryMap = {
           "query": "show me by region sales and profits for all products bought by gary hansen",
           "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
           "alias": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/superstore.json",
-          "visList": [
-            {
-              "score": 4.9,
-              "scoreObj": {
-                "by_attributes": 3.9,
-                "by_task": 1,
-                "by_vis": 0
-              },
-              "attributes": [
-                "Profit",
-                "Sales",
-                "Region",
-                "Product Name"
+          "visList": [{
+            "score": 4.9,
+            "scoreObj": {
+              "by_attributes": 3.9,
+              "by_task": 1,
+              "by_vis": 0
+            },
+            "attributes": [
+              "Profit",
+              "Sales",
+              "Region",
+              "Product Name"
+            ],
+            "visType": "datatable",
+            "queryPhrase": null,
+            "tasks": [
+              "filter"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "transform": [{
+                "window": [{
+                  "op": "row_number",
+                  "as": "row_number"
+                }]
+              }],
+              "hconcat": [{
+                  "width": 150,
+                  "title": "Profit",
+                  "mark": "text",
+                  "transform": [{
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    }
+                  ],
+                  "encoding": {
+                    "text": {
+                      "field": "Profit",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                },
+                {
+                  "width": 150,
+                  "title": "Sales",
+                  "mark": "text",
+                  "transform": [{
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    }
+                  ],
+                  "encoding": {
+                    "text": {
+                      "field": "Sales",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                },
+                {
+                  "width": 150,
+                  "title": "Region",
+                  "mark": "text",
+                  "transform": [{
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    },
+                    {
+                      "filter": {
+                        "field": "Customer Name",
+                        "oneOf": [
+                          "Gary Hansen"
+                        ]
+                      }
+                    }
+                  ],
+                  "encoding": {
+                    "text": {
+                      "field": "Region",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                },
+                {
+                  "width": 150,
+                  "title": "Product Name",
+                  "mark": "text",
+                  "transform": [{
+                    "filter": {
+                      "field": "Customer Name",
+                      "oneOf": [
+                        "Gary Hansen"
+                      ]
+                    }
+                  }],
+                  "encoding": {
+                    "text": {
+                      "field": "Product Name",
+                      "type": "nominal"
+                    },
+                    "y": {
+                      "field": "row_number",
+                      "type": "ordinal",
+                      "axis": null
+                    }
+                  }
+                }
               ],
-              "visType": "datatable",
-              "queryPhrase": null,
-              "tasks": [
-                "filter"
-              ],
-              "inferenceType": "implicit",
-              "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                "transform": [
-                  {
-                    "window": [
-                      {
-                        "op": "row_number",
-                        "as": "row_number"
-                      }
-                    ]
-                  }
-                ],
-                "hconcat": [
-                  {
-                    "width": 150,
-                    "title": "Profit",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Profit",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  },
-                  {
-                    "width": 150,
-                    "title": "Sales",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Sales",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  },
-                  {
-                    "width": 150,
-                    "title": "Region",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      },
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Region",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  },
-                  {
-                    "width": 150,
-                    "title": "Product Name",
-                    "mark": "text",
-                    "transform": [
-                      {
-                        "filter": {
-                          "field": "Customer Name",
-                          "oneOf": [
-                            "Gary Hansen"
-                          ]
-                        }
-                      }
-                    ],
-                    "encoding": {
-                      "text": {
-                        "field": "Product Name",
-                        "type": "nominal"
-                      },
-                      "y": {
-                        "field": "row_number",
-                        "type": "ordinal",
-                        "axis": null
-                      }
-                    }
-                  }
-                ],
-                "data": {
-                  "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
-                  "format": {
-                    "type": "csv"
-                  }
+              "data": {
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv",
+                "format": {
+                  "type": "csv"
                 }
               }
             }
-          ],
+          }],
           "attributeMap": {
             "Profit": {
               "name": "Profit",
@@ -24636,28 +29750,26 @@ queryMap = {
             }
           },
           "taskMap": {
-            "filter": [
-              {
-                "task": "filter",
-                "queryPhrase": [
-                  "gary hansen"
-                ],
-                "operator": "IN",
-                "values": [
-                  "Gary Hansen"
-                ],
-                "matchScore": 1,
-                "attributes": [
-                  "Customer Name"
-                ],
-                "inferenceType": "explicit",
-                "isAttrAmbiguous": false,
-                "isValueAmbiguous": false,
-                "meta": {
-                  "value_ambiguity_type": null
-                }
+            "filter": [{
+              "task": "filter",
+              "queryPhrase": [
+                "gary hansen"
+              ],
+              "operator": "IN",
+              "values": [
+                "Gary Hansen"
+              ],
+              "matchScore": 1,
+              "attributes": [
+                "Customer Name"
+              ],
+              "inferenceType": "explicit",
+              "isAttrAmbiguous": false,
+              "isValueAmbiguous": false,
+              "meta": {
+                "value_ambiguity_type": null
               }
-            ]
+            }]
           },
           "followUpQuery": false,
           "contextObj": null

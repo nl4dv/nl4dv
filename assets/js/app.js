@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     queryOutputMap = {};
     for(let key in queryMap){
-        if(key==="other-examples"){
+        if(key==="other-examples" || key==="conversational-examples"){
             for(let dataset in queryMap[key]){
                 for(let queryObj of queryMap[key][dataset]){
                     queryOutputMap["queryId-"+queryObj.queryId] = queryObj.output;
@@ -16,6 +16,7 @@ $(document).ready(function(){
             }
         }
     }
+    console.log(queryOutputMap)
 
     $(".sideNavTab").click(function (evt) {
         let sideNavPillId = $(this).attr('id'), queryObjs, queryContainerId;
@@ -40,6 +41,11 @@ $(document).ready(function(){
     $(".otrTab").click(function (evt) {
         let tabId =  $(this).attr('id'), dataset = tabId.split('tab-otr-')[1];
         populateQueryContainer(queryMap['other-examples'][dataset],"queryContainer-otr-"+dataset);
+    });
+
+    $(".ciTab").click(function (evt) {
+        let tabId =  $(this).attr('id'), dataset = tabId.split('tab-ci-')[1];
+        populateQueryContainer(queryMap['conversational-examples'][dataset],"queryContainer-ci-"+dataset);
     });
 
     function populateQueryContainer(queryObjs, queryContainerId) {
@@ -89,6 +95,7 @@ $(document).ready(function(){
                     d3.select("#" + queryId).select(".queryPanel").html(htmlStr);
                     for(let chartIdx in visList){
                         let vlSpec = visList[chartIdx]["vlSpec"];
+
                         let chartId = queryId + "-" + "chart-" + chartIdx;
                         vegaEmbed('#'+chartId, vlSpec);
                     }
@@ -122,4 +129,5 @@ $(document).ready(function(){
     populateQueryContainer(queryMap['fullyspecified-attributes-tasks-vis'], "queryContainer-fs");
     populateQueryContainer(queryMap['underspecified-attributes'], "queryContainer-us-attributes");
     populateQueryContainer(queryMap['other-examples']['cars-w-year'], "queryContainer-otr-cars-w-year");
+    populateQueryContainer(queryMap['conversational-examples']['cars-w-year'], "queryContainer-ci-cars-w-year");
 });

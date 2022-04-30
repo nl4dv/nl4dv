@@ -100,6 +100,17 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
+                                <div id="vl-learner" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Vega-Lite Learner</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-vl-learner.png" alt="Vega-Lite Learner" />
+                                            <p class="intro">
+                                                A natural language interface, now powered with conversational interaction capabilities, that helps learning specifications for specific Vega-Lite features, e.g., how filters are specified using the "transform" property. Users can sequentially input queries through the text input box at the top of the page to specify visualizations. These queries get appended to and form a conversation. Users can choose to see the difference (added, removed, or modified entities) between the visualization specification of the chosen query and its predecessor through highlights and annotations. Users can also update a visualization specification at any step of the conversation (albeit this edit will be local and temporary as the updates cannot be propagated along the conversation).
+                                            </p>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
                                 <div id="jupyter-notebook" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -121,6 +132,17 @@
                                             </p>
                                         </div>
                                     </div><!--//row-->
+                                    <div id="chatbot" class="section-block">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3 class="block-title">Chatbot</h3>
+                                                <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-chatbot.png" alt="Chatbot" />
+                                                <p class="intro">
+                                                    A conversational user interface that automatically detects user intent to follow up or not and helps resolve ambiguities through DataTone-like GUI-based "ambiguity widgets" (e.g., select dropdowns and buttons) through user interactions. Users disambiguate by responding to these prompts, notifying NL4DV through <code class="language-bash">update_query()</code>. Only after all ambiguities are resolved, the system renders the appropriate visualization.
+                                                </p>
+                                            </div>
+                                        </div><!--//row-->
+                                    </div><!--//section-block-->
                                 </div><!--//section-block-->
                                 <div id="mmplot" class="section-block">
                                     <div class="row">
@@ -129,6 +151,17 @@
                                             <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-mmplot.png" alt="MMPlot" />
                                             <p class="intro">
                                                 MMPlot is a multimodal scatterplot visualization system that allows creating and interacting with scatterplots using direct manipulation (through mouse or touch) and voice. Supported direct manipulation interactions include changing x, y, color, and size attributes using axis and legend dropdown menus, filtering using the control panel on the right (collapsed by default), zoom/pan, and tapping on individual points to see their details. Instead of performing repeated actions with mouse or touch, users can leverage voice to specify charts, apply filter, or do both through a single query.
+                                            </p>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="mindmap" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Mind Map</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-mindmap.png" alt="MindMap" />
+                                            <p class="intro">
+                                               A mind mapping application that helps users engage in multiple simultaneous conversations regarding a dataset. Through speech or text modalities, users can ask standalone queries (e.g., "Show the distribution of salaries as a boxplot") as well as follow-up queries (e.g., "group by foot") through the plus icon, enabled by hovering on the corresponding mindmap node. Users can also follow-up on already followed-up queries, forming new conversational branches (e.g., "now show only defenders" and "what about only goalkeepers?"). Users can also delete a query (e.g., to paraphrase and recreate a new one), pruning the entire downstream conversation, including branches.
                                             </p>
                                         </div>
                                     </div><!--//row-->
@@ -279,6 +312,80 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
+
+                                <div id="ci-queries" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Conversational Interaction</h3>
+                                            <p class="intro">
+                                                Below we provide queries to illustrate NL4DV's conversational interaction capabilities.
+                                            </p>
+                                            <nav>
+                                                <div class="nav nav-tabs" role="tablist">
+                                                    <a class="nav-item nav-link active ciTab" id="tab-ci-cars-w-year" data-toggle="tab" href="#nav-tab-ci-cars-w-year" role="tab" aria-controls="nav-tab-ci-cars-w-year" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-movies-w-year" data-toggle="tab" href="#nav-tab-ci-movies-w-year" role="tab" aria-controls="nav-tab-ci-movies-w-year" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-euro" data-toggle="tab" href="#nav-tab-ci-euro" role="tab" aria-controls="nav-tab-ci-euro" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Euro</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-superstore" data-toggle="tab" href="#nav-tab-ci-superstore" role="tab" aria-controls="nav-tab-ci-superstore" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content">
+                                                <br/>
+                                                <div class="tab-pane fade show active" id="nav-tab-ci-cars-w-year" role="tabpanel" aria-labelledby="tab-ci-cars-w-year">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-cars-w-year" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-movies-w-year" role="tabpanel" aria-labelledby="tab-ci-movies-w-year">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-movies-w-year" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-euro" role="tabpanel" aria-labelledby="tab-ci-euro">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Euro Soccer Players</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-euro" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-superstore" role="tabpanel" aria-labelledby="tab-ci-superstore">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/superstore.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Superstore</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-superstore" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
                             </section><!--//doc-section-->
 
                         </div><!--//content-inner-->
@@ -289,15 +396,19 @@
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#vl-editor">Vega-Lite Editor</a>
+                                    <a class="nav-link scrollto" href="#vl-learner">Vega-Lite Learner</a>
                                     <a class="nav-link scrollto" href="#jupyter-notebook">Jupyter Notebook</a>
                                     <a class="nav-link scrollto" href="#datatone">DataTone</a>
+                                    <a class="nav-link scrollto" href="#chatbot">ChatBot</a>
                                     <a class="nav-link scrollto" href="#mmplot">MMPlot</a>
+                                    <a class="nav-link scrollto" href="#mindmap">Mind Map</a>
                                 </nav><!--//doc-menu-->
                                 <a class="nav-link scrollto" href="#sample-queries">Sample Queries</a>
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#fs-queries">Fully Specified</a>
                                     <a class="nav-link scrollto" href="#us-queries">Underspecified</a>
                                     <a class="nav-link scrollto" href="#more-queries">More Queries</a>
+                                    <a class="nav-link scrollto" href="#ci-queries">Conversational Interaction</a>
                                 </nav><!--//doc-menu-->
                             </nav><!--//nav-->
                         </div>
@@ -311,7 +422,7 @@
         <div class="container">
             <p>
                 NL4DV: Natural Language toolkit for Data Visualization.<br/>
-                <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2020</small>
+                <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2022</small>
             </p>
             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
             <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>

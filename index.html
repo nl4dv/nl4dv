@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149472574-2"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-149472574-2');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149472574-2');
     </script>
 
     <title>NL4DV | Home</title>
@@ -16,33 +20,38 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
+    <meta name="description"
+        content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
     <meta name="author" content="Arpit Narechania">
 
-	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://nl4dv.github.io/nl4dv/">
-	<meta property="og:title" content="NL4DV">
-	<meta property="og:description" content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
-	<meta property="og:image" content="https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png">
-	<meta property="og:video" content="https://youtu.be/U5uDyILweu8">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nl4dv.github.io/nl4dv/">
+    <meta property="og:title" content="NL4DV">
+    <meta property="og:description"
+        content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
+    <meta property="og:image" content="https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png">
+    <meta property="og:video" content="https://youtu.be/U5uDyILweu8">
 
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://nl4dv.github.io/nl4dv/">
-	<meta property="twitter:title" content="NL4DV">
-	<meta property="twitter:description" content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
-	<meta property="twitter:image" content="https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png">
-	<meta property="twitter:site" content="@arpitnarechania">
-	<meta property="twitter:creator" content="@arpitnarechania">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nl4dv.github.io/nl4dv/">
+    <meta property="twitter:title" content="NL4DV">
+    <meta property="twitter:description"
+        content="NL4DV is a Python toolkit that takes a natural language (NL) query about a given dataset as input and outputs a structured JSON object containing Data attributes, Analytic tasks, and Visualizations (Vega-Lite specifications).">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.png">
+    <meta property="twitter:site" content="@arpitnarechania">
+    <meta property="twitter:creator" content="@arpitnarechania">
 
     <link rel="shortcut icon" href="./assets/images/favicon.ico">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
     <!-- FontAwesome JS -->
     <script defer src="./assets/fontawesome/js/all.js"></script>
     <!-- Global CSS -->
     <link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
-    <!-- Plugins CSS -->    
+    <!-- Plugins CSS -->
     <link rel="stylesheet" href="./assets/plugins/elegant_font/css/style.css">
     <link rel="stylesheet" href="./assets/plugins/prism/prism.css">
     <!-- Theme CSS -->
@@ -50,15 +59,15 @@
     <!-- Custom CSS -->
     <link id="custom-style" rel="stylesheet" href="./assets/css/custom.css">
 
-</head> 
+</head>
 
-<body class="landing-page">   
-	
-	<!-- GITHUB BUTTON JS -->
+<body class="landing-page">
+
+    <!-- GITHUB BUTTON JS -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <div class="page-wrapper">
-        
+
         <!-- ******Header****** -->
         <header class="header text-center">
             <div class="container">
@@ -66,78 +75,139 @@
                     <h1 class="logo">
                         <span class="text-highlight">NL4DV</span>
                     </h1>
-                </div><!--//branding-->
+                </div>
+                <!--//branding-->
                 <div class="tagline">
                     <p>Natural Language toolkit for Data Visualization</p>
                     <p>Georgia Institute of Technology</p>
-                </div><!--//tagline-->
+                </div>
+                <!--//tagline-->
                 <div class="cta-container">
-                    <a class="btn btn-primary btn-cta m-xs" href="https://github.com/nl4dv/nl4dv" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-                    &nbsp;&nbsp;
-                    <a class="btn btn-primary btn-cta m-xs" href="https://www.cc.gatech.edu/~anarechania3/docs/publications/nl4dv_vis_2020.pdf" target="_blank" download><i class="fas fa-file-pdf"></i> Download Research Paper</a>
-                    &nbsp;&nbsp;
-                    <a class="btn btn-primary btn-cta m-xs" href="https://gist.github.com/arpitnarechania/84b5c5b2e25d80729b0abb243f67e588" target="_blank" download><i class="fas fa-rocket"></i> Live Demo (Colab)</a>
-                </div><!--//cta-container-->
+                    <a class="btn btn-primary btn-cta m-xs" href="https://github.com/nl4dv/nl4dv" target="_blank"><i
+                            class="fab fa-github"></i> View on GitHub</a>
+                </div>
+                <!--//cta-container-->
 
-            </div><!--//container-->
-        </header><!--//header-->
-        
+            </div>
+            <!--//container-->
+        </header>
+        <!--//header-->
+
         <section class="cards-section text-center">
             <div class="container">
                 <div class="intro">
                     <h2 class="title">Welcome to NL4DV</h2>
-                    <p class="text-left">Natural language interfaces (NLIs) have shown great promise for visual data analysis, allowing people to flexibly specify and interact with visualizations. However, developing visualization NLIs remains a challenging task, requiring low-level implementation of natural language processing (NLP) techniques as well as knowledge of visual analytic tasks and visualization design. </p>
-                    <p class="text-left">NL4DV is a Python package that takes as input a tabular dataset and a natural language query about that dataset. In response, the toolkit returns an analytic specification modeled as a JSON object containing data attributes, analytic tasks, and a list of Vega-Lite specifications relevant to the input query. In doing so, NL4DV aids visualization developers who may not have a background in NLP, enabling them to create new visualization NLIs or incorporate natural language input within their existing systems.</p>
-                    <br/>
-                    <h2 class="title">Video Overview</h2>
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/U5uDyILweu8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                    <p class="text-left">Natural language interfaces (NLIs) have shown great promise for visual data
+                        analysis, allowing people to flexibly specify and interact with visualizations. However,
+                        developing visualization NLIs remains a challenging task, requiring low-level implementation of
+                        natural language processing (NLP) techniques as well as knowledge of visual analytic tasks and
+                        visualization design. </p>
+                    <p class="text-left">NL4DV is a Python package that takes as input a tabular dataset and a natural
+                        language query about that dataset. In response, the toolkit returns an analytic specification
+                        modeled as a JSON object containing data attributes, analytic tasks, and a list of Vega-Lite
+                        specifications relevant to the input query. In doing so, NL4DV aids visualization developers who
+                        may not have a background in NLP, enabling them to create new visualization NLIs or incorporate
+                        natural language input within their existing systems.</p>
+                    <p class="text-left">NL4DV now also enables developers to facilitate conversational interaction, that is, have multiple simultaneous conversations about a dataset and resolve associated ambiguities, augmenting new conversational information into the output JSON object.</p>
+                    <br />
 
-                </div><!--//intro-->
-                <br/>
+                    <!-- <h2 class="title">Video Overview</h2> -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="title">Conversational Interaction</h2>
+                            <!-- controls=0&amp; -->
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item"
+                                    src="https://www.youtube.com/embed/Zo9oniX9Y6c?rel=0&amp;showinfo=0"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <hr>
+                            <div>
+                                <a class="btn btn-primary btn-cta m-xs" target="_blank"><i class="fas fa-file-pdf"></i> Research Paper (Under Review)</a>
+                            </div>
+                            <hr>
+                            <br/>
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="title">Single Utterance Interaction</h2>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item"
+                                    src="https://www.youtube.com/embed/U5uDyILweu8?rel=0&amp;showinfo=0"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <hr>
+                            <div>
+                                <a class="btn btn-primary btn-cta m-xs"
+                                    href="https://www.cc.gatech.edu/~anarechania3/docs/publications/nl4dv_vis_2020.pdf"
+                                    target="_blank" download><i class="fas fa-file-pdf"></i> Research Paper (IEEE VIS'20)</a>
+                                &nbsp;&nbsp;
+                                <a class="btn btn-primary btn-cta m-xs"
+                                    href="https://gist.github.com/arpitnarechania/84b5c5b2e25d80729b0abb243f67e588" target="_blank"
+                                    download><i class="fas fa-rocket"></i> Live Demo (Colab)</a>
+                            </div>
+                            <hr>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <!--//intro-->
+                <br />
                 <h2 class="title">Getting started is easy!</h2>
-                <br/>
+                <br />
                 <div id="cards-wrapper" class="cards-wrapper row">
                     <div class="item item-primary col-lg-4 col-6">
                         <div class="item-inner">
                             <div class="icon-holder">
                                 <i class="icon icon_document_alt"></i>
-                            </div><!--//icon-holder-->
+                            </div>
+                            <!--//icon-holder-->
                             <h3 class="title">Documentation</h3>
                             <p class="intro">Installation Instructions and API Reference</p>
                             <a class="link" href="documentation.html"><span></span></a>
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                        </div>
+                        <!--//item-inner-->
+                    </div>
+                    <!--//item-->
                     <div class="item item-primary col-lg-4 col-6">
                         <div class="item-inner">
                             <div class="icon-holder">
                                 <span aria-hidden="true" class="icon icon_datareport"></span>
-                            </div><!--//icon-holder-->
+                            </div>
+                            <!--//icon-holder-->
                             <h3 class="title">Showcase</h3>
                             <p class="intro">Applications recreated and Sample Queries answered using NL4DV.</p>
                             <a class="link" href="showcase.html"><span></span></a>
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-                </div><!--//cards-->
-                
-            </div><!--//container-->
-        </section><!--//cards-section-->
-    </div><!--//page-wrapper-->
-    
+                        </div>
+                        <!--//item-inner-->
+                    </div>
+                    <!--//item-->
+                </div>
+                <!--//cards-->
+
+            </div>
+            <!--//container-->
+        </section>
+        <!--//cards-section-->
+    </div>
+    <!--//page-wrapper-->
+
     <footer class="footer text-center">
         <div class="container">
             <p>
-                NL4DV: Natural Language toolkit for Data Visualization.<br/>
-                <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2020</small>
+                NL4DV: Natural Language toolkit for Data Visualization.<br />
+                <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2022</small>
             </p>
             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
-        </div><!--//container-->
-    </footer><!--//footer-->
-    
-     
-    <!-- Main Javascript -->          
+            <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a
+                    href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
+        </div>
+        <!--//container-->
+    </footer>
+    <!--//footer-->
+
+
+    <!-- Main Javascript -->
     <script type="text/javascript" src="./assets/plugins/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./assets/plugins/prism/prism.js"></script>
@@ -147,5 +217,5 @@
     <script type="text/javascript" src="./assets/js/main.js"></script>
 
 </body>
-</html> 
 
+</html>

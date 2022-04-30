@@ -2,16 +2,16 @@ import pandas as pd
 import json
 import ast
 import os
-
+import jsbeautifier
 
 def CustomParser(data):
     return json.loads(data)
 
 
-query_files_dir = os.path.join("..", "..", "..", "master", "examples", "assets", "queries")
-query_filenames = ["fullyspecified-attributes-tasks-vis.tsv", "underspecified-attributes-tasks.tsv", "underspecified-attributes-vis.tsv", "underspecified-attributes.tsv", "other-examples.tsv"]
+query_files_dir = os.path.join("..", "..", "..", "ci4dv", "examples", "assets", "queries")
+query_filenames = ["fullyspecified-attributes-tasks-vis.tsv", "underspecified-attributes-tasks.tsv", "underspecified-attributes-vis.tsv", "underspecified-attributes.tsv", "other-examples.tsv","conversational-examples.tsv"]
 output_dict = dict()
-global_query_counter = 1
+global_query_counter = 122
 
 if __name__ == "__main__":
 
@@ -25,8 +25,8 @@ if __name__ == "__main__":
             # Create and populate a query item dict/object
             query_item = dict()
             query_item["queryId"] = global_query_counter
-            query_item["query"] = row["Query"]
-            query_item["output"] = row["Output"]
+            query_item["query"] = row["query"]
+            query_item["output"] = row["output"]
 
             if query_file in ["fullyspecified-attributes-tasks-vis.tsv", "underspecified-attributes-tasks.tsv", "underspecified-attributes-vis.tsv", "underspecified-attributes.tsv"]:
 
@@ -38,13 +38,13 @@ if __name__ == "__main__":
                 # Append the query item to the list
                 output_dict[query_file_key].append(query_item)
 
-            elif query_file in ["other-examples.tsv"]:
+            elif query_file in ["other-examples.tsv","conversational-examples.tsv"]:
                 # Create a new key for the type of query (query file)
                 query_file_key = query_file.split(".tsv")[0]
                 if query_file_key not in output_dict:
                     output_dict[query_file_key] = dict()
 
-                dataset_key = row["Datafile"].split(".csv")[0]
+                dataset_key = row["data_file"].split(".csv")[0]
                 # Create a new key for the dataset
                 if dataset_key not in output_dict[query_file_key]:
                     output_dict[query_file_key][dataset_key] = list()
@@ -52,10 +52,11 @@ if __name__ == "__main__":
                 # Create and populate a query item dict/object
                 query_item = dict()
                 query_item["queryId"] = global_query_counter
-                query_item["query"] = row["Query"]
+                query_item["query"] = row["query"]
 
                 # print(len(row["Output"]))
-                query_item["output"] = row["Output"]
+                query_item["output"] = row["output"]
+
 
                 # Append the query item to the list
                 output_dict[query_file_key][dataset_key].append(query_item)
