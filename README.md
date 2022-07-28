@@ -5,13 +5,20 @@
 
 
 **NL4DV** takes a **natural language query** about a given **dataset** as input and outputs a **structured JSON object** containing:
-* Data attributes, 
+* Data attributes,
 * Analytic tasks, and
 * Visualizations (Vega-Lite specifications)
 
-With this output, developers can 
+With this output, developers can
   - Create visualizations in Python using natural language, and/or
   - Add a natural language interface to their existing visualization systems.
+
+<p>
+    <b><u>IMPORTANT</u>:
+    A new release with Conversational Interaction capabilities is Coming Soon on <a href="https://pypi.org/project/nl4dv/" target="_blank">PyPi</a>. Stay tuned!</b>
+    <br/>
+    Until then, you can locally build and install the toolkit from the <b><a href="https://github.com/nl4dv/nl4dv/tree/ci_review" target="_blank">ci_review</a></b> branch.
+</p>
 
 
 ![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.gif)
@@ -20,10 +27,10 @@ With this output, developers can
 These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4dv/documentation.html).
 
 ### Credits
-NL4DV was created by 
-<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
+NL4DV was created by
+<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
 
-We thank <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a> for helping build some of our debugger applications and members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
+We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
 ##### Citation
 
