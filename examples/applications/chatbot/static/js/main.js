@@ -119,6 +119,7 @@
                 }
             });
         });
+        console.log(counter);
         return counter;
     }
 

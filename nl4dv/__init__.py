@@ -343,6 +343,10 @@ class NL4DV:
                 for attr_query in self.past_ambiguities['attribute']:
                     if not self.past_ambiguities['attribute'][attr_query]['selected'] == "NL4DV_Resolved":
                         self.updategenie_instance.auto_handle_attribute_ambiguity()
+            if bool(self.past_ambiguities['value']):
+                for attr_query in self.past_ambiguities['value']:
+                    if not self.past_ambiguities['value'][attr_query]['selected'] == "NL4DV_Resolved":
+                        raise Error("need to resolve ambiguity for value")
 
             self.ambiguities= dict()
             self.ambiguities['attribute'] = dict()
@@ -481,6 +485,9 @@ class NL4DV:
 
             self.execution_durations['get_vis_list'] = time.time() - st
             self.execution_durations['total'] = sum(self.execution_durations.values())
+            current_ambiguity = dict()
+            current_ambiguity['attribute'] = dict()
+            current_ambiguity['value'] = dict()
 
             # Prepare output
             output = {
@@ -501,11 +508,25 @@ class NL4DV:
 
             }
 
+
             if query_id is not None:
                 query_id = str(query_id)
             if dialog_id is not None:
                 dialog_id = str(dialog_id)
             return_conversation, return_context = self.conversation_genie_instance.add_dialog(output, dialog, dialog_id, query_id)
+            if len(self.ambiguities['attribute']) != 0 or len(self.ambiguities['value']) != 0:
+                for key in self.ambiguities['attribute']:
+                    if key not in self.past_ambiguities['attribute']:
+                        current_ambiguity['attribute'][key] = self.ambiguities['attribute'][key]
+                    else:
+                        current_ambiguity['attribute'][key] = self.past_ambiguities['attribute'][key]
+                for key in self.ambiguities['value']:
+                    if key not in self.past_ambiguities['value']:
+                        current_ambiguity['value'][key] = self.ambiguities['value'][key]
+                    else:
+                        current_ambiguity['value'][key] = self.past_ambiguities['value'][key]
+                self.ambiguities = current_ambiguity
+                output = self.updategenie_instance.update_vis(str(return_conversation), str(return_context))
 
 
             output['dialogId'] = str(return_conversation)

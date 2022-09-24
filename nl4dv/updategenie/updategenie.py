@@ -26,14 +26,20 @@ class UpdateGenie:
         if bool(self.nl4dv_instance.ambiguities['value']):
             for key in self.nl4dv_instance.ambiguities['value']:
                 if self.nl4dv_instance.ambiguities['value'][key]['selected'] is not None:
+                    if 'selected_attr' in self.nl4dv_instance.ambiguities['value'][key].keys():
+                        self.nl4dv_instance.ambiguities['value'][key]['selected'] = self.nl4dv_instance.ambiguities['value'][key]['selected_attr']
                     self.update_value_ambiguity()
+                    self.nl4dv_instance.ambiguities['value'][key]['selected_attr'] = self.nl4dv_instance.ambiguities['value'][key]['selected']
                     self.nl4dv_instance.ambiguities['value'][key]['selected'] = 'NL4DV_Resolved'
 
 
         if bool(self.nl4dv_instance.ambiguities['attribute']):
             for key in self.nl4dv_instance.ambiguities['attribute']:
                 if self.nl4dv_instance.ambiguities['attribute'][key]['selected'] is not None:
+                    if 'selected_attr' in self.nl4dv_instance.ambiguities['attribute'][key].keys():
+                        self.nl4dv_instance.ambiguities['attribute'][key]['selected'] = self.nl4dv_instance.ambiguities['attribute'][key]['selected_attr']
                     self.update_attribute_ambiguity()
+                    self.nl4dv_instance.ambiguities['attribute'][key]['selected_attr'] = self.nl4dv_instance.ambiguities['attribute'][key]['selected']
                     self.nl4dv_instance.ambiguities['attribute'][key]['selected'] = 'NL4DV_Resolved'
 
         # At this stage, which attributes are encodeable?
