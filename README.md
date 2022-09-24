@@ -1,6 +1,7 @@
 # NL4DV: **N**atural **L**anguage toolkit **for** **D**ata **V**isualization
 [![DOI:10.1109/TVCG.2020.3030418](https://zenodo.org/badge/DOI/10.1109/TVCG.2020.3030378.svg)](https://doi.org/10.1109/TVCG.2020.3030378)
 [![arxiv badge](https://img.shields.io/badge/arXiv-2008.10723-red)](https://arxiv.org/abs/2008.10723)
+[![arxiv badge](https://img.shields.io/badge/arXiv-2207.00189-%23B31B1B)](https://arxiv.org/abs/2207.00189)
 [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
 
 
@@ -43,6 +44,25 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
   doi = {10.1109/TVCG.2020.3030378},
   year = {2020},
   publisher = {IEEE}
+}
+```
+```bibTeX
+@misc{https://doi.org/10.48550/arxiv.2207.00189,
+  doi = {10.48550/ARXIV.2207.00189},
+
+  url = {https://arxiv.org/abs/2207.00189},
+
+  author = {Mitra, Rishab and Narechania, Arpit and Endert, Alex and Stasko, John},
+
+  keywords = {Human-Computer Interaction (cs.HC), FOS: Computer and information sciences, FOS: Computer and information sciences},
+
+  title = {Facilitating Conversational Interaction in Natural Language Interfaces for Visualization},
+
+  publisher = {arXiv},
+
+  year = {2022},
+
+  copyright = {arXiv.org perpetual, non-exclusive license}
 }
 ```
 
