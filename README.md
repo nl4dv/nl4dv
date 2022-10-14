@@ -29,7 +29,7 @@ These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4d
 
 ### Credits
 NL4DV was created by
-<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
+<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a>, and <a href="https://va.gatech.edu/endert/">Alex Endert</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
 
 We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
@@ -47,22 +47,14 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
 }
 ```
 ```bibTeX
-@misc{https://doi.org/10.48550/arxiv.2207.00189,
-  doi = {10.48550/ARXIV.2207.00189},
-
-  url = {https://arxiv.org/abs/2207.00189},
-
-  author = {Mitra, Rishab and Narechania, Arpit and Endert, Alex and Stasko, John},
-
-  keywords = {Human-Computer Interaction (cs.HC), FOS: Computer and information sciences, FOS: Computer and information sciences},
-
-  title = {Facilitating Conversational Interaction in Natural Language Interfaces for Visualization},
-
-  publisher = {arXiv},
-
+@inproceedings{mitra2022conversationalinteraction,
+  title = {{Facilitating Conversational Interaction in Natural Language Interfaces for Visualization}},
+  author = {{Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John},
+  booktitle={2022 IEEE Visualization Conference (VIS)},
+  url = {https://doi.org/10.48550/arXiv.2207.00189},
+  doi = {10.48550/arXiv.2207.00189},
   year = {2022},
-
-  copyright = {arXiv.org perpetual, non-exclusive license}
+  publisher = {IEEE}
 }
 ```
 
