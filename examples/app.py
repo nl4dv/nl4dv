@@ -153,7 +153,7 @@ def analyze_query():
 
 
     if dialog is True:
-        dialog_id = int(request.form['dialog_id'])
+        dialog_id = request.form['dialog_id']
         query_id = int(request.form['query_id'])
 
         return json.dumps(nl4dv_instance.analyze_query(query, dialog=dialog, dialog_id=dialog_id, query_id=query_id, debug=True))
