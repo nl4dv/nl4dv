@@ -13,12 +13,10 @@ class VisGenie:
     def extract_vis_type(self, query_ngrams, dependencies = None):
         final_vis_type, final_vis_token = None, None
         for ngram in query_ngrams:
-            # print(query_ngrams[ngram]["lower"])
             if query_ngrams[ngram]["lower"] in self.nl4dv_instance.followup_keyword_map:
                 if self.nl4dv_instance.followup_keyword_map[query_ngrams[ngram]["lower"]][0][1] == "replace":
                     k1, k2, operator_phrase = None, None, None
                     for dep_index, dep in enumerate(dependencies[0]):
-                        #print(dep)
                         if dep[1] in ['dobj', 'xcomp']:
                             if dep[0][0] in self.nl4dv_instance.vis_keyword_map and dep[2][0] in self.nl4dv_instance.followup_keyword_map:
                                 operator_phrase = dep[2][0]
@@ -38,10 +36,8 @@ class VisGenie:
                             final_vis_token = query_ngrams[ngram]["lower"]
                     return final_vis_type, final_vis_token
                 elif self.nl4dv_instance.followup_keyword_map[query_ngrams[ngram]["lower"]][0][1] == "remove":
-                    # print("in here")
                     return "REMOVE", "REMOVE"
             if query_ngrams[ngram]["lower"] in self.nl4dv_instance.special_keyword_map_for_followup:
-                # print("in here")
                 if self.nl4dv_instance.special_keyword_map_for_followup[query_ngrams[ngram]["lower"]] == "replace":
                     k1, k2 = None, None
                     for dep_index, dep in enumerate(dependencies[0]):
@@ -58,8 +54,6 @@ class VisGenie:
                             if dep[2][0] in self.nl4dv_instance.vis_keyword_map:
                                 # operator_phrase = dep[0][0]
                                 k2 = dep[2][0]
-                    # print(k1)
-                    # print(k2)
                     for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
                         if k2 in vis_keywords:
                             final_vis_type = vis_type

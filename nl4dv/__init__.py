@@ -126,7 +126,7 @@ class NL4DV:
 
     # returns a VegaLite object of the best (1st) visualization after analyzing the query.
     def render_vis(self, query, dialog=None):
-        # type: (str) -> VegaLite
+        # type: (str, str) -> VegaLite
         response = self.analyze_query(query=query, dialog=dialog)
         if len(response['visList']) == 0:
             print("No best Viz; please try again.")
@@ -137,7 +137,7 @@ class NL4DV:
     # ToDo:- Discuss ERROR Handling
     # ToDo:- Utilities to perform unit conversion (eg. seconds > minutes). Problem: Tedious to infer base unit from data. - LATER
     def analyze_query(self, query=None, dialog=None, debug=None, verbose=None, dialog_id = None, query_id = None):
-        # type: (str) -> dict
+        # type: (str, bool, bool, bool, str, str) -> dict
 
         if not bool(self.conversation_genie_instance.all_dialogs):
             return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
@@ -149,7 +149,6 @@ class NL4DV:
             return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
         elif dialog == 'auto':
             inferred_dialog, confidence_level = self.autogenie_instance.analyze_followup_status(query, self.reserve_words, self.ignore_words)
-            # print(inferred_dialog)
             if inferred_dialog is True:
                 if query_id is not None:
                     query_id = str(query_id)
@@ -158,7 +157,6 @@ class NL4DV:
                 return self.analyze_query_no_dialog(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
         else:
             raise RuntimeError("Expected values for \'dialog\' are True, False, or \"auto\"")
-
 
 
     def analyze_query_no_dialog(self, query=None, dialog=None, debug=None, verbose=None, dialog_id=None, query_id=None, confidence_level = None):
@@ -248,12 +246,8 @@ class NL4DV:
             }
             return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
-
-
-
         # Final list of encodeable attributes in the VIS
         final_encodeable_attributes = self.attribute_genie_instance.update_encodeable_attributes_based_on_tasks()
-
 
         self.vis_list = self.vis_genie_instance.get_vis_list(attribute_list=final_encodeable_attributes)
         self.execution_durations['get_vis_list'] = time.time() - st
@@ -284,8 +278,8 @@ class NL4DV:
         output['dialogId'] = str(return_convo)
         output['queryId'] = str(return_context)
 
-        print("Conversation ID: " + str(return_convo))
-        print("Context ID: " + str(return_context))
+        helpers.cond_print("Dialog ID: " + str(return_convo))
+        helpers.cond_print("Query ID: " + str(return_context))
 
         return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
@@ -327,8 +321,8 @@ class NL4DV:
                     raise RuntimeError("Context id must be of type string")
                 query_id = int(query_id)
                 context_obj = self.conversation_genie_instance.all_dialogs[dialog_id][query_id]
-            print("Previous Query: ")
-            print(context_obj['query_raw'])
+            helpers.cond_print("Previous Query: ")
+            helpers.cond_print(context_obj['query_raw'])
             self.past_extracted_attributes = context_obj['attributeMap']
             self.past_ambiguities = context_obj['ambiguity']
 
@@ -364,18 +358,12 @@ class NL4DV:
             helpers.cond_print("Processed Query: " + self.query_processed, self.verbose)
             self.execution_durations['clean_query'] = time.time() - st
 
-
-
-
-
-
             # DETECT EXPLICIT AND IMPLICIT ATTRIBUTES
             st = time.time()
             self.extracted_attributes = self.attribute_genie_instance.extract_attributes(self.query_ngrams)
 
             helpers.cond_print("Final Extracted Attributes: " + str(list(self.extracted_attributes.keys())), self.verbose)
             self.execution_durations['extract_attributes'] = time.time() - st
-
 
             self.query_for_task_inference = self.task_genie_instance.prepare_query_for_task_inference(self.query_processed, dialog=True)
             self.dependencies = self.task_genie_instance.create_dependency_tree(self.query_for_task_inference)
@@ -387,10 +375,6 @@ class NL4DV:
             elif self.extracted_vis_type == "REMOVE":
                 self.extracted_vis_type = None
 
-
-
-
-
             tasks_detected = False
             if bool(self.extracted_attributes):
                 task_map = self.conversation_genie_instance.get_followuptype_task_from_dependencies(self.dependencies, self.query_ngrams)
@@ -398,6 +382,7 @@ class NL4DV:
 
             if davo[0] is None and len(self.extracted_attributes.keys()) != 0:
                 davo[0] = "add"
+
             if davo[0] == "replace":
                 if len(davo[1].values()) == 1:
                     if list(davo[1].values())[0] == "replace_to_add":
@@ -406,15 +391,11 @@ class NL4DV:
                         self.extracted_attributes[removed_key] = self.past_extracted_attributes[removed_key]
 
             if len(davo[1].keys()) != 0:
-
                 for attr in self.extracted_attributes.keys():
                     if attr in davo[1].keys():
                         self.extracted_attributes[attr]['meta']['followup_type'] = davo[1][attr]
                     else:
                         self.extracted_attributes[attr]['meta']['followup_type'] = 'nothing'
-
-
-
                 self.extracted_attributes, self.attribute_keyword_mapping = self.conversation_genie_instance.followup_conversation_attribute(self.extracted_attributes, self.past_extracted_attributes,
                     self.attribute_keyword_mapping, self.past_attribute_keyword_mapping, task_map)
             else:
@@ -432,8 +413,6 @@ class NL4DV:
             if len(task_map.keys()) != 0 and 'filter' in task_map.keys():
                 task_map = self.conversation_genie_instance.followup_filter_task(task_map, self.past_extracted_tasks, self.query_ngrams)
 
-
-
             if not bool(task_map):
                 for i in self.past_extracted_tasks.keys():
                     if i in ['filter', 'derived_value', 'find_extremum', 'sort']:
@@ -449,7 +428,6 @@ class NL4DV:
 
             # From the generated TaskMap, ensure that the task "keys" are NOT EMPTY LISTS
             self.extracted_tasks = self.task_genie_instance.filter_empty_tasks(task_map)
-            # print(self.extracted_tasks)
             self.execution_durations['extract_tasks'] = time.time() - st
 
             # RECOMMEND VISUALIZATIONS FROM ATTRIBUTES, TASKS, and VISUALIZATIONS
@@ -475,11 +453,8 @@ class NL4DV:
                 }
                 return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
-
             # Final list of encodeable attributes in the VIS
             final_encodeable_attributes = self.attribute_genie_instance.update_encodeable_attributes_based_on_tasks()
-
-
 
             self.vis_list = self.vis_genie_instance.get_vis_list(attribute_list=final_encodeable_attributes)
 
@@ -505,9 +480,7 @@ class NL4DV:
                 'attributeMapping': self.attribute_keyword_mapping,
                 'followUpConfidence': confidence_level,
                 'ambiguity' : self.ambiguities
-
             }
-
 
             if query_id is not None:
                 query_id = str(query_id)
@@ -528,19 +501,13 @@ class NL4DV:
                 self.ambiguities = current_ambiguity
                 output = self.updategenie_instance.update_vis(str(return_conversation), str(return_context))
 
-
             output['dialogId'] = str(return_conversation)
             output['queryId'] = str(return_context)
 
-            print("\nCurrent Context: ")
-            print("Conversation ID: " + str(return_conversation))
-            print("Context ID: " + str(return_context))
-
-
+            helpers.cond_print("Conversation ID: " + str(return_conversation))
+            helpers.cond_print("Context ID: " + str(return_context))
 
             return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
-
-
 
     def update_query(self, ambiguity_obj):
         if 'query_id' in ambiguity_obj.keys() and 'dialog_id' in ambiguity_obj.keys():

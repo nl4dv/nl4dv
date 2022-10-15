@@ -5,8 +5,6 @@ from nltk import word_tokenize
 from si_prefix import si_parse
 import random
 
-
-
 class ConversationGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
@@ -30,7 +28,6 @@ class ConversationGenie:
             self.branches[str(davo)] = 0
             self.most_recent_dialog_id.append(davo)
             self.most_recent_query_id.append(str(0))
-
             return (davo, str(0))
         else:
             if dialog_id is not None:
@@ -98,9 +95,6 @@ class ConversationGenie:
                     del self.all_dialogs[i]
         return
 
-
-
-
     def undo(self):
         if not bool(self.all_dialogs):
             return
@@ -111,8 +105,6 @@ class ConversationGenie:
         context_obj = self.all_dialogs[recent_dialog_id][int(recent_query_id)]
         del self.all_dialogs[recent_dialog_id][int(recent_query_id)]
         return context_obj
-
-
 
     def rename_dialog(self, dialog_id, new_name):
         davo = self.all_dialogs[dialog_id]
@@ -147,25 +139,19 @@ class ConversationGenie:
             query_id = int(query_id)
             return self.all_dialogs[dialog_id][query_id]
 
-
-
     def followup_conversation_attribute(self, extracted_attributes, past_extracted_attributes, attribute_keyword_mapping, past_attribute_keyword_mapping, task_map):
-
         copy_past = past_extracted_attributes.copy()
         copy_past2 = past_attribute_keyword_mapping.copy()
-        print(extracted_attributes)
-
         for i in extracted_attributes.keys():
             if extracted_attributes[i]['meta']['followup_type'] == 'add':
                 copy_past[i] = extracted_attributes[i]
                 copy_past2[i] = attribute_keyword_mapping[i]
-
             elif extracted_attributes[i]['meta']['followup_type'] == 'remove':
                 if i in copy_past.keys():
                     del copy_past[i]
                     del copy_past2[i]
                 else:
-                    print("Key not found in past query")
+                    helpers.cond_print("Key not found in past query")
                     if 'attribute_domain_value_match' in extracted_attributes[i]['metric']:
                         copy_past[i] = extracted_attributes[i]
                         copy_past2[i] = attribute_keyword_mapping[i]
@@ -179,11 +165,11 @@ class ConversationGenie:
                     del copy_past[attr]
                     del copy_past2[attr]
                 else:
-                    print("Key not found in past query")
+                    helpers.cond_print("Key not found in past query")
                 copy_past[i] = extracted_attributes[i]
                 copy_past2[i] = attribute_keyword_mapping[i]
             elif extracted_attributes[i]['meta']['followup_type'] == 'replace_to_remove':
-                print("Not going to do operation with to_remove")
+                helpers.cond_print("Not going to do operation with to_remove")
                 continue
             elif extracted_attributes[i]['meta']['followup_type'] == 'nothing':
                 continue
@@ -201,19 +187,14 @@ class ConversationGenie:
 
 
     def get_followuptype_attribute_from_dependencies(self, dependencies):
-
         encodeable_attributes = self.nl4dv_instance.attribute_genie_instance.get_encodeable_attributes()
-
         # Initialize the output
         task_map = dict()
         operator = None
         _attributes = dict()
-
-
         keyword, operator_phrase = None, None
         if dependencies is not None:
             for dep_index, dep in enumerate(dependencies[0]):
-
                 # OPTIONAL:
                 if dep[1] in ['dobj', 'xcomp', 'amod']:
                     if dep[0][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[2][0] in self.nl4dv_instance.followup_keyword_map:
@@ -223,70 +204,51 @@ class ConversationGenie:
                     if dep[2][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[0][0] in self.nl4dv_instance.followup_keyword_map:
                         operator_phrase = dep[0][0]
                         keyword = dep[2][0]
-
-
                 if keyword is not None and operator_phrase is not None:
                     followup_type = self.nl4dv_instance.followup_keyword_map[operator_phrase][0][0]
-
                     # These tasks requires at most 1 Attribute to make sense
                     if followup_type in ["addition", "removal"]:
                         operator = self.nl4dv_instance.followup_keyword_map[operator_phrase][0][1]
                         _keyword = self.nl4dv_instance.special_keyword_map_for_tasks[keyword]
                         _attributes_list = list(self.nl4dv_instance.keyword_attribute_mapping[_keyword].keys())
-
                         for attribute_key in _attributes_list:
                             if followup_type in ['removal']:
-
                                 _attributes[attribute_key] = 'remove'
                             elif followup_type in ['addition']:
                                 _attributes[attribute_key] = 'add'
-
-
                     keyword, operator_phrase = None, None
-
             k1, k2, operator_phrase = None, None, None
             for dep_index, dep in enumerate(dependencies[0]):
-
-
                 if dep[1] in ['dobj', 'xcomp']:
                     if dep[0][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[2][0] in self.nl4dv_instance.followup_keyword_map:
                         operator_phrase = dep[2][0]
                         k1 = dep[0][0]
-
                     if dep[2][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[0][0] in self.nl4dv_instance.followup_keyword_map:
                         operator_phrase = dep[0][0]
                         k1 = dep[2][0]
 
                 if dep[1] in ['nmod', 'case']:
                     if dep[0][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[2][0] in self.nl4dv_instance.special_keyword_map_for_tasks and k1 == dep[0][0]:
-
                         k2 = dep[2][0]
                     if dep[0][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[2][1] in ["IN"]:
                         k2 = dep[0][0]
 
                 if k1 is not None and operator_phrase is not None and k2 is not None:
-
                     _k1 = self.nl4dv_instance.special_keyword_map_for_tasks[k1]
                     _k2 = self.nl4dv_instance.special_keyword_map_for_tasks[k2]
-
                     followup_type = self.nl4dv_instance.followup_keyword_map[operator_phrase][0][0]
                     # These tasks requires at most 1 Attribute to make sense
                     if followup_type in ["replacement"]:
-
                         relevant_attributes = []
                         operator = self.nl4dv_instance.followup_keyword_map[operator_phrase][0][1]
-
                         for k in [_k1, _k2]:
                             if k in self.nl4dv_instance.keyword_attribute_mapping:
                                 relevant_attributes.extend(list(self.nl4dv_instance.keyword_attribute_mapping[k].keys()))
                                 #DEBUG ELIF: WILL IT EVER BE CALLED?
                             elif self.nl4dv_instance.porter_stemmer_instance.stem(k) in self.nl4dv_instance.keyword_attribute_mapping:
                                 relevant_attributes.extend(list(self.nl4dv_instance.keyword_attribute_mapping[self.nl4dv_instance.porter_stemmer_instance.stem(k)].keys()))
-
                         _attributes[list(self.nl4dv_instance.keyword_attribute_mapping[_k1].keys())[0]] = "replace_to_remove"
                         _attributes[list(self.nl4dv_instance.keyword_attribute_mapping[_k2].keys())[0]] = "replace_to_add"
-
-
                     k1, k2, operator_phrase = None, None, None
             if operator is None:
                 operator, _attributes = self.get_implicit_followuptype_attribute_from_dependencies(dependencies)
@@ -297,11 +259,9 @@ class ConversationGenie:
         encodeable_attributes = self.nl4dv_instance.attribute_genie_instance.get_encodeable_attributes()
         # Initialize the output
         task_map = dict()
-
         # Infer Tasks from the EXPLICIT
         keyword, operator_phrase = None, None
         for dep_index, dep in enumerate(dependencies[0]):
-
             # OPTIONAL:
             if dep[1] in ['amod', 'nsubj', 'nmod', 'dobj', 'compound', 'dep']:
                 if dep[0][0] in self.nl4dv_instance.special_keyword_map_for_tasks and dep[2][0] in self.nl4dv_instance.task_keyword_map:
@@ -316,11 +276,11 @@ class ConversationGenie:
                 task = self.nl4dv_instance.task_keyword_map[operator_phrase][0][0]
                 if task not in task_map:
                     task_map[task] = list()
-
                 # These tasks requires at most 1 Attribute to make sense
                 if task in ["derived_value", "find_extremum", "sort"]:
                     operator = self.nl4dv_instance.task_keyword_map[operator_phrase][0][1]
                     final_followup_type, final_followup_token = None, None
+
                     if task == "sort":
                         for ngram in query_ngrams:
                             if ngram in self.nl4dv_instance.task_keyword_map:
@@ -353,7 +313,6 @@ class ConversationGenie:
                         if _task not in task_map[task]:
                             task_map[task].append(_task)
                 keyword, operator_phrase = None, None
-
 
         keyword, amount, operator_phrase, has_negation, negation_phrase = None, None, None, False, None
         for dep_index, dep in enumerate(dependencies[0]):
@@ -460,7 +419,6 @@ class ConversationGenie:
                 operator_phrase = dep[0][0]
 
             if keyword is not None and from_amount is not None and to_amount is not None and operator_phrase is not None:
-
                 if self.nl4dv_instance.task_keyword_map[operator_phrase][0][0] == "filter" and operator_phrase == "between":
                     operator = self.nl4dv_instance.task_keyword_map[operator_phrase][0][1]
                     if has_negation:
@@ -539,13 +497,11 @@ class ConversationGenie:
                         for _task in _tasks:
                                 if _task not in task_map[task]:
                                     task_map[task].append(_task)
-
         return task_map
 
     def implicit_replacement(self, followup_dict, past_attributes):
         operator, attributes = followup_dict[0], followup_dict[1]
         key_to_remove = None
-        print(len(past_attributes.keys()))
         if len(past_attributes.keys()) == 1:
             key_to_remove = list(past_attributes.keys())[0]
             attributes[key_to_remove] = "replace_to_remove"
@@ -569,7 +525,6 @@ class ConversationGenie:
                             result = new_task_list
                 elif i == "derived_value":
                     derived_value_list = list()
-
                     for task in new_task_list:
                         for past_task in past_task_list:
                             if past_task["operator"] != task["operator"] and set(task["attributes"]) == set(past_task["attributes"]) and task["followup_type"] != 'remove':
@@ -661,7 +616,6 @@ class ConversationGenie:
                             k1 = dep[0][0]
                             k2 = dep[2][0]
 
-
                 if k1 is not None and k2 is not None:
                     _k1 = self.nl4dv_instance.special_keyword_map_for_tasks[k1]
                     _k2 = self.nl4dv_instance.special_keyword_map_for_tasks[k2]
@@ -688,13 +642,10 @@ class ConversationGenie:
                     for attribute_key in _attributes:
                         if attribute_key.lower() == _k2 and operator in ['replace']:
                             davo[attribute_key] = 'replace_to_add'
-
                     _attributes = davo
                     k2 = None
-
             elif operator == "add":
                 keyword = None
-                print(dependencies)
                 for dep_index, dep in enumerate(dependencies[0]):
                     if dep[1] in ['dobj', 'xcomp', 'amod', 'advmod']:
                             if dep[2][0] in self.nl4dv_instance.special_keyword_map_for_tasks:
@@ -711,11 +662,7 @@ class ConversationGenie:
                             davo[attribute_key] = 'add'
                     _attributes = davo
                 keyword = None
-
-
         return [operator, _attributes]
-
-
 
     def followup_filter_task(self, task_map, past_task_map, query_ngrams):
         keyword = list()
@@ -730,7 +677,6 @@ class ConversationGenie:
             if 'filter' not in past_task_map.keys():
                 if 'remove_addition' in keyword:
                     val_list = list()
-
                     for filter_curr in task_filter:
                         if filter_curr['operator'] == 'LT':
                             filter_curr['operator'] = 'GT'
@@ -806,12 +752,10 @@ class ConversationGenie:
                     elif index is None:
                         past_task_filter.append(filter_curr)
                         past_task_map['filter'] = past_task_filter
-
                 return past_task_map
         else:
             if 'remove' in keyword:
                 del past_task_map['filter']
-
             return past_task_map
 
     def remove_old_tasks(self, task_map):
@@ -825,14 +769,7 @@ class ConversationGenie:
                 if preservation:
                     new_task_list.append(task)
             task_map[task_key] = new_task_list
-
         return task_map
-
-
-
-
-
-
 
     def merge_update(self, past_extracted_attributes, extracted_attributes, past_attribute_keyword_mapping, attribute_keyword_mapping):
         for i in past_extracted_attributes.keys():

@@ -330,7 +330,7 @@ class AttributeGenie:
                     else:
 
                         string_similarity_score = helpers.compute_similarity(ngram_str, value,'token_similarity')
-                                                # print(string_similarity_score)
+                                                
                         # Check 1: Token Similarity score should be 100, i.e. at least 1 word/n-gram in the query must match the attribute domain value
                         if string_similarity_score == 100:
 
@@ -594,13 +594,6 @@ class AttributeGenie:
                         keyword = list(self.nl4dv_instance.attribute_keyword_mapping[attr].keys())[0]
                         if self.nl4dv_instance.query_processed.count(keyword) == 1:
                             self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
-
-        # if "sort" in self.nl4dv_instance.extracted_tasks and self.nl4dv_instance.dialog is not None:
-        #     print("in sort if block")
-        #     for sort_task in self.nl4dv_instance.extracted_tasks["sort"]:
-        #         attr = sort_task['attributes'][0]
-        #         if attr not in self.nl4dv_instance.past_extracted_attributes:
-        #             self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
 
         # If correlation as a task is detected, then ensure attributes are ENCODED, even if it means the FILTER ones.
         for task_name in ["correlation", "distribution", "derived_value", "find_extremum", "trend"]:

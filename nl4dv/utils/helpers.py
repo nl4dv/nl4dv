@@ -137,7 +137,7 @@ def levenshtein_distance(str1, str2):
 
 def isfloat(datum):
     try:
-        if datum == '' or str(datum).isspace():
+        if datum is None or datum == '' or str(datum).isspace():
             return False
         float(datum)
     except AttributeError:
@@ -148,10 +148,9 @@ def isfloat(datum):
         return False
     return True
 
-
 def isint(datum):
     try:
-        if datum == '' or str(datum).isspace():
+        if datum is None or datum == '' or str(datum).isspace():
             return False
         a = float(datum)
         b = int(a)
@@ -163,12 +162,10 @@ def isint(datum):
         return False
     return a == b
 
-
 def isdate(datum):
     try:
-        if datum == '' or str(datum).isspace():
+        if datum is None or datum == '' or str(datum).isspace():
             return False, None
-
         for idx, regex_list in enumerate(constants.date_regexes):
             regex = re.compile(regex_list[1])
             match = regex.match(str(datum))
@@ -177,10 +174,8 @@ def isdate(datum):
                 dateobj["regex_id"] = idx
                 dateobj["regex_matches"] = list(match.groups())
                 return True, dateobj
-
     except Exception as e:
         pass
-
     return False, None
 
 # Trim the output LIST based on the debug parameter

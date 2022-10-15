@@ -20,7 +20,6 @@ class TaskGenie:
                 if k in query:
                     query = query.replace(k, v[0][0])
                     self.nl4dv_instance.special_keyword_map_for_followup[v[0][0]] = v[0][1]
-        # print(query)
         return query
 
     # Create  a Dependency Tree from the query
@@ -255,7 +254,6 @@ class TaskGenie:
         return task_list
 
     def extract_explicit_tasks_from_dependencies(self, dependencies):
-        # print(dependencies)
 
         # Get encodeable attributes
         encodeable_attributes = self.nl4dv_instance.attribute_genie_instance.get_encodeable_attributes()

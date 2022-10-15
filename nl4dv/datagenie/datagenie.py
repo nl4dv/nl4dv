@@ -71,7 +71,7 @@ class DataGenie:
 
     # Sets the Dataset
     def set_data(self, data_url=None, data_value=None):
-        # type: (str) -> None
+        # type: (str, int) -> None
         """
         User can choose to manually initialize data
 
@@ -234,7 +234,6 @@ class DataGenie:
                 if 'end' not in self.data_attribute_map[attr]['summary']:
                     self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
 
-                # print(parsed_status, attr_val, parsed_attr_val, self.data_attribute_map[attr]['summary']['end'])
                 if parsed_attr_val > self.data_attribute_map[attr]['summary']['end']:
                     self.data_attribute_map[attr]['summary']['end'] = parsed_attr_val
 

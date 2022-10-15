@@ -21,7 +21,6 @@ class QueryGenie:
         parsed_tokens = []
         for token in word_tokenize(query):
             try:
-                # print(token[len(token) - 2:])
                 if self.inflect_engine.singular_noun(token) and token[len(token) - 2:] != 'ss':
                     parsed_tokens.append(self.inflect_engine.singular_noun(token))
                 else:
@@ -31,8 +30,6 @@ class QueryGenie:
 
         # Convert to lowercase
         query_lower = ' '.join(parsed_tokens).lower()
-        # print(query_lower)
-
         return query_lower
 
     def clean_query_and_get_query_tokens(self, query, reserve_words, ignore_words, dialog=None):

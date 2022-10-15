@@ -131,7 +131,6 @@ class VLGenie():
                 self.vl_spec['encoding'][dim]['bin'] = True
 
     def set_task(self, dim, task):
-        # print(task)
         if task["task"] == 'find_extremum' or task["task"] == "sort":
             if dim is None:
                 dim = 'y'
@@ -170,7 +169,7 @@ class VLGenie():
                         self.vl_spec['transform'].append({'filter':'lower(datum["{}"]) {} "{}"'.format(attr, symbol, task["values"][0])})
 
     def set_data(self, dataUrl, dataType="csv"):
-        # type: (list) -> None
+        # type: (list, str) -> None
         """
         Set domain data for the visualization
 
