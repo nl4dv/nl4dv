@@ -504,8 +504,8 @@ class NL4DV:
             output['dialogId'] = str(return_conversation)
             output['queryId'] = str(return_context)
 
-            helpers.cond_print("Conversation ID: " + str(return_conversation))
-            helpers.cond_print("Context ID: " + str(return_context))
+            helpers.cond_print("Dialog ID: " + str(return_conversation))
+            helpers.cond_print("Query ID: " + str(return_context))
 
             return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
