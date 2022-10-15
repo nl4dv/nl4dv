@@ -278,8 +278,8 @@ class NL4DV:
         output['dialogId'] = str(return_convo)
         output['queryId'] = str(return_context)
 
-        helpers.cond_print("Dialog ID: " + str(return_convo))
-        helpers.cond_print("Query ID: " + str(return_context))
+        helpers.cond_print("Dialog ID: " + str(return_convo), self.verbose)
+        helpers.cond_print("Query ID: " + str(return_context), self.verbose)
 
         return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
@@ -321,8 +321,8 @@ class NL4DV:
                     raise RuntimeError("Context id must be of type string")
                 query_id = int(query_id)
                 context_obj = self.conversation_genie_instance.all_dialogs[dialog_id][query_id]
-            helpers.cond_print("Previous Query: ")
-            helpers.cond_print(context_obj['query_raw'])
+            helpers.cond_print("Previous Query: ", self.verbose)
+            helpers.cond_print(context_obj['query_raw'], self.verbose)
             self.past_extracted_attributes = context_obj['attributeMap']
             self.past_ambiguities = context_obj['ambiguity']
 
@@ -504,8 +504,8 @@ class NL4DV:
             output['dialogId'] = str(return_conversation)
             output['queryId'] = str(return_context)
 
-            helpers.cond_print("Dialog ID: " + str(return_conversation))
-            helpers.cond_print("Query ID: " + str(return_context))
+            helpers.cond_print("Dialog ID: " + str(return_conversation), self.verbose)
+            helpers.cond_print("Query ID: " + str(return_context), self.verbose)
 
             return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
