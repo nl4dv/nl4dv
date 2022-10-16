@@ -76,8 +76,6 @@
             <div class="top-search-box cta-container">
                 <a class="btn btn-primary btn-cta m-xs" href="https://github.com/nl4dv/nl4dv" target="_blank"><i
                         class="fab fa-github"></i> View on GitHub</a>
-                <a class="btn btn-primary btn-cta m-xs" href="https://www.cc.gatech.edu/~anarechania3/docs/publications/nl4dv_vis_2020.pdf" target="_blank"
-                   download><i class="fas fa-file-pdf"></i> Download Research Paper</a>
             </div>
         </div><!--//container-->
     </header><!--//header-->
@@ -94,16 +92,6 @@
                             <h2 class="section-title">Setup</h2>
                             <div id="install" class="section-block">
                                 <h3 class="block-title">Installation</h3>
-
-                                <br/>
-                                <p>
-                                    <b class="text-danger"><u>IMPORTANT</u>:
-                                    A new release with Conversational Interaction capabilities is <a href="https://pypi.org/project/nl4dv/" target="_blank">Coming Soon on PyPi</a>. Stay tuned!</b>
-                                    <br/>
-                                    Until then, you can locally build and install the toolkit from the <b><a href="https://github.com/nl4dv/nl4dv/tree/ci_review" target="_blank">ci_review</a></b> branch.
-                                    Keep reading to install the current version (with single utterance interaction) and/or read the Documentation.
-                                </p>
-
                                 <div class="code-block">
                                     <ol class="list">
                                         <li>
@@ -210,7 +198,7 @@
                                 </ol>
                             </div><!--//section-block-->
                             <div id="sample-code" class="section-block">
-                                <h3 class="block-title">Sample Code (Single Utterance Interaction)</h3>
+                                <h3 class="block-title">Sample Code (Single Turn Conversational Interaction)</h3>
                                 <div class="row">
                                     <div class="col-md-12 col-12">
                                         <p>If everything went well in the Installation and Post Installation steps above, you are all set.
@@ -376,7 +364,7 @@ print(output)</code></pre>
                             </div><!--//section-block-->
 
                             <div id="sample-code-ci" class="section-block">
-                                <h3 class="block-title">Sample Code (Conversational Interaction)</h3>
+                                <h3 class="block-title">Sample Code (Multi Turn Conversational Interaction)</h3>
                                 <div class="row">
                                     <div class="col-md-12 col-12">
                                         <p>Use the below <b>Sample Code</b> to get started with Conversational Interaction. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/ci_review/sample-ci.py" target="_blank">here</a>.</p>
@@ -879,9 +867,9 @@ print(output)</code></pre>
                             <div class="section-block">
                                 <p>
                                     NL4DV was created by <a target="_blank"
-                                                            href="https://www.cc.gatech.edu/~anarechania3">Arpit
+                                                            href="http://arpit.narechania.com">Arpit
                                     Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun
-                                    Srinivasan</a>, <a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John
+                                    Srinivasan</a>, <a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a target="_blank" href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a target="_blank" href="https://www.cc.gatech.edu/~john.stasko/">John
                                     Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech
                                     Visualization Lab</a>.
                                 </p>
@@ -890,11 +878,23 @@ print(output)</code></pre>
                             </div>
                         </section>
                         <section id="citation" class="doc-section">
-                            <h2 class="section-title">Citation</h2>
+                            <h2 class="section-title">Citations</h2>
                             <div class="section-block">
+                                <h4>2022 IEEE VIS Conference Short Paper Track</h4>
+                                <pre><code class="language-bib">@inproceedings{mitra2022conversationalinteraction,
+  title = {Facilitating Conversational Interaction in Natural Language Interfaces for Visualization},
+  author = {{Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John},
+  booktitle={2022 IEEE Visualization Conference (VIS)}, 
+  url = {https://doi.org/10.48550/arXiv.2207.00189},
+  doi = {10.48550/arXiv.2207.00189},
+  year = {2022},
+  publisher = {IEEE}
+}</code></pre>
+                            </div>
+                            <div class="section-block">
+                                <h4>2020 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)</h4>
                                 <pre><code class="language-bib">@article{narechania2020nl4dv,
   title = {NL4DV: A Toolkit for Generating Analytic Specifications for Data Visualization from Natural Language Queries},
-  shorttitle = {NL4DV},
   author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
   journal = {IEEE Transactions on Visualization and Computer Graphics (TVCG)},
   doi = {10.1109/TVCG.2020.3030378},
@@ -909,7 +909,7 @@ print(output)</code></pre>
                                 <p>
                                     If you have any questions, feel free to <a
                                         href="https://github.com/nl4dv/nl4dv/issues/new/choose">open a GitHub issue</a>
-                                    or contact <a target="_blank" href="https://www.cc.gatech.edu/~anarechania3/">Arpit
+                                    or contact <a target="_blank" href="http://arpit.narechania.com">Arpit
                                     Narechania</a>.
                                 </p>
                             </div>
@@ -931,8 +931,8 @@ print(output)</code></pre>
                             <nav class="doc-sub-menu nav flex-column">
                                 <a class="nav-link scrollto" href="#install">Installation</a>
                                 <a class="nav-link scrollto" href="#post-installation">Post Installation</a>
-                                <a class="nav-link scrollto" href="#sample-code">Sample Code (Single Utterance Interaction)</a>
-                                <a class="nav-link scrollto" href="#sample-code-ci">Sample Code (Conversational Interaction)</a>
+                                <a class="nav-link scrollto" href="#sample-code">Sample Code (Single Turn)</a>
+                                <a class="nav-link scrollto" href="#sample-code-ci">Sample Code (Multi Turn)</a>
                                 <a class="nav-link scrollto" href="#docker">Docker</a>
                                 <a class="nav-link scrollto" href="#author-notes">Message from Creators</a>
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
@@ -941,7 +941,7 @@ print(output)</code></pre>
                             <a class="nav-link scrollto" href="#test">Test</a>
                             <a class="nav-link scrollto" href="#contribute">Build</a>
                             <a class="nav-link scrollto" href="#credits">Credits</a>
-                            <a class="nav-link scrollto" href="#citation">Citation</a>
+                            <a class="nav-link scrollto" href="#citation">Citations</a>
                             <a class="nav-link scrollto" href="#contact">Contact Us</a>
                             <a class="nav-link scrollto" href="#license">License</a>
                         </nav><!--//doc-menu-->
