@@ -144,7 +144,8 @@ function configureDatabase(dataset){
                 ignore_words = ['movie','movies'];
             }else if(dataset == "housing.csv"){
                 attributeTypeChanges = {
-                    "Year": "T"
+                    "Year": "T",
+                    "Rooms": "O"
                 }
                 ignore_words = [];
             }else if(dataset == "olympic_medals.csv"){

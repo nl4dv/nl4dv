@@ -1,16 +1,15 @@
 //Called when the execute button is pressed. This takes all the queries from vis_matrix_queries
 //and calls NL4DV toolkit on queries. Outputs the attribute and task tables as well as the top
 //visualizatons.
-function execute(){
+function execute() {
     var table = document.getElementById('debugTable');
     var data;
     var current_dataset = "";
-	$.ajax({
-	    type: "GET",
-	    url: "assets/queries/vis_matrix_queries.tsv?version="+Math.random(),
-	    dataType: "text",
-	    success: function(data)
-	    {
+    $.ajax({
+        type: "GET",
+        url: "assets/queries/vis_matrix_queries.tsv?version=" + Math.random(),
+        dataType: "text",
+        success: function (data) {
             //Iterate through each row in vis_matrix_queries.txt
             var rows = data.split("\n");
             for (var i = 1; i < rows.length; i++) {
@@ -26,7 +25,7 @@ function execute(){
                     var attribute_combination = cells[3];
 
                     // Set data ONLY if you detect a different dataset
-                    if(current_dataset != dataset){
+                    if (current_dataset != dataset) {
                         current_dataset = dataset;
                         configureDatabase(dataset); // Now synchronous
                     }
@@ -48,26 +47,36 @@ function execute(){
 
 
                     //Call analyze query on the query and get output from NL4DV analyze_query function
-                    $.ajax("/analyze_query", {type: 'POST', data: {"query": query}, async:false})
-                        .done(function (response_string) {
+                    $.ajax("/analyze_query", {
+                        type: "POST",
+                        data: {
+                            "query": query
+                        },
+                        async: false,
+                        success: function (response_string) {
                             var response = JSON.parse(response_string);
+                            console.log(query, response);
 
                             // container for Extracted Attributes
                             var attributeMap = response['attributeMap'];
-                            Object.keys(attributeMap).forEach(function(attr){
+                            Object.keys(attributeMap).forEach(function (attr) {
                                 attributeList.push(attributeMap[attr]);
                             });
 
                             // container for Extracted Tasks
                             var tasksObjectList = response['taskMap'];
-                            Object.keys(tasksObjectList).forEach(function(task){
-                                tasksObjectList[task].forEach(function(taskObj){
+                            Object.keys(tasksObjectList).forEach(function (task) {
+                                tasksObjectList[task].forEach(function (taskObj) {
                                     taskList.push(taskObj);
                                 });
                             });
 
                             // Visualization
                             visObj = response['visList'];
+                        },
+                        error: function (response_string) {
+                            console.log(response_string);
+                        }
                     });
 
                     var new_cell;
@@ -75,10 +84,10 @@ function execute(){
                     //Add only attribute names to table
                     new_cell = new_row.insertCell(-1);
                     var content = "<table class='table table-bordered table-condensed'>"
-                    for(var t = 0; t < attributeList.length; t++){
+                    for (var t = 0; t < attributeList.length; t++) {
                         content += '<tr>' +
-                                        '<td>' + attributeList[t]['name'] + '</td>' +
-                                    '</tr>';
+                            '<td>' + attributeList[t]['name'] + '</td>' +
+                            '</tr>';
                     }
                     content += "</table>";
                     $(new_cell).append(content);
@@ -89,8 +98,8 @@ function execute(){
                     var content = "<table class='table table-bordered table-condensed vertical'>";
                     for (var t = 0; t < taskList.length; t++) {
                         content += '<tr>' +
-                                        '<td>' + taskList[t]['task'] + '</td>' +
-                                    '</tr>';
+                            '<td>' + taskList[t]['task'] + '</td>' +
+                            '</tr>';
                     }
 
                     content += '</table>';
@@ -101,12 +110,12 @@ function execute(){
                     var vizContainer = document.createElement('div');
                     $(vizContainer).addClass("parent");
 
-                     for (var l = 0; l < visObj.length; l++) {
-                         var div = document.createElement('div');
-                         $(div).addClass("child");
-                         vegaEmbed(div, visObj[l]['vlSpec'], vegaOptMode);
-                         $(vizContainer).append(div);
-                     }
+                    for (var l = 0; l < visObj.length; l++) {
+                        var div = document.createElement('div');
+                        $(div).addClass("child");
+                        vegaEmbed(div, visObj[l]['vlSpec'], vegaOptMode);
+                        $(vizContainer).append(div);
+                    }
                     new_cell.appendChild(vizContainer);
 
                 }
@@ -117,36 +126,46 @@ function execute(){
 
 //Initializes NL4DV and sets dependency parser to either Stanford CoreNLP or Spacy
 function initNL4DV(dependency_parser) {
-    $.post("/init", {"dependency_parser": dependency_parser})
+    $.post("/init", {
+            "dependency_parser": dependency_parser
+        })
         .done(function (response) {
-           // All OK
+            // All OK
         });
 }
 
 //Set the dataset to analyze queries on. Currently only supports toy datasets provided in the toolkit.
-function configureDatabase(dataset){
-    $.ajax("/setData", {type: 'POST', data: {"dataset": dataset}, async:false})
-        .done(function (response) {
-                        var attributeTypeChanges = {};
+function configureDatabase(dataset) {
+    $.ajax("/setData", {
+        type: "POST",
+        dataType: "text",
+        data: {
+            "dataset": dataset
+        },
+        async: false,
+        success: function (response) {
+            console.log("/setData success");
+            var attributeTypeChanges = {};
             var ignore_words = [];
-            if(dataset == "cars-w-year.csv"){
+            if (dataset == "cars-w-year.csv") {
                 attributeTypeChanges = {
                     "Year": "T"
                 };
                 ignore_words = ['car'];
-            }else if(dataset == "cars.csv"){
+            } else if (dataset == "cars.csv") {
                 ignore_words = ['car'];
-            }else if(dataset == "movies-w-year.csv"){
+            } else if (dataset == "movies-w-year.csv") {
                 attributeTypeChanges = {
                     "Release Year": "T"
                 };
-                ignore_words = ['movie','movies'];
-            }else if(dataset == "housing.csv"){
+                ignore_words = ['movie', 'movies'];
+            } else if (dataset == "housing.csv") {
                 attributeTypeChanges = {
-                    "Year": "T"
+                    "Year": "T",
+                    "Rooms": "O"
                 }
                 ignore_words = [];
-            }else if(dataset == "olympic_medals.csv"){
+            } else if (dataset == "olympic_medals.csv") {
                 attributeTypeChanges = {
                     "Gold Medal": 'Q',
                     "Silver Medal": 'Q',
@@ -157,22 +176,50 @@ function configureDatabase(dataset){
                 ignore_words = [];
             }
 
-            if(attributeTypeChanges != {}){
-                $.post("/setAttributeDataType", {"attr_type_obj": JSON.stringify(attributeTypeChanges), async:false})
-                    .done(function (r2) {
-                    });
+            if (attributeTypeChanges != {}) {
+                $.ajax("/setAttributeDataType", {
+                    type: "POST",
+                    dataType: "text",
+                    data: {
+                        "attr_type_obj": JSON.stringify(attributeTypeChanges)
+                    },
+                    async: false,
+                    success: function (resp) {
+                        console.log("/setAttributeDataType success");
+                    },
+                    error: function (resp) {
+                        console.log("/setAttributeDataType error");
+                        console.log(resp);
+                    }
+                });
             }
 
-            if(ignore_words.length > 0){
-                $.post("/setIgnoreList", {"ignore_words": JSON.stringify(ignore_words), async:false})
-                    .done(function (r3) {
-                    });
+            if (ignore_words.length > 0) {
+                $.ajax("/setIgnoreList", {
+                    type: "POST",
+                    dataType: "text",
+                    data: {
+                        "ignore_words": JSON.stringify(ignore_words)
+                    },
+                    async: false,
+                    success: function (resp) {
+                        console.log("/setIgnoreList success");
+                    },
+                    error: function (resp) {
+                        console.log("/setIgnoreList error");
+                        console.log(resp);
+                    }
+                });
             }
-
-        });
+        },
+        error: function (err) {
+            console.log("/setData error");
+            console.log(err);
+        }
+    })
 }
 
 //When page is loaded NL4DV is initialized with corenlp dependency parser.
-$(document).ready(function() {
+$(document).ready(function () {
     initNL4DV("corenlp");
 });
