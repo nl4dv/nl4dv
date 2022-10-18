@@ -125,9 +125,9 @@ class NL4DV:
             self.set_attribute_datatype(attr_type_obj=attribute_datatype)
 
     # returns a VegaLite object of the best (1st) visualization after analyzing the query.
-    def render_vis(self, query, dialog=None):
-        # type: (str, str) -> VegaLite
-        response = self.analyze_query(query=query, dialog=dialog)
+    def render_vis(self, query, dialog=None, dialog_id = None, query_id = None):
+        # type: (str, str, str, str) -> VegaLite
+        response = self.analyze_query(query=query, dialog=dialog, dialog_id=dialog_id, query_id=query_id)
         if len(response['visList']) == 0:
             print("No best Viz; please try again.")
             return VegaLite({})
