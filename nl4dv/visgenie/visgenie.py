@@ -151,9 +151,10 @@ class VisGenie:
                                 return None
 
                             # Iterate over all encodings and if the corresponding attribute matches that in the task, then UPDATE the "aggregate".
+                            # Although, if the task is IMPLICITly derived_value (which means agg = AVG), then let the agg in the `design` take preference because the `design` also has SUM for a stacked-bar chart output visualizations -- those musn't be overridden to AVG as it would be wrong.
                             for dimension in design["mandatory"]:
                                 attr = design[dimension]["attr"]
-                                if attr in task_instance["attributes"]:
+                                if attr in task_instance["attributes"] and task_instance["inferenceType"] == "explicit":
                                     vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
 
                                     datatype = self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["dataType"]
