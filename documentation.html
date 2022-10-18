@@ -481,7 +481,7 @@ print(output)</code></pre>
                                             <br/>
                                         </li>
                                         <li><p><b>Filter task.</b><br/>NL4DV applies the filter task by matching the condition against each data point but does not encode the involved attributes in the visualization. This was a design decision taken to avoid recommending a complex visualization due to too many encoded attributes.</p></li>
-                                        <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior research workss; we encourage users/developers to modify them to suit their specific requirements.</p></li>
+                                        <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior research works; we encourage users/developers to modify them to suit their specific requirements.</p></li>
                                     </ul>
                                 </div>
                             </section>
@@ -551,10 +551,10 @@ print(output)</code></pre>
                                             </li>
                                             <li>
                                                 <p>Launch the notebook using <code class="language-bash">jupyter notebook</code>.</p>
-                                                <p>Make sure your Jupyter notebook uses an (virtual) environment has NL4DV installed. Go to <a
+                                                <p>Make sure your Jupyter notebook uses an (virtual) environment that has NL4DV installed. Go to <a
                                                         href="https://github.com/nl4dv/nl4dv/tree/master/examples/applications/notebook"
                                                         target="_blank">examples/applications/notebook</a> and launch
-                                                    <b>Demo.ipynb</b></p>
+                                                    <b>Single-Turn-Conversational-Interaction.ipynb</b> to run the demo that showcases NL4DV's single-turn (standalone) conversational capabilities or <b>Multi-Turn-Conversational-Interaction.ipynb</b> for viewing NL4DV's follow-up capabilities</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -604,10 +604,11 @@ print(output)</code></pre>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>analyze_query(query=None,debug=False,verbose=False)</td>
+                                            <td>analyze_query(query=None,debug=False,verbose=False,dialog=None,dialog_id=None,query_id=None)</td>
                                             <td>
                                                 <p><code class="language-python">query</code> (str)</p>
-                                                <p><code class="language-python">debug</code> (str)</p>
+                                                <p><code class="language-python">debug</code> (bool)</p>
+                                                <p><code class="language-python">verbose</code> (bool)</p>
                                                 <p><code class="language-python">dialog</code> (bool or str='auto', optional)</p>
                                                 <p><code class="language-python">dialog_id</code> (str, optional)</p>
                                                 <p><code class="language-python">query_id</code> (str, optional)</p>
