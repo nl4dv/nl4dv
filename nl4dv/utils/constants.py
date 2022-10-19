@@ -19,7 +19,7 @@ task_keyword_map = {
     # Find Extremum
     # -----------------------------------------
     "rank": [("find_extremum", "MIN")],
-    "sort": [("find_extremum", "MIN")],
+
     "max": [("find_extremum", "MAX")],
     "maximum": [("find_extremum", "MAX")],
     "highest": [("find_extremum", "MAX")],
@@ -38,7 +38,9 @@ task_keyword_map = {
     "worst": [("find_extremum", "MIN")],
     # ADd SORT
     # -----------------------------------------
-
+    "sort": [("sort", "MIN")],
+    "descending": [("sort", "MAX")],
+    "ascending": ["sort", "MIN"],
     # -----------------------------------------
     # Filter
     # -----------------------------------------
@@ -69,6 +71,7 @@ task_keyword_map = {
     "mean": [("derived_value", "AVG")],
     "sum": [("derived_value", "SUM")],
     "total": [("derived_value", "SUM")],
+    "cumulative": [("derived_value", "SUM")],
     # -----------------------------------------
 
     # -----------------------------------------
@@ -109,6 +112,14 @@ task_keyword_map = {
     # -----------------------------------------
     "trend": [("trend", None)]
 }
+
+followup_reserve_words = [
+    "all",
+    "only",
+    "as",
+    "well",
+    "too"
+]
 
 # scores given to attribute/ task/ vis matches of different types
 match_scores = {
@@ -179,6 +190,67 @@ vl_attribute_types = {
     'O': 'ordinal',
 }
 
+followup_keyword_map = {
+    ## Direct action associated with these keywords
+
+
+    "put": [("addition", "add")],
+    "add": [("addition", "add")],
+    # "group by": [("addition", "add")], #Limitation: Group by is not being used as a task, but being used as a keyword (e.g. groupby salary will give an incorrect visualization - it will not bin by salary, but it might add salary to the next encoding channel)
+    "remove": [("removal", "remove")],
+    "delete": [("removal", "remove")],
+    "replace": [("replacement", "replace")],
+    "sort": [("addition", "add")],
+    "drop": [("removal", "remove")],
+    "unassign": [("removal", "remove")],
+    "discard": [("removal", "remove")],
+    "undo": [("removal", "remove")]
+
+}
+
+implicit_followup_keyword_map = {
+    ## Keywords that support actions
+
+
+    # -----------------------------------------
+    # Dicey: Can be used in a standalone query
+    # Not dicey: Will only be used in a follow-up query
+    # -----------------------------------------
+    #Explore creating an ordered dictionary/prioirity list to conserve priority/importance of the occurrence of the below keywords
+    "also": [("also", "add", "ambiguous")], #dicey
+    "as well": [("aswell", "add", "ambiguous")], #dicey
+    "only": [("only", "remove_only", "ambiguous")], #not dicey
+    "instead of": [("insteadof", "replace", "not ambiguous")], #not dicey
+    "rather than": [("ratherthan", "replace", "not ambiguous")], #not dicey
+    "do n't": [("dont", "remove", "not ambiguous")], #query parser breaks "don't" into 2 tokens, not dicey
+    "do not": [("dont", "remove", "not ambiguous")], #not dicey
+    "how about": [("howabout", "replace", "ambiguous")], #dicey
+    "group by": [("groupby", "add", "not ambiguous")], #dicey #group by should be explicit rather than implicit
+    "instead": [("instead", "replace", "ambiguous")],  #dicey
+    "what about": [("whatabout", "replace", "ambiguous")]
+
+
+
+
+}
+
+## Split implcit follow up keyword map into one dictionary for ambiguous or nonambiguous
+## Keep only a two tuple for implicit follow up keyword
+
+filter_followup_keyword_map = {
+    "all" : ["remove", 1],
+    "instead of" : ["replace", 0],
+    "rather than" : ["replace", 0],
+    "remove" : ["remove_addition", 0],
+    "filter" : ["add_ambiguous", 0],
+    "do n't": ["remove_addition", 0],
+    "do not": ["remove_addition", 0],
+    "without": ["without", 0],
+    "too" : ["add", 0],
+    "as well" : ["add", 0],
+    "instead": ["replace", 0],
+    "only": ["replace", 0]
+}
 # Regular Expressions with their corresponding FORMATs and Examples
 date_regexes = [
     # Format:

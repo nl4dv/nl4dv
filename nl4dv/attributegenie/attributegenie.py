@@ -16,7 +16,6 @@ class AttributeGenie:
         # Since the `vis_combo` mapping keys are in a specific order [Q,N,O,T], we will order the list of attributes in this order
         default_sort_order = ['Q', 'N', 'O', 'T']
         sorted_attr_datatype = [(attr,attr_type) for x in default_sort_order for (attr,attr_type) in unsorted_attr_datatype if attr_type == x]
-
         sorted_attributes = [x[0] for x in sorted_attr_datatype]  # e.g. ['Rotten Tomatoes Rating', 'Worldwide Gross']
         sorted_attribute_datatypes = ''.join([x[1] for x in sorted_attr_datatype])  # e.g. 'QQ'
 
@@ -80,7 +79,8 @@ class AttributeGenie:
                                 'score': 100,
                                 'threshold': self.nl4dv_instance.match_thresholds['string_similarity'],
                                 'alias': None,
-                                'ambiguity': {}
+                                'ambiguity': {},
+                                'dataType': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                             }
                         }
 
@@ -133,7 +133,8 @@ class AttributeGenie:
                                 'score': score,
                                 'threshold': self.nl4dv_instance.match_thresholds['string_similarity'],
                                 'alias': None,
-                                'ambiguity': {}
+                                'ambiguity': {},
+                                'dataType': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                             }
                         }
 
@@ -170,7 +171,8 @@ class AttributeGenie:
                                     'score': 100,
                                     'threshold': self.nl4dv_instance.match_thresholds['string_similarity'],
                                     'alias': alias,
-                                    'ambiguity': {}
+                                    'ambiguity': {},
+                                    'dataType': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                                 }
                             }
 
@@ -189,7 +191,7 @@ class AttributeGenie:
 
     # Detect attributes based on string similarity of the n-grams with the developer specified aliases
     def detect_attributes_by_alias_similarity(self, query_ngrams, data_attributes, query_attributes, attribute_aliases):
- 
+
         # Go over each ngram to check for matches in attribute aliases
         # Check if the word is in one of the attribute aliases
         for attr in data_attributes:
@@ -230,7 +232,8 @@ class AttributeGenie:
                                     'score': score,
                                     'threshold': self.nl4dv_instance.match_thresholds['string_similarity'],
                                     'alias': alias,
-                                    'ambiguity': {}
+                                    'ambiguity': {},
+                                    'dataType': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                                 }
                             }
 
@@ -271,7 +274,8 @@ class AttributeGenie:
                             'score': synonym_match_score,
                             'threshold': self.nl4dv_instance.match_thresholds['synonymity'],
                             'alias': None,
-                            'ambiguity': {}
+                            'ambiguity': {},
+                            'dataType': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                         }
                     }
 
@@ -301,7 +305,7 @@ class AttributeGenie:
             # RESET for each Attribute
             value_keyword_mapping[attr] = dict()
             keyword_value_mapping[attr] = dict()
-            
+
             for ngram in query_ngrams:
                 # We'll use the lower-case attributes
                 ngram_str = query_ngrams[ngram]["lower"]
@@ -326,17 +330,18 @@ class AttributeGenie:
                     else:
 
                         string_similarity_score = helpers.compute_similarity(ngram_str, value,'token_similarity')
-
+                                                
                         # Check 1: Token Similarity score should be 100, i.e. at least 1 word/n-gram in the query must match the attribute domain value
                         if string_similarity_score == 100:
 
+
                             # [OLD] Check 2: The matched n-gram must contain 2 or more words/tokens.
                             # if len(ngram_tokens) >= 2:
-
+                            # NOTE: PLS FIND A BETTER CONDITIONAL
                             # Check 2: The matched attribute domain value must either be of length >= 2, i.e. 2 words OR be 1 of 2 possible words.
                             value_tokens = list(word_tokenize(value))
                             ngram_tokens = list(word_tokenize(ngram_str))
-                            if len(ngram_tokens) >= 2 or (len(ngram_tokens) == 1 and len(value_tokens) == 2):
+                            if len(ngram_tokens) >= 2 or (len(ngram_tokens) == 1 and len(value_tokens) == 2) or (len(ngram_tokens) == 1 and len(value_tokens) == 4):
                                 # Value - Keyword
                                 value_keyword_mapping[attr][value_raw] = ngram_str
 
@@ -345,6 +350,7 @@ class AttributeGenie:
                                     if ngram_str not in keyword_value_mapping[attr]:
                                         keyword_value_mapping[attr][ngram_str] = set()
                                     keyword_value_mapping[attr][ngram_str].add(value_raw)
+
 
                                 add_attribute = True
 
@@ -363,6 +369,10 @@ class AttributeGenie:
                         metrics = query_attributes[attr]["metric"]
                         if "attribute_domain_value_match" not in query_attributes[attr]["metric"]:
                             metrics.append("attribute_domain_value_match")
+                    encode = False
+                    if self.nl4dv_instance.dialog and attr in self.nl4dv_instance.past_extracted_attributes:
+                        encode = True
+
 
                     query_attributes[attr] = {
                         'name': attr,
@@ -373,12 +383,13 @@ class AttributeGenie:
                         'isLabel': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]["isLabelAttribute"],
                         'isAmbiguous': False,
                         'ambiguity': list(),
-                        'encode': False,
+                        'encode': encode,
                         'meta': {
                             'score': None,
                             'threshold': None,
                             'alias': None,
-                            'ambiguity': {}
+                            'ambiguity': {},
+                            'dataType': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                         }
                     }
 
@@ -517,6 +528,10 @@ class AttributeGenie:
             keywords = query_attributes[attr]["queryPhrase"]
             for keyword in keywords:
                 if len(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys()) > 1:
+                    if hasattr(self.nl4dv_instance, 'ambiguities'):
+                        self.nl4dv_instance.ambiguities['attribute'][keyword] = dict()
+                        self.nl4dv_instance.ambiguities['attribute'][keyword]['options'] = list(self.nl4dv_instance.keyword_attribute_mapping[keyword].keys())
+                        self.nl4dv_instance.ambiguities['attribute'][keyword]['selected'] = None
                     for ambiguous_attr in self.nl4dv_instance.keyword_attribute_mapping[keyword]:
                         if 'ambiguity' not in query_attributes[attr]:
                             query_attributes[attr]['ambiguity'] = list()
@@ -570,7 +585,8 @@ class AttributeGenie:
                     # If the attribute is detected from domain value that too only IMPLICITLY (as in was not also EXPLICITLY detected), encode it to False
                     if "attribute_domain_value_match" in self.nl4dv_instance.extracted_attributes[attr]["metric"]:
                         if self.nl4dv_instance.extracted_attributes[attr]["inferenceType"] == 'implicit':
-                            self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
+                            if self.nl4dv_instance.dialog is not True and attr not in self.nl4dv_instance.past_extracted_attributes :
+                                self.nl4dv_instance.extracted_attributes[attr]["encode"] = False
 
                     # If the attribute is part of some FILTER (e.g. budget more than 50) but also exists standalone (e.g. correlate budget and gross for budget more than 50)
                     # Simple heuristic check for now: Check for multiple occurrences of the attribute's keyword in the raw query.
@@ -605,7 +621,7 @@ class AttributeGenie:
             # If label attribute was Explicitly detected in the query, "encode" it to True ELSE add it manually
             if self.nl4dv_instance.label_attribute in self.nl4dv_instance.extracted_attributes and \
                     self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["inferenceType"] == 'explicit':
-                self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute]["encode"] = True
+                self.nl4dv_instance.extracted_attributes[self.nl4dv_instanc .label_attribute]["encode"] = True
             else:
                 # Check if there is a task BUT no ENCODABLE attribute is detected. In this case, add the label attribute.
                 self.nl4dv_instance.extracted_attributes[self.nl4dv_instance.label_attribute] = {
@@ -622,7 +638,8 @@ class AttributeGenie:
                         'score': None,
                         'threshold': None,
                         'alias': None,
-                        'ambiguity': {}
+                        'ambiguity': {},
+                        'dataType': self.nl4dv_instance.data_genie_instance.data_attribute_map[attr]['dataType']
                     }
                 }
 
@@ -636,27 +653,29 @@ class AttributeGenie:
 
         return encodeable_attributes
 
-    def validate_attr_combo(self, attr_combo, query_phrase, allow_subset=False):
-        unique_keywords = set()
+    def validate_attr_combo(self, attr_combo, query_phrase, allow_subset=False, dialog=False):
+        if dialog is False:
+            unique_keywords = set()
 
-        # The combination has already incorporated the to be "encode"d attributes.
-        for c in attr_combo:
-            unique_keywords.add(','.join(self.nl4dv_instance.attribute_keyword_mapping[c].keys()))
+            # The combination has already incorporated the to be "encode"d attributes.
+            for c in attr_combo:
+                unique_keywords.add(','.join(self.nl4dv_instance.attribute_keyword_mapping[c].keys()))
 
-        unique_attrs = set()
-        for k in self.nl4dv_instance.keyword_attribute_mapping:
-            is_encode = True
-            for a in self.nl4dv_instance.keyword_attribute_mapping[k]:
-                if a in self.nl4dv_instance.extracted_attributes and not self.nl4dv_instance.extracted_attributes[a]["encode"]:
-                    is_encode = False
-                    break
+            unique_attrs = set()
+            for k in self.nl4dv_instance.keyword_attribute_mapping:
+                is_encode = True
+                for a in self.nl4dv_instance.keyword_attribute_mapping[k]:
+                    if a in self.nl4dv_instance.extracted_attributes and not self.nl4dv_instance.extracted_attributes[a]["encode"]:
+                        is_encode = False
+                        break
 
-            if is_encode:
-                if ','.join(self.nl4dv_instance.keyword_attribute_mapping[k].keys()) not in unique_attrs:
-                    unique_attrs.add(','.join(self.nl4dv_instance.keyword_attribute_mapping[k].keys()))
+                if is_encode:
+                    if ','.join(self.nl4dv_instance.keyword_attribute_mapping[k].keys()) not in unique_attrs:
+                        unique_attrs.add(','.join(self.nl4dv_instance.keyword_attribute_mapping[k].keys()))
 
-        if allow_subset:
-            return len(attr_combo) != len(unique_keywords) or len(attr_combo) != len(query_phrase)
 
-        # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
-        return len(attr_combo) != len(unique_attrs) or (len(attr_combo) != len(unique_keywords))
+            if allow_subset:
+                return len(attr_combo) != len(unique_keywords) or len(attr_combo) != len(query_phrase)
+
+            # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
+            return len(attr_combo) != len(unique_attrs) or (len(attr_combo) != len(unique_keywords))

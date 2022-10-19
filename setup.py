@@ -29,6 +29,7 @@ setup(
         "python-Levenshtein~=0.12.0",
         "si-prefix~=1.2.2",
         "spacy~=2.2",
-        "vega~=3.1"
+        "vega~=3.1",
+        "inflect~=5.5.2"
     ]
 )

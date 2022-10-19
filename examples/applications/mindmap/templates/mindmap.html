@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NL4DV | MindMap</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('mindmap.static', filename='img/favicon.ico') }}" />
+
+    <!--Vendor CSS files-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!--Custom CSS files-->
+    <link href="{{ url_for('mindmap.static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Modal -->
+<div class="modal fade" id="queryModal" tabindex="-1" role="dialog" aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5>What do you want to know?
+                    <a style="float:right" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </h5>
+                <hr>
+                <div class="form-group text-center" style="position:relative;">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button id="recordButton" style="border-radius:0;" class="btn btn-primary"><i class="fa fa-microphone"></i></button>
+                        </span>
+                        <input type="text" class="form-control input-md" id="queryBox"
+                            placeholder="Type your query or tap the record button to start speaking..." />
+                        <span class="input-group-btn">
+                            <button type="button" style="border-radius: 0;" id="processQueryBtn" class="btn btn-success"><i class="fa fa-rocket"></i>&nbsp;Ask NL4DV</button>
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <br/>
+        <div style="text-align: center;">
+            <h2>Mindmapping with NL4DV</h2>
+            <h4>
+                <span>Ask questions about the</span> 
+    
+                <select id="datasetSelect">
+                    <option value="movies-w-year.csv" selected="selected">Movies</option>
+                    <option value="olympic_medals.csv">Olympic Medals</option>
+                    <option value="cars-w-year.csv">Cars</option>
+                    <option value="housing.csv">Housing</option>
+                    <option value="colleges.csv">Colleges</option>
+                    <option value="euro.csv">Euro</option>
+                    <option value="superstore.csv">Superstore</option>
+                    <option value="nba-mvp.csv">NBA MVP</option>
+                </select> 
+            
+                <span>dataset.</span>
+            </h4>
+        </div>
+        <hr>
+        <svg id='mindmap-svg'></svg>
+    </div>
+</body>
+
+<!--JS files-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script src="{{ url_for('mindmap.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('mindmap.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('mindmap.static', filename='js/MindMap.js') }}"></script>
+<script src="{{ url_for('mindmap.static', filename='js/ui.js') }}"></script>
+<script src="{{ url_for('mindmap.static', filename='js/main.js') }}"></script>
+
+</html>

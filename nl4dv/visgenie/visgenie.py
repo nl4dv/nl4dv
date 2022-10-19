@@ -10,13 +10,64 @@ class VisGenie:
     def __init__(self, nl4dv_instance):
         self.nl4dv_instance = nl4dv_instance
 
-    def extract_vis_type(self, query_ngrams):
+    def extract_vis_type(self, query_ngrams, dependencies = None):
+        final_vis_type, final_vis_token = None, None
         for ngram in query_ngrams:
+            if query_ngrams[ngram]["lower"] in self.nl4dv_instance.followup_keyword_map:
+                if self.nl4dv_instance.followup_keyword_map[query_ngrams[ngram]["lower"]][0][1] == "replace":
+                    k1, k2, operator_phrase = None, None, None
+                    for dep_index, dep in enumerate(dependencies[0]):
+                        if dep[1] in ['dobj', 'xcomp']:
+                            if dep[0][0] in self.nl4dv_instance.vis_keyword_map and dep[2][0] in self.nl4dv_instance.followup_keyword_map:
+                                operator_phrase = dep[2][0]
+                                k1 = dep[0][0]
+                            if dep[2][0] in self.nl4dv_instance.vis_keyword_map and dep[0][0] in self.nl4dv_instance.followup_keyword_map:
+                                operator_phrase = dep[0][0]
+                                k1 = dep[2][0]
+                        if dep[1] in ['nmod', 'case']:
+                            if dep[0][0] in self.nl4dv_instance.vis_keyword_map and dep[2][0] in self.nl4dv_instance.special_keyword_map_for_tasks and k1 == dep[0][0]:
+                                # operator_phrase = dep[2][0]
+                                k2 = dep[2][0]
+                            if dep[0][0] in self.nl4dv_instance.vis_keyword_map and dep[2][1] in ["IN"]:
+                                k2 = dep[0][0]
+                    for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
+                        if k2 in vis_keywords:
+                            final_vis_type = vis_type
+                            final_vis_token = query_ngrams[ngram]["lower"]
+                    return final_vis_type, final_vis_token
+                elif self.nl4dv_instance.followup_keyword_map[query_ngrams[ngram]["lower"]][0][1] == "remove":
+                    return "REMOVE", "REMOVE"
+            if query_ngrams[ngram]["lower"] in self.nl4dv_instance.special_keyword_map_for_followup:
+                if self.nl4dv_instance.special_keyword_map_for_followup[query_ngrams[ngram]["lower"]] == "replace":
+                    k1, k2 = None, None
+                    for dep_index, dep in enumerate(dependencies[0]):
+                        if dep[1] in ['compound']:
+                            if dep[0][0] in self.nl4dv_instance.vis_keyword_map and dep[2][0] in self.nl4dv_instance.special_keyword_map_for_followup:
+                                k1 = dep[0][0]
+                            if dep[2][0] in self.nl4dv_instance.vis_keyword_map and dep[0][0] in self.nl4dv_instance.special_keyword_map_for_followup:
+                                k1 = dep[2][0]
+                    for dep_index, dep in enumerate(dependencies[0]):
+                        if dep[1] in ['amod', 'acl', 'dobj']:
+                            if dep[0][0] in self.nl4dv_instance.vis_keyword_map:
+                                # operator_phrase = dep[2][0]
+                                k2 = dep[0][0]
+                            if dep[2][0] in self.nl4dv_instance.vis_keyword_map:
+                                # operator_phrase = dep[0][0]
+                                k2 = dep[2][0]
+                    for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
+                        if k2 in vis_keywords:
+                            final_vis_type = vis_type
+                            final_vis_token = query_ngrams[ngram]["lower"]
+                    return final_vis_type, final_vis_token
+                elif self.nl4dv_instance.implicit_followup_keyword_map[query_ngrams[ngram]["lower"]] == "remove":
+                    return None, None
+
             for vis_type, vis_keywords in self.nl4dv_instance.vis_keyword_map.items():
                 if query_ngrams[ngram]["lower"] in vis_keywords:
-                    return vis_type, query_ngrams[ngram]["lower"]
+                    final_vis_type = vis_type
+                    final_vis_token = query_ngrams[ngram]["lower"]
 
-        return None, None
+        return final_vis_type, final_vis_token
 
     def design_has_valid_task(self, designs):
         has_valid_task = False
@@ -29,13 +80,17 @@ class VisGenie:
 
     def get_vis_list(self, attribute_list):
         vis_objects = list()
+        if self.nl4dv_instance.dialog == True:
+            vis_iteration = len(attribute_list)
+        else:
+            vis_iteration = 1
 
         # Create combinations of all attributes. Ideally, taking ALL combinations should suffice BUT we also have AMBIGUOUS attributes.
         # Hence, we generate all combinations and then FILTER based on their ambiguity, etc.
-        for i in range(1, len(attribute_list) + 1):
+        for i in range(vis_iteration, len(attribute_list) + 1):
             combinations = itertools.combinations(attribute_list, i)
             for combo in combinations:
-                if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False):
+                if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False, dialog=self.nl4dv_instance.dialog):
                     continue
 
                 # Create a SORTED list of attributes and their datatypes to match the keys of the VisReco dictionary. e.g. `QQ`, `QNO`, ...
@@ -182,7 +237,7 @@ class VisGenie:
                         # Increment score by_task
                         vl_genie_instance.score_obj["by_task"] += task_instance["matchScore"]
 
-                    elif task == "find_extremum":
+                    elif task == "find_extremum" or task == "sort":
                         # If there is NO Datatype Ambiguity, then apply the Derived Value Task. Else let it be the way it is.
                         # Datatype ambiguity example: "SUM(Genre)" is NOT possible because Genre is a Nominal attribute.
                         if not (task_instance["isValueAmbiguous"] and task_instance["meta"]["value_ambiguity_type"] == "datatype"):

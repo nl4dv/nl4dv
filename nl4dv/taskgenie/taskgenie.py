@@ -8,12 +8,18 @@ class TaskGenie:
 
     # 1. returns a formatted version of the input query by removing white-spaces between keywords that led to attribute detection
     # 2. Creates a modified version of the self.keyword_attribute_map with the above keywords-sans-whitespace.
-    def prepare_query_for_task_inference(self, query):
+    def prepare_query_for_task_inference(self, query, dialog=False):
         self.nl4dv_instance.special_keyword_map_for_tasks = dict()
         for k,v in self.nl4dv_instance.keyword_attribute_mapping.items():
             k_replacement = k.replace(" ", "")
             query = query.replace(k, k_replacement)
             self.nl4dv_instance.special_keyword_map_for_tasks[k_replacement] = k
+        self.nl4dv_instance.special_keyword_map_for_followup = dict()
+        if dialog:
+            for k,v in self.nl4dv_instance.implicit_followup_keyword_map.items():
+                if k in query:
+                    query = query.replace(k, v[0][0])
+                    self.nl4dv_instance.special_keyword_map_for_followup[v[0][0]] = v[0][1]
         return query
 
     # Create  a Dependency Tree from the query
@@ -94,6 +100,7 @@ class TaskGenie:
                  values=None,
                  is_attr_ambiguous=False,
                  is_value_ambiguous=False,
+                 followup_type=None,
                  value_ambiguity_type=None):
 
         task = dict()
@@ -107,6 +114,7 @@ class TaskGenie:
         task['isAttrAmbiguous'] = is_attr_ambiguous
         task['isValueAmbiguous'] = is_value_ambiguous
         task['meta'] = dict()
+        task['followup_type'] = followup_type
         task['meta']['value_ambiguity_type'] = value_ambiguity_type
 
         return task
@@ -164,7 +172,7 @@ class TaskGenie:
                 if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
                     is_datatype_ambiguous = True
                     break
-        elif task in ["derived_value", "find_extremum"]:
+        elif task in ["derived_value", "find_extremum", "sort"]:
             for a in attributes:
                 if self.nl4dv_instance.data_genie_instance.data_attribute_map[a]["dataType"] != constants.attribute_types["QUANTITATIVE"]:
                     is_datatype_ambiguous = True
@@ -185,7 +193,9 @@ class TaskGenie:
                        operator,
                        values,
                        inference_type,
+                       followup_type,
                        allow_subset=False):
+        # print(followup_type)
 
         task_list = list()
         is_attribute_ambiguous = any(self.nl4dv_instance.extracted_attributes[k]["isAmbiguous"] for k in attributes)
@@ -215,6 +225,7 @@ class TaskGenie:
                                              operator=operator,
                                              is_attr_ambiguous=is_attribute_ambiguous,
                                              is_value_ambiguous=is_value_ambiguous,
+                                             followup_type=followup_type,
                                              value_ambiguity_type=value_ambiguity_type)
 
                     if task_obj not in task_list:
@@ -234,6 +245,7 @@ class TaskGenie:
                                      operator=operator,
                                      is_attr_ambiguous=is_attribute_ambiguous,
                                      is_value_ambiguous=is_value_ambiguous,
+                                     followup_type=followup_type,
                                      value_ambiguity_type=value_ambiguity_type)
 
             if task_obj not in task_list:
@@ -319,6 +331,7 @@ class TaskGenie:
                                                          operator=operator,
                                                          values=[],
                                                          inference_type='explicit',
+                                                         followup_type = 'nothing',
                                                          allow_subset=True)  # IMP, this will be true
 
                             for _task in _tasks:
@@ -326,6 +339,7 @@ class TaskGenie:
                                     task_map[task].append(_task)
 
                             k1, k2, operator_phrase = None, None, None
+
 
             # Case 1: DERIVED_VALUE, FIND_EXTREMUM and TREND.
             keyword, operator_phrase = None, None
@@ -358,6 +372,7 @@ class TaskGenie:
                                                      operator=operator,
                                                      values=[],
                                                      inference_type='explicit',
+                                                     followup_type='nothing',
                                                      allow_subset=False)
 
                         for _task in _tasks:
@@ -434,6 +449,7 @@ class TaskGenie:
                                                      operator=operator,
                                                      values=[_value],
                                                      inference_type='explicit',
+                                                     followup_type = 'nothing',
                                                      allow_subset=False)
 
                         for _task in _tasks:
@@ -494,6 +510,7 @@ class TaskGenie:
                                                      operator=operator,
                                                      values=[_from_value, _to_value],
                                                      inference_type='explicit',
+                                                     followup_type = 'nothing',
                                                      allow_subset=False)
 
                         for _task in _tasks:
@@ -533,6 +550,7 @@ class TaskGenie:
                                                      operator=operator,
                                                      values=[],
                                                      inference_type='explicit',
+                                                     followup_type='nothing',
                                                      allow_subset=False)
 
                         for _task in _tasks:
@@ -562,6 +580,12 @@ class TaskGenie:
                     if len(attr_obj["meta"]["ambiguity"][k]) > 1:
                         is_value_ambiguous = True
                         value_ambiguity_type = 'domain_value'
+                        if hasattr(self.nl4dv_instance, 'ambiguities'):
+                            keyword = k
+                            self.nl4dv_instance.ambiguities['value'][keyword] = dict()
+                            self.nl4dv_instance.ambiguities['value'][keyword]['options'] = attr_obj["meta"]["ambiguity"][k]
+                            self.nl4dv_instance.ambiguities['value'][keyword]['selected'] = None
+
 
                 task_obj = self.new_task(task_name=task,
                                          task_type='explicit',
@@ -571,6 +595,7 @@ class TaskGenie:
                                          operator="IN",
                                          is_attr_ambiguous=attr_obj["isAmbiguous"],
                                          is_value_ambiguous=is_value_ambiguous,
+                                         followup_type='nothing',
                                          value_ambiguity_type=value_ambiguity_type)
 
                 if task_obj not in task_map[task]:
@@ -578,26 +603,37 @@ class TaskGenie:
 
         return task_map
 
-    def extract_implicit_tasks_from_attributes(self, task_map, attribute_list):
+    def extract_implicit_tasks_from_attributes(self, task_map, attribute_list, dialog):
         # IMPLICITLY infer tasks based on Attributes (Counts and Datatypes)
         # IF UNABLE to detect from Visualizations and/or Explicit utterances in the query
         # E.g. trend (from temporal)
         # E.g. correlation (from two quantitative), distribution (from one quantitative, one nominal/ordinal)
-
         if not self.has_non_filter_explicit_task(task_map):
-            for i in range(1, len(attribute_list) + 1):
+
+            if dialog is False or dialog is None:
+                davo = 1
+            else:
+                davo = 0
+                for key in self.nl4dv_instance.extracted_attributes:
+                    if self.nl4dv_instance.extracted_attributes[key]['encode'] == True:
+                        davo += 1
+            for i in range(davo, len(attribute_list) + 1):
                 combinations = itertools.combinations(attribute_list, i)
+
                 for combination in combinations:
                     combo = list(combination)
 
+
                     # Ensure each attribute comes from a different keyword for the visualization AND all such attributes detected form the visualization.
-                    if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False):
-                        continue
+                    if dialog is False or dialog is None:
+                        if self.nl4dv_instance.attribute_genie_instance.validate_attr_combo(attr_combo=combo, query_phrase=[], allow_subset=False):
+                            continue
 
                     # Get attribute datatypes
                     sorted_attr_combo, sorted_attr_datatype_combo_str = self.nl4dv_instance.attribute_genie_instance.get_attr_datatype_shorthand(combo)
                     if self.has_non_filter_explicit_task_for_attr_list(task_map, sorted_attr_combo):
                         continue
+
 
                     # Keeping it outside of the if elif
                     if 'T' in sorted_attr_datatype_combo_str and not sorted_attr_datatype_combo_str in ["QQT"]:
