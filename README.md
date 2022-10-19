@@ -14,14 +14,6 @@ With this output, developers can
   - Create visualizations in Python using natural language, and/or
   - Add a natural language interface to their existing visualization systems.
 
-<p>
-    <b><u>IMPORTANT</u>:
-    A new release with Conversational Interaction capabilities is Coming Soon on <a href="https://pypi.org/project/nl4dv/" target="_blank">PyPi</a>. Stay tuned!</b>
-    <br/>
-    Until then, you can locally build and install the toolkit from the <b><a href="https://github.com/nl4dv/nl4dv/tree/ci_review" target="_blank">ci_review</a></b> branch.
-</p>
-
-
 ![NL4DV Overview](https://raw.githubusercontent.com/nl4dv/nl4dv/master/overview.gif)
 
 ### Setup Instructions, API Documentation, and Examples
@@ -29,12 +21,13 @@ These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4d
 
 ### Credits
 NL4DV was created by
-<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a>, and <a href="https://va.gatech.edu/endert/">Alex Endert</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
+<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
 
 We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
-##### Citation
+### Citations
 
+#### 2020 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)
 ```bibTeX
 @article{narechania2020nl4dv,
   title = {{NL4DV}: A {Toolkit} for Generating {Analytic Specifications} for {Data Visualization} from {Natural Language} Queries},
@@ -46,6 +39,8 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
   publisher = {IEEE}
 }
 ```
+
+#### 2022 IEEE VIS Conference Short Paper Track
 ```bibTeX
 @inproceedings{mitra2022conversationalinteraction,
   title = {{Facilitating Conversational Interaction in Natural Language Interfaces for Visualization}},
