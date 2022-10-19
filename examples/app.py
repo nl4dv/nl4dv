@@ -148,9 +148,8 @@ def analyze_query():
     query = request.form['query']
     # print(request.form['dialog'])
     dialog = True if 'dialog' in request.form and request.form['dialog'] == 'true' else False
-    if request.form['dialog'] == "auto":
+    if 'dialog' in request.form and request.form['dialog'] == "auto":
         dialog = "auto"
-
 
     if dialog is True:
         dialog_id = request.form['dialog_id']
