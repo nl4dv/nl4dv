@@ -2,6 +2,9 @@
 bkp.py
 nl4dv/playground.py
 dev.py
+sample.py
+sample-ci.py
+sample_batch.py
 
 # Ensure
 jars/
