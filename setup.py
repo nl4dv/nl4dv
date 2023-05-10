@@ -28,7 +28,7 @@ setup(
         "pytest-cov~=2.6.0",
         "python-Levenshtein~=0.12.0",
         "si-prefix~=1.2.2",
-        "spacy~=2.2",
+        "spacy~=3.0",
         "vega~=3.1",
         "inflect~=5.5.2"
     ]
