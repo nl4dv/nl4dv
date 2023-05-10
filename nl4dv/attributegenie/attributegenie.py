@@ -293,9 +293,10 @@ class AttributeGenie:
         for attr in data_attributes:
 
             # NL4DV does not look for domain value matches in the Label Attribute. Controversial, but that's how we've designed this.
-            # Update: Since the addition of two Checks below (similarity score and number_of_words matched) for a domain value match, this is NOT required.
-            # if attr == self.nl4dv_instance.label_attribute:
-            #     continue
+            # Update 1: Since the addition of two Checks below (similarity score and number_of_words matched) for a domain value match, this is NOT required.
+            # Update 2: Reverting the uncommented state of this conditional because it was breaking simple query like "What are the average budgets for action and adventure movies?"
+            if attr == self.nl4dv_instance.label_attribute:
+                continue
 
             # Look for domain value matches ONLY for ordinal and nominal variables.
             # For timeseries and quantitative  attribute types, it is difficult to map numbers to attributes AND this is computationally inefficient due to their domain size.
