@@ -2,7 +2,8 @@ import re
 from nltk.corpus import wordnet as wn
 from itertools import product
 import math
-from collections import Counter, MutableMapping
+from collections import Counter
+from collections.abc import MutableMapping
 from fuzzywuzzy import fuzz
 import Levenshtein
 from datetime import date, datetime
