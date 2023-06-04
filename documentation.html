@@ -192,6 +192,15 @@
                                                         <p>NL4DV installs Spacy by default but requires a model to be separately installed. Install the sample <b>English model</b> using:</p>
                                                         <p><code class="language-bash">python -m spacy download en_core_web_sm</code></p>
                                                     </li>
+						    <li>
+							    <p>If you face the <a href="https://github.com/urllib3/urllib3/issues/2168">urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3</a> error while installing spacy models, 
+							    as per <a href="https://stackoverflow.com/questions/76187256/importerror-urllib3-v2-0-only-supports-openssl-1-1-1-currently-the-ssl-modu">this stackoverflow post</a>, perform the following operations until there is a better fix:
+							    </p>
+							    <p><code class="language-bash">
+							    	pip uninstall urllib3
+								pip install 'urllib3<2.0'
+							   </code></p>
+						    </li>
                                                 </ul>
                                             </li>
                                         </ol>
