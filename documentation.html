@@ -624,7 +624,7 @@ print(output)</code></pre>
                                             </td>
                                             <td>
                                                 <p>Analyzes the input query.</p>
-                                                <span><b>Returns:</b> a JSON specification of attributes, tasks, and visualizations.</span>
+                                                <span><b>Returns:</b> a JSON specification of attributes, tasks, and visualizations.</span><br/>
 						<p><b style="color:red">Note:</b> If the dataset was input via the "data_value" parameter, to minimize the storage footprint of this output JSON, the Vega-Lite spec (vlSpec) does NOT include the dataset values (under the "data" > "value" property); the developer is expected to supply these to render the visualization. However, if the dataset was input via "data_url" parameter, the 'vlSpec' will have this data configuration by default (under the "data" > "url" property). </p>
                                             </td>
                                         </tr>
@@ -669,8 +669,8 @@ print(output)</code></pre>
                                             </td>
                                             <td>
                                                 <p>Processes the input query and returns a VegaLite() object of the best, most relevant visualization.</p>
-                                                <span><b>Returns:</b> VegaLite()</span>
-						<p><b style="color:red">Note:</b> If the dataset was input via the "data_value" parameter, to minimize the storage footprint of this output JSON, the Vega-Lite spec does NOT include the dataset values (under the "data" > "value" property); the developer is expected to supply these to render the visualization. However, if the dataset was input via "data_url" parameter, the 'vlSpec' will have this data configuration by default (under the "data" > "url" property). </p>
+                                                <span><b>Returns:</b> VegaLite()</span><br/>
+						<p><b style="color:red">Note:</b> If the dataset was input via the "data_value" parameter, to minimize the storage footprint of this output JSON, the Vega-Lite spec does NOT include the dataset values (under the "data" > "value" property); the developer is expected to supply these to render the visualization. However, if the dataset was input via "data_url" parameter, the 'vlSpec' will have this data configuration by default (under the "data" > "url" property). Because this API directly outputs a VegaLite() object, it might be hard to supply the data. Thus, please use analyze_query() instead.</p>
                                             </td>
                                         </tr>
                                         <tr>
