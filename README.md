@@ -28,15 +28,15 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
 
 ### Citations
 
-#### 2020 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)
+#### 2021 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)
 ```bibTeX
-@article{narechania2020nl4dv,
+@article{narechania2021nl4dv,
   title = {{NL4DV}: A {Toolkit} for Generating {Analytic Specifications} for {Data Visualization} from {Natural Language} Queries},
   shorttitle = {{NL4DV}},
   author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
   journal = {IEEE Transactions on Visualization and Computer Graphics (TVCG)},
   doi = {10.1109/TVCG.2020.3030378},
-  year = {2020},
+  year = {2021},
   publisher = {IEEE}
 }
 ```
