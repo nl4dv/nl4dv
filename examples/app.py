@@ -34,15 +34,15 @@ def init():
     dependency_parser = request.form['dependency_parser']
     if dependency_parser == "corenlp":
         dependency_parser_config = {'name': 'corenlp','model': os.path.join("assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("assets","jars","stanford-parser.jar")}
-        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True)
+        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
 
     elif dependency_parser == "spacy":
         dependency_parser_config = {'name': 'spacy','model': 'en_core_web_sm','parser': None}
-        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True)
+        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
 
     elif dependency_parser == "corenlp-server":
         dependency_parser_config = {'name': 'corenlp-server','url': 'http://localhost:9000'}
-        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True)
+        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
 
     else:
         raise ValueError('Error with Dependency Parser')
