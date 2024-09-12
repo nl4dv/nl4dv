@@ -22,21 +22,21 @@ These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4d
 
 ### Credits
 NL4DV was created by
-<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a>
+<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a> Along with <a target="_blank"  href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a>, and <a href="https://webpages.charlotte.edu/~wdou1/">Wenwen Dou</a> of the <a target="_blank" href="https://viscenter.charlotte.edu/">Ribarsky Center for Visual Analytics at UNC Charlotte.</a>
 
 We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
 ### Citations
 
-#### 2020 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)
+#### 2021 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)
 ```bibTeX
-@article{narechania2020nl4dv,
+@article{narechania2021nl4dv,
   title = {{NL4DV}: A {Toolkit} for Generating {Analytic Specifications} for {Data Visualization} from {Natural Language} Queries},
   shorttitle = {{NL4DV}},
   author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
   journal = {IEEE Transactions on Visualization and Computer Graphics (TVCG)},
   doi = {10.1109/TVCG.2020.3030378},
-  year = {2020},
+  year = {2021},
   publisher = {IEEE}
 }
 ```
@@ -52,6 +52,22 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
   year = {2022},
   publisher = {IEEE}
 }
+```
+
+#### 2024 IEEE VIS NLVIZ workshop Paper
+```bibTeX
+@misc{sah2024nl4dvllm,
+    title={Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models}, 
+    author={Subham Sah and Rishab Mitra and Arpit Narechania and Alex Endert and John Stasko and Wenwen Dou},
+    year={2024},
+    eprint={2408.13391},
+    archivePrefix={arXiv},
+    primaryClass={cs.HC},
+    url={https://arxiv.org/abs/2408.13391}, 
+    howpublished={Presented at the NLVIZ Workshop, IEEE VIS 2024}
+}
+
+
 ```
 
 ### License
