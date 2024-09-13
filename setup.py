@@ -10,7 +10,7 @@ setup(
     name='nl4dv',
     version='3.0.0',
     author='Arpit Narechania',
-    author_email='arpitnarechania@gatech.edu',
+    author_email='arpitnarechania@gmail.com',
     packages=find_packages(),
     include_package_data=True,
     setup_requires=['pytest-runner'],
