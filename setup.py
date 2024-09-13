@@ -30,6 +30,7 @@ setup(
         "si-prefix~=1.3.3",
         "spacy~=3.0",
         "vega~=3.1",
-        "inflect~=5.5.2"
+        "inflect~=5.5.2",
+        "openai~=0.28.1"
     ]
 )
