@@ -96,6 +96,7 @@
                                     <ol class="list">
                                         <li>
                                             <p><b>nl4dv</b> requires a <b><a href="https://www.python.org/doc/versions/" target="_blank">64-bit Python 3</a></b> environment. <b>Windows</b> users must ensure that <b><a href="https://visualstudio.microsoft.com/visual-cpp-build-tools">Microsoft C++ Build Tools</a></b> is installed. <b>Mac OS X</b> users must ensure that <b><a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a></b> is installed.</p>
+                                            <p class="text-danger"><b>Note:</b> &nbsp;NL4DV is only compatible with Python 3 versions 3.10 and lower.</p>
                                         </li>
                                         <li>
                                             <p>Install using <b><i>one</i></b> of the below methods:
@@ -198,7 +199,7 @@
                                                         <p><code class="language-bash">python -m spacy download en_core_web_sm</code></p>
                                                     </li>
 						    <li>
-							    <p>If you face the <a href="https://github.com/urllib3/urllib3/issues/2168">urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3</a> error while installing spacy models, 
+							    <p>If you face the <a href="https://github.com/urllib3/urllib3/issues/2168">urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3</a> error while installing spacy models,
 							    as per <a href="https://stackoverflow.com/questions/76187256/importerror-urllib3-v2-0-only-supports-openssl-1-1-1-currently-the-ssl-modu">this stackoverflow post</a>, perform the following operations until there is a better fix:
 							    </p>
 							    <p><code class="language-bash">
@@ -223,10 +224,10 @@
 data_url="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv" #paste your data URL
 
 # Choose your processing mode LLM or parsing. Choose "gpt" for the LLM-based mode or "semantic-parsing" for the rules-based mode.
-processing_mode="gpt" 
+processing_mode="gpt"
 
 #Enter your OpenAI key
-gpt_api_key="[OpenAI KEY HERE]" 
+gpt_api_key="[OpenAI KEY HERE]"
 
 # Initialize an instance of NL4DV
 nl4dv_instance = NL4DV(data_url=data_url, processing_mode=processing_mode, gpt_api_key=gpt_api_key)
@@ -911,7 +912,7 @@ output = nl4dv_instance.analyze_query(query)
                                     Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun
                                     Srinivasan</a>, <a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a target="_blank" href="https://va.gatech.edu/endert/">Alex Endert</a>, <a target="_blank" href="https://www.cc.gatech.edu/~john.stasko/">John
                                     Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech
-                                    Visualization Lab</a>, along with  <a target="_blank" href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a> and <a target="_blank" href="https://cci.charlotte.edu/directory/wenwen-dou/">Wenwen Dou</a> of the <a target="_blank" href="https://viscenter.charlotte.edu/">UNC Charlotte Visualization Center</a>. 
+                                    Visualization Lab</a>, along with  <a target="_blank" href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a> and <a target="_blank" href="https://cci.charlotte.edu/directory/wenwen-dou/">Wenwen Dou</a> of the <a target="_blank" href="https://viscenter.charlotte.edu/">UNC Charlotte Visualization Center</a>.
                                 </p>
                                 <p>We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia
                                         Tech Visualization Lab</a> for their support and constructive feedback.</p>
@@ -922,13 +923,13 @@ output = nl4dv_instance.analyze_query(query)
                             <div class="section-block">
                                 <h4>2024 IEEE VIS NLVIZ Workshop Track</h4>
                                 <pre><code class="language-bib">@misc{sah2024generatinganalyticspecificationsdata,
-    title={Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models}, 
+    title={Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models},
     author={{Sah}, Subham and {Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John and {Dou}, Wenwen},
     year={2024},
     eprint={2408.13391},
     archivePrefix={arXiv},
     primaryClass={cs.HC},
-    url={https://arxiv.org/abs/2408.13391}, 
+    url={https://arxiv.org/abs/2408.13391},
     howpublished = {Presented at NLVIZ Workshop, IEEE VIS 2024},
     }</code></pre>
                             </div>
@@ -937,7 +938,7 @@ output = nl4dv_instance.analyze_query(query)
                                 <pre><code class="language-bib">@inproceedings{mitra2022conversationalinteraction,
   title = {Facilitating Conversational Interaction in Natural Language Interfaces for Visualization},
   author = {{Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John},
-  booktitle={2022 IEEE Visualization Conference (VIS)}, 
+  booktitle={2022 IEEE Visualization Conference (VIS)},
   url = {https://doi.org/10.48550/arXiv.2207.00189},
   doi = {10.48550/arXiv.2207.00189},
   year = {2022},
