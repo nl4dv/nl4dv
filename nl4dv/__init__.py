@@ -3,7 +3,6 @@ import os
 import time
 from collections import OrderedDict
 import json
-import ssl
 
 # Third-Party Libraries
 import spacy
@@ -102,7 +101,6 @@ class NL4DV:
         # Others
         self.dialog = False
         openai.api_key = gpt_api_key
-        ssl._create_default_https_context = ssl._create_stdlib_context
 
         # initialize porter stemmer instance
         self.porter_stemmer_instance = PorterStemmer()
