@@ -11,6 +11,7 @@ class PromptGenie:
         "Description": "Given a set of data cases and two attributes, determine useful relationships between the values of those attributes.",
         "Pro Forma Abstract": "What is the correlation between attributes X and Y over a given set S of data cases?",
         "Examples": ["Is there a correlation between carbohydrates and fat?", "Do different genders have a preferred payment method?", "What is the relationship between budget and gross?"],
+        "taskMap Encoding": "correlation",
         "Attribute Data Types and Visual Encodings":
             [{
                 "X axis": "Quantitative",
@@ -27,6 +28,7 @@ class PromptGenie:
         "Description": "Given a set of data cases, compute an aggregate numeric representation of those data cases.",
         "Pro Forma Abstract": "What is the value of aggregation function F over a given set S of data cases?",
         "Examples": ["What is the average calorie content of Post cereals?", "What is the gross income of all stores combined?", "How many manufacturers of cars are there?"],
+        "taskMap Encoding": "derived_value",
         "Attribute Data Types and Visual Encodings":
             [{
                 "X axis": "Nominal" or "Ordinal",
@@ -43,6 +45,7 @@ class PromptGenie:
         "Description": "Given some concrete conditions on attribute values, find data cases satisfying those conditions.",
         "Pro Forma Abstract": "Which data cases satisfy conditions {A, B, C, ...}?",
         "Examples": ["What Kellogg's cereals have high fiber?", "What comedies have won awards?", "Which funds underperformed the SP-500?",  "Show the visualization only for films that have grossed more than 100 million dollars"],
+        "taskMap Encoding": "filter",
         "Attribute Data Types and Visual Encodings":
             [{
                 "X axis": null
@@ -59,6 +62,7 @@ class PromptGenie:
         "Description": "Trend is the direction of the data over time, which may be increasing, decreasing, or flat",
         "Pro Forma Abstract": "What is the direction of values for attribute(a) in the span of Time(t)?",
         "Examples": ["Is there a trend of increasing film length over the years?", "How have production budgets changed over the years?"],
+        "taskMap Encoding": "trend",
         "Attribute Data Types and Visual Encodings":
             [{
                 "X axis": "Temporal",
@@ -75,6 +79,7 @@ class PromptGenie:
         "Description": "Given a set of data cases and a quantitative attribute of interest, characterize the distribution of that attribute’s values over the set",
         "Pro Forma Abstract": "What is the distribution of values of attribute A in a set S of data cases?",
         "Examples": ["What is the age distribution of shoppers?", "What is the distribution of carbohydrates in cereals?", "What is the count of movies for each genre?"],
+        "taskMap Encoding": "distribution",
         "Attribute Data Types and Visual Encodings":
             [{
                 "X axis": "Quantitative" or "Nominal" or "Ordinal",
@@ -91,6 +96,7 @@ class PromptGenie:
         "Description": "Given a set of data cases, rank them according to some ordinal metric.",
         "Pro Forma Abstract": "What is the sorted order of a set S of data cases according to their value of attribute A?",
         "Examples": ["Order the cars by weight", "Rank the cereals by calories."],
+        "taskMap Encoding": "sort",
         "Attribute Data Types and Visual Encodings": 
             [{
                 "X axis": null
@@ -107,6 +113,7 @@ class PromptGenie:
         "Description": "Find data cases possessing an extreme value of an attribute over its range within the data set.",
         "Pro Forma Abstract": "What are the top/bottom N data cases with respect to attribute A?",
         "Examples": ["What is the car with the highest MPG?", "What director/film has won the most awards?","What Robin Williams film has the most recent release date?"],
+        "taskMap Encoding": "find_extremum",
         "Attribute Data Types and Visual Encodings":
             [{
                 "X axis": null
@@ -179,8 +186,8 @@ class PromptGenie:
         "attributes": [List of dataset attributes detected],
         "queryPhrase": [<Keywords found in query that were used to detect the taskMap and the recommended visualization>],
         "visType": "None",
-        "tasks": [Add the list of tasks detected here. For example, list "Correlation","Derived Value","Filter","Distribution" etc. ],
-        "inferenceType": <Can be one of two values: "Explicit" or "Implicit". Set the value to "Explicit" if the visualization's "queryPhrase" explicitly references a visualization type. Otherwise set the value to "Implicit".>
+        "tasks": [Add the list of tasks detected here. Utilize the value from the "taskMap Encoding" key in the analytic task JSON array to populate this list],
+        "inferenceType": <Can be one of two values: "explicit" or "implicit". Set the value to "explicit" if the visualization's "queryPhrase" explicitly references a visualization type. Otherwise set the value to "implicit".>
         "vlSpec": <Add the Vega-Lite specification of the visualization recommended here.>
         }
         ],
@@ -191,19 +198,19 @@ class PromptGenie:
         "encode": <Boolean value depending on if the attribute appears on either of the axes or color in the Vega-Lite specification. The boolean value should be output as true or false in all lowercase letters.>
         },
         "metric": <[Can be one of two values: "attribute_exact_match" or "attribute_similarity_match".  Set the value to "attribute_exact_match" if the attribute was found directly in the query. Set the value to "attribute_similarity_match" if the query uses a synonym for the attribute.]>,
-        "inferenceType": <Can be one of two values: "Explicit" or "Implicit". Set the value to "Explicit" if the attribute’s "queryPhrase" references an attribute name. Set the value to "Implicit" if the queryPhrase directly references values found in the attribute’s values.>
+        "inferenceType": <Can be one of two values: "explicit" or "implicit". Set the value to "explicit" if the attribute’s "queryPhrase" references an attribute name. Set the value to "implicit" if the queryPhrase directly references values found in the attribute’s values.>
         "isAmbiguous": <Can be either True or False. Set the field to True if the queryPhrase could refer other attributes in the dataset. Otherwise set the field to False.>
         "ambiguity": [<Populate this list with all the different attributes in the dataset that the queryPhrase can refer to  if isAmbiguous is set to True. Otherwise keep this list empty.]
         },
         "taskMap": {
-        <Task that was detected>: [
+        <Task that was detected. Utilize the value from the "taskMap Encoding" key in the analytic task JSON array to populate this key>: [
         {
-        "task": <Task that was detected>,
+        "task": <Task that was detected. You must utilize the value from the "taskMap Encoding" key in the analytic task JSON array to populate this key>,
         "queryPhrase": [<Keywords found in query that were used to detect the task>],
         "values": [<If the "Filter" task was detected, put the filter value in here>],
         "attributes": [<Populate with the attributes that the task is mapped to]>],
         "operator": "<Can be one of "IN", "GT", "EQ", "AVG", "SUM", "MAX", or "MIN". "GT" is greater than. "EQ" is equals. "GT" and "EQ" are used for quantitative filters. "IN" is used for nominal filters. "AVG" and "SUM" are used for derived value tasks. "SUM" is for summation and "AVG" is for average. "MAX" and "MIN" are to be used for the sort and find extremum tasks. "MAX" indicates that the highest value must be displayed first. "MIN" indicates that the lowest value must be displayed first. Keep the string empty otherwise.>"
-        "inferenceType": <Can be one of two values: "Explicit" or "Implicit". Set the value to "Explicit" if the "queryPhrase" directly requests for a task to be applied. Set the value to "Implicit" if the task is derived implicitly from the "queryPhrase".>
+        "inferenceType": <Can be one of two values: "explicit" or "implicit". Set the value to "explicit" if the "queryPhrase" directly requests for a task to be applied. Set the value to "implicit" if the task is derived implicitly from the "queryPhrase".>
         }
         ]
         }
