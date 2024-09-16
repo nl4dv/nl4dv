@@ -6,6 +6,9 @@ import json
 
 # Third-Party Libraries
 import spacy
+import openai
+import pandas as pd
+import re
 from nltk.stem.porter import PorterStemmer
 from nltk.parse.stanford import StanfordDependencyParser
 from nltk.parse.corenlp import CoreNLPDependencyParser
@@ -23,6 +26,7 @@ from nl4dv.utils import helpers, constants, error_codes
 from nl4dv.conversationgenie import ConversationGenie
 from nl4dv.autogenie import AutoGenie
 from nl4dv.updategenie import UpdateGenie
+from nl4dv.promptgenie import PromptGenie
 
 class NL4DV:
     """
@@ -45,7 +49,9 @@ class NL4DV:
                  importance_scores=None,
                  attribute_datatype=None,
                  verbose=False,
-                 debug=False):
+                 debug=False,
+                 processing_mode = 'semantic-parsing',
+                 gpt_api_key = ''):
 
         # inputs
         self.data_url = data_url
@@ -58,6 +64,7 @@ class NL4DV:
         self.dependency_parser_config = dependency_parser_config
         self.verbose = verbose
         self.debug = debug
+        self.processing_mode = processing_mode
 
         # Load constants: thresholds, mappings, scores
         self.vis_keyword_map = constants.vis_keyword_map
@@ -93,6 +100,7 @@ class NL4DV:
 
         # Others
         self.dialog = False
+        openai.api_key = gpt_api_key
 
         # initialize porter stemmer instance
         self.porter_stemmer_instance = PorterStemmer()
@@ -106,6 +114,8 @@ class NL4DV:
         self.conversation_genie_instance = ConversationGenie(self)
         self.autogenie_instance = AutoGenie(self)
         self.updategenie_instance = UpdateGenie(self) #initalize a FollowUpGenie instance
+        self.promptgenie_instance = PromptGenie(self)
+
 
 
         # Set the dependency parser if config is not None
@@ -138,25 +148,45 @@ class NL4DV:
     # ToDo:- Utilities to perform unit conversion (eg. seconds > minutes). Problem: Tedious to infer base unit from data. - LATER
     def analyze_query(self, query=None, dialog=None, debug=None, verbose=None, dialog_id = None, query_id = None):
         # type: (str, bool, bool, bool, str, str) -> dict
-
-        if not bool(self.conversation_genie_instance.all_dialogs):
-            return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
-        if dialog == True:
-            if query_id is not None:
-                query_id = str(query_id)
-            return self.analyze_query_attribute(query, dialog, debug, verbose, dialog_id, query_id)
-        elif dialog == False or dialog is None:
-            return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
-        elif dialog == 'auto':
-            inferred_dialog, confidence_level = self.autogenie_instance.analyze_followup_status(query, self.reserve_words, self.ignore_words)
-            if inferred_dialog is True:
+        if self.processing_mode == 'semantic-parsing':
+            if not bool(self.conversation_genie_instance.all_dialogs):
+                return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
+            if dialog == True:
                 if query_id is not None:
                     query_id = str(query_id)
-                return self.analyze_query_attribute(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
+                return self.analyze_query_attribute(query, dialog, debug, verbose, dialog_id, query_id)
+            elif dialog == False or dialog is None:
+                return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
+            elif dialog == 'auto':
+                inferred_dialog, confidence_level = self.autogenie_instance.analyze_followup_status(query, self.reserve_words, self.ignore_words)
+                if inferred_dialog is True:
+                    if query_id is not None:
+                        query_id = str(query_id)
+                    return self.analyze_query_attribute(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
+                else:
+                    return self.analyze_query_no_dialog(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
             else:
-                return self.analyze_query_no_dialog(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
-        else:
-            raise RuntimeError("Expected values for \'dialog\' are True, False, or \"auto\"")
+                raise RuntimeError("Expected values for \'dialog\' are True, False, or \"auto\"")
+        elif self.processing_mode == 'gpt':
+            if not bool(self.conversation_genie_instance.all_dialogs):
+                return self.analyze_query_llm(query, dialog, dialog_id, query_id)
+            if dialog == True:
+                if query_id is not None:
+                    query_id = str(query_id)
+                return self.analyze_query_llm(query, dialog, dialog_id, query_id)
+            elif dialog == False or dialog is None:
+                return self.analyze_query_llm(query, dialog, dialog_id, query_id)
+            elif dialog == 'auto':
+                inferred_dialog, confidence_level = self.autogenie_instance.analyze_followup_status(query, self.reserve_words, self.ignore_words)
+                if inferred_dialog is True:
+                    if query_id is not None:
+                        query_id = str(query_id)
+                    return self.analyze_query_llm(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
+                else:
+                    return self.analyze_query_llm(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
+            else:
+                raise RuntimeError("Expected values for \'dialog\' are True, False, or \"auto\"")
+
 
 
     def analyze_query_no_dialog(self, query=None, dialog=None, debug=None, verbose=None, dialog_id=None, query_id=None, confidence_level = None):
@@ -283,6 +313,82 @@ class NL4DV:
 
         return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
+    def analyze_query_llm(self, query=None, dialog=None, dialog_id=None, query_id=None):
+        if dialog is None:
+            query_prompt = self.promptgenie_instance.prompt
+            query_prompt = re.sub(r"https://raw\.githubusercontent\.com\S*", self.data_url, query_prompt)
+            dataset_sample = pd.read_csv(self.data_url, index_col = False)
+            dataset_sample = dataset_sample.head(10).to_string(index=False)
+            query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
+            query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
+            message = self.chat_with_chatgpt(query_prompt)
+            if query_id is not None:
+                query_id = str(query_id)
+            if dialog_id is not None:
+                dialog_id = str(dialog_id)
+            return_convo, return_context = self.conversation_genie_instance.add_dialog(message, dialog_id, query_id)
+            message['dialogId'] = str(return_convo)
+            message['queryId'] = str(return_context)
+            return message
+        elif dialog is True:
+            context_obj = None
+            if dialog_id == None and query_id == None:
+                key_num = self.conversation_genie_instance.key_num - 1
+                key_num = str(key_num)
+                context_obj = self.conversation_genie_instance.all_dialogs[key_num][-1]
+            elif dialog_id != None and query_id == None:
+                dialog_id = str(dialog_id)
+                context_obj = self.conversation_genie_instance.all_dialogs[dialog_id][-1]
+            elif dialog_id == None and query_id != None:
+                return None
+            else:
+                dialog_id = str(dialog_id)
+                if not isinstance(query_id, str):
+                    raise RuntimeError("Context id must be of type string")
+                query_id = int(query_id)
+                context_obj = self.conversation_genie_instance.all_dialogs[dialog_id][query_id]
+            query_prompt = self.promptgenie_instance.prompt
+            query_prompt = re.sub(r"https://raw\.githubusercontent\.com\S*", self.data_url, query_prompt)
+            dataset_sample = pd.read_csv(self.data_url, index_col = False)
+            dataset_sample = dataset_sample.head(10).to_string(index=False)
+            query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
+            query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
+            query_prompt = query_prompt + "\n" + "PREVIOUS ANALYTIC SPECIFICATION" + str(context_obj)
+            message = self.chat_with_chatgpt(query_prompt)
+            if query_id is not None:
+                query_id = str(query_id)
+            if dialog_id is not None:
+                dialog_id = str(dialog_id)
+            return_convo, return_context = self.conversation_genie_instance.add_dialog(message, dialog, dialog_id, query_id)
+            message['dialogId'] = str(return_convo)
+            message['queryId'] = str(return_context)
+            return message
+
+    def chat_with_chatgpt(self, new_prompt, model="gpt-4o-mini"):
+        response = openai.ChatCompletion.create(
+            model=model,
+            messages=[{"role": "user",
+               "content": new_prompt}],
+            temperature=0
+        )
+        message = response.choices[0].message.content
+        message = message.replace("\n", "")
+        message = re.sub(r' +', ' ', message)
+        # message = message.replace("json", "")
+        message = message.replace("None", "\"None\"")
+        message = message.replace("\"\"None\"\"", "\"None\"")
+        message = message.replace("True", "true")
+        message = message.replace("False", "false")
+        if "json" == message[3:7]:
+            message = message.replace("json", "", 1)
+            message = message[3:]
+            message = message[:-3]
+        try:
+            vlSpec = json.loads(message)
+        except ValueError as e:
+            return 'Invalid JSON'
+
+        return vlSpec
 
 
     #put operation in meta
