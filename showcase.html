@@ -167,8 +167,298 @@
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
 
-                            <section id="sample-queries" class="doc-section">
-                                <h2 class="section-title">Sample Queries</h2>
+                            <section id="sample-queries-llm-outputs" class="doc-section">
+                                <h2 class="section-title">(v3) Sample Queries by Large Language Models (LLMs) </h2>
+                                <div id="fs-queries-llm-outputs" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Fully Specified</h3>
+                                            <p class="intro">
+                                                The sample queries below illustrate examples of fully-specified queries (i.e., queries containing explicit references to attributes, tasks, and visualizations).
+                                            </p>
+                                            <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Movies</a></p>
+                                            <p>
+                                                <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                            </p>
+                                            <div id="queryContainer-fs-llm-outputs" class="queryContainer">
+
+                                            </div>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="us-queries-llm-outputs" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Under Specified</h3>
+                                            <p class="intro">
+                                                The sample queries below illustrate examples of underspecified queries.
+                                            </p>
+                                            <nav>
+                                                <div class="nav nav-tabs" role="tablist">
+                                                    <a class="nav-item nav-link active usTab" id="tab-us-attributes-llm-outputs" data-toggle="tab" href="#nav-tab-us-attributes-llm-outputs" role="tab" aria-controls="nav-tab-us-attributes-llm-outputs" aria-selected="true"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes-only</a>
+                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-tasks-llm-outputs" data-toggle="tab" href="#nav-tab-us-attributes-tasks-llm-outputs" role="tab" aria-controls="nav-tab-us-attributes-tasks-llm-outputs" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Tasks</a>
+                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-vis-llm-outputs" data-toggle="tab" href="#nav-tab-us-attributes-vis-llm-outputs" role="tab" aria-controls="nav-tab-us-attributes-vis-llm-outputs" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Visualizations</a>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content" >
+                                                <br/>
+                                                <div class="tab-pane fade show active" id="nav-tab-us-attributes-llm-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-llm-outputs">
+                                                    <p class="introText">
+                                                        These queries only contain explicit references to data attributes.
+                                                    </p>
+                                                    <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Cars</a></p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-us-attributes-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-us-attributes-tasks-llm-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-tasks-llm-outputs">
+                                                    <p class="introText">
+                                                        These queries do not specify a visualization type but contain explicit references to both attributes and tasks.
+                                                    </p>
+                                                    <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;European Soccer Players</a></p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-us-attributes-tasks-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-us-attributes-vis-llm-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-vis-llm-outputs">
+                                                    <p class="introText">
+                                                        These queries contain explicit references to attributes and visualizations, but not tasks.
+                                                    </p>
+                                                    <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Cars</a></p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-us-attributes-vis-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="more-queries-llm-outputs" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">More Queries</h3>
+                                            <p class="intro">
+                                                Below we provide some additional queries to illustrate NL4DV's interpretation capabilities.
+                                                <br/><b>NOTE: these queries are not split by the level of detail they provide and contain a mix of underspecified and fully-specified queries.</b>
+                                            </p>
+                                            <nav>
+                                                <div class="nav nav-tabs" role="tablist">
+                                                    <a class="nav-item nav-link active otrTab" id="tab-otr-cars-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-otr-cars-w-year-llm-outputs" role="tab" aria-controls="nav-tab-otr-cars-w-year-llm-outputs" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
+                                                    <a class="nav-item nav-link otrTab" id="tab-otr-movies-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-otr-movies-w-year-llm-outputs" role="tab" aria-controls="nav-tab-otr-movies-w-year-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
+                                                    <a class="nav-item nav-link otrTab" id="tab-otr-superstore-llm-outputs" data-toggle="tab" href="#nav-tab-otr-superstore-llm-outputs" role="tab" aria-controls="nav-tab-otr-superstore-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content">
+                                                <br/>
+                                                <div class="tab-pane fade show active" id="nav-tab-otr-cars-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-otr-cars-w-year-llm-outputs">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-otr-cars-w-year-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-otr-movies-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-otr-movies-w-year-llm-outputs">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-otr-movies-w-year-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-otr-superstore-llm-outputs" role="tabpanel" aria-labelledby="tab-otr-superstore-llm-outputs">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/superstore.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Superstore</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-otr-superstore-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="ci-queries-llm-outputs" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Multi-Turn Conversational Interaction Queries</h3>
+                                            <p class="intro">
+                                                Below we provide queries to illustrate NL4DV's conversational interaction capabilities utilizing semantic parsing.
+                                            </p>
+                                            <nav>
+                                                <div class="nav nav-tabs" role="tablist">
+                                                    <a class="nav-item nav-link active ciTab" id="tab-ci-cars-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-ci-cars-w-year-llm-outputs" role="tab" aria-controls="nav-tab-ci-cars-w-year-llm-outputs" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-movies-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-ci-movies-w-year-llm-outputs" role="tab" aria-controls="nav-tab-ci-movies-w-year-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-euro-llm-outputs" data-toggle="tab" href="#nav-tab-ci-euro-llm-outputs" role="tab" aria-controls="nav-tab-ci-euro-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Euro</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-superstore-llm-outputs" data-toggle="tab" href="#nav-tab-ci-superstore-llm-outputs" role="tab" aria-controls="nav-tab-ci-superstore-llm-outptus" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content">
+                                                <br/>
+                                                <div class="tab-pane fade show active" id="nav-tab-ci-cars-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-cars-w-year-llm-outputs">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-cars-w-year-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-movies-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-movies-w-year-llm-outputs">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-movies-w-year-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-euro-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-euro-llm-outputs">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Euro Soccer Players</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-euro-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-superstore-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-superstore-llm-outputs">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/superstore.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Superstore</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-superstore-llm-outputs" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="ci-queries" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="section-title">(v2) Multi-Turn Conversational Interaction Queries</h2>
+                                            <p class="intro">
+                                                Below we provide queries to illustrate NL4DV's conversational interaction capabilities utilizing semantic parsing.
+                                            </p>
+                                            <nav>
+                                                <div class="nav nav-tabs" role="tablist">
+                                                    <a class="nav-item nav-link active ciTab" id="tab-ci-cars-w-year" data-toggle="tab" href="#nav-tab-ci-cars-w-year" role="tab" aria-controls="nav-tab-ci-cars-w-year" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-movies-w-year" data-toggle="tab" href="#nav-tab-ci-movies-w-year" role="tab" aria-controls="nav-tab-ci-movies-w-year" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-euro" data-toggle="tab" href="#nav-tab-ci-euro" role="tab" aria-controls="nav-tab-ci-euro" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Euro</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-superstore" data-toggle="tab" href="#nav-tab-ci-superstore" role="tab" aria-controls="nav-tab-ci-superstore" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content">
+                                                <br/>
+                                                <div class="tab-pane fade show active" id="nav-tab-ci-cars-w-year" role="tabpanel" aria-labelledby="tab-ci-cars-w-year">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-cars-w-year" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-movies-w-year" role="tabpanel" aria-labelledby="tab-ci-movies-w-year">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-movies-w-year" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-euro" role="tabpanel" aria-labelledby="tab-ci-euro">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Euro Soccer Players</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-euro" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-tab-ci-superstore" role="tabpanel" aria-labelledby="tab-ci-superstore">
+                                                    <p class="introText">
+                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/superstore.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Superstore</a> dataset.
+                                                    </p>
+                                                    <p>
+                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
+                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
+                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
+                                                    </p>
+                                                    <div id="queryContainer-ci-superstore" class="queryContainer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="sample-queries" class="section-block">
+                                <h2 class="section-title">(v1) Sample Queries with Semantic Parsing</h2>
                                 <div id="fs-queries" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -311,80 +601,8 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
+                                </div>
 
-                                <div id="ci-queries" class="section-block">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h3 class="block-title">Multi-Turn Conversational Interaction Queries</h3>
-                                            <p class="intro">
-                                                Below we provide queries to illustrate NL4DV's conversational interaction capabilities.
-                                            </p>
-                                            <nav>
-                                                <div class="nav nav-tabs" role="tablist">
-                                                    <a class="nav-item nav-link active ciTab" id="tab-ci-cars-w-year" data-toggle="tab" href="#nav-tab-ci-cars-w-year" role="tab" aria-controls="nav-tab-ci-cars-w-year" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
-                                                    <a class="nav-item nav-link ciTab" id="tab-ci-movies-w-year" data-toggle="tab" href="#nav-tab-ci-movies-w-year" role="tab" aria-controls="nav-tab-ci-movies-w-year" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
-                                                    <a class="nav-item nav-link ciTab" id="tab-ci-euro" data-toggle="tab" href="#nav-tab-ci-euro" role="tab" aria-controls="nav-tab-ci-euro" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Euro</a>
-                                                    <a class="nav-item nav-link ciTab" id="tab-ci-superstore" data-toggle="tab" href="#nav-tab-ci-superstore" role="tab" aria-controls="nav-tab-ci-superstore" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
-                                                </div>
-                                            </nav>
-                                            <div class="tab-content">
-                                                <br/>
-                                                <div class="tab-pane fade show active" id="nav-tab-ci-cars-w-year" role="tabpanel" aria-labelledby="tab-ci-cars-w-year">
-                                                    <p class="introText">
-                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
-                                                    </p>
-                                                    <p>
-                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
-                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
-                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
-                                                    </p>
-                                                    <div id="queryContainer-ci-cars-w-year" class="queryContainer">
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="nav-tab-ci-movies-w-year" role="tabpanel" aria-labelledby="tab-ci-movies-w-year">
-                                                    <p class="introText">
-                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
-                                                    </p>
-                                                    <p>
-                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
-                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
-                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
-                                                    </p>
-                                                    <div id="queryContainer-ci-movies-w-year" class="queryContainer">
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="nav-tab-ci-euro" role="tabpanel" aria-labelledby="tab-ci-euro">
-                                                    <p class="introText">
-                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Euro Soccer Players</a> dataset.
-                                                    </p>
-                                                    <p>
-                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
-                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
-                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
-                                                    </p>
-                                                    <div id="queryContainer-ci-euro" class="queryContainer">
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="nav-tab-ci-superstore" role="tabpanel" aria-labelledby="tab-ci-superstore">
-                                                    <p class="introText">
-                                                        Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/superstore.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Superstore</a> dataset.
-                                                    </p>
-                                                    <p>
-                                                        <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
-                                                        or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
-                                                        or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
-                                                    </p>
-                                                    <div id="queryContainer-ci-superstore" class="queryContainer">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!--//row-->
-                                </div><!--//section-block-->
                             </section><!--//doc-section-->
 
                         </div><!--//content-inner-->
@@ -402,13 +620,21 @@
                                     <a class="nav-link scrollto" href="#mmplot">MMPlot</a>
                                     <a class="nav-link scrollto" href="#mindmap">Mind Map</a>
                                 </nav><!--//doc-menu-->
-                                <a class="nav-link scrollto" href="#sample-queries">Sample Queries</a>
+                                <a class="nav-link scrollto" href="#sample-queries-llm-outputs">(v3) Queries by LLMs</a> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#fs-queries-llm-outputs">Fully Specified</a>
+                                    <a class="nav-link scrollto" href="#us-queries-llm-outputs">Underspecified</a>
+                                    <a class="nav-link scrollto" href="#more-queries-llm-outputs">More Queries</a>
+                                    <a class="nav-link scrollto" href="#ci-queries-llm-outputs">Conversational Interaction</a>
+                                </nav><!--//doc-menu--> 
+                                <a class="nav-link scrollto" href="#ci-queries">(v2) Conversational Interaction Queries</a>
+                                <a class="nav-link scrollto" href="#sample-queries">(v1) Queries by Semantic Parsing</a>
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#fs-queries">Fully Specified</a>
                                     <a class="nav-link scrollto" href="#us-queries">Underspecified</a>
                                     <a class="nav-link scrollto" href="#more-queries">More Queries</a>
-                                    <a class="nav-link scrollto" href="#ci-queries">Conversational Interaction</a>
-                                </nav><!--//doc-menu-->
+                                </nav><!--//doc-menu-->    
+                                   
                             </nav><!--//nav-->
                         </div>
                     </div><!--//doc-sidebar-->
@@ -417,17 +643,18 @@
         </div><!--//doc-wrapper-->
     </div><!--//page-wrapper-->
     
-    <footer id="footer" class="footer text-center">
+    <footer class="footer text-center">
         <div class="container">
             <p>
-                NL4DV: Natural Language toolkit for Data Visualization.<br/>
-                <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2022</small>
+                NL4DV: The Natural Language Toolkit for Data Visualization<br />
+                <small>Georgia Institute of Technology and UNC Charlotte&nbsp;&copy;&nbsp;2024</small>
             </p>
             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
-            
-        </div><!--//container-->
-    </footer><!--//footer-->
+            <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a
+                    href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
+        </div>
+        <!--//container-->
+    </footer>
 
     <script type="text/javascript" src="./assets/plugins/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>

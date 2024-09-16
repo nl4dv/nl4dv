@@ -104,20 +104,20 @@
                                                     <p><b><a href="https://pypi.org/project/nl4dv/" target="_blank">PyPi</a></b>.</p>
                                                     <!--<p><code class="language-bash">pip install &#45;&#45;extra-index-url https://test.pypi.org/simple/ nl4dv==0.0.2</code></p>-->
                                                     <p>To download, run</p>
-                                                    <p><code class="language-bash">pip install nl4dv==2.1.0</code></p>
+                                                    <p><code class="language-bash">pip install nl4dv==3.0.0</code></p>
                                                 </li>
                                                 <li>
                                                     <p>A local distributable. Download </p>
                                                     <p style="font-size:1.1rem;">
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/2.1.0.tar.gz"
-                                                        target="_blank">nl4dv-2.1.0.tar.gz</a></b>
+                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/3.0.0.tar.gz"
+                                                        target="_blank">nl4dv-3.0.0.tar.gz</a></b>
                                                         &nbsp;&nbsp;<i>or</i>&nbsp;&nbsp;
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/2.1.0.zip"
-                                                        target="_blank">nl4dv-2.1.0.zip</a></b>
+                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/3.0.0.zip"
+                                                        target="_blank">nl4dv-3.0.0.zip</a></b>
                                                     </p>
-                                                    <p>Accordingly, run <code class="language-bash">pip install nl4dv-2.1.0.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-2.1.0.zip</code>.</p>
+                                                    <p>Accordingly, run <code class="language-bash">pip install nl4dv-3.0.0.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-3.0.0.zip</code>.</p>
                                                 </li>
                                             </ol>
 
@@ -131,9 +131,14 @@
                             <div id="post-installation" class="section-block">
                                 <h3 class="block-title">Post Installation</h3>
                                 <br/>
+                                <h4 class="block-title">Instructions for LLM-based Mode (v3)</h4>
+                                NL4DV requires an OpenAI API key for its LLM-based Mode. Please refer to the following <a href="https://platform.openai.com/docs/quickstart">guide</a> to generate an OpenAI Key.
+                                <br/>
+                                <br/>
+                                <h4 class="block-title">Instructions for Semantic Parsing Mode (v1 + v2)</h3>
                                 <ol class="list">
                                     <li>
-                                        <p>NL4DV installs <a href="https://www.nltk.org" target="_blank">nltk</a> by default but requires a few datasets/models/corpora to be separately installed. Please download the <b>popular</b>
+                                        <p>NL4DV installs <a href="https://www.nltk.org" target ="_blank">nltk</a> by default but requires a few datasets/models/corpora to be separately installed. Please download the <b>popular</b>
                                             nltk artifacts using:
                                             <br/>
                                             <br/>
@@ -193,7 +198,7 @@
                                                         <p><code class="language-bash">python -m spacy download en_core_web_sm</code></p>
                                                     </li>
 						    <li>
-							    <p>If you face the <a href="https://github.com/urllib3/urllib3/issues/2168">urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3</a> error while installing spacy models, 
+							    <p>If you face the <a href="https://github.com/urllib3/urllib3/issues/2168">urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3</a> error while installing spacy models,
 							    as per <a href="https://stackoverflow.com/questions/76187256/importerror-urllib3-v2-0-only-supports-openssl-1-1-1-currently-the-ssl-modu">this stackoverflow post</a>, perform the following operations until there is a better fix:
 							    </p>
 							    <p><code class="language-bash">
@@ -206,34 +211,25 @@
                                     </li>
                                 </ol>
                             </div><!--//section-block-->
-                            <div id="sample-code" class="section-block">
-                                <h3 class="block-title">Sample Code (Single Turn Conversational Interaction)</h3>
+                            <div id="sample-code-llm" class="section-block">
+                                <h3 class="block-title">Sample Code for LLM-based Mode</h3>
                                 <div class="row">
                                     <div class="col-md-12 col-12">
                                         <p>If everything went well in the Installation and Post Installation steps above, you are all set.
                                             <br/>Use the below <b>Sample Code</b> to get started. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/master/sample.py" target="_blank">here</a>.</p>
                                         <div class="code-block">
                                                 <pre><code class="language-python">from nl4dv import NL4DV
-import os
+#Your dataset must be hosted on Github for the LLM-based mode to function.
+data_url="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv" #paste your data URL
+
+# Choose your processing mode LLM or parsing. Choose "gpt" for the LLM-based mode or "semantic-parsing" for the rules-based mode.
+processing_mode="gpt"
+
+#Enter your OpenAI key
+gpt_api_key="[OpenAI KEY HERE]"
 
 # Initialize an instance of NL4DV
-# ToDo: verify the path to the source data file. modify accordingly.
-nl4dv_instance = NL4DV(data_url = os.path.join(".", "examples", "assets", "data", "movies-w-year.csv"))
-
-# using Stanford Core NLP
-# ToDo: verify the paths to the jars. modify accordingly.
-dependency_parser_config = {"name": "corenlp", "model": os.path.join(".", "examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),"parser": os.path.join(".", "examples","assets","jars","stanford-parser.jar")}
-
-# using Stanford CoreNLPServer
-# ToDo: verify the URL to the CoreNLPServer. modify accordingly.
-# dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"}
-
-# using Spacy
-# ToDo: ensure that the below spacy model is installed. if using another model, modify accordingly.
-# dependency_parser_config = {"name": "spacy", "model": "en_core_web_sm", "parser": None}
-
-# Set the Dependency Parser
-nl4dv_instance.set_dependency_parser(config=dependency_parser_config)
+nl4dv_instance = NL4DV(data_url=data_url, processing_mode=processing_mode, gpt_api_key=gpt_api_key)
 
 # Define a query
 query = "create a barchart showing average gross across genres"
@@ -253,7 +249,7 @@ print(output)</code></pre>
                                     <div class="code-block">
                                             <pre><code class="language-json">{
   "query": "create a barchart showing average gross across genres",
-  "dataset": "data/movies-w-year.csv",
+  "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
   "attributeMap": {"..."},
   "taskMap": {"..."},
   "visList": ["..."],
@@ -351,7 +347,7 @@ print(output)</code></pre>
             },
             "transform": [],
             "data": {
-                "url": "./examples/assets/data/movies-w-year.csv",
+                "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv",
                 "format": {
                     "type": "csv"
                 }
@@ -372,6 +368,44 @@ print(output)</code></pre>
                                 </div>
                             </div><!--//section-block-->
 
+                            <div id="sample-code" class="section-block">
+                                <h3 class="block-title">Sample Code for Semantic Parsing Mode (Single Turn Conversational Interaction)</h3>
+                                <div class="row">
+                                    <div class="col-md-12 col-12">
+                                        <p>If everything went well in the Installation and Post Installation steps above, you are all set.
+                                            <br/>Use the below <b>Sample Code</b> to get started. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/master/sample.py" target="_blank">here</a>.</p>
+                                        <div class="code-block">
+                                                <pre><code class="language-python">from nl4dv import NL4DV
+import os
+
+# Initialize an instance of NL4DV
+# ToDo: verify the path to the source data file. modify accordingly.
+nl4dv_instance = NL4DV(data_url = os.path.join(".", "examples", "assets", "data", "movies-w-year.csv"))
+
+# using Stanford Core NLP
+# ToDo: verify the paths to the jars. modify accordingly.
+dependency_parser_config = {"name": "corenlp", "model": os.path.join(".", "examples","assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),"parser": os.path.join(".", "examples","assets","jars","stanford-parser.jar")}
+
+# using Stanford CoreNLPServer
+# ToDo: verify the URL to the CoreNLPServer. modify accordingly.
+# dependency_parser_config = {"name": "corenlp-server", "url": "http://localhost:9000"}
+
+# using Spacy
+# ToDo: ensure that the below spacy model is installed. if using another model, modify accordingly.
+# dependency_parser_config = {"name": "spacy", "model": "en_core_web_sm", "parser": None}
+
+# Set the Dependency Parser
+nl4dv_instance.set_dependency_parser(config=dependency_parser_config)
+
+# Define a query
+query = "create a barchart showing average gross across genres"
+
+# Execute the query
+output = nl4dv_instance.analyze_query(query)
+</code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//row-->
                             <div id="sample-code-ci" class="section-block">
                                 <h3 class="block-title">Sample Code (Multi Turn Conversational Interaction)</h3>
                                 <div class="row">
@@ -606,6 +640,9 @@ print(output)</code></pre>
                                                 <p><code class="language-python">debug</code> (bool)</p>
                                                 <p><code class="language-python">explicit_followup_keywords</code> (dict)</p>
                                                 <p><code class="language-python">implicit_followup_keywords</code> (dict)</p>
+                                                <p><code class="language-python">processing_mode</code> (str='gpt' or str='semantic-parsing', optional)</p>
+                                                <p><code class="language-python">gpt_api_key</code> (str, optional)</p>
+
                                             </td>
                                             <td>
                                                 <p>NL4DV constructor that accepts these parameters. These parameters can be set using separate function calls as well; check below.</p>
@@ -808,15 +845,6 @@ print(output)</code></pre>
                                 </table>
                             </div>
                         </section>
-                        <section id="test" class="doc-section">
-                            <h2 class="section-title">Test</h2>
-                            <div class="section-block">
-                                <p><i>Coming soon.</i></p>
-                                <!--<div class="code-block">-->
-                                    <!--<pre><code class="language-bash">pytest &#45;&#45;cov=nl4dv nl4dv/tests</code></pre>-->
-                                <!--</div>&lt;!&ndash;//code-block&ndash;&gt;-->
-                            </div>
-                        </section>
                         <section id="contribute" class="doc-section">
                             <h2 class="section-title">Build</h2>
                             <div class="section-block">
@@ -881,9 +909,9 @@ print(output)</code></pre>
                                     NL4DV was created by <a target="_blank"
                                                             href="http://arpit.narechania.com">Arpit
                                     Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun
-                                    Srinivasan</a>, <a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a target="_blank" href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a target="_blank" href="https://www.cc.gatech.edu/~john.stasko/">John
+                                    Srinivasan</a>, <a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a target="_blank" href="https://va.gatech.edu/endert/">Alex Endert</a>, <a target="_blank" href="https://www.cc.gatech.edu/~john.stasko/">John
                                     Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech
-                                    Visualization Lab</a>.
+                                    Visualization Lab</a>, along with  <a target="_blank" href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a> and <a target="_blank" href="https://cci.charlotte.edu/directory/wenwen-dou/">Wenwen Dou</a> of the <a target="_blank" href="https://viscenter.charlotte.edu/">UNC Charlotte Visualization Center</a>.
                                 </p>
                                 <p>We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia
                                         Tech Visualization Lab</a> for their support and constructive feedback.</p>
@@ -892,11 +920,24 @@ print(output)</code></pre>
                         <section id="citation" class="doc-section">
                             <h2 class="section-title">Citations</h2>
                             <div class="section-block">
+                                <h4>2024 IEEE VIS NLVIZ Workshop Track</h4>
+                                <pre><code class="language-bib">@misc{sah2024generatinganalyticspecificationsdata,
+    title={Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models},
+    author={{Sah}, Subham and {Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John and {Dou}, Wenwen},
+    year={2024},
+    eprint={2408.13391},
+    archivePrefix={arXiv},
+    primaryClass={cs.HC},
+    url={https://arxiv.org/abs/2408.13391},
+    howpublished = {Presented at NLVIZ Workshop, IEEE VIS 2024},
+    }</code></pre>
+                            </div>
+                            <div class="section-block">
                                 <h4>2022 IEEE VIS Conference Short Paper Track</h4>
                                 <pre><code class="language-bib">@inproceedings{mitra2022conversationalinteraction,
   title = {Facilitating Conversational Interaction in Natural Language Interfaces for Visualization},
   author = {{Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John},
-  booktitle={2022 IEEE Visualization Conference (VIS)}, 
+  booktitle={2022 IEEE Visualization Conference (VIS)},
   url = {https://doi.org/10.48550/arXiv.2207.00189},
   doi = {10.48550/arXiv.2207.00189},
   year = {2022},
@@ -904,14 +945,15 @@ print(output)</code></pre>
 }</code></pre>
                             </div>
                             <div class="section-block">
-                                <h4>2020 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)</h4>
-                                <pre><code class="language-bib">@article{narechania2020nl4dv,
-  title = {NL4DV: A Toolkit for Generating Analytic Specifications for Data Visualization from Natural Language Queries},
-  author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
-  journal = {IEEE Transactions on Visualization and Computer Graphics (TVCG)},
-  doi = {10.1109/TVCG.2020.3030378},
-  year = {2020},
-  publisher = {IEEE}
+                                <h4>2021 IEEE TVCG Journal Full Paper (Proceedings of the 2020 IEEE VIS Conference)</h4>
+                                <pre><code class="language-bib">@article{narechania2021nl4dv,
+title = {{NL4DV}: A {Toolkit} for Generating {Analytic Specifications} for {Data Visualization} from {Natural Language} Queries},
+shorttitle = {{NL4DV}},
+author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
+journal = {IEEE Transactions on Visualization and Computer Graphics (TVCG)},
+doi = {10.1109/TVCG.2020.3030378},
+year = {2021},
+publisher = {IEEE}
 }</code></pre>
                             </div>
                         </section>
@@ -943,6 +985,7 @@ print(output)</code></pre>
                             <nav class="doc-sub-menu nav flex-column">
                                 <a class="nav-link scrollto" href="#install">Installation</a>
                                 <a class="nav-link scrollto" href="#post-installation">Post Installation</a>
+                                <a class="nav-link scrollto" href="#sample-code-llm">Sample Code for LLM-based Mode</a>
                                 <a class="nav-link scrollto" href="#sample-code">Sample Code (Single Turn)</a>
                                 <a class="nav-link scrollto" href="#sample-code-ci">Sample Code (Multi Turn)</a>
                                 <a class="nav-link scrollto" href="#docker">Docker</a>
@@ -950,7 +993,6 @@ print(output)</code></pre>
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
                             </nav><!--//nav-->
                             <a class="nav-link scrollto" href="#api-reference">API Reference</a>
-                            <a class="nav-link scrollto" href="#test">Test</a>
                             <a class="nav-link scrollto" href="#contribute">Build</a>
                             <a class="nav-link scrollto" href="#credits">Credits</a>
                             <a class="nav-link scrollto" href="#citation">Citations</a>
@@ -966,19 +1008,18 @@ print(output)</code></pre>
 
 </div><!--//page-wrapper-->
 
-<footer id="footer" class="footer text-center">
+<footer class="footer text-center">
     <div class="container">
         <p>
-            NL4DV: Natural Language toolkit for Data Visualization.<br/>
-            <small>Georgia Institute of Technology&nbsp;&copy;&nbsp;2022</small>
+            NL4DV: The Natural Language Toolkit for Data Visualization<br />
+            <small>Georgia Institute of Technology and UNC Charlotte&nbsp;&copy;&nbsp;2024</small>
         </p>
         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
         <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a
-                href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers
-        </small>
-
-    </div><!--//container-->
-</footer><!--//footer-->
+                href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
+    </div>
+    <!--//container-->
+</footer>
 
 
 <!-- Main Javascript -->

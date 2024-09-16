@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     queryOutputMap = {};
     for(let key in queryMap){
-        if(key==="other-examples" || key==="conversational-examples"){
+        if(key==="other-examples" || key==="conversational-examples" || key==="conversational-examples-llm-outputs" || key==="other-examples-llm-outputs"){
             for(let dataset in queryMap[key]){
                 for(let queryObj of queryMap[key][dataset]){
                     queryOutputMap["queryId-"+queryObj.queryId] = queryObj.output;
@@ -40,12 +40,25 @@ $(document).ready(function(){
 
     $(".otrTab").click(function (evt) {
         let tabId =  $(this).attr('id'), dataset = tabId.split('tab-otr-')[1];
-        populateQueryContainer(queryMap['other-examples'][dataset],"queryContainer-otr-"+dataset);
+        //console.log(tabId);
+        if (!tabId.includes("llm-outputs")) {
+            populateQueryContainer(queryMap['other-examples'][dataset],"queryContainer-otr-"+dataset);
+        } else {
+            dataset = dataset.split("-llm-outputs")[0];
+            populateQueryContainer(queryMap['other-examples-llm-outputs'][dataset],"queryContainer-otr-"+dataset+"-llm-outputs");
+        }
+        
     });
 
     $(".ciTab").click(function (evt) {
         let tabId =  $(this).attr('id'), dataset = tabId.split('tab-ci-')[1];
-        populateQueryContainer(queryMap['conversational-examples'][dataset],"queryContainer-ci-"+dataset);
+        if (!tabId.includes("llm-outputs")) {
+            populateQueryContainer(queryMap['conversational-examples'][dataset],"queryContainer-ci-"+dataset);
+        } else {
+            dataset = dataset.split("-llm-outputs")[0];
+            console.log(dataset);
+            populateQueryContainer(queryMap['conversational-examples-llm-outputs'][dataset],"queryContainer-ci-"+dataset+"-llm-outputs");
+        }
     });
 
     function populateQueryContainer(queryObjs, queryContainerId) {
@@ -55,6 +68,7 @@ $(document).ready(function(){
             .enter()
             .append("div")
             .attr("id",function(d){
+                console.log(d.queryId);
                 return "queryId-"+d.queryId;
             });
 
@@ -80,6 +94,7 @@ $(document).ready(function(){
                 let panel = this.nextElementSibling;
                 if (panel.style.maxHeight){
                     let queryId = $(this).parent().attr("id");
+                    console.log(queryId);
                     d3.select("#" + queryId).select(".queryPanel").html("");
                     panel.style.border = "none";
                     panel.style.maxHeight = null;
@@ -130,4 +145,9 @@ $(document).ready(function(){
     populateQueryContainer(queryMap['underspecified-attributes'], "queryContainer-us-attributes");
     populateQueryContainer(queryMap['other-examples']['cars-w-year'], "queryContainer-otr-cars-w-year");
     populateQueryContainer(queryMap['conversational-examples']['cars-w-year'], "queryContainer-ci-cars-w-year");
+    populateQueryContainer(queryMap['underspecified-attributes-llm-outputs'], "queryContainer-us-attributes-llm-outputs")
+    populateQueryContainer(queryMap['fullyspecified-attributes-tasks-vis-llm-outputs'], "queryContainer-fs-llm-outputs")
+    populateQueryContainer(queryMap['other-examples-llm-outputs']['cars-w-year'], "queryContainer-otr-cars-w-year-llm-outputs");
+    populateQueryContainer(queryMap['conversational-examples-llm-outputs']['cars-w-year'], "queryContainer-ci-cars-w-year-llm-outputs");
+
 });
