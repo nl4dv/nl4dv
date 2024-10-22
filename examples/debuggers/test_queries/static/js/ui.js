@@ -186,5 +186,5 @@ function configureDatabase(dataset) {
 }
 
 $(document).ready(function () {
-    initNL4DV("corenlp");
+    initNL4DV("spacy");
 });

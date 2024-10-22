@@ -66,8 +66,6 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
     url={https://arxiv.org/abs/2408.13391}, 
     howpublished={Presented at the NLVIZ Workshop, IEEE VIS 2024}
 }
-
-
 ```
 
 ### License
@@ -75,3 +73,16 @@ The software is available under the [MIT License](https://github.com/nl4dv/nl4dv
 
 ### Contact
 If you have any questions, feel free to [open an issue](https://github.com/nl4dv/nl4dv/issues/new/choose) or contact [Arpit Narechania](http://narechania.com).
+
+<hr>
+
+## Deploy on Heroku
+- Verify `Procfile` inside the `examples` folder.
+- `heroku login`
+- If not added, add git remote: `git remote add heroku https://git.heroku.com/nl4dv.git`
+- Set buildpack for this project: `heroku buildpacks:set heroku/python` (it might err that the buildpack is already set on your app. Good, nothing to worry then.)
+- Add, commit code via git.
+- Push only the `examples` folder as a subtree (run it from the toplevel of the working tree): `git subtree push --prefix examples heroku main`
+- Hope!
+- Check logs via `heroku logs --tail`
+- Restart via `heroku restart --app nl4dv`

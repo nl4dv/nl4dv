@@ -255,5 +255,5 @@ function configureDatabase(dataset) {
 
 //When page is loaded NL4DV is initialized with corenlp dependency parser.
 $(document).ready(function () {
-    initNL4DV("corenlp");
+    initNL4DV("spacy");
 });

@@ -28,7 +28,7 @@
 
     // Dataset is optional here
     main.initializeNL4DV= function(dataset){
-        $.post("/init", {"dependency_parser": "corenlp"})
+        $.post("/init", {"dependency_parser": "spacy"})
             .done(function (response) {
                 main.configureDatabase(dataset);
             });
