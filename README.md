@@ -84,5 +84,6 @@ If you have any questions, feel free to [open an issue](https://github.com/nl4dv
 - Add, commit code via git.
 - Push only the `examples` folder as a subtree (run it from the toplevel of the working tree): `git subtree push --prefix examples heroku main`
 - Hope!
+- Try `https://nl4dv-14924aab225c.herokuapp.com/` in browser.
 - Check logs via `heroku logs --tail`
 - Restart via `heroku restart --app nl4dv`
