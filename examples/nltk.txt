@@ -17,6 +17,6 @@ wordnet31
 wordnet_ic
 words
 maxent_ne_chunker
-punkt
+punkt_tab
 snowball_data
 averaged_perceptron_tagger
