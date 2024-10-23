@@ -1,1 +1,1 @@
-web: python -m nltk.downloader popular && python -m spacy download en_core_web_sm && python app.py
+web: pip install --upgrade numpy && python -m nltk.downloader popular && python -m spacy download en_core_web_sm && python app.py
