@@ -232,4 +232,5 @@ if __name__ == "__main__":
     app.register_blueprint(vis_matrix_routes.vis_matrix_bp, url_prefix='/vis_matrix')
     app.register_blueprint(test_queries_routes.test_queries_bp, url_prefix='/test_queries')
 
-    app.run(host='0.0.0.0', debug=True, threaded=True, port=7001)
+    port = int(os.environ.get("PORT", 7001))
+    app.run(host='0.0.0.0', debug=True, threaded=True, port=port)
