@@ -1,1 +1,1 @@
-web: pip install --upgrade pandas && pip install --upgrade numpy && python -m nltk.downloader popular && python -m spacy download en_core_web_sm && pip uninstall urllib3 && pip install 'urllib3<2.0' && python app.py
+web: pip install --upgrade pandas && pip install --upgrade numpy && python -m nltk.downloader popular && python -m spacy download en_core_web_sm && pip uninstall urllib3 && pip install -y 'urllib3<2.0' && pip install Werkzeug==2.2.2 && python app.py
