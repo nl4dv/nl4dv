@@ -12,6 +12,7 @@ from applications.vllearner import vllearner_routes
 from applications.mmplot import mmplot_routes
 from applications.mindmap import mindmap_routes
 from applications.chatbot import chatbot_routes
+from applications.nl4dv_llm import nl4dv_llm_routes
 
 # Import our Debugging Applications
 from debuggers.debugger_single import debugger_single_routes
@@ -28,24 +29,33 @@ nl4dv_instance = None
 @app.route('/init', methods=['POST'])
 def init():
     global nl4dv_instance
-    if nl4dv_instance is not None:
-        return jsonify({"message":"NL4DV already initialized"})
 
-    dependency_parser = request.form['dependency_parser']
-    if dependency_parser == "corenlp":
-        dependency_parser_config = {'name': 'corenlp','model': os.path.join("assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("assets","jars","stanford-parser.jar")}
-        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
+    if 'processing_mode' not in request.form:
+        request.form['processing_mode'] = 'semantic-parsing'
 
-    elif dependency_parser == "spacy":
-        dependency_parser_config = {'name': 'spacy','model': 'en_core_web_sm','parser': None}
-        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
+    processing_mode = request.form['processing_mode']
+    if processing_mode == "gpt":
+            openai_key = request.form['openAIKey']
+            nl4dv_instance = NL4DV(processing_mode="gpt", gpt_api_key=openai_key, verbose=True)
 
-    elif dependency_parser == "corenlp-server":
-        dependency_parser_config = {'name': 'corenlp-server','url': 'http://localhost:9000'}
-        nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
+    elif processing_mode == "semantic-parsing":
+        dependency_parser = request.form['dependency_parser']
+        if dependency_parser == "corenlp":
+            dependency_parser_config = {'name': 'corenlp','model': os.path.join("assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("assets","jars","stanford-parser.jar")}
+            nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
 
+        elif dependency_parser == "spacy":
+            dependency_parser_config = {'name': 'spacy','model': 'en_core_web_sm','parser': None}
+            nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
+
+        elif dependency_parser == "corenlp-server":
+            dependency_parser_config = {'name': 'corenlp-server','url': 'http://localhost:9000'}
+            nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
+
+        else:
+            raise ValueError('Error with Dependency Parser')
     else:
-        raise ValueError('Error with Dependency Parser')
+        raise ValueError('Error with Processing Mode')
 
     return jsonify({"message":"NL4DV Initialized"})
 
@@ -226,6 +236,7 @@ if __name__ == "__main__":
     app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
     app.register_blueprint(mindmap_routes.mindmap_bp, url_prefix='/mindmap')
     app.register_blueprint(chatbot_routes.chatbot_bp, url_prefix='/chatbot')
+    app.register_blueprint(nl4dv_llm_routes.nl4dv_llm_bp, url_prefix='/nl4dv_llm')
 
     app.register_blueprint(debugger_single_routes.debugger_single_bp, url_prefix='/debugger_single')
     app.register_blueprint(debugger_batch_routes.debugger_batch_bp, url_prefix='/debugger_batch')

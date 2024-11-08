@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NL4DV | The Natural Language Toolkit for Data Visualization</title>
+
+    <!--Favicon-->
+    <link rel='shortcut icon' type='image/x-icon'
+        href="{{ url_for('nl4dv_llm.static', filename='img/favicon.ico') }}" />
+
+    <!--Vendor CSS files-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap-theme.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.css" />
+
+    <!--Custom CSS files-->
+    <link href="{{ url_for('nl4dv_llm.static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand text-bold">NL4DV</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <span class="navbar-text">
+                        &copy;&nbsp;Georgia Institute of Technology, UNC Charlotte [Arpit Narechania, Arjun Srinivasan, Rishab Mitra, Subham Sah, Wenwen Dou, Alex Endert, John Stasko]
+                    </span>    
+                </li>
+            </ul>
+            <a type="button" class="btn btn-sm btn-light my-2 my-sm-0" href="https://github.com/nl4dv/nl4dv"
+                target="_blank"><i class="fa fa-github"></i>&nbsp;&nbsp;Github</a>
+            &nbsp;&nbsp;
+            <a type="button" class="btn btn-sm btn-light my-2 my-sm-0" href="https://nl4dv.github.io"
+                target="_blank"><i class="fa fa-globe"></i>&nbsp;&nbsp;Homepage</a>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 16px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Input</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-3 mb-0">
+                                <label for="openAIKeyInput"><span class="step">1</span> Set <a href="https://openai.com/index/openai-api/" target="_blank">Open AI Key</a></label>
+                                <div class="input-group">
+                                    <input id="openAIKeyInput" class="form-control" style="border-radius: 0;" type="password"
+                                        placeholder="Enter Open AI Key here..." value="">
+                                    <div class="input-group-append">
+                                        <button onclick="initializeNL4DV()" class="btn btn-dark btn-sm"><i class="fa fa-save"></i>&nbsp;&nbsp;Set</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3 mb-0" style="position:relative;">
+                                <label for="datasetSelect"><span class="step">2</span> Set/Review Dataset</label>
+                                <div class="input-group">
+                                    <select disabled="true" class="form-control" style="border-radius: 0;"
+                                        id="datasetSelect">
+                                        <option value="movies-w-year.csv" selected="selected">Movies</option>
+                                        <option value="olympic_medals.csv">Olympic Medals</option>
+                                        <option value="cars-w-year.csv">Cars</option>
+                                        <option value="colleges.csv">Colleges</option>
+                                        <option value="euro.csv">Euro</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button disabled="true" id="reviewDatasetBtn" class="btn btn-dark btn-sm"
+                                            style="border-radius: 0;" type="button" data-toggle="collapse"
+                                            href="#dataDomainCollapse">
+                                            <i class="fa fa-database"></i>&nbsp;&nbsp;Summary
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                <label for="inputQuery"><span class="step">3</span> Enter Input Query</label>
+                                <div class="input-group">
+                                    <input disabled="true" style="border-radius: 0" type="search" class="form-control" id="queryInput"
+                                        placeholder="Enter Input Query here...">
+                                    <span class="input-group-append">
+                                        <button disabled="true" style="border-radius: 0" class="btn btn-primary btn-sm" type="button"
+                                            id="queryBtn">
+                                            <i class="fa fa-rocket"></i>&nbsp;&nbsp;Execute
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapse w-100" id="dataDomainCollapse">
+                                <br/>
+                                <div class="p-md" style="border: 1px solid lightgray;">
+                                    <div class="m-b-sm">
+                                        <span class="text-muted">
+                                            <span class="text-muted">Dataset:</span>&nbsp;&nbsp;<strong
+                                                id="datasetUrl"></strong>&nbsp;&nbsp;|
+                                            <span class="text-muted"># Rows:</span>&nbsp;<strong
+                                                id="rowCount"></strong>&nbsp;&nbsp;|
+                                            <span class="text-muted"># Columns:</span>&nbsp;<strong
+                                                id="columnCount"></strong>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive" id="metaDataTableContainer">
+                                        <table class="table table-hover table-sm text-left">
+                                            <thead>
+                                                <tr class="text-muted">
+                                                    <th class="text-no-wrap">Attribute</th>
+                                                    <th class="text-no-wrap">Type</th>
+                                                    <th class="text-no-wrap">Unique&nbsp;#</th>
+                                                    <th class="text-no-wrap">Summary</th>
+                                                    <th class="text-no-wrap">Unique&nbsp;Items</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 16px;">
+            <div class="col-md-6">
+                <div class="card w-100">
+                    <div class="card-header">
+                        <span class="card-title">Output: Analytic Specification JSON</span>
+                    </div>
+                    <div class="card-body w-100" style="height: calc(100vh - 320px); overflow: auto;">
+                        <div class="h-100 w-100" id="inputContainer"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card w-100">
+                    <div class="card-header">
+                        <span class="card-title">Output: Visualization</span>
+                    </div>
+                    <div class="card-body w-100" style="height: calc(100vh - 320px); overflow: auto;">
+                        <div class="h-100 w-100" id="outputVisContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loadingModal"></div>
+</body>
+
+<!--JS files-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/json-tree-viewer@0.0.1/libs/jsonTree/jsonTree.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.js"></script>
+<script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script src="{{ url_for('nl4dv_llm.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('nl4dv_llm.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('nl4dv_llm.static', filename='js/ui.js') }}" z></script>
+<script src="{{ url_for('nl4dv_llm.static', filename='js/main.js') }}"></script>
+
+
+</html>
