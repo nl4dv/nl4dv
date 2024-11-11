@@ -230,18 +230,18 @@ def get_dataset_meta():
     return jsonify(output)
 
 if __name__ == "__main__":
-    app.register_blueprint(datatone_routes.datatone_bp, url_prefix='/datatone')
-    app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
-    app.register_blueprint(vllearner_routes.vllearner_bp, url_prefix='/vllearner')
-    app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
-    app.register_blueprint(mindmap_routes.mindmap_bp, url_prefix='/mindmap')
-    app.register_blueprint(chatbot_routes.chatbot_bp, url_prefix='/chatbot')
+    # app.register_blueprint(datatone_routes.datatone_bp, url_prefix='/datatone')
+    # app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
+    # app.register_blueprint(vllearner_routes.vllearner_bp, url_prefix='/vllearner')
+    # app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
+    # app.register_blueprint(mindmap_routes.mindmap_bp, url_prefix='/mindmap')
+    # app.register_blueprint(chatbot_routes.chatbot_bp, url_prefix='/chatbot')
     app.register_blueprint(nl4dv_llm_routes.nl4dv_llm_bp, url_prefix='/nl4dv_llm')
 
-    app.register_blueprint(debugger_single_routes.debugger_single_bp, url_prefix='/debugger_single')
-    app.register_blueprint(debugger_batch_routes.debugger_batch_bp, url_prefix='/debugger_batch')
-    app.register_blueprint(vis_matrix_routes.vis_matrix_bp, url_prefix='/vis_matrix')
-    app.register_blueprint(test_queries_routes.test_queries_bp, url_prefix='/test_queries')
+    # app.register_blueprint(debugger_single_routes.debugger_single_bp, url_prefix='/debugger_single')
+    # app.register_blueprint(debugger_batch_routes.debugger_batch_bp, url_prefix='/debugger_batch')
+    # app.register_blueprint(vis_matrix_routes.vis_matrix_bp, url_prefix='/vis_matrix')
+    # app.register_blueprint(test_queries_routes.test_queries_bp, url_prefix='/test_queries')
 
     port = int(os.environ.get("PORT", 7001))
     app.run(host='0.0.0.0', debug=True, threaded=True, port=port)
