@@ -58,7 +58,7 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
 ```bibTeX
 @misc{sah2024nl4dvllm,
     title={Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models}, 
-    author={Subham Sah and Rishab Mitra and Arpit Narechania and Alex Endert and John Stasko and Wenwen Dou},
+    author={{Sah}, Subham and {Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John and {Dou}, Wenwen},
     year={2024},
     eprint={2408.13391},
     archivePrefix={arXiv},
