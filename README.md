@@ -72,4 +72,4 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
 The software is available under the [MIT License](https://github.com/nl4dv/nl4dv/blob/master/LICENSE).
 
 ### Contact
-If you have any questions, feel free to [open an issue](https://github.com/nl4dv/nl4dv/issues/new/choose) or contact [Arpit Narechania](http://narechania.com).
+If you have any questions, feel free to [open an issue](https://github.com/nl4dv/nl4dv/issues/new/choose) or contact [Arpit Narechania](https://narechania.com).
