@@ -31,6 +31,7 @@ setup(
         "spacy~=3.0",
         "vega~=3.1",
         "inflect~=5.5.2",
-        "openai~=0.28.1"
+        "openai~=0.28.1",
+        "numpy==1.26.4"
     ]
 )
