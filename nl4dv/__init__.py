@@ -316,7 +316,8 @@ class NL4DV:
     def analyze_query_llm(self, query=None, dialog=None, dialog_id=None, query_id=None):
         if dialog is None:
             query_prompt = self.promptgenie_instance.prompt
-            query_prompt = re.sub(r"https://raw\.githubusercontent\.com\S*", self.data_url, query_prompt)
+            query_prompt = query_prompt.replace(self.data_url,"https://raw.githubusercontent.com/" + self.data_url)
+            # query_prompt = re.sub(r"https://raw\.githubusercontent\.com\S*", self.data_url, query_prompt)
             dataset_sample = pd.read_csv(self.data_url, index_col = False)
             dataset_sample = dataset_sample.head(10).to_string(index=False)
             query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
