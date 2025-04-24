@@ -6,7 +6,7 @@ import json
 
 # Third-Party Libraries
 import spacy
-import openai
+import litellm
 import pandas as pd
 import re
 from nltk.stem.porter import PorterStemmer
@@ -51,7 +51,9 @@ class NL4DV:
                  verbose=False,
                  debug=False,
                  processing_mode = 'semantic-parsing',
-                 gpt_api_key = ''):
+                 api_key = '',
+                 api_base = '',
+                 model = "gpt-4o-mini"):
 
         # inputs
         self.data_url = data_url
@@ -65,6 +67,7 @@ class NL4DV:
         self.verbose = verbose
         self.debug = debug
         self.processing_mode = processing_mode
+        self.model = model
 
         # Load constants: thresholds, mappings, scores
         self.vis_keyword_map = constants.vis_keyword_map
@@ -98,9 +101,11 @@ class NL4DV:
         self.dependency_parser = None
         self.dependency_parser_instance = None
 
+        # Configure LiteLLM
+        self._configure_litellm(api_key, api_base)
+        
         # Others
         self.dialog = False
-        openai.api_key = gpt_api_key
 
         # initialize porter stemmer instance
         self.porter_stemmer_instance = PorterStemmer()
@@ -133,6 +138,21 @@ class NL4DV:
         # Override the attribute datatypes
         if attribute_datatype is not None:
             self.set_attribute_datatype(attr_type_obj=attribute_datatype)
+
+    def _configure_litellm(self, api_key, api_base):
+        """
+        Configure LiteLLM with API credentials and options.
+        
+        Args:
+            api_key: API key for the service
+            api_base: Base URL for the API
+        """
+        # Set API credentials if provided
+        if api_key:
+            litellm.api_key = api_key
+        
+        if api_base:
+            litellm.api_base = api_base
 
     # returns a VegaLite object of the best (1st) visualization after analyzing the query.
     def render_vis(self, query, dialog=None, dialog_id = None, query_id = None):
@@ -167,7 +187,7 @@ class NL4DV:
                     return self.analyze_query_no_dialog(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
             else:
                 raise RuntimeError("Expected values for \'dialog\' are True, False, or \"auto\"")
-        elif self.processing_mode == 'gpt':
+        elif self.processing_mode == 'llm':
             if not bool(self.conversation_genie_instance.all_dialogs):
                 return self.analyze_query_llm(query, dialog, dialog_id, query_id)
             if dialog == True:
@@ -322,7 +342,7 @@ class NL4DV:
             dataset_sample = dataset_sample.head(10).to_string(index=False)
             query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
             query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
-            message = self.chat_with_chatgpt(query_prompt)
+            message = self.llm_completion(query_prompt)
             if query_id is not None:
                 query_id = str(query_id)
             if dialog_id is not None:
@@ -355,7 +375,7 @@ class NL4DV:
             query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
             query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
             query_prompt = query_prompt + "\n" + "PREVIOUS ANALYTIC SPECIFICATION" + str(context_obj)
-            message = self.chat_with_chatgpt(query_prompt)
+            message = self.llm_completion(query_prompt)
             if query_id is not None:
                 query_id = str(query_id)
             if dialog_id is not None:
@@ -365,31 +385,81 @@ class NL4DV:
             message['queryId'] = str(return_context)
             return message
 
-    def chat_with_chatgpt(self, new_prompt, model="gpt-4o-mini"):
-        response = openai.ChatCompletion.create(
-            model=model,
-            messages=[{"role": "user",
-               "content": new_prompt}],
-            temperature=0
-        )
-        message = response.choices[0].message.content
-        message = message.replace("\n", "")
-        message = re.sub(r' +', ' ', message)
-        # message = message.replace("json", "")
-        message = message.replace("None", "\"None\"")
-        message = message.replace("\"\"None\"\"", "\"None\"")
-        message = message.replace("True", "true")
-        message = message.replace("False", "false")
-        if "json" == message[3:7]:
-            message = message.replace("json", "", 1)
-            message = message[3:]
-            message = message[:-3]
+    def llm_completion(self, new_prompt):
+        """
+        Generate a response using a LLM and parse it as JSON.
+        
+        Args:
+            prompt: The user prompt to send to the model
+            model: The model to use, defaults to self.model or "gpt-4o-mini" if not set
+            
+        Returns:
+            Parsed JSON response or error message
+        """
+        model = self.model
+            
         try:
-            vlSpec = json.loads(message)
-        except ValueError as e:
-            return 'Invalid JSON'
+            # Make request to LLM
+            response = litellm.completion(
+                model=model,
+                messages=[{"role": "user", "content": new_prompt}],
+                temperature=0
+            )
+            
+            # Extract message content
+            raw_message = response.choices[0].message.content
+            return self._parse_llm_response(raw_message)
+            
+        except Exception as e:
+            error_msg = f"LLM Error: {str(e)}"
+            print(error_msg)
+            return {'error': error_msg}
 
-        return vlSpec
+    
+    def _parse_llm_response(self, message: str):
+        """
+        Parse and clean the LLM response to extract valid JSON.
+
+        Args:
+            message: Raw text response from the LLM
+            
+        Returns:
+            Parsed JSON or error message
+        """
+        try:
+            # Clean up the response
+            message = self._clean_response_text(message)
+            # Extract JSON content
+            json_text = message[message.find("{"):message.rfind("}") + 1]
+            
+            # Try to parse as JSON
+            return json.loads(json_text)
+        except ValueError as e:
+            error_msg = f"JSON parsing error: {str(e)}"
+            print(f"{error_msg}\nRaw response: {message}")
+            return {'error': 'Invalid JSON', 'details': str(e)}
+
+    def _clean_response_text(self, text):
+        """
+        Clean and normalize text from LLM response for JSON parsing.
+        
+        Args:
+            text: Raw text from LLM
+            
+        Returns:
+            Cleaned text ready for JSON parsing
+        """
+        # Remove newlines and extra spaces
+        text = text.replace("\n", "")
+        text = re.sub(r' +', ' ', text)
+        
+        # Replace Python literals with JSON equivalents
+        text = text.replace("None", "\"None\"")
+        text = text.replace("\"\"None\"\"", "\"None\"")
+        text = text.replace("True", "true")
+        text = text.replace("False", "false")
+        
+        return text
 
 
     #put operation in meta
