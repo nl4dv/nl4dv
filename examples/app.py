@@ -34,9 +34,11 @@ def init():
         request.form['processing_mode'] = 'semantic-parsing'
 
     processing_mode = request.form['processing_mode']
-    if processing_mode == "gpt":
-            openai_key = request.form['openAIKey']
-            nl4dv_instance = NL4DV(processing_mode="gpt", gpt_api_key=openai_key, verbose=True)
+    if processing_mode == "llm":
+            api_key = request.form['api_key']
+            api_base = request.form['api_base']
+            model = request.form['model']
+            nl4dv_instance = NL4DV(processing_mode="llm", model=model, api_key=api_key, api_base=api_base, verbose=True)
 
     elif processing_mode == "semantic-parsing":
         dependency_parser = request.form['dependency_parser']
