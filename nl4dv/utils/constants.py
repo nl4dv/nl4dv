@@ -263,7 +263,7 @@ date_regexes = [
         # 1/24/2019
         # 07/24/2019
         # 1/24/20
-    [['%m/%d/%Y', '%m/%d/%y'], "([1][0-2]|[0]?[1-9])[-.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/]([1-9][0-9]{3}|[0-9]{2})"],
+    [['%m/%d/%Y', '%m/%d/%y'], r"([1][0-2]|[0]?[1-9])[-.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/]([1-9][0-9]{3}|[0-9]{2})"],
     # Format:
         # YY(YY)*MM*DD where * ∈ {. - /}
     # Examples:
@@ -274,7 +274,7 @@ date_regexes = [
         # 2019/1/24
         # 2019/07/24
         # 20/1/24
-    [['%Y/%m/%d', '%y/%m/%d'], "([1-9][0-9]{3}|[0-9]{2})[-.\/]([1][0-2]|[0]?[1-9])[-.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])"],
+    [['%Y/%m/%d', '%y/%m/%d'], r"([1-9][0-9]{3}|[0-9]{2})[-.\/]([1][0-2]|[0]?[1-9])[-.\/]([1|2][0-9]|[3][0|1]|[0]?[1-9])"],
     # Format:
         # DD*MM*YY(YY) where * ∈ {. - /}
     # Examples:
@@ -285,31 +285,31 @@ date_regexes = [
         # 24/1/2019
         # 24/07/2019
         # 24/1/20
-    [['%d/%m/%Y', '%d/%m/%y'], "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/]([1][0-2]|[0]?[1-9])[-.\/]([1-9][0-9]{3}|[0-9]{2})"],
+    [['%d/%m/%Y', '%d/%m/%y'], r"([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/]([1][0-2]|[0]?[1-9])[-.\/]([1-9][0-9]{3}|[0-9]{2})"],
     # Formats:
         # DD*MMM(M)*YY(YY) where * ∈ {. - / <space>}
     # Examples:
         # 8-January-2019
         # 31 Dec 19
-    [['%d/%b/%Y', '%d/%B/%Y', '%d/%b/%y', '%d/%B/%y'], "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1-9][0-9]{3}|[0-9]{2})"],
+    [['%d/%b/%Y', '%d/%B/%Y', '%d/%b/%y', '%d/%B/%y'], r"([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1-9][0-9]{3}|[0-9]{2})"],
     # Format:
         # DD*MMM(M) where * ∈ {. - / <space>}
     # Examples:
         # 31-January
         # 1 Jul
-    [['%d/%b', '%d/%B'], "([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"],
+    [['%d/%b', '%d/%B'], r"([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s](January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"],
     # Formats:
         # MMM(M)*DD*YYY(Y) where * ∈ {. - / <space>}
     # Examples:
         # January-8-2019
         # Dec 31 19
-    [['%b/%d/%Y', '%B/%d/%Y', '%b/%d/%y', '%B/%d/%y'], "(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s]([1-9][0-9]{3}|[0-9]{2})"],
+    [['%b/%d/%Y', '%B/%d/%Y', '%b/%d/%y', '%B/%d/%y'], r"(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1|2][0-9]|[3][0|1]|[0]?[1-9])[-.\/\s]([1-9][0-9]{3}|[0-9]{2})"],
     # Format:
         # MMM(M)*DD where * ∈ {. - / <space>}
     # Examples:
         # January-31
         # Jul 1
-    [['%b/%d', '%B/%d'], "(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1|2][0-9]|[3][0|1]|[0]?[1-9])"],
+    [['%b/%d', '%B/%d'], r"(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-.\/\s]([1|2][0-9]|[3][0|1]|[0]?[1-9])"],
     # Format:
         # YYYY
     # Examples:
