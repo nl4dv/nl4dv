@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     queryOutputMap = {};
     for(let key in queryMap){
-        if(key==="other-examples" || key==="conversational-examples" || key==="conversational-examples-llm-outputs" || key==="other-examples-llm-outputs"){
+        if(key==="other-examples" || key==="conversational-examples" || key==="conversational-examples-gpt-outputs" || key==="other-examples-gpt-outputs"){
             for(let dataset in queryMap[key]){
                 for(let queryObj of queryMap[key][dataset]){
                     queryOutputMap["queryId-"+queryObj.queryId] = queryObj.output;
@@ -44,8 +44,8 @@ $(document).ready(function(){
         if (!tabId.includes("llm-outputs")) {
             populateQueryContainer(queryMap['other-examples'][dataset],"queryContainer-otr-"+dataset);
         } else {
-            dataset = dataset.split("-llm-outputs")[0];
-            populateQueryContainer(queryMap['other-examples-llm-outputs'][dataset],"queryContainer-otr-"+dataset+"-llm-outputs");
+            dataset = dataset.split("-gpt-outputs")[0];
+            populateQueryContainer(queryMap['other-examples-gpt-outputs'][dataset],"queryContainer-otr-"+dataset+"-gpt-outputs");
         }
         
     });
@@ -55,9 +55,9 @@ $(document).ready(function(){
         if (!tabId.includes("llm-outputs")) {
             populateQueryContainer(queryMap['conversational-examples'][dataset],"queryContainer-ci-"+dataset);
         } else {
-            dataset = dataset.split("-llm-outputs")[0];
+            dataset = dataset.split("-gpt-outputs")[0];
             console.log(dataset);
-            populateQueryContainer(queryMap['conversational-examples-llm-outputs'][dataset],"queryContainer-ci-"+dataset+"-llm-outputs");
+            populateQueryContainer(queryMap['conversational-examples-gpt-outputs'][dataset],"queryContainer-ci-"+dataset+"-gpt-outputs");
         }
     });
 
@@ -145,9 +145,9 @@ $(document).ready(function(){
     populateQueryContainer(queryMap['underspecified-attributes'], "queryContainer-us-attributes");
     populateQueryContainer(queryMap['other-examples']['cars-w-year'], "queryContainer-otr-cars-w-year");
     populateQueryContainer(queryMap['conversational-examples']['cars-w-year'], "queryContainer-ci-cars-w-year");
-    populateQueryContainer(queryMap['underspecified-attributes-llm-outputs'], "queryContainer-us-attributes-llm-outputs")
-    populateQueryContainer(queryMap['fullyspecified-attributes-tasks-vis-llm-outputs'], "queryContainer-fs-llm-outputs")
-    populateQueryContainer(queryMap['other-examples-llm-outputs']['cars-w-year'], "queryContainer-otr-cars-w-year-llm-outputs");
-    populateQueryContainer(queryMap['conversational-examples-llm-outputs']['cars-w-year'], "queryContainer-ci-cars-w-year-llm-outputs");
+    populateQueryContainer(queryMap['underspecified-attributes-gpt-outputs'], "queryContainer-us-attributes-gpt-outputs")
+    populateQueryContainer(queryMap['fullyspecified-attributes-tasks-vis-gpt-outputs'], "queryContainer-fs-gpt-outputs")
+    populateQueryContainer(queryMap['other-examples-gpt-outputs']['cars-w-year'], "queryContainer-otr-cars-w-year-gpt-outputs");
+    populateQueryContainer(queryMap['conversational-examples-gpt-outputs']['cars-w-year'], "queryContainer-ci-cars-w-year-gpt-outputs");
 
 });

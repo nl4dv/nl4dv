@@ -105,11 +105,89 @@ table {
 .separator::before, .separator::after {
     content: '';
     flex: 1;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #dddddd;
 }
 .separator::before {
     margin-right: .25em;
 }
 .separator::after {
     margin-left: .25em;
+}
+
+/* Equal height columns for version cards */
+.version-cards-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.version-cards-row .col-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+.version-cards-row .col-6 > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Version card styling */
+.version-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.version-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Version card alignment classes with fixed heights */
+.version-title {
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.version-subtitle {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.version-authors {
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.version-equal-contrib {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.version-media {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.version-buttons {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.version-description {
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.version-citation {
+    margin-bottom: 16px;
 }

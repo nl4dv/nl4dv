@@ -115,22 +115,21 @@
                                             <ol class="list">
                                                 <li>
                                                     <p><b><a href="https://pypi.org/project/nl4dv/" target="_blank">PyPi</a></b>.</p>
-                                                    <!--<p><code class="language-bash">pip install &#45;&#45;extra-index-url https://test.pypi.org/simple/ nl4dv==0.0.2</code></p>-->
                                                     <p>To download, run</p>
-                                                    <p><code class="language-bash">pip install nl4dv==3.0.0</code></p>
+                                                    <p><pre><code class="language-bash">pip install nl4dv==4.0.0</code></pre></p>
                                                 </li>
                                                 <li>
                                                     <p>A local distributable. Download </p>
                                                     <p style="font-size:1.1rem;">
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/3.0.0.tar.gz"
-                                                        target="_blank">nl4dv-3.0.0.tar.gz</a></b>
-                                                        &nbsp;&nbsp;<i>or</i>&nbsp;&nbsp;
+                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/4.0.0.tar.gz"
+                                                        target="_blank">nl4dv-4.0.0.tar.gz</a></b>
+                                                        &nbsp;&nbsp;<i>OR</i>&nbsp;&nbsp;
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/3.0.0.zip"
-                                                        target="_blank">nl4dv-3.0.0.zip</a></b>
+                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/4.0.0.zip"
+                                                        target="_blank">nl4dv-4.0.0.zip</a></b>
                                                     </p>
-                                                    <p>Accordingly, run <code class="language-bash">pip install nl4dv-3.0.0.tar.gz</code> <i>or</i> <code class="language-bash">pip install nl4dv-3.0.0.zip</code>.</p>
+                                                    <p>Accordingly, run <pre><code class="language-bash">pip install nl4dv-4.0.0.tar.gz</code></pre> <i>OR</i> <pre><code class="language-bash">pip install nl4dv-4.0.0.zip</code></pre>.</p>
                                                 </li>
                                             </ol>
 
@@ -144,92 +143,312 @@
                             <div id="post-installation" class="section-block">
                                 <h3 class="block-title">Post Installation</h3>
                                 <br/>
-                                <h4 class="block-title">Instructions for LLM-based Mode (v3)</h4>
-                                NL4DV requires an OpenAI API key for its LLM-based Mode. Please refer to the following <a href="https://platform.openai.com/docs/quickstart">guide</a> to generate an OpenAI Key.
-                                <br/>
-                                <br/>
-                                <h4 class="block-title">Instructions for Semantic Parsing Mode (v1 + v2)</h3>
-                                <ol class="list">
+                                <ul>
                                     <li>
-                                        <p>NL4DV installs <a href="https://www.nltk.org" target ="_blank">nltk</a> by default but requires a few datasets/models/corpora to be separately installed. Please download the <b>popular</b>
-                                            nltk artifacts using:
-                                            <br/>
-                                            <br/>
-                                            <code class="language-bash">python -m nltk.downloader popular</code>
-                                        </p>
+                                        <h4>Instructions for "processing_mode" = "language-model" (v4)</h4>
+                                        NL4DV requires an API Key to configure the new "processing_mode" = "language-model". Internally, NL4DV utilizes LiteLLM as its LLM gateway, which enables access to a variety of language models. Check the <a href="https://www.litellm.ai/">LiteLLM website</a> to know more about the supported models and accordingly generate an API Key for your chosen model.<br/><br/>
                                     </li>
-                                    <li>
-                                        <p>NL4DV requires a third-party Dependency Parser module to infer tasks. Download and install one of:</p>
-                                        <ol>
+                                    <li><h4>Instructions for "processing_mode" = "gpt" (v3)</h4>
+                                        NL4DV requires an OpenAI API key for its "processing_mode" = "gpt". Please refer the <a href="https://platform.openai.com/docs/quickstart">OpenAI website</a> to generate an API Key.<br/><br/>
+                                    </li>
+                                    <li><h4>Instructions for "processing_mode" = "semantic-parsing" (v1, v2)</h3>
+                                        <ol class="list">
                                             <li>
-                                                <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
-                                                    CoreNLP</a> (<b class="text-danger">recommended</b>):</p>
-                                                <ul>
-                                                    <li>
-                                                        <p>
-                                                            <a href="https://nlp.stanford.edu/software/stanford-english-corenlp-2018-10-05-models.jar"
-                                                               target="_blank">Download</a> the <b>English</b> model of
-                                                            Stanford CoreNLP version <b>3.9.2</b> and copy it to
-                                                            `examples/assets/jars/` or a known location.</p>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <a href="https://nlp.stanford.edu/software/stanford-parser-full-2018-10-17.zip"
-                                                               target="_blank">Download</a> the Stanford Parser version
-                                                            <b>3.9.2</b> and after unzipping the folder, copy the
-                                                            `stanford-parser.jar` file to `examples/assets/jars/` or a
-                                                            known location.</p>
-                                                        <p><b>Note: </b> This requires <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">JAVA</a> installed and the JAVA_HOME / JAVAHOME environment variables to be set.</p>
-                                                    </li>
-                                                </ul>
+                                                <p>NL4DV installs <a href="https://www.nltk.org" target ="_blank">nltk</a> by default but requires a few datasets/models/corpora to be separately installed. Please download the <b>popular</b>
+                                                    nltk artifacts using:
+                                                    <br/>
+                                                    <pre><code class="language-bash">python -m nltk.downloader popular</code></pre>
+                                                </p>
                                             </li>
                                             <li>
-                                                <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
-                                                    CoreNLPServer</a> :</p>
-                                                <ul>
+                                                <p>NL4DV requires a third-party Dependency Parser module to infer tasks. Download and install one of:</p>
+                                                <ol>
                                                     <li>
-                                                        <p>
-                                                            <a href="http://nlp.stanford.edu/software/stanford-corenlp-latest.zip"
-                                                               target="_blank">Download</a> the Stanford CoreNLPServer, unzip it in a known location, and <code class="language-bash">cd</code> into it.</p>
+                                                        <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
+                                                            CoreNLP</a> (<b class="text-danger">recommended</b>):</p>
+                                                        <ul>
+                                                            <li>
+                                                                <p>
+                                                                    <a href="https://nlp.stanford.edu/software/stanford-english-corenlp-2018-10-05-models.jar"
+                                                                       target="_blank">Download</a> the <b>English</b> model of
+                                                                    Stanford CoreNLP version <b>3.9.2</b> and copy it to
+                                                                    `examples/assets/jars/` or a known location.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>
+                                                                    <a href="https://nlp.stanford.edu/software/stanford-parser-full-2018-10-17.zip"
+                                                                       target="_blank">Download</a> the Stanford Parser version
+                                                                    <b>3.9.2</b> and after unzipping the folder, copy the
+                                                                    `stanford-parser.jar` file to `examples/assets/jars/` or a
+                                                                    known location.</p>
+                                                                <p><b>Note: </b> This requires <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">JAVA</a> installed and the JAVA_HOME / JAVAHOME environment variables to be set.</p>
+                                                            </li>
+                                                        </ul>
                                                     </li>
                                                     <li>
-                                                        <p>Start the server using the below command. It will run on <a href="http://localhost:7001"
-                                                                                           target="_blank">http://localhost:9000</a>.</p>
-                                                        <p><code class="language-bash">java -mx4g -cp "*"
-                                                            edu.stanford.nlp.pipeline.StanfordCoreNLPServer -annotators
-                                                            "tokenize,ssplit,pos,lemma,parse,sentiment" -port 9000
-                                                            -timeout 30000</code></p>
-                                                        <p><b>Note: </b> This requires <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">JAVA</a> installed and the JAVA_HOME / JAVAHOME environment variables to be set.</p>
+                                                        <p><a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford
+                                                            CoreNLPServer</a> :</p>
+                                                        <ul>
+                                                            <li>
+                                                                <p>
+                                                                    <a href="http://nlp.stanford.edu/software/stanford-corenlp-latest.zip"
+                                                                       target="_blank">Download</a> the Stanford CoreNLPServer, unzip it in a known location, and <code class="language-bash">cd</code> into it.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>Start the server using the below command. It will run on <a href="http://localhost:7001"
+                                                                                                   target="_blank">http://localhost:9000</a>.</p>
+                                                                <p><pre><code class="language-bash">java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -annotators "tokenize,ssplit,pos,lemma,parse,sentiment" -port 9000 -timeout 30000</code></pre>
+                                                                </p>
+                                                                <p><b>Note: </b> This requires <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">JAVA</a> installed and the JAVA_HOME / JAVAHOME environment variables to be set.</p>
+                                                            </li>
+                                                        </ul>
                                                     </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <p><a href="https://spacy.io/" target="_blank">Spacy</a> :</p>
-                                                <ul>
                                                     <li>
-                                                        <p>NL4DV installs Spacy by default but requires a model to be separately installed. Install the sample <b>English model</b> using:</p>
-                                                        <p><code class="language-bash">python -m spacy download en_core_web_sm</code></p>
+                                                        <p><a href="https://spacy.io/" target="_blank">Spacy</a> :</p>
+                                                        <ul>
+                                                            <li>
+                                                                <p>NL4DV installs Spacy by default but requires a model to be separately installed. Install the sample <b>English model</b> using:</p>
+                                                                <p><pre><code class="language-bash">python -m spacy download en_core_web_sm</code></pre></p>
+                                                            </li>
+                                                            <li>
+                                                                <p>If you face the <a href="https://github.com/urllib3/urllib3/issues/2168">urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3</a> error while installing spacy models,
+                                                                as per <a href="https://stackoverflow.com/questions/76187256/importerror-urllib3-v2-0-only-supports-openssl-1-1-1-currently-the-ssl-modu">this stackoverflow post</a>, perform the following operations until there is a better fix:
+                                                                </p>
+                                                                <p><pre><code class="language-bash">pip uninstall urllib3 && pip install 'urllib3&lt;2.0'</code></pre></p>
+                                                            </li>
+                                                        </ul>
                                                     </li>
-						    <li>
-							    <p>If you face the <a href="https://github.com/urllib3/urllib3/issues/2168">urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3</a> error while installing spacy models,
-							    as per <a href="https://stackoverflow.com/questions/76187256/importerror-urllib3-v2-0-only-supports-openssl-1-1-1-currently-the-ssl-modu">this stackoverflow post</a>, perform the following operations until there is a better fix:
-							    </p>
-							    <p><code class="language-bash">
-							    	pip uninstall urllib3 && pip install 'urllib3<2.0'
-							   </code></p>
-						    </li>
-                                                </ul>
+                                                </ol>
                                             </li>
                                         </ol>
                                     </li>
-                                </ol>
+                                </ul>
                             </div><!--//section-block-->
-                            <div id="sample-code-llm" class="section-block">
-                                <h3 class="block-title">Sample Code for LLM-based Mode</h3>
+			    <div id="sample-code-lm" class="section-block">
+				<h3 class="block-title">Sample Code | v4 ('language-model') | NL4DV-Stylist</h3>
+				<div class="row">
+				    <div class="col-12">
+					 <div class="code-block">
+						 <pre><code class="language-python">import json
+from nl4dv import NL4DV
+# Your dataset must be hosted on Github for the LLM-based mode to function.
+data_url="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv" #paste your data URL
+
+# Choose your processing mode LLM or parsing. Choose "language-model" for the language-model based mode or "semantic-parsing" for the rules-based mode.
+processing_mode="language-model"
+
+# Enter your Language Model configuration
+lm_config = {
+    "model": "gpt-4o", # gpt-4o, gpt-4o-mini
+    "environ_var_name": "OPENAI_API_KEY",
+    "api_key": "Your api key",
+    "api_base": None
+}
+
+# Define a query
+query = "correlate budget and gross for action and adventure movies"
+
+design_config = [{
+    "type": "image_url",
+    "image_url": { "url": "https://i.ibb.co/LXk7QMvL/17.png"}, # examples/assets/example-charts/17.png
+},{
+    "type": "text",
+    "text": " ".join(["Apply this chart's design.", "Remove ticks on either axes."])
+},{
+    "type": "image_url",
+    "image_url": { "url": "https://i.ibb.co/HTL4HQSP/4.png"}, # examples/assets/example-charts/4.png
+},{
+    "type": "text",
+    "text": " ".join(["Apply this chart's title's font style and position.", "Apply this chart's legend's style but position it to the left of the chart, not right."])
+}]
+
+# Initialize an instance of NL4DV
+nl4dv_instance = NL4DV(data_url=data_url, processing_mode=processing_mode, lm_config=lm_config, design_config=design_config)
+
+# Execute the query
+output = nl4dv_instance.analyze_query(query)
+
+# Print the output
+print(output)</code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//row-->
                                 <div class="row">
-                                    <div class="col-md-12 col-12">
-                                        <p>If everything went well in the Installation and Post Installation steps above, you are all set.
-                                            <br/>Use the below <b>Sample Code</b> to get started. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/master/sample.py" target="_blank">here</a>.</p>
+                                    <div class="col-md-6">
+                                        <div class="text-center"><strong>Input Chart 1</strong></div><br/>
+                                        <img width="80%" style="border: 1px solid lightgray;" class="img-fluid img-center"
+                                        src="assets/images/sample-codes/v4-input-chart1.png" alt="Example chart input 1 of v4"/>
+                                    </div>    
+                                    <div class="col-md-6">
+                                        <div class="text-center"><strong>Input Chart 2</strong></div><br/>
+                                        <img width="80%" style="border: 1px solid lightgray;" class="img-fluid img-center"
+                                        src="assets/images/sample-codes/v4-input-chart2.png" alt="Example chart input 2 of v4"/>
+                                    </div>
+                                </div>
+                                <br/>
+                                <h4 class="block-title coloredText"><a data-toggle="collapse" href="#outputCollapse">
+                                    Output
+                                </a></h4>
+                                <div class="collapse show" id="outputCollapse">
+                                    <div class="code-block">
+                                            <pre><code class="language-json">{
+  "query": "correlate budget and gross for action and adventure movies",
+  "query_raw": "correlate budget and gross for action and adventure movies",
+  "dataset": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv",
+  "visList": ["..."],
+  "attributeMap": {"..."},
+  "taskMap": {"..."},
+  "vlSpec_design": {"..."},
+  "design_checklist": ["..."],
+  "design_successlist": ["..."],
+  "design_failurelist": []
+}</code></pre>
+                                    </div><!--//code-block-->
+                                </div><!--//collapse-->
+                                <br/>
+                                <h4 class="block-title coloredText"><a data-toggle="collapse"
+                                                                       href="#vlSpec_designCollapse">
+                                    "vlSpec_design" &#9656;
+                                </a></h4>
+                                <div class="collapse" id="vlSpec_designCollapse">
+                                    <div class="code-block">
+                                            <pre><code class="language-json">{
+"$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+"data": {
+    "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
+},
+"transform": [
+    {
+        "filter": {
+            "field": "Genre",
+            "oneOf": ["Action", "Adventure"]
+        }
+    }
+],
+"mark": "point",
+"encoding": {
+    "x": {
+        "field": "Production Budget",
+        "type": "quantitative",
+        "axis": {
+            "ticks": false
+        }
+    },
+    "y": {
+        "field": "Worldwide Gross",
+        "type": "quantitative",
+        "axis": {
+            "ticks": false
+        }
+    },
+    "color": {
+        "field": "Genre",
+        "type": "nominal",
+        "legend": {
+            "padding": 8
+        }
+    }
+},
+"config": {
+    "background": "#ff8c00",
+    "view": {
+        "fill": "#ffff00"
+    },
+    "legend": {
+        "orient": "left",
+        "fillColor": "white",
+        "strokeColor": "gray",
+        "cornerRadius": 4,
+        "titleFontSize": 12
+    }
+},
+"title": {
+    "text": "Correlation of Budget and Gross for Action and Adventure Movies",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "anchor": "middle",
+    "align": "center"
+}
+}</code></pre>
+                                    </div><!--//code-block-->
+                                </div><!--//collapse-->
+                                <br/>
+                                <h4 class="block-title coloredText"><a data-toggle="collapse" href="#design_checklistCollapse">
+                                    "design_checklist" &#9656;
+                                </a></h4>
+                                <div class="collapse" id="design_checklistCollapse">
+                                    <div class="code-block">
+                                            <pre><code class="language-json">[
+    {
+        "type": "chart",
+        "name": "chart 1",
+        "content": [
+            "Apply this chart's design.",
+            "Remove ticks on either axes."
+        ]
+    },
+    {
+        "type": "chart",
+        "name": "chart 2",
+        "content": [
+            "Apply this chart's title's font style and position.",
+            "Apply this chart's legend's style but position it to the left of the chart."
+        ]
+    }
+]</code></pre>
+                                    </div><!--//code-block-->
+                                </div><!--//collapse-->
+                                <br/>
+                                <h4 class="block-title coloredText"><a data-toggle="collapse" href="#design_successlistCollapse">
+                                    "design_successlist"&#9656;
+                                </a></h4>
+                                <div class="collapse" id="design_successlistCollapse">
+                                    <div class="code-block">
+                                            <pre><code class="language-json">[
+    {
+        "type": "chart",
+        "name": "chart 1",
+        "content": [
+            "Used background color.",
+            "Used mark styles."
+        ]
+    },
+    {
+        "type": "chart",
+        "name": "chart 2",
+        "content": [
+            "Used title font style and position.",
+            "Used legend style and positioned it to the left."
+        ]
+    }
+]</code></pre>
+                                    </div><!--//code-block-->
+                                </div><!--//collapse-->
+                                <br/>
+                                <h4 class="block-title coloredText"><a data-toggle="collapse"
+                                                                       href="#design_failurelistCollapse">
+                                    "design_failurelist" &#9656;
+                                </a></h4>
+                                <div class="collapse" id="design_failurelistCollapse">
+                                    <div class="code-block">
+                                            <pre><code class="language-json">[][]</code></pre>
+                                    </div><!--//code-block-->
+                                </div><!--//collapse-->
+                                <br/>
+                                <h4 class="block-title coloredText"><a data-toggle="collapse"
+                                                                           href="#visCollapse">
+                                        Visualization (when the Vega-Lite spec is rendered) &#9656;
+                                    </a></h4>
+                                <div class="collapse show" id="visCollapse">
+                                    <img style="border: 1px solid lightgray;" class="img-fluid img-center"
+                                         src="assets/images/sample-codes/v4-output.png" alt="Example output of v4"/>
+                                </div>
+                            </div><!--//section-block-->
+				
+                            <div id="sample-code-gpt" class="section-block">
+                                <h3 class="block-title">Sample Code | v3 ('gpt') | NL4DV-LLM</h3>
+                                <div class="row">
+                                    <div class="col-12">
                                         <div class="code-block">
                                                 <pre><code class="language-python">from nl4dv import NL4DV
 #Your dataset must be hosted on Github for the LLM-based mode to function.
@@ -338,7 +557,7 @@ print(output)</code></pre>
         ],
         "inferenceType": "explicit",
         "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -377,16 +596,25 @@ print(output)</code></pre>
                                     </a></h4>
                                 <div class="collapse show" id="visCollapse">
                                     <img style="border: 1px solid lightgray;" class="img-fluid img-center"
-                                         src="assets/images/example.png" alt="Example"/>
+                                         src="assets/images/sample-codes/v3-output.png" alt="Example output of v3"/>
                                 </div>
                             </div><!--//section-block-->
 
-                            <div id="sample-code" class="section-block">
-                                <h3 class="block-title">Sample Code for Semantic Parsing Mode (Single Turn Conversational Interaction)</h3>
+                            <div id="sample-code-ci" class="section-block">
+                                <h3 class="block-title">Sample Code | v2 ('semantic-parsing') | Multi-Turn Dialogs</h3>
                                 <div class="row">
-                                    <div class="col-md-12 col-12">
-                                        <p>If everything went well in the Installation and Post Installation steps above, you are all set.
-                                            <br/>Use the below <b>Sample Code</b> to get started. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/master/sample.py" target="_blank">here</a>.</p>
+                                    <div class="col-12">
+                                        <br/>
+                                        <img style="width: 80%; border: 1px solid lightgray;" class="img-fluid img-center"
+                                     src="assets/images/sample-codes/v2-output.png" alt="Multi-Turn Dialogs Sample Code"/>
+                                    </div>
+                                </div><!--//row-->
+                            </div><!--//section-block-->
+
+                            <div id="sample-code" class="section-block">
+                                <h3 class="block-title">Sample Code | v1 ('semantic-parsing') | Single-Turn Utterances</h3>
+                                <div class="row">
+                                    <div class="col-12">
                                         <div class="code-block">
                                                 <pre><code class="language-python">from nl4dv import NL4DV
 import os
@@ -418,130 +646,9 @@ output = nl4dv_instance.analyze_query(query)
 </code></pre>
                                         </div><!--//code-block-->
                                     </div>
-                                </div><!--//row-->
-                            <div id="sample-code-ci" class="section-block">
-                                <h3 class="block-title">Sample Code (Multi Turn Conversational Interaction)</h3>
-                                <div class="row">
-                                    <div class="col-md-12 col-12">
-                                        <p>Use the below <b>Sample Code</b> to get started with Conversational Interaction. A more detailed sample file can be found <a href="https://github.com/nl4dv/nl4dv/blob/ci_review/sample-ci.py" target="_blank">here</a>.</p>
-                                        <img style="width: 80%; border: 1px solid lightgray;" class="img-fluid img-center"
-                                     src="assets/images/showcase/conversational-interaction-sample.png" alt="Conversation Interaction Sample Code"/>
-                                    </div>
-                                </div><!--//row-->
-                            </div><!--//section-block-->
+                            </div><!--//row-->
 
-                            <section id="docker" class="section-block">
-                                <h3 class="block-title">Docker</h3>
-                                <div class="block">
-                                    <p>NL4DV is containerized into a <b><a href="https://hub.docker.com/r/arpitnarechania/nl4dv" target="_blank">Docker Image</a></b>. This image comes pre-installed with NL4DV, Spacy, Stanford CoreNLP, and a few datasets with a web application as a <b>Demo</b>. Install it using:</p>
-                                    <p><code class="language-bash">docker pull arpitnarechania/nl4dv</code></p>
-                                    <p><b>Note:</b> This mode of installation <b class="text-danger">does not</b> require the Post Installation steps. For more informations, follow the detailed instructions in the <b><a href="https://github.com/nl4dv/nl4dv-docker" target="_blank">Github repository (nl4dv-docker)</a></b>.</p>
-                                </div>
-                            </section>
-                            <section id="author-notes" class="section-block">
-                                <h3 class="block-title">Message from Creators</h3>
-                                <div class="block">
-                                    <p>As we plan additional features to add new features / improve the toolkit, we <b class="text-danger">recommend</b> users/developers to be aware of the following: </p>
-                                    <ul>
-                                        <li><p><b>Dependency parser output variations.</b><br/>The dependency tree returned by CoreNLP, CoreNLP Server, and Spacy are sometimes different. The current parser logic was developed for CoreNLP, hence it'll work best. However, we are upgrading the rules to work consistently across all dependency parsers.</p></li>
-                                        <li>
-                                            <p><b>Attribute data types.</b></p>
-                                            <p>Verify the attribute types (e.g., nominal, temporal) that are detected by NL4DV and override them if they are incorrect as they will most likely lead to erroneous visualizations. The current attribute datatype detection logic is based on heuristics and we are currently working towards a major improvement that semantically infers the data type from both, the attribute's name and its value.</p>
-                                            <p><b>For Temporal attributes</b>, NL4DV relies on Regular Expressions to detect common date formats <span style="color:red">(listed in the order of priority in case of conflicts)</span>.</p>
-                                            <div class="bordered-table">
-                                                <table >
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Supported Date Formats <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes" target="_blank">(Codes: 1989 C standard)</a></th>
-                                                            <th>Examples</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><p><code class="language-python">%m*%d*%Y</code> or <code class="language-python">%m*%d*%y</code>  where * ∈ {. - /}</p></td>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>12.24.2019</li>
-                                                                    <li>12/24/2019</li>
-                                                                    <li>1-24-19</li>
-                                                                    <li>09.24.20</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><p><code class="language-python">%Y*%m*%d</code> or <code class="language-python">%y*%m*%d</code>  where * ∈ {. - /}</p></td>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>2019.12.24</li>
-                                                                    <li>2019/12/24</li>
-                                                                    <li>19-1-24</li>
-                                                                    <li>20.09.24</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><p><code class="language-python">%d*%m*%Y</code> or <code class="language-python">%d*%m*%y</code>  where * ∈ {. - /}</p></td>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>24.12.2019</li>
-                                                                    <li>24/12/2019</li>
-                                                                    <li>24-1-19</li>
-                                                                    <li>24.09.20</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><p><code class="language-python">%d/%b/%Y</code> or <code class="language-python">%d/%B/%Y</code> or <code class="language-python">%d/%b/%y</code> or <code class="language-python">%d/%B/%y</code> where * ∈ {. - / space}</p></td>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>8-January-2019</li>
-                                                                    <li>31 Dec 19</li>
-                                                                    <li>1/Jan/19</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><p><code class="language-python">%d*%b</code> or <code class="language-python">%d*%B</code>  where * ∈ {. - / space}</p></td>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>8-January</li>
-                                                                    <li>31 Dec</li>
-                                                                    <li>1/Jan</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><p><code class="language-python">%b/%d/%Y</code> or <code class="language-python">%B/%d/%Y</code> or <code class="language-python">%b/%d/%y</code> or <code class="language-python">%B/%d/%y</code> where * ∈ {. - / space}</p></td>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>January-8-2019</li>
-                                                                    <li>Dec 31 19</li>
-                                                                    <li>Jan/1/19</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><p><code class="language-python">%Y</code></p></td>
-                                                            <td>
-                                                                <b style="color:red">Only the following series</b>:
-                                                                <ul>
-                                                                    <li>18XX (e.g., 1801)</li>
-                                                                    <li>19XX (e.g., 1929)</li>
-                                                                    <li>20XX (e.g., 2010)</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <br/>
-                                        </li>
-                                        <li><p><b>Filter task.</b><br/>NL4DV applies the filter task by matching the condition against each data point but does not encode the involved attributes in the visualization. This was a design decision taken to avoid recommending a complex visualization due to too many encoded attributes.</p></li>
-                                        <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior research works; we encourage users/developers to modify them to suit their specific requirements.</p></li>
-                                    </ul>
-                                </div>
-                            </section>
-                            <div id="applications" class="section-block">
+                            <section id="applications" class="section-block">
                                 <h3 class="block-title">Applications</h3>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -615,13 +722,15 @@ output = nl4dv_instance.analyze_query(query)
                                         </ul>
                                     </div>
                                 </div><!--//row-->
-                            </div><!--//section-block-->
-
+                            </section><!--//section-block-->                            
                         </section><!--//doc-section-->
                         <section id="api-reference" class="doc-section">
                             <h2 class="section-title">API Reference</h2>
                             <div class="section-block">
-                                <p>NL4DV exposes a simple, intuitive API for developers to consume. The below methods can be called on the <b>nl4dv_instance</b> object that is created after initializing NL4DV like <code class="language-python">nl4dv_instance = NL4DV()</code>.</p>
+
+                                <br/>
+                                <h3>Common for v1, v2, v3, v4.</h3>
+                                <br/>
                                 <table class="bordered-table" style="table-layout: fixed; width: 100%;">
                                     <colgroup>
                                         <col style="width:30%">
@@ -637,98 +746,58 @@ output = nl4dv_instance.analyze_query(query)
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>NL4DV(*)</td>
+                                            <td>NL4DV()</td>
                                             <td>
-                                                <p><code class="language-python">data_url</code> (str)</p>
-                                                <p><code class="language-python">data_value</code> (list|dict|pandas DataFrame)</p>
-                                                <p><code class="language-python">alias_url</code> (str)</p>
-                                                <p><code class="language-python">alias_value</code> (dict)</p>
-                                                <p><code class="language-python">label_attribute</code> (str)</p>
-                                                <p><code class="language-python">ignore_words</code> (list)</p>
-                                                <p><code class="language-python">reserve_words</code> (list)</p>
-                                                <p><code class="language-python">dependency_parser_config</code> (dict)</p>
-                                                <p><code class="language-python">thresholds</code> (dict)</p>
-                                                <p><code class="language-python">importance_scores</code> (dict)</p>
-                                                <p><code class="language-python">attribute_datatype</code> (dict)</p>
-                                                <p><code class="language-python">debug</code> (bool)</p>
-                                                <p><code class="language-python">explicit_followup_keywords</code> (dict)</p>
-                                                <p><code class="language-python">implicit_followup_keywords</code> (dict)</p>
-                                                <p><code class="language-python">processing_mode</code> (str='gpt' or str='semantic-parsing', optional)</p>
-                                                <p><code class="language-python">gpt_api_key</code> (str, optional)</p>
-
+                                                <div>
+                                                    <p><code class="language-python">data_url</code> (str)</p>
+                                                    See set_data() for a description and example.
+                                                    <div class="separator"><i>OR</i></div>
+                                                    <p><code class="language-python">data_value</code> (list|dict|pandas DataFrame)</p>
+                                                    See set_data() for a description and example.
+                                                    <hr>
+                                                    <div>
+                                                        <p class="mb-0"><code class="language-python">processing_mode</code> (str, required). Possible values:</p>
+                                                        <ul>
+                                                            <li>'semantic-parsing' (for v1 or v2)</li>
+                                                            <li>'gpt' (for v3)</li>
+                                                            <li>'language-model' (for v4)</li>
+                                                        </ul>    
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
-                                                <p>NL4DV constructor that accepts these parameters. These parameters can be set using separate function calls as well; check below.</p>
-                                                <span><b>Returns:</b> <code class="language-python">nl4dv_instance</code>. </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>analyze_query(query=None,debug=False,verbose=False,dialog=None,dialog_id=None,query_id=None)</td>
-                                            <td>
-                                                <p><code class="language-python">query</code> (str)</p>
-                                                <p><code class="language-python">debug</code> (bool)</p>
-                                                <p><code class="language-python">verbose</code> (bool)</p>
-                                                <p><code class="language-python">dialog</code> (bool or str='auto', optional)</p>
-                                                <p><code class="language-python">dialog_id</code> (str, optional)</p>
-                                                <p><code class="language-python">query_id</code> (str, optional)</p>
-                                            </td>
-                                            <td>
-                                                <p>Analyzes the input query.</p>
-                                                <span><b>Returns:</b> a JSON specification of attributes, tasks, and visualizations.</span><br/>
-						<p><b style="color:red">Note:</b> If the dataset was input via the "data_value" parameter, to minimize the storage footprint of this output JSON, the Vega-Lite spec (vlSpec) does NOT include the dataset values (under the "data" > "value" property); the developer is expected to supply these to render the visualization. However, if the dataset was input via "data_url" parameter, the 'vlSpec' will have this data configuration by default (under the "data" > "url" property). </p>
+                                                <p>NL4DV constructor.</p>
+                                                <span><b>Returns:</b><br/><code class="language-python">nl4dv_instance</code>.</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>update_query(ambiguity_obj=None)</td>
-                                            <td><p><code class="language-python">ambiguity_obj</code> (dict)</p>
-                                                <span><b>Example:</b></span><pre><code class="language-python">
-{
-"dialog_id": "0", "query_id": "0",
-"attribute": {"medals": "Gold Medals"},
-"value": {"hockey": "Ice Hockey", "skating": "Speed Skating"}
-}
-                                                </code></pre></td>
-                                            <td>Resolve attribute-level and value-level ambiguities by setting the correct entities to the corresponding keywords (phrase) in the query.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>get_dialogs(dialog_id=None, query_id=None)</td>
+                                            <td>nl4dv_instance.analyze_query()</td>
                                             <td>
-                                                <p><code class="language-python">dialog_id</code> (str)</p>
-                                                <p><code class="language-python">query_id</code> (str)</p>
-                                            </td>
-                                            <td>Get a specific dialog (if dialog_id is provided), a specific query in a dialog (if both dialog_id and query_id are provided), or all dialogs (if none of dialog_id and query_id are provided). Returns the requested entities as JSON specifications.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>delete_dialogs(dialog_id=None, query_id=None)</td>
-                                            <td>
-                                                <p><code class="language-python">dialog_id</code> (str)</p>
-                                                <p><code class="language-python">query_id</code> (str)</p>
-                                            </td>
-                                            <td>Delete a specific dialog (if dialog_id is provided), a specific query in a dialog (if both dialog_id and query_id are provided), or all dialogs (if none of dialog_id and query_id are provided), practically resetting the corresponding NL4DV instance. Returns the deleted entities as JSON specifications.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>undo()</td>
-                                            <td></td>
-                                            <td>Delete the most recently processed query; returns the deleted entity as a JSON specification.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>render_vis(query=None)</td>
-                                            <td>
-                                                <p><code class="language-python">query</code> (str)</p>
+                                                <p><code class="language-python">query</code> (str, required)</p>
                                                 <span><b>Example:</b> <i>"visualize mpg."</i></span>
                                             </td>
                                             <td>
-                                                <p>Processes the input query and returns a VegaLite() object of the best, most relevant visualization.</p>
-                                                <span><b>Returns:</b> VegaLite()</span><br/>
-						<p><b style="color:red">Note:</b> If the dataset was input via the "data_value" parameter, to minimize the storage footprint of this output JSON, the Vega-Lite spec does NOT include the dataset values (under the "data" > "value" property); the developer is expected to supply these to render the visualization. However, if the dataset was input via "data_url" parameter, the 'vlSpec' will have this data configuration by default (under the "data" > "url" property). Because this API directly outputs a VegaLite() object, it might be hard to supply the data. Thus, please use analyze_query() instead.</p>
+                                                <p>Analyzes the input query.</p>
+                                                <span><b>Returns:</b> a JSON object comprising detected attributes, inferred analytic tasks, and relevant visualizations.</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>set_data(data_url=None, data_value=None)</td>
+                                            <td>nl4dv_instance.render_vis()</td>
+                                            <td>
+                                                <p><code class="language-python">query</code> (str, required)</p>
+                                                <span><b>Example:</b> <i>"visualize mpg."</i></span>
+                                            </td>
+                                            <td>
+                                                <p>Calls analyze_query() internally, but... </p>
+                                                <span><b>Returns:</b> VegaLite() object of the best, most relevant visualization. This is useful to directly render a visualization in a Jupyter Notebook cell.</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.set_data()</td>
                                             <td>
                                                 <p><code class="language-python">data_url</code> (str: path to local file or url)</p>
                                                 <span><b>Example:</b><i>"euro.csv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv" target="_blank">sample</a>) | "euro.tsv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.tsv" target="_blank">sample</a>) | "euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.json" target="_blank">sample</a>) </i></span>
-                                                <div class="separator"><i>Or</i></div>
+                                                <div class="separator"><i>OR</i></div>
                                                 <p><code class="language-python">data_value</code> (list|dict|pandas.DataFrame)</p>
                                                 <span><b>Example:</b><br/>
                                                     <ul>
@@ -742,25 +811,297 @@ output = nl4dv_instance.analyze_query(query)
                                                     </ul>
                                                 </span>
                                             </td>
-                                            <td>Sets the dataset to query against.</td>
+                                            <td>Sets the dataset to query against. Use this if you want to change the dataset after initializing the constructor.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_alias_map(alias_url=None, alias_value=None)</td>
+                                            <td>nl4dv_instance.get_metadata()</td>
+                                            <td>-</td>
+                                            <td><span><b>Returns:</b> a JSON object consisting of the dataset metadata (e.g., attributes and inferred data types, etc) that is set after NL4DV is initialized with a dataset.</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <br/>
+                                <hr>
+                                <br/>
+
+                                <h3>v4&nbsp;&nbsp;<small><b style="color:red">(requires "processing_mode" set to "language-model")</b></small></h3>
+                                <table class="bordered-table" style="table-layout: fixed; width: 100%;">
+                                    <colgroup>
+                                        <col style="width:30%">
+                                        <col style="width:40%">
+                                        <col style="width:30%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Params</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>NL4DV()</td>
+                                            <td>
+                                                <div>
+                                                    <p><code class="language-python">lm_config</code> (dict)</p>
+                                                    <span><b>Example:</b></span><pre><code class="language-python">{
+    "model": "gpt-4o",
+    "environ_var_name": "OPENAI_API_KEY",
+    "api_key": "sk-WMoBVu...",
+    "api_base": None
+}</code></pre>
+
+Check the <a href="https://www.litellm.ai/">LiteLLM website</a> to know more about the supported models, their environment_var_name, and accordingly generate an api_key or use an api_base. Also, note that not all language models will support all types of file uploads (e.g., PDF, PNG, etc); use the feature accordingly.
+                                                    <hr>
+                                                    <p><code class="language-python">design_config</code> (list, optional)</p>
+                                                    <span><b>Example (PNG | JPEG | WEBP):</b></span><pre><code class="language-python">[{
+    "type": "image_url",
+    "image_url": { "url": "https://i.ibb.co/LXk7QMvL/17.png"}
+},{
+    "type": "text",
+    "text": "Apply all design aspects from this chart."
+}]</code></pre>
+<br/>
+                                                    <span><b>Example (PDF | SVG):</b></span><pre><code class="language-python">filename = "examples/assets/example-charts/32.pdf"
+with open(filename, "rb") as f:
+    file_content = f.read()
+    base64_content = base64.b64encode(file_content).decode('utf-8')
+    file_data = f"data:application/pdf;base64,{base64_content}"
+
+    design_config = [
+        {
+            "type": "file",
+            "file": {
+                "filename": filename,
+                "file_data": file_data,
+            },
+        },{
+            "type": "text",
+            "text": "Apply all design aspects from this chart."
+        }]</code></pre></div>
+                                            </td>
+                                            <td>
+                                                <!-- nothing yet -->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <br/>
+                                <hr>
+                                <br/>
+
+                                <h3>v3&nbsp;&nbsp;<small><b style="color:red">(requires "processing_mode" set to "gpt")</b></small></h3>
+                                <table class="bordered-table" style="table-layout: fixed; width: 100%;">
+                                    <colgroup>
+                                        <col style="width:30%">
+                                        <col style="width:40%">
+                                        <col style="width:30%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Params</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>NL4DV()</td>
+                                            <td>
+                                                <div>
+                                                    <p><code class="language-python">gpt_api_key</code> (str)</p>
+                                                    <span><b>Example:</b> <i>"sk-WMoBVu..."</i></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <!-- Nothing yet -->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <br/>
+                                <hr>
+                                <br/>
+
+                                <h3>v2 only&nbsp;&nbsp;<small><b style="color:red">(requires "processing_mode" set to "semantic-parsing")</b></small></h3>
+                                <table class="bordered-table" style="table-layout: fixed; width: 100%;">
+                                    <colgroup>
+                                        <col style="width:30%">
+                                        <col style="width:40%">
+                                        <col style="width:30%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Params</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>NL4DV()</td>
+                                            <td>
+                                                <div>
+                                                    <p><code class="language-python">explicit_followup_keywords</code> (dict)</p>
+                                                    <span><b>Example:</b></span>
+                                                <pre><code class="language-python">{"put": [("addition", "add")],
+"add": [("addition", "add")]}</code></pre>
+Overrides the default explicit_followup_keywords map. The dictionary must be formatted as the following: The key must be the keyword string, and the value must be a list. The list must contain only one element that is a 2-tuple. The first element in the 2-tuple represents the noun version of the follow-up operation; it MUST come from these words - (addition, removal, replacement), and the second element represents the verb version of the follow-up operation (add, remove, replace).
+                                                    <hr>
+                                                    <p><code class="language-python">implicit_followup_keywords</code> (dict)</p>
+                                                    <span><b>Example:</b></span>
+                                                <pre><code class="language-python">{"also": [("also", "add")],
+"as well": [("aswell", "add")]}</code></pre>
+Overrides the default implicit_followup_keyword_map map. The dictionary must be formatted as the following: The key must be the keyword string, and the value must be a list. The list must contain only one element that is a 2-tuple. The first element in the 2-tuple represents the concatenated version of the token with no spaces, and the second element represents the verb version of the follow-up operation (add, remove, replace).
+                                                </div>
+                                            </td>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.analyze_query()</td>
+                                            <td>
+                                                <p><code class="language-python">dialog</code> (bool or str='auto', optional)</p>
+                                                <p><code class="language-python">dialog_id</code> (str, optional)</p>
+                                                <p><code class="language-python">query_id</code> (str, optional)</p>
+                                            </td>
+                                            <td>
+                                                <p>dialog=True means a given query is a follow-up query; dialog=False means it is a new, standalone query; dialog='auto' means the user wants the system to automatically determine if the input query is a follow-up or not (and in which case you must not pass a dialog_id or a query_id).</p>
+                                                
+                                                <p>If a dialog_id and query_id are specified, then the user's intent is to follow-up on the specific query at the (dialog_id -> query_id) node in the conversation graph. Read the v2 paper to know more about dialog, dialog_id, and query_id.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.update_query()</td>
+                                            <td><p><code class="language-python">ambiguity_obj</code> (dict)</p>
+                                                <span><b>Example:</b></span><pre><code class="language-python">
+{
+"dialog_id": "0", "query_id": "0",
+"attribute": {"medals": "Gold Medals"},
+"value": {"hockey": "Ice Hockey", "skating": "Speed Skating"}
+}
+                                                </code></pre></td>
+                                            <td>Resolve attribute-level and value-level ambiguities by setting the correct entities to the corresponding keywords (phrase) in the query.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.get_dialogs()</td>
+                                            <td>
+                                                <p><code class="language-python">dialog_id</code> (str)</p>
+                                                <p><code class="language-python">query_id</code> (str)</p>
+                                            </td>
+                                            <td>Get a specific dialog (if dialog_id is provided), a specific query in a dialog (if both dialog_id and query_id are provided), or all dialogs (if none of dialog_id and query_id are provided). Returns the requested entities as JSON specifications.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.delete_dialogs(dialog_id=None, query_id=None)</td>
+                                            <td>
+                                                <p><code class="language-python">dialog_id</code> (str)</p>
+                                                <p><code class="language-python">query_id</code> (str)</p>
+                                            </td>
+                                            <td>Delete a specific dialog (if dialog_id is provided), a specific query in a dialog (if both dialog_id and query_id are provided), or all dialogs (if none of dialog_id and query_id are provided), practically resetting the corresponding NL4DV instance. Returns the deleted entities as JSON specifications.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.undo()</td>
+                                            <td></td>
+                                            <td>Delete the most recently processed query; returns the deleted entity as a JSON specification.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.set_explicit_followup_keywords()</td>
+                                            <td>
+                                                <p><code class="language-python">explicit_followup_keyword_map</code> (dict)</p>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.set_implicit_followup_keywords()</td>
+                                            <td>
+                                                <p><code class="language-python">implicit_followup_keyword_map</code> (dict)</p>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <br/>
+                                <hr>
+                                <br/>
+
+                                <h3>v2 and v1&nbsp;&nbsp;<small><b style="color:red">(requires "processing_mode" set to "semantic-parsing")</b></small></h3>
+                                <table class="bordered-table" style="table-layout: fixed; width: 100%;">
+                                    <colgroup>
+                                        <col style="width:30%">
+                                        <col style="width:40%">
+                                        <col style="width:30%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Params</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>NL4DV()</td>
+                                            <td>
+                                                <div>
+                                                    <p><code class="language-python">alias_url</code> (str, optional)</p>
+                                                    See set_alias_map() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">alias_value</code> (dict, optional)</p>
+                                                    See set_alias_map() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">label_attribute</code> (str, optional)</p>
+                                                    See set_label_attribute() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">ignore_words</code> (list, optional)</p>
+                                                    See set_ignore_words() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">reserve_words</code> (list, optional)</p>
+                                                    See set_reserve_words() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">dependency_parser_config</code> (dict, required)</p>
+                                                    See set_dependency_parser() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">thresholds</code> (dict, optional)</p>
+                                                    See set_thresholds() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">importance_scores</code> (dict, optional)</p>
+                                                    See set_importance_scores() for a description and example.
+                                                    <hr>
+                                                    <p><code class="language-python">attribute_datatype</code> (dict, optional)</p>
+                                                    See set_attribute_datatype() for a description and example.
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.analyze_query()</td>
+                                            <td>
+                                                <p><code class="language-python">debug</code> (bool)</p>
+                                                <hr>
+                                                <p><code class="language-python">verbose</code> (bool)</p>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>nl4dv_instance.set_alias_map()</td>
                                             <td>
                                                 <p><code class="language-python">alias_url</code> (str: path to local file or url)</p>
                                                 <span>
-                                                    <b>Example:</b><i>"aliases/euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json" target="_blank">sample</a>)</i>
+                                                    <b>Example:</b> <i>"aliases/euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json" target="_blank">sample</a>)</i>
                                                 </span>
-                                                <div class="separator"><i>Or</i></div>
+                                                <div class="separator"><i>OR</i></div>
                                                 <p><code class="language-python">alias_value</code> (dict)</p>
-                                                <span><b>Example:</b><i>"aliases/cars.json"</i> where the json is like </span>
+                                                <span><b>Example:</b> <i>"aliases/cars.json"</i> where the json is like </span>
                                                 <pre><code class="language-python">{"MPG": ["miles per gallon"],
 "Horsepower": ["hp"]}</code></pre>
                                             </td>
                                             <td>Sets the alias values.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_thresholds(thresholds=None)</td>
+                                            <td>nl4dv_instance.set_thresholds()</td>
                                             <td>
                                                 <p><code class="language-python">thresholds</code> (dict)</p>
                                                 <span><b>Example:</b></span>
@@ -770,27 +1111,7 @@ output = nl4dv_instance.analyze_query(query)
                                             <td>Overrides the default thresholds such as string matching.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_explicit_followup_keywords(explicit_followup_keyword_map=None)</td>
-                                            <td>
-                                                <p><code class="language-python">explicit_followup_keyword_map</code> (dict)</p>
-                                                <span><b>Example:</b></span>
-                                                <pre><code class="language-python">{"put": [("addition", "add")],
-"add": [("addition", "add")]}</code></pre>
-                                            </td>
-                                            <td>Overrides the default explicit_followup_keywords map. The dictionary must be formatted as the following: The key must be the keyword string, and the value must be a list. The list must contain only one element that is a 2-tuple. The first element in the 2-tuple represents the noun version of the follow-up operation (it MUST come from these words - (addition, removal, replacement), and the second element represents the verb version of the follow-up operation (add, remove, replace). </td>
-                                        </tr>
-                                        <tr>
-                                            <td>set_implicit_followup_keywords(implicit_followup_keyword_map=None)</td>
-                                            <td>
-                                                <p><code class="language-python">implicit_followup_keyword_map</code> (dict)</p>
-                                                <span><b>Example:</b></span>
-                                                <pre><code class="language-python">"also": [("also", "add")],
-"as well": [("aswell", "add")]}</code></pre>
-                                            </td>
-                                            <td>Overrides the default implicit_followup_keyword_map map. The dictionary must be formatted as the following: The key must be the keyword string, and the value must be a list. The list must contain only one element that is a 2-tuple. The first element in the 2-tuple represents the concatenated version of the token with no spaces, and the second element represents the verb version of the follow-up operation (add, remove, replace). </td>
-                                        </tr>
-                                        <tr>
-                                            <td>set_importance_scores(scores=None)</td>
+                                            <td>nl4dv_instance.set_importance_scores()</td>
                                             <td><p><code class="language-python">scores</code> (dict)</p>
                                                 <span><b>Example:</b></span><pre><code class="language-python">{'attribute': {
     'attribute_exact_match': 1,
@@ -811,7 +1132,7 @@ output = nl4dv_instance.analyze_query(query)
                                             are detected.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_attribute_datatype(attr_type_obj=None)</td>
+                                            <td>nl4dv_instance.set_attribute_datatype()</td>
                                             <td><p><code class="language-python">attr_type_obj</code> (dict)</p>
                                                 <span><b>Example:</b></span><pre><code class="language-python">{"Year": "T", # Temporal
 "Rank": "O", # Ordinal
@@ -820,14 +1141,14 @@ output = nl4dv_instance.analyze_query(query)
                                             <td>Override the attribute datatypes that are detected by NL4DV.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_dependency_parser(config=None)</td>
+                                            <td>nl4dv_instance.set_dependency_parser()</td>
                                             <td><p><code class="language-python">config</code> (dict)</p>
                                                 <span><b>Example:</b></span><pre><code class="language-python">{"name": "corenlp-server",
 "url": "http://192.168.99.102:9000"}</code></pre></td>
                                             <td>Set the dependency parser to be used in the Tasks detector module.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_reserve_words(reserve_words=None)</td>
+                                            <td>nl4dv_instance.set_reserve_words()</td>
                                             <td><p><code class="language-python">reserve_words</code> (list)</p>
                                                 <span><b>Example:</b><code class="language-python">["A"] </code></span>
                                                 # "A" - although an article (like 'a/an/the') should be retained in a grades dataset.
@@ -836,26 +1157,128 @@ output = nl4dv_instance.analyze_query(query)
                                             might be present in the domain.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_ignore_words(ignore_words=None)</td>
+                                            <td>nl4dv_instance.set_ignore_words()</td>
                                             <td><p><code class="language-python">ignore_words</code> (list)</p>
                                             <span><b>Example:</b><code class="language-python">["movie"]</code></span></td>
                                             <td>Set the words that should be IGNORED in the query, i.e. NOT lead to the detection of attributes and tasks.</td>
                                         </tr>
                                         <tr>
-                                            <td>set_label_attribute(label_attribute=None)</td>
+                                            <td>nl4dv_instance.set_label_attribute()</td>
                                             <td><p><code class="language-python">label_attribute</code> (str)</p>
                                                 <span><b>Example:</b><code class="language-python">["Model"]</code></span>
                                                 # Correlate horsepower and MPG for sports car models" should NOT apply an explicit attribute for models since there are two explicit attributes already present.
                                             </td>
                                             <td>Set the words that should be IGNORED in the query, i.e. NOT lead to the detection of attributes and tasks.</td>
                                         </tr>
-                                        <tr>
-                                            <td>get_metadata()</td>
-                                            <td>-</td>
-                                            <td>Get the metadata object after processing the dataset.</td>
-                                        </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                        </section>
+                        <section id="faq" class="doc-section">
+                            <h3 class="section-title">FAQ | Message from Creators</h3>
+                            <div class="section-block">
+                                <p>As we plan additional features to add new features / improve the toolkit, we <b class="text-danger">recommend</b> users/developers to be aware of the following: </p>
+                                <ul>
+                                    <li><p>
+                                        <b>How is "data" returned in the output JSON?</b><br/>If the data was input via the "data_value" parameter, to minimize the storage footprint of this output JSON, the Vega-Lite spec (vlSpec) will NOT include the dataset values (under the "data" > "value" property); you are expected to supply these to render the visualization. However, if the dataset was input via the "data_url" parameter, the 'vlSpec' will have this data configuration by default (under the "data" > "url" property).
+                                    </p></li>
+                                    <li><p><b>Dependency parser output variations.</b><br/>The dependency tree returned by CoreNLP, CoreNLP Server, and Spacy are sometimes different. The current parser logic was developed for CoreNLP, hence it'll work best. However, we are upgrading the rules to work consistently across all dependency parsers.</p></li>
+                                    <li>
+                                        <p><b>Attribute data types.</b><br/> Verify the attribute types (e.g., nominal, temporal) that are detected by NL4DV and override them if they are incorrect as they will most likely lead to erroneous visualizations. The current attribute datatype detection logic is based on heuristics and we are currently working towards a major improvement that semantically infers the data type from both, the attribute's name and its value.</p>
+                                    </li>
+                                    <li>
+                                        <p><b>Temporal attributes.</b><br/> NL4DV relies on Regular Expressions to detect common date formats <span style="color:red">(listed in the order of priority in case of conflicts)</span>.</p>
+                                        <div class="bordered-table">
+                                            <table >
+                                                <thead>
+                                                    <tr>
+                                                        <th>Supported Date Formats <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes" target="_blank">(Codes: 1989 C standard)</a></th>
+                                                        <th>Examples</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><p><code class="language-python">%m*%d*%Y</code> or <code class="language-python">%m*%d*%y</code>  where * ∈ {. - /}</p></td>
+                                                        <td>
+                                                            <ul>
+                                                                <li>12.24.2019</li>
+                                                                <li>12/24/2019</li>
+                                                                <li>1-24-19</li>
+                                                                <li>09.24.20</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p><code class="language-python">%Y*%m*%d</code> or <code class="language-python">%y*%m*%d</code>  where * ∈ {. - /}</p></td>
+                                                        <td>
+                                                            <ul>
+                                                                <li>2019.12.24</li>
+                                                                <li>2019/12/24</li>
+                                                                <li>19-1-24</li>
+                                                                <li>20.09.24</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p><code class="language-python">%d*%m*%Y</code> or <code class="language-python">%d*%m*%y</code>  where * ∈ {. - /}</p></td>
+                                                        <td>
+                                                            <ul>
+                                                                <li>24.12.2019</li>
+                                                                <li>24/12/2019</li>
+                                                                <li>24-1-19</li>
+                                                                <li>24.09.20</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p><code class="language-python">%d/%b/%Y</code> or <code class="language-python">%d/%B/%Y</code> or <code class="language-python">%d/%b/%y</code> or <code class="language-python">%d/%B/%y</code> where * ∈ {. - / space}</p></td>
+                                                        <td>
+                                                            <ul>
+                                                                <li>8-January-2019</li>
+                                                                <li>31 Dec 19</li>
+                                                                <li>1/Jan/19</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p><code class="language-python">%d*%b</code> or <code class="language-python">%d*%B</code>  where * ∈ {. - / space}</p></td>
+                                                        <td>
+                                                            <ul>
+                                                                <li>8-January</li>
+                                                                <li>31 Dec</li>
+                                                                <li>1/Jan</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p><code class="language-python">%b/%d/%Y</code> or <code class="language-python">%B/%d/%Y</code> or <code class="language-python">%b/%d/%y</code> or <code class="language-python">%B/%d/%y</code> where * ∈ {. - / space}</p></td>
+                                                        <td>
+                                                            <ul>
+                                                                <li>January-8-2019</li>
+                                                                <li>Dec 31 19</li>
+                                                                <li>Jan/1/19</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p><code class="language-python">%Y</code></p></td>
+                                                        <td>
+                                                            <b style="color:red">Only the following series</b>:
+                                                            <ul>
+                                                                <li>18XX (e.g., 1801)</li>
+                                                                <li>19XX (e.g., 1929)</li>
+                                                                <li>20XX (e.g., 2010)</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <br/>
+                                    </li>
+                                    <li><p><b>Filter task.</b><br/>NL4DV applies the filter task by matching the condition against each data point but does not encode the involved attributes in the visualization. This was a design decision taken to avoid recommending a complex visualization due to too many encoded attributes.</p></li>
+                                    <li><p><b>Thresholds and Match scores.</b><br/>These are currently set based on heuristics and prior research works; we encourage users/developers to modify them to suit their specific requirements.</p></li>
+                                </ul>
                             </div>
                         </section>
                         <section id="contribute" class="doc-section">
@@ -905,8 +1328,8 @@ output = nl4dv_instance.analyze_query(query)
                                     <li>
                                         <p>Verify by opening your Python console and importing it:</p>
                                         <p>
-                                            <code class="language-bash">$python</code><br/>
-                                            <code class="language-bash">>>> from nl4dv import NL4DV</code>
+                                            <pre><code class="language-bash">$python
+>>> from nl4dv import NL4DV</code></pre>
                                         </p>
                                     </li>
                                     <li>
@@ -915,23 +1338,37 @@ output = nl4dv_instance.analyze_query(query)
                                 </ol>
                             </div>
                         </section>
+                        <section id="docker" class="doc-section">
+                            <h2 class="section-title">Docker | only v1</h2>
+                            <div class="section-block">
+                                <p>NL4DV v1 is containerized into a <b><a href="https://hub.docker.com/r/arpitnarechania/nl4dv" target="_blank">Docker Image</a></b>. This image comes pre-installed with NL4DV, Spacy, Stanford CoreNLP, and a few datasets with a web application as a <b>Demo</b>. Install it using:</p>
+                                <p><pre><code class="language-bash">docker pull arpitnarechania/nl4dv</code></pre></p>
+                                <p><b>Note:</b> This mode of installation <b class="text-danger">does not</b> require the Post Installation steps. For more informations, follow the detailed instructions in the <b><a href="https://github.com/nl4dv/nl4dv-docker" target="_blank">Github repository (nl4dv-docker)</a></b>.</p>
+                            </div>
+                        </section>
                         <section id="credits" class="doc-section">
                             <h2 class="section-title">Credits</h2>
                             <div class="section-block">
                                 <p>
-                                    NL4DV was created by <a target="_blank"
-                                                            href="http://arpit.narechania.com">Arpit
+                                    NL4DV was created by <a target="_blank" href="https://narechania.com">Arpit
                                     Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun
                                     Srinivasan</a>, <a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a target="_blank" href="https://va.gatech.edu/endert/">Alex Endert</a>, <a target="_blank" href="https://www.cc.gatech.edu/~john.stasko/">John
-                                    Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech
-                                    Visualization Lab</a>, along with  <a target="_blank" href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a> and <a target="_blank" href="https://cci.charlotte.edu/directory/wenwen-dou/">Wenwen Dou</a> of the <a target="_blank" href="https://viscenter.charlotte.edu/">UNC Charlotte Visualization Center</a>.
+                                    Stasko</a> of the <a target="_blank" href="https://vis.gatech.edu/">Georgia Tech
+                                    Visualization Lab</a>, along with  <a target="_blank" href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a> and <a target="_blank" href="https://cci.charlotte.edu/directory/wenwen-dou/">Wenwen Dou</a> of the <a target="_blank" href="https://viscenter.charlotte.edu/">UNC Charlotte Visualization Center</a> and Tenghao Ji as an independent contributor.
                                 </p>
-                                <p>We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia
-                                        Tech Visualization Lab</a> for their support and constructive feedback.</p>
+                                <p>We thank the members of the <a target="_blank" href="https://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
                             </div>
                         </section>
                         <section id="citation" class="doc-section">
                             <h2 class="section-title">Citations</h2>
+                            <div class="section-block">
+                                <h4>2025 (coming soon)</h4>
+                                <pre><code class="language-bib">@misc{sah2024generatinganalyticspecificationsdata,
+    title={{NL4DV-Stylist: Styling Data Visualizations Using Natural Language and Example Charts}},
+    author={{Ji}, Tenghao and {Narechania}, Arpit},
+    year={2025}
+}</code></pre>
+                            </div>
                             <div class="section-block">
                                 <h4>2024 IEEE VIS NLVIZ Workshop Track</h4>
                                 <pre><code class="language-bib">@misc{sah2024generatinganalyticspecificationsdata,
@@ -943,7 +1380,7 @@ output = nl4dv_instance.analyze_query(query)
     primaryClass={cs.HC},
     url={https://arxiv.org/abs/2408.13391},
     howpublished = {Presented at NLVIZ Workshop, IEEE VIS 2024},
-    }</code></pre>
+}</code></pre>
                             </div>
                             <div class="section-block">
                                 <h4>2022 IEEE VIS Conference Short Paper Track</h4>
@@ -963,7 +1400,7 @@ output = nl4dv_instance.analyze_query(query)
 title = {{NL4DV}: A {Toolkit} for Generating {Analytic Specifications} for {Data Visualization} from {Natural Language} Queries},
 shorttitle = {{NL4DV}},
 author = {{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
-journal = {IEEE Transactions on Visualization and Computer Graphics (TVCG)},
+journal = {IEEE Transactions on Visualization and Computer Graphics},
 doi = {10.1109/TVCG.2020.3030378},
 year = {2021},
 publisher = {IEEE}
@@ -976,7 +1413,7 @@ publisher = {IEEE}
                                 <p>
                                     If you have any questions, feel free to <a
                                         href="https://github.com/nl4dv/nl4dv/issues/new/choose">open a GitHub issue</a>
-                                    or contact <a target="_blank" href="http://arpit.narechania.com">Arpit
+                                    or contact <a target="_blank" href="https://narechania.com">Arpit
                                     Narechania</a>.
                                 </p>
                             </div>
@@ -998,34 +1435,33 @@ publisher = {IEEE}
                             <nav class="doc-sub-menu nav flex-column">
                                 <a class="nav-link scrollto" href="#install">Installation</a>
                                 <a class="nav-link scrollto" href="#post-installation">Post Installation</a>
-                                <a class="nav-link scrollto" href="#sample-code-llm">Sample Code for LLM-based Mode</a>
-                                <a class="nav-link scrollto" href="#sample-code">Sample Code (Single Turn)</a>
-                                <a class="nav-link scrollto" href="#sample-code-ci">Sample Code (Multi Turn)</a>
-                                <a class="nav-link scrollto" href="#docker">Docker</a>
-                                <a class="nav-link scrollto" href="#author-notes">Message from Creators</a>
+                                <a class="nav-link scrollto" href="#sample-code-lm">Sample Code | v4</a>
+                                <a class="nav-link scrollto" href="#sample-code-gpt">Sample Code | v3</a>
+                                <a class="nav-link scrollto" href="#sample-code-ci">Sample Code | v2</a>
+                                <a class="nav-link scrollto" href="#sample-code">Sample Code | v1</a>
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
                             </nav><!--//nav-->
                             <a class="nav-link scrollto" href="#api-reference">API Reference</a>
+                            <a class="nav-link scrollto" href="#faq">FAQ</a>
                             <a class="nav-link scrollto" href="#contribute">Build</a>
+                            <a class="nav-link scrollto" href="#docker">Docker</a>
                             <a class="nav-link scrollto" href="#credits">Credits</a>
                             <a class="nav-link scrollto" href="#citation">Citations</a>
                             <a class="nav-link scrollto" href="#contact">Contact Us</a>
                             <a class="nav-link scrollto" href="#license">License</a>
                         </nav><!--//doc-menu-->
-
                     </div>
                 </div><!--//doc-sidebar-->
             </div><!--//doc-body-->
         </div><!--//container-->
     </div><!--//doc-wrapper-->
-
 </div><!--//page-wrapper-->
 
 <footer class="footer text-center">
     <div class="container">
         <p>
             NL4DV: The Natural Language Toolkit for Data Visualization<br />
-            <small>Georgia Institute of Technology and UNC Charlotte&nbsp;&copy;&nbsp;2024</small>
+            <small>Georgia Institute of Technology, UNC Charlotte, and Hong Kong University of Science and Technology&nbsp;&copy;&nbsp;2025</small>
         </p>
         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
         <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a

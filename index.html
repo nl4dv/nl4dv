@@ -17,14 +17,14 @@
 
     <!-- Hotjar Tracking Code for NL4DV -->
     <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:5200053,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 5200053, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
             a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
 
     <title>NL4DV | Home</title>
@@ -91,13 +91,15 @@
                 <!--//branding-->
                 <div class="tagline">
                     <p>The Natural Language Toolkit for Data Visualization</p>
-                    <small>Georgia Institute of Technology, UNC Charlotte</small>
+                    <small>Georgia Institute of Technology, UNC
+                        Charlotte, and Hong Kong University of Science and Technology</small>
                 </div>
                 <!--//tagline-->
                 <div class="cta-container">
                     <a class="btn btn-primary btn-cta m-xs" href="https://github.com/nl4dv/nl4dv" target="_blank"><i
                             class="fab fa-github"></i> View on GitHub</a>
-                    <a class="btn btn-orange btn-cta m-xs" href="https://nl4dv-14924aab225c.herokuapp.com/nl4dv_llm" target="_blank"><i class="fa fa-rocket"></i> Live Demo</a>
+                    <a class="btn btn-orange btn-cta m-xs" href="https://nl4dv-14924aab225c.herokuapp.com/nl4dv_llm"
+                        target="_blank"><i class="fa fa-rocket"></i> Live Demo (v3)</a>
                 </div>
                 <!--//cta-container-->
 
@@ -106,221 +108,281 @@
         </header>
         <!--//header-->
 
-        <section class="cards-section text-center">
+        <section class="cards-section">
             <div class="container">
                 <div class="intro">
-                    <h2>Hi, Welcome to the NL4DV project!</h2>
+                    <h2 class="text-center">Hi, Welcome to the NL4DV project!</h2>
                     <br />
-                    <p class="text-left">Natural language interfaces (NLIs) have shown great promise for visual data
-                        analysis, allowing people to flexibly specify and interact with visualizations. However,
+                    <p><strong>Natural language interfaces (NLIs) have shown great promise for visual data
+                        analysis</strong>, allowing people to flexibly specify and interact with visualizations. However,
                         developing visualization NLIs remains a challenging task, requiring low-level implementation of
                         natural language processing (NLP) techniques as well as knowledge of visual analytic tasks and
                         visualization design. </p>
-                    <p class="text-left">NL4DV is a Python package that takes as input a tabular dataset and a natural
+                    <p><strong>NL4DV is a Python toolkit</strong> that takes as input a tabular dataset and a natural
                         language query about that dataset. In response, the toolkit returns an analytic specification
                         modeled as a JSON object containing data attributes, analytic tasks, and a list of Vega-Lite
                         specifications relevant to the input query. In doing so, NL4DV aids visualization developers who
                         may not have a background in NLP, enabling them to create new visualization NLIs or incorporate
-                        natural language input within their existing systems. NL4DV has had a rich history with three
-                        major version releases. The versioning scheme is cumulative, i.e., with appropriate
-                        configurations, installing v3 (or 3.x) will include capabilities of both v2 (2.x) and v1 (1.x). Read more below:
+                        natural language and example charts input within their existing systems.
                     </p>
-                    <hr>
-                    <div>
-                        <h4><strong>NL4DV-LLM</strong>&nbsp;-&nbsp;<small>[v3, 2024]</small></h4>
-                        </h4>
-                        <h5><i>Generating Analytic Specifications Using Large Language Models</i></h5>
-                        <h6 class="text-secondary text-bold">Subham Sah*, Rishab Mitra*, Arpit Narechania*, Alex Endert,
-                            John Stasko, Wenwen Dou</h6>
-                        <div>(* equal contribution)</div>
-                        <br />
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item"
-                                src="https://www.youtube.com/embed/3YxloJgnV9I?rel=0&amp;showinfo=0" frameborder="0"
-                                allowfullscreen></iframe>
+                    <p>
+                        <strong>NL4DV has had a rich history with four major version releases</strong>. The versioning scheme is cumulative, i.e., with appropriate configurations, installing v4 (or 4.x) will include capabilities of v3 (3.x), v2 (2.x), and v1 (1.x). Read more below:
+                    </p>
+                </div>
+                <br/>
+                <div class="content">
+                    <div class="container">
+                        <div class="row version-cards-row">
+                            <div class="col-md-6">
+                                <div class="version-card">
+                                    <div class="version-title">
+                                        <h4><strong>NL4DV-Stylist</strong>&nbsp;-&nbsp;<small>[v4, 2025]</small></h4>
+                                    </div>
+                                    <div class="version-subtitle">
+                                        <h5><i>Styling Data Visualizations Using Natural Language and Example Charts</i></h5>
+                                    </div>
+                                    <div class="version-authors">
+                                        <h6 class="text-secondary text-bold">Tenghao Ji, Arpit Narechania</h6>
+                                    </div>
+                                    <div class="version-equal-contrib"></div>
+                                    <div class="version-media">
+                                        <div class="img-teaser p-0">
+                                            <img src="assets/images/showcase/teaser-nl4dv-stylist-1.png" width="100%"/>
+                                        </div>
+                                    </div>
+                                    <div class="version-buttons">
+                                        <a class="btn btn-primary btn-cta m-xs" href="#" target="_blank" download><i class="fas fa-file-pdf"></i> Paper (coming soon)</a>
+                                        <a class="btn btn-warning btn-cta m-xs"
+                                            href="https://github.com/nl4dv/nl4dv/blob/master/nl4dv/lm_designgenie/lm_designgenie.py"
+                                            target="_blank"><i class="fas fa-rocket"></i> Use our LLM Prompt!</a>
+                                    </div>
+                                    <div class="version-description">
+                                        <p>
+                                            Traditionally, natural language interfaces (NLIs) have focused primarily on identifying data attributes and analytic tasks from user queries, giving less attention to customizing the design of output visualizations. This limitation can hinder satisfying personal preferences, meeting branding requirements, and ensuring accessibility. Released in 2025, this version assists developers in styling data visualizations by allowing them to provide one or more example charts along with corresponding natural language (NL) instructions as design guidance, e.g., preference for horizontal legends or reusing a particular color scheme they saw recently, improving current NL to VIS authoring workflows by producing more design-informed visualizations.
+                                            <br/><br/>
+                                            This version also utilizes LiteLLM as an LLM gateway to enable developers to choose from a variety of models (and not just GPT-4, as was the restriction in v3).
+                                        </p>
+                                    </div>
+                                    <div class="version-citation">
+                                        <div class="text-left">
+                                            <p><strong>Citation:</strong></p>
+                                            <pre style="background: #efefef; padding: 16px;">@misc{ji2025enl4dv,
+    title={{NL4DV-Stylist: Styling Data Visualizations Using Natural Language and Example Charts}}, 
+    author={{Ji}, Tenghao and {Narechania}, Arpit},
+    year={2025}
+}</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="version-card">
+                                    <div class="version-title">
+                                        <h4><strong>NL4DV-LLM</strong>&nbsp;-&nbsp;<small>[v3, 2024]</small></h4>
+                                    </div>
+                                    <div class="version-subtitle">
+                                        <h5><i>Generating Analytic Specifications Using Large Language Models</i></h5>
+                                    </div>
+                                    <div class="version-authors">
+                                        <h6 class="text-secondary text-bold">Subham Sah*, Rishab Mitra*, Arpit Narechania*, Alex Endert, John Stasko, Wenwen Dou</h6>
+                                    </div>
+                                    <div class="version-equal-contrib">
+                                        <small>(* equal contribution)</small>
+                                    </div>
+                                    <div class="version-media">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/3YxloJgnV9I?rel=0&amp;showinfo=0" frameborder="0"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="version-buttons">
+                                        <a class="btn btn-primary btn-cta m-xs" href="https://arxiv.org/abs/2408.13391"
+                                            target="_blank" download><i class="fas fa-file-pdf"></i> Paper (VIS'24)</a>
+                                        <a class="btn btn-dark btn-cta m-xs" href="https://youtu.be/f1qHECiyIfs" target="_blank"><i
+                                                class="fas fa-video"></i> Talk</a>
+                                        <a class="btn btn-orange btn-cta m-xs" href="https://nl4dv-14924aab225c.herokuapp.com/nl4dv_llm" target="_blank"><i class="fa fa-rocket"></i> Live Demo</a>
+                                        <a class="btn btn-orange btn-cta m-xs"
+                                            href="https://gist.github.com/subham27-07/be8b52d635c44683b2a40f736c3f782a"
+                                            target="_blank"><i class="fas fa-rocket"></i> Colab Demo</a>
+                                        <a class="btn btn-warning btn-cta m-xs"
+                                            href="https://github.com/nl4dv/nl4dv/blob/master/nl4dv/lm_querygenie/lm_querygenie.py"
+                                            target="_blank"><i class="fas fa-rocket"></i> Use our LLM Prompt!</a>
+                                    </div>
+                                    <div class="version-description">
+                                        <p>
+                                            Released in 2024, this version enables developers to utilize a Large Language Model (particularly GPT-4) to translate a natural language query about a dataset into a relevant visualization. We present a comprehensive text prompt that, given a tabular dataset and an NL query about the dataset, generates an analytic specification including (detected) data attributes, (inferred) analytic tasks, and (recommended) visualizations. Unlike prior LLM-based approaches, our prompt supports conversational interaction and ambiguity detection capabilities. In our paper, we detail the iterative process of curating our prompt, present a preliminary performance evaluation using GPT-4, and discuss the strengths and limitations of LLMs at various stages of query translation. Check it out!
+                                        </p>
+                                    </div>
+                                    <div class="version-citation">
+                                        <div class="text-left">
+                                            <p><strong>Citation:</strong></p>
+                                            <pre style="background: #efefef; padding: 16px;">@misc{sah2024nl4dvllm,
+    title={{Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models}}, 
+    author={{Sah}, Subham and {Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John and {Dou}, Wenwen},
+    year={2024},
+    eprint={2408.13391},
+    archivePrefix={arXiv},
+    primaryClass={cs.HC},
+    url={https://arxiv.org/abs/2408.13391}, 
+    howpublished={Presented at the NLVIZ Workshop, IEEE VIS 2024}
+}</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <br />
-                        <div>
-                            <a class="btn btn-primary btn-cta m-xs" href="https://arxiv.org/abs/2408.13391"
-                                target="_blank" download><i class="fas fa-file-pdf"></i> Paper (IEEE VIS'24)</a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-dark btn-cta m-xs" href="https://youtu.be/f1qHECiyIfs"
-                                target="_blank"><i class="fas fa-video"></i> Talk (IEEE VIS'24)</a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-orange btn-cta m-xs"
-                                href="https://gist.github.com/subham27-07/be8b52d635c44683b2a40f736c3f782a"
-                                target="_blank"><i class="fas fa-rocket"></i> Live Demo (Colab)</a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-warning btn-cta m-xs"
-                                href="https://github.com/nl4dv/nl4dv/blob/master/nl4dv/promptgenie/promptgenie.py"
-                                target="_blank"><i class="fas fa-rocket"></i> Use our LLM Prompt!</a>
-                        </div>
-                        <br />
-                        <p class="text-left">
-                            Released in 2024, this version enables developers to utilize a Large Language Model (GPT) to
-                            translate a natural language query about a dataset into a relevant visualization, including
-                            additional features such as multi-turn conversational interaction and ambiguity resolution.
-                            We present a comprehensive text prompt that, given a tabular dataset and an NL query about
-                            the dataset, generates an analytic specification including (detected) data attributes,
-                            (inferred) analytic tasks, and (recommended) visualizations. This specification captures key
-                            aspects of the query translation process, affording both explainability and debuggability.
-                            For instance, it provides mappings from the detected entities to the corresponding phrases
-                            in the input query, as well as the specific visual design principles that determined the
-                            visualization recommendations. Moreover, unlike prior LLM-based approaches, our prompt
-                            supports conversational interaction and ambiguity detection capabilities. In our paper, we
-                            detail the iterative process of curating our prompt, present a preliminary performance
-                            evaluation using GPT-4, and discuss the strengths and limitations of LLMs at various stages
-                            of query translation. Check it out!
-                        </p>
-                        <div class="text-left">
-                            <p><strong>Citation:</strong></p>
-                            <pre style="background: #efefef">
-
-    @misc{sah2024nl4dvllm,
-        title={Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models}, 
-        author={{Sah}, Subham and {Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John and {Dou}, Wenwen},
-        year={2024},
-        eprint={2408.13391},
-        archivePrefix={arXiv},
-        primaryClass={cs.HC},
-        url={https://arxiv.org/abs/2408.13391}, 
-        howpublished={Presented at the NLVIZ Workshop, IEEE VIS 2024}
-    }
-                            </pre>    
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <h4><strong>NL4DV 2</strong>&nbsp;-&nbsp;<small>[v2, 2022]</small></h4>
-                        </h4>
-                        <h5><i>Multi Turn Conversational Interaction</i></h5>
-                        <h6 class="text-secondary text-bold">Rishab Mitra*, Arpit Narechania*, Alex Endert, John Stasko
-                        </h6>
-                        <div>(* equal contribution)</div>
-                        <br />
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item"
-                                src="https://www.youtube.com/embed/Zo9oniX9Y6c?rel=0&amp;showinfo=0" frameborder="0"
-                                allowfullscreen></iframe>
-                        </div>
-                        <br />
-                        <div>
-                            <a class="btn btn-primary btn-cta m-xs" href="https://arxiv.org/abs/2207.00189"
-                                target="_blank" download><i class="fas fa-file-pdf"></i> Paper (IEEE VIS'22)</a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-dark btn-cta m-xs" href="https://www.youtube.com/watch?v=OLtz6J1o-2U"
-                                target="_blank"><i class="fas fa-video"></i> Talk (IEEE VIS'22)</a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-orange btn-cta m-xs"
-                                href="https://gist.github.com/rmitra34/0e978230cc50dd261aa2c27d4967a129"
-                                target="_blank"><i class="fas fa-rocket"></i> Live Demo (Colab)</a>
-                        </div>
-                        <br />
-                        <p class="text-left">
-                            Released in 2022, this version enables developers to utilize semantic parsing techniques to
-                            facilitate multiple conversations about a dataset (conversational interaction) and also
-                            resolve associated ambiguities, in addition to the core functionality of translating a
-                            natural language query to a visualization. Checkout the showcase to see three examples: (1)
-                            an NLI to learn aspects of the Vega-Lite grammar, (2) a mind mapping application to create
-                            free-flowing conversations, and (3) a chatbot to answer questions and resolve ambiguities.
-                            Check it out!
-                        </p>
-                        <div class="text-left">
-                            <p><strong>Citation:</strong></p>
-                            <pre style="background: #efefef">
-
-    @article{mitra2022conversational,
-        title={{Facilitating Conversational Interaction in Natural Language Interfaces for Visualization}},
-        author={{Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John},
-        journal={IEEE VIS (Short Papers)},
-        year={{2022}},
-        publisher={IEEE},
-        url={https://doi.org/10.1109/VIS54862.2022.00010}
-    }
-                            </pre>    
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <h4><strong>NL4DV</strong>&nbsp;-&nbsp;<small>[v1, 2020]</small></h4>
-                        </h4>
-                        <h5><i>Single Turn Conversational Interaction</i></h5>
-                        <h6 class="text-secondary text-bold">Arpit Narechania*, Arjun Srinivasan*, John Stasko</h6>
-                        <div>(* equal contribution)</div>
-                        <br />
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item"
-                                src="https://www.youtube.com/embed/U5uDyILweu8?rel=0&amp;showinfo=0" frameborder="0"
-                                allowfullscreen></iframe>
-                        </div>
-                        <br />
-                        <div>
-                            <a class="btn btn-primary btn-cta m-xs" href="https://arxiv.org/abs/2008.10723"
-                                target="_blank" download><i class="fas fa-file-pdf"></i> Paper (IEEE VIS'20)</a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-dark btn-cta m-xs" href="https://youtu.be/nJnE7mxbA2k?t=4125"
-                                target="_blank"><i class="fas fa-video"></i> Talk (IEEE VIS'20)</a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-orange btn-cta m-xs"
-                                href="https://gist.github.com/arpitnarechania/84b5c5b2e25d80729b0abb243f67e588"
-                                target="_blank"><i class="fas fa-rocket"></i> Live Demo (Colab)</a>
-                        </div>
-                        <br />
-                        <p class="text-left">
-                            Released in 2020, this version enables developers to utilize semantic parsing techniques to
-                            translate a natural language query about a tabular dataset to one or more relevant
-                            visualizations. Checkout the showcase to see four examples: (1) rendering visualizations
-                            using natural language in a Jupyter notebook, (2) developing a NLI to specify and edit
-                            Vega-Lite charts, (3) recreating data ambiguity widgets from the DataTone system, and (4)
-                            incorporating speech input to create a multimodal visualization system.
-                        </p>
-                        <div class="text-left">
-                            <p><strong>Citation:</strong></p>
-                            <pre style="background: #efefef">
-
-    @article{narechania2020nl4dv,
-        title={{NL4DV: A Toolkit for Generating Analytic Specifications for Data Visualization from Natural Language Queries}},
-        author={{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
-        journal={IEEE TVCG},
-        year={{2021}},
-        publisher={IEEE},
-        url={https://doi.org/10.1109/TVCG.2020.3030378}
-    }
-                            </pre>    
+                        <br/>
+                        <div class="row version-cards-row">
+                            <div class="col-md-6">
+                                <div class="version-card">
+                                    <div class="version-title">
+                                        <h4><strong>NL4DV 2</strong>&nbsp;-&nbsp;<small>[v2, 2022]</small></h4>
+                                    </div>
+                                    <div class="version-subtitle">
+                                        <h5><i>Multi Turn Dialogs (Conversational Interaction)</i></h5>
+                                    </div>
+                                    <div class="version-authors">
+                                        <h6 class="text-secondary text-bold">Rishab Mitra*, Arpit Narechania*, Alex Endert, John Stasko
+                                        </h6>
+                                    </div>
+                                    <div class="version-equal-contrib">
+                                        <small>(* equal contribution)</small>
+                                    </div>
+                                    <div class="version-media">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/Zo9oniX9Y6c?rel=0&amp;showinfo=0" frameborder="0"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="version-buttons">
+                                        <a class="btn btn-primary btn-cta m-xs" href="https://arxiv.org/abs/2207.00189"
+                                            target="_blank" download><i class="fas fa-file-pdf"></i> Paper (VIS'22)</a>
+                                        <a class="btn btn-dark btn-cta m-xs" href="https://www.youtube.com/watch?v=OLtz6J1o-2U"
+                                            target="_blank"><i class="fas fa-video"></i> Talk</a>
+                                        <a class="btn btn-orange btn-cta m-xs"
+                                            href="https://gist.github.com/rmitra34/0e978230cc50dd261aa2c27d4967a129"
+                                            target="_blank"><i class="fas fa-rocket"></i> Colab Demo</a>
+                                    </div>
+                                    <div class="version-description">
+                                        <p>
+                                            Released in 2022, this version enables developers to utilize semantic parsing techniques to
+                                            facilitate multiple conversations about a dataset (conversational interaction) and also
+                                            resolve associated ambiguities, in addition to the core functionality of translating a
+                                            natural language query to a visualization. Checkout the showcase to see three examples: (1)
+                                            an NLI to learn aspects of the Vega-Lite grammar, (2) a mind mapping application to create
+                                            free-flowing conversations, and (3) a chatbot to answer questions and resolve ambiguities.
+                                            Check it out!
+                                        </p>
+                                    </div>
+                                    <div class="version-citation">
+                                        <div class="text-left">
+                                            <p><strong>Citation:</strong></p>
+                                            <pre style="background: #efefef; padding: 16px;">@article{mitra2022conversational,
+    title={{Facilitating Conversational Interaction in Natural Language Interfaces for Visualization}},
+    author={{Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John},
+    journal={{IEEE VIS (Short Papers)}},
+    year={{2022}},
+    publisher={IEEE},
+    url={https://doi.org/10.1109/VIS54862.2022.00010}
+}</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="version-card">
+                                    <div class="version-title">
+                                        <h4><strong>NL4DV</strong>&nbsp;-&nbsp;<small>[v1, 2020]</small></h4>
+                                    </div>
+                                    <div class="version-subtitle">
+                                        <h5><i>One-off Utterances</i></h5>
+                                    </div>
+                                    <div class="version-authors">
+                                        <h6 class="text-secondary text-bold">Arpit Narechania*, Arjun Srinivasan*, John Stasko</h6>
+                                    </div>
+                                    <div class="version-equal-contrib">
+                                        <small>(* equal contribution)</small>
+                                    </div>
+                                    <div class="version-media">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/U5uDyILweu8?rel=0&amp;showinfo=0" frameborder="0"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="version-buttons">
+                                        <a class="btn btn-primary btn-cta m-xs" href="https://arxiv.org/abs/2008.10723"
+                                            target="_blank" download><i class="fas fa-file-pdf"></i> Paper (VIS'20)</a>
+                                        <a class="btn btn-dark btn-cta m-xs" href="https://youtu.be/nJnE7mxbA2k?t=4125"
+                                            target="_blank"><i class="fas fa-video"></i> Talk</a>
+                                        <a class="btn btn-orange btn-cta m-xs"
+                                            href="https://gist.github.com/arpitnarechania/84b5c5b2e25d80729b0abb243f67e588"
+                                            target="_blank"><i class="fas fa-rocket"></i> Colab Demo</a>
+                                    </div>
+                                    <div class="version-description">
+                                        <p>
+                                            Released in 2020, this version enables developers to utilize semantic parsing techniques to
+                                            translate a natural language query about a tabular dataset to one or more relevant
+                                            visualizations. Checkout the showcase to see four examples: (1) rendering visualizations
+                                            using natural language in a Jupyter notebook, (2) developing a NLI to specify and edit
+                                            Vega-Lite charts, (3) recreating data ambiguity widgets from the DataTone system, and (4)
+                                            incorporating speech input to create a multimodal visualization system.
+                                        </p>
+                                    </div>
+                                    <div class="version-citation">
+                                        <div class="text-left">
+                                            <p><strong>Citation:</strong></p>
+                                            <pre style="background: #efefef; padding: 16px;">@article{narechania2020nl4dv,
+    title={{NL4DV: A Toolkit for Generating Analytic Specifications for Data Visualization from Natural Language Queries}},
+    author={{Narechania}, Arpit and {Srinivasan}, Arjun and {Stasko}, John},
+    journal={{IEEE Transactions on Visualization and Computer Graphics}},
+    year={{2021}},
+    publisher={IEEE},
+    url={https://doi.org/10.1109/TVCG.2020.3030378}
+}</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!--//intro-->
                 <hr>
-                <h2 class="title">Getting started is easy!</h2>
-                <br />
-                <div id="cards-wrapper" class="cards-wrapper row">
-                    <div class="item item-purple col-lg-4 col-6">
-                        <div class="item-inner">
-                            <div class="icon-holder">
-                                <i class="icon icon_document_alt"></i>
+                <br />    
+                <div id="cards-wrapper" class="cards-wrapper">
+                    <h2 class="title text-center">Getting started is easy!</h2>
+                    <br />    
+                    <div class="row">
+                        <div class="item item-purple col-md-6">
+                            <div class="item-inner">
+                                <div class="icon-holder">
+                                    <i class="icon icon_document_alt"></i>
+                                </div>
+                                <!--//icon-holder-->
+                                <h3 class="title">Documentation</h3>
+                                <p class="intro">Installation Instructions and API Reference</p>
+                                <a class="link" href="documentation.html"><span></span></a>
                             </div>
-                            <!--//icon-holder-->
-                            <h3 class="title">Documentation</h3>
-                            <p class="intro">Installation Instructions and API Reference</p>
-                            <a class="link" href="documentation.html"><span></span></a>
+                            <!--//item-inner-->
                         </div>
-                        <!--//item-inner-->
-                    </div>
-                    <!--//item-->
-                    <div class="item item-orange col-lg-4 col-6">
-                        <div class="item-inner">
-                            <div class="icon-holder">
-                                <span aria-hidden="true" class="icon icon_datareport"></span>
+                        <!--//item-->
+                        <div class="item item-orange col-md-6">
+                            <div class="item-inner">
+                                <div class="icon-holder">
+                                    <span aria-hidden="true" class="icon icon_datareport"></span>
+                                </div>
+                                <!--//icon-holder-->
+                                <h3 class="title">Showcase</h3>
+                                <p class="intro">Applications recreated and Sample Queries answered using NL4DV.</p>
+                                <a class="link" href="showcase.html"><span></span></a>
                             </div>
-                            <!--//icon-holder-->
-                            <h3 class="title">Showcase</h3>
-                            <p class="intro">Applications recreated and Sample Queries answered using NL4DV.</p>
-                            <a class="link" href="showcase.html"><span></span></a>
+                            <!--//item-inner-->
                         </div>
-                        <!--//item-inner-->
+                        <!--//item-->
                     </div>
-                    <!--//item-->
                 </div>
                 <!--//cards-->
 
@@ -335,7 +397,7 @@
         <div class="container">
             <p>
                 NL4DV: The Natural Language Toolkit for Data Visualization<br />
-                <small>Georgia Institute of Technology and UNC Charlotte&nbsp;&copy;&nbsp;2024</small>
+            <small>Georgia Institute of Technology, UNC Charlotte, and Hong Kong University of Science and Technology&nbsp;&copy;&nbsp;2025</small>
             </p>
             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
             <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a

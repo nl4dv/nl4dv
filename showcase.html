@@ -94,7 +94,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><span aria-hidden="true" class="icon icon_datareport"></span> Showcase</h1>
-                    <div class="meta">Applications developed or recreated using NL4DV.</div>
+                    <div class="meta">Applications developed or recreated using NL4DV along with Sample Query outputs.</div>
                 </div><!--//doc-header-->
                 <div id="showcase" class="doc-body row">
                     <div class="doc-content col-md-9 col-12 order-1">
@@ -104,21 +104,10 @@
                                 <div id="nl4dv-llm" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">NL4DV-LLM</h3>
+                                            <h3 class="block-title">NL4DV-LLM | v3</h3>
                                             <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-nl4dv-llm.png" alt="NL4DV-LLM" />
                                             <p class="intro">
                                                 A natural language interface for data visualization, powered by large language models (LLMs). Set your Open AI Key, choose one of existing datasets, and play around with our comprehensive prompt for such tasks!
-                                            </p>
-                                        </div>
-                                    </div><!--//row-->
-                                </div>
-                                <div id="vl-editor" class="section-block">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h3 class="block-title">Vega-Lite Editor</h3>
-                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-vl-editor.png" alt="Vega-Lite Editor" />
-                                            <p class="intro">
-                                                With this application, users can enter Vega-Lite specifications in the left panel and click "Run" to render the corresponding visualization. Alternatively, users who are unfamiliar with the Vega-Lite syntax can type in natural language queries into the input box at the top of the page and click "Execute" to generate a Vega-Lite specification corresponding to the input query. Additionally, the system also suggests alternative visualizations that may be relevant to the entered query as thumbnails at the bottom of the page. Clicking these thumbnails displays the chart and its corresponding specification on the left. Note that if a specification is manually edited, the recommended visualizations at the bottom of the screen get removed but the previous query remains in the input box for easier reference.
                                             </p>
                                         </div>
                                     </div><!--//row-->
@@ -126,7 +115,7 @@
                                 <div id="vl-learner" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">Vega-Lite Learner</h3>
+                                            <h3 class="block-title">Vega-Lite Learner | v2</h3>
                                             <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-vl-learner.png" alt="Vega-Lite Learner" />
                                             <p class="intro">
                                                 A natural language interface, now powered with conversational interaction capabilities, that helps learning specifications for specific Vega-Lite features, e.g., how filters are specified using the "transform" property. Users can sequentially input queries through the text input box at the top of the page to specify visualizations. These queries get appended to and form a conversation. Users can choose to see the difference (added, removed, or modified entities) between the visualization specification of the chosen query and its predecessor through highlights and annotations. Users can also update a visualization specification at any step of the conversation (albeit this edit will be local and temporary as the updates cannot be propagated along the conversation).
@@ -134,54 +123,10 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
-                                <div id="jupyter-notebook" class="section-block">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h3 class="block-title">Jupyter Notebook</h3>
-                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-jupyter-notebook.png" alt="Jupyter Notebook" />
-                                            <p class="intro">
-                                                By rendering visualizations in response to NL queries in environments like Jupyter Notebook, NL4DV enables novice Python data scientists and programmers to conduct visual analysis without needing to learn about visualization design or Python visualization packages (e.g., Matplotlib, Plotly).
-                                            </p>
-                                        </div>
-                                    </div><!--//row-->
-                                </div><!--//section-block-->
-                                <div id="datatone" class="section-block">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h3 class="block-title">DataTone</h3>
-                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-datatone.png" alt="DataTone" />
-                                            <p class="intro">
-                                                This application is inspired by <b><a href="http://www.cond.org/datatone.html" target="_blank">DataTone</a> (Gao et al, UIST'15)</b>. Once a natural language query is entered via the input box at the top of the screen, in addition to a visualization, the system highlights ambiguities in the input query through options in a dropdown menu. Clicking through these options helps the system "resolve" ambiguities and present more relevant visualizations. Note that this example does not replicate all of DataTone's features and focuses on highlighting data attribute- and value-level ambiguities.
-                                            </p>
-                                        </div>
-                                    </div><!--//row-->
-                                    <div id="chatbot" class="section-block">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h3 class="block-title">Chatbot</h3>
-                                                <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-chatbot.png" alt="Chatbot" />
-                                                <p class="intro">
-                                                    A conversational user interface that automatically detects user intent to follow up or not and helps resolve ambiguities through DataTone-like GUI-based "ambiguity widgets" (e.g., select dropdowns and buttons) through user interactions. Users disambiguate by responding to these prompts, notifying NL4DV through <code class="language-bash">update_query()</code>. Only after all ambiguities are resolved, the system renders the appropriate visualization.
-                                                </p>
-                                            </div>
-                                        </div><!--//row-->
-                                    </div><!--//section-block-->
-                                </div><!--//section-block-->
-                                <div id="mmplot" class="section-block">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h3 class="block-title">MMPlot</h3>
-                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-mmplot.png" alt="MMPlot" />
-                                            <p class="intro">
-                                                MMPlot is a multimodal scatterplot visualization system that allows creating and interacting with scatterplots using direct manipulation (through mouse or touch) and voice. Supported direct manipulation interactions include changing x, y, color, and size attributes using axis and legend dropdown menus, filtering using the control panel on the right (collapsed by default), zoom/pan, and tapping on individual points to see their details. Instead of performing repeated actions with mouse or touch, users can leverage voice to specify charts, apply filter, or do both through a single query.
-                                            </p>
-                                        </div>
-                                    </div><!--//row-->
-                                </div><!--//section-block-->
                                 <div id="mindmap" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">Mind Map</h3>
+                                            <h3 class="block-title">Mind Map | v2</h3>
                                             <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-mindmap.png" alt="MindMap" />
                                             <p class="intro">
                                                A mind mapping application that helps users engage in multiple simultaneous conversations regarding a dataset. Through speech or text modalities, users can ask standalone queries (e.g., "Show the distribution of salaries as a boxplot") as well as follow-up queries (e.g., "group by foot") through the plus icon, enabled by hovering on the corresponding mindmap node. Users can also follow-up on already followed-up queries, forming new conversational branches (e.g., "now show only defenders" and "what about only goalkeepers?"). Users can also delete a query (e.g., to paraphrase and recreate a new one), pruning the entire downstream conversation, including branches.
@@ -189,231 +134,316 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
-                            </section><!--//doc-section-->
-
-                            <section id="sample-queries-llm-outputs" class="doc-section">
-                                <h2 class="section-title">(v3) Sample Queries by Large Language Models (LLMs) </h2>
-                                <div id="fs-queries-llm-outputs" class="section-block">
+                                <div id="chatbot" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">Fully Specified</h3>
+                                            <h3 class="block-title">Chatbot | v2</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-chatbot.png" alt="Chatbot" />
                                             <p class="intro">
-                                                The sample queries below illustrate examples of fully-specified queries (i.e., queries containing explicit references to attributes, tasks, and visualizations).
+                                                A conversational user interface that automatically detects user intent to follow up or not and helps resolve ambiguities through DataTone-like GUI-based "ambiguity widgets" (e.g., select dropdowns and buttons) through user interactions. Users disambiguate by responding to these prompts, notifying NL4DV through <code class="language-bash">update_query()</code>. Only after all ambiguities are resolved, the system renders the appropriate visualization.
+                                            </p>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="jupyter-notebook" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Jupyter Notebook | v1</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-jupyter-notebook.png" alt="Jupyter Notebook" />
+                                            <p class="intro">
+                                                By rendering visualizations in response to NL queries in environments like Jupyter Notebook, NL4DV enables novice Python data scientists and programmers to conduct visual analysis without needing to learn about visualization design or Python visualization packages (e.g., Matplotlib, Plotly).
+                                            </p>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="vl-editor" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Vega-Lite Editor | v1</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-vl-editor.png" alt="Vega-Lite Editor" />
+                                            <p class="intro">
+                                                With this application, users can enter Vega-Lite specifications in the left panel and click "Run" to render the corresponding visualization. Alternatively, users who are unfamiliar with the Vega-Lite syntax can type in natural language queries into the input box at the top of the page and click "Execute" to generate a Vega-Lite specification corresponding to the input query. Additionally, the system also suggests alternative visualizations that may be relevant to the entered query as thumbnails at the bottom of the page. Clicking these thumbnails displays the chart and its corresponding specification on the left. Note that if a specification is manually edited, the recommended visualizations at the bottom of the screen get removed but the previous query remains in the input box for easier reference.
+                                            </p>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="datatone" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">DataTone | v1</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-datatone.png" alt="DataTone" />
+                                            <p class="intro">
+                                                This application is inspired by <b><a href="http://www.cond.org/datatone.html" target="_blank">DataTone</a> (Gao et al, UIST'15)</b>. Once a natural language query is entered via the input box at the top of the screen, in addition to a visualization, the system highlights ambiguities in the input query through options in a dropdown menu. Clicking through these options helps the system "resolve" ambiguities and present more relevant visualizations. Note that this example does not replicate all of DataTone's features and focuses on highlighting data attribute- and value-level ambiguities.
+                                            </p>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                                <div id="mmplot" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">MMPlot | v1</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-mmplot.png" alt="MMPlot" />
+                                            <p class="intro">
+                                                MMPlot is a multimodal scatterplot visualization system that allows creating and interacting with scatterplots using direct manipulation (through mouse or touch) and voice. Supported direct manipulation interactions include changing x, y, color, and size attributes using axis and legend dropdown menus, filtering using the control panel on the right (collapsed by default), zoom/pan, and tapping on individual points to see their details. Instead of performing repeated actions with mouse or touch, users can leverage voice to specify charts, apply filter, or do both through a single query.
+                                            </p>
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+
+                            <section id="sample-queries-lm-outputs" class="doc-section">
+                                <h2 class="section-title">Sample Queries | v4 ('language-model') | NL4DV-Stylist</h2>
+                                <div id="lm-outputs-1" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Example 1 | Basic</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-nl4dv-stylist-1.png" alt="NL4DV-Stylist Teaser 1" />
+                                        </div>
+                                    </div>
+                                </div><!--//section-block-->
+                                <div id="lm-outputs-2" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Example 2 | Advanced</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-nl4dv-stylist-2.png" alt="NL4DV-Stylist Teaser 2" />
+                                        </div>
+                                    </div>
+                                </div><!--//section-block-->
+                                <div id="lm-outputs-3" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Example 3 | Advanced</h3>
+                                            <img class="img-fluid img-center img-teaser" src="assets/images/showcase/teaser-nl4dv-stylist-3.png" alt="NL4DV-Stylist Teaser 3" />
+                                        </div>
+                                    </div>
+                                </div><!--//section-block-->
+                            </section>
+
+                            <section id="sample-queries-gpt-outputs" class="doc-section">
+                                <h2 class="section-title">Sample Queries | v3 ('gpt') | NL4DV-LLM</h2>
+                                <div id="fs-queries-gpt-outputs" class="section-block">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="block-title">Fully-Specified</h3>
+                                            <p class="intro">
+                                                Queries containing explicit references to attributes, tasks, and visualizations.
                                             </p>
                                             <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Movies</a></p>
                                             <p>
                                                 <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                <b>Click on a query</b> to show/hide recommended visualizations
                                                 or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                 or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                             </p>
-                                            <div id="queryContainer-fs-llm-outputs" class="queryContainer">
+                                            <div id="queryContainer-fs-gpt-outputs" class="queryContainer">
 
                                             </div>
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
-                                <div id="us-queries-llm-outputs" class="section-block">
+                                <div id="us-queries-gpt-outputs" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">Under Specified</h3>
+                                            <h3 class="block-title">Under-Specified</h3>
                                             <p class="intro">
-                                                The sample queries below illustrate examples of underspecified queries.
+                                                Queries without explicit references to attributes, tasks, or visualizations.
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
-                                                    <a class="nav-item nav-link active usTab" id="tab-us-attributes-llm-outputs" data-toggle="tab" href="#nav-tab-us-attributes-llm-outputs" role="tab" aria-controls="nav-tab-us-attributes-llm-outputs" aria-selected="true"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes-only</a>
-                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-tasks-llm-outputs" data-toggle="tab" href="#nav-tab-us-attributes-tasks-llm-outputs" role="tab" aria-controls="nav-tab-us-attributes-tasks-llm-outputs" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Tasks</a>
-                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-vis-llm-outputs" data-toggle="tab" href="#nav-tab-us-attributes-vis-llm-outputs" role="tab" aria-controls="nav-tab-us-attributes-vis-llm-outputs" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Visualizations</a>
+                                                    <a class="nav-item nav-link active usTab" id="tab-us-attributes-gpt-outputs" data-toggle="tab" href="#nav-tab-us-attributes-gpt-outputs" role="tab" aria-controls="nav-tab-us-attributes-gpt-outputs" aria-selected="true"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes-only</a>
+                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-tasks-gpt-outputs" data-toggle="tab" href="#nav-tab-us-attributes-tasks-gpt-outputs" role="tab" aria-controls="nav-tab-us-attributes-tasks-gpt-outputs" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Tasks</a>
+                                                    <a class="nav-item nav-link usTab" id="tab-us-attributes-vis-gpt-outputs" data-toggle="tab" href="#nav-tab-us-attributes-vis-gpt-outputs" role="tab" aria-controls="nav-tab-us-attributes-vis-gpt-outputs" aria-selected="false"><i class="fa fa-tasks"></i>&nbsp;&nbsp;Attributes + Visualizations</a>
                                                 </div>
                                             </nav>
                                             <div class="tab-content" >
                                                 <br/>
-                                                <div class="tab-pane fade show active" id="nav-tab-us-attributes-llm-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-llm-outputs">
+                                                <div class="tab-pane fade show active" id="nav-tab-us-attributes-gpt-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-gpt-outputs">
                                                     <p class="introText">
                                                         These queries only contain explicit references to data attributes.
                                                     </p>
                                                     <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Cars</a></p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-us-attributes-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-us-attributes-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-us-attributes-tasks-llm-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-tasks-llm-outputs">
+                                                <div class="tab-pane fade" id="nav-tab-us-attributes-tasks-gpt-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-tasks-gpt-outputs">
                                                     <p class="introText">
                                                         These queries do not specify a visualization type but contain explicit references to both attributes and tasks.
                                                     </p>
                                                     <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;European Soccer Players</a></p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-us-attributes-tasks-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-us-attributes-tasks-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-us-attributes-vis-llm-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-vis-llm-outputs">
+                                                <div class="tab-pane fade" id="nav-tab-us-attributes-vis-gpt-outputs" role="tabpanel" aria-labelledby="tab-us-attributes-vis-gpt-outputs">
                                                     <p class="introText">
                                                         These queries contain explicit references to attributes and visualizations, but not tasks.
                                                     </p>
                                                     <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Cars</a></p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-us-attributes-vis-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-us-attributes-vis-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
-                                <div id="more-queries-llm-outputs" class="section-block">
+                                <div id="more-queries-gpt-outputs" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h3 class="block-title">More Queries</h3>
                                             <p class="intro">
-                                                Below we provide some additional queries to illustrate NL4DV's interpretation capabilities.
-                                                <br/><b>NOTE: these queries are not split by the level of detail they provide and contain a mix of underspecified and fully-specified queries.</b>
+                                                These queries are not split by the level of detail they provide and contain a mix of under-specified and fully-specified queries.
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
-                                                    <a class="nav-item nav-link active otrTab" id="tab-otr-cars-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-otr-cars-w-year-llm-outputs" role="tab" aria-controls="nav-tab-otr-cars-w-year-llm-outputs" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
-                                                    <a class="nav-item nav-link otrTab" id="tab-otr-movies-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-otr-movies-w-year-llm-outputs" role="tab" aria-controls="nav-tab-otr-movies-w-year-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
-                                                    <a class="nav-item nav-link otrTab" id="tab-otr-superstore-llm-outputs" data-toggle="tab" href="#nav-tab-otr-superstore-llm-outputs" role="tab" aria-controls="nav-tab-otr-superstore-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
+                                                    <a class="nav-item nav-link active otrTab" id="tab-otr-cars-w-year-gpt-outputs" data-toggle="tab" href="#nav-tab-otr-cars-w-year-gpt-outputs" role="tab" aria-controls="nav-tab-otr-cars-w-year-gpt-outputs" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
+                                                    <a class="nav-item nav-link otrTab" id="tab-otr-movies-w-year-gpt-outputs" data-toggle="tab" href="#nav-tab-otr-movies-w-year-gpt-outputs" role="tab" aria-controls="nav-tab-otr-movies-w-year-gpt-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
+                                                    <a class="nav-item nav-link otrTab" id="tab-otr-superstore-gpt-outputs" data-toggle="tab" href="#nav-tab-otr-superstore-gpt-outputs" role="tab" aria-controls="nav-tab-otr-superstore-gpt-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
                                                 </div>
                                             </nav>
                                             <div class="tab-content">
                                                 <br/>
-                                                <div class="tab-pane fade show active" id="nav-tab-otr-cars-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-otr-cars-w-year-llm-outputs">
+                                                <div class="tab-pane fade show active" id="nav-tab-otr-cars-w-year-gpt-outputs" role="tabpanel" aria-labelledby="tab-otr-cars-w-year-gpt-outputs">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-otr-cars-w-year-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-otr-cars-w-year-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-otr-movies-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-otr-movies-w-year-llm-outputs">
+                                                <div class="tab-pane fade" id="nav-tab-otr-movies-w-year-gpt-outputs" role="tabpanel" aria-labelledby="tab-otr-movies-w-year-gpt-outputs">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-otr-movies-w-year-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-otr-movies-w-year-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-otr-superstore-llm-outputs" role="tabpanel" aria-labelledby="tab-otr-superstore-llm-outputs">
+                                                <div class="tab-pane fade" id="nav-tab-otr-superstore-gpt-outputs" role="tabpanel" aria-labelledby="tab-otr-superstore-gpt-outputs">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/superstore.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Superstore</a> dataset.
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-otr-superstore-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-otr-superstore-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
-                                <div id="ci-queries-llm-outputs" class="section-block">
+                                <div id="ci-queries-gpt-outputs" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">Multi-Turn Conversational Interaction Queries</h3>
+                                            <h3 class="block-title">Multi-Turn Dialogs | as part of v3</h3>
                                             <p class="intro">
-                                                Below we provide queries to illustrate NL4DV's conversational interaction capabilities utilizing semantic parsing.
+                                                These queries are not split by the level of detail they provide and contain a mix of under-specified and fully-specified queries.
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
-                                                    <a class="nav-item nav-link active ciTab" id="tab-ci-cars-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-ci-cars-w-year-llm-outputs" role="tab" aria-controls="nav-tab-ci-cars-w-year-llm-outputs" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
-                                                    <a class="nav-item nav-link ciTab" id="tab-ci-movies-w-year-llm-outputs" data-toggle="tab" href="#nav-tab-ci-movies-w-year-llm-outputs" role="tab" aria-controls="nav-tab-ci-movies-w-year-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
-                                                    <a class="nav-item nav-link ciTab" id="tab-ci-euro-llm-outputs" data-toggle="tab" href="#nav-tab-ci-euro-llm-outputs" role="tab" aria-controls="nav-tab-ci-euro-llm-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Euro</a>
-                                                    <a class="nav-item nav-link ciTab" id="tab-ci-superstore-llm-outputs" data-toggle="tab" href="#nav-tab-ci-superstore-llm-outputs" role="tab" aria-controls="nav-tab-ci-superstore-llm-outptus" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
+                                                    <a class="nav-item nav-link active ciTab" id="tab-ci-cars-w-year-gpt-outputs" data-toggle="tab" href="#nav-tab-ci-cars-w-year-gpt-outputs" role="tab" aria-controls="nav-tab-ci-cars-w-year-gpt-outputs" aria-selected="true"><i class="fa fa-database"></i>&nbsp;&nbsp;Cars</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-movies-w-year-gpt-outputs" data-toggle="tab" href="#nav-tab-ci-movies-w-year-gpt-outputs" role="tab" aria-controls="nav-tab-ci-movies-w-year-gpt-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Movies</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-euro-gpt-outputs" data-toggle="tab" href="#nav-tab-ci-euro-gpt-outputs" role="tab" aria-controls="nav-tab-ci-euro-gpt-outputs" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Euro</a>
+                                                    <a class="nav-item nav-link ciTab" id="tab-ci-superstore-gpt-outputs" data-toggle="tab" href="#nav-tab-ci-superstore-gpt-outputs" role="tab" aria-controls="nav-tab-ci-superstore-gpt-outptus" aria-selected="false"><i class="fa fa-database"></i>&nbsp;&nbsp;Superstore</a>
                                                 </div>
                                             </nav>
                                             <div class="tab-content">
                                                 <br/>
-                                                <div class="tab-pane fade show active" id="nav-tab-ci-cars-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-cars-w-year-llm-outputs">
+                                                <div class="tab-pane fade show active" id="nav-tab-ci-cars-w-year-gpt-outputs" role="tabpanel" aria-labelledby="tab-ci-cars-w-year-gpt-outputs">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Cars</a> dataset.
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-ci-cars-w-year-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-ci-cars-w-year-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-ci-movies-w-year-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-movies-w-year-llm-outputs">
+                                                <div class="tab-pane fade" id="nav-tab-ci-movies-w-year-gpt-outputs" role="tabpanel" aria-labelledby="tab-ci-movies-w-year-gpt-outputs">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Movies</a> dataset.
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-ci-movies-w-year-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-ci-movies-w-year-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-ci-euro-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-euro-llm-outputs">
+                                                <div class="tab-pane fade" id="nav-tab-ci-euro-gpt-outputs" role="tabpanel" aria-labelledby="tab-ci-euro-gpt-outputs">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Euro Soccer Players</a> dataset.
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-ci-euro-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-ci-euro-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-tab-ci-superstore-llm-outputs" role="tabpanel" aria-labelledby="tab-ci-superstore-llm-outputs">
+                                                <div class="tab-pane fade" id="nav-tab-ci-superstore-gpt-outputs" role="tabpanel" aria-labelledby="tab-ci-superstore-gpt-outputs">
                                                     <p class="introText">
                                                         Sample queries executed on the <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/superstore.csv" target="_blank">&nbsp;<i class="fas fa-table"></i>&nbsp;Superstore</a> dataset.
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
-                                                    <div id="queryContainer-ci-superstore-llm-outputs" class="queryContainer">
+                                                    <div id="queryContainer-ci-superstore-gpt-outputs" class="queryContainer">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
+                            </section>
+
+                            <section id="sample-queries-ci-outputs" class="doc-section">
+                                <h2 class="section-title">Sample Queries | v2 ('semantic-parsing') | Multi-Turn Dialogs</h2>
                                 <div id="ci-queries" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h2 class="section-title">(v2) Multi-Turn Conversational Interaction Queries</h2>
                                             <p class="intro">
-                                                Below we provide queries to illustrate NL4DV's conversational interaction capabilities utilizing semantic parsing.
+                                                These queries are not split by the level of detail they provide and contain a mix of under-specified and fully-specified queries.
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
@@ -431,7 +461,7 @@
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -444,7 +474,7 @@
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -457,7 +487,7 @@
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -470,7 +500,7 @@
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -481,19 +511,22 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
+                            </section>
+
+                            <section id="sample-queries-ci-outputs" class="doc-section">
                                 <div id="sample-queries" class="section-block">
-                                <h2 class="section-title">(v1) Sample Queries with Semantic Parsing</h2>
+                                <h2 class="section-title">Sample Queries | v1 ('semantic-parsing) | One-off Utterances</h2>
                                 <div id="fs-queries" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">Fully Specified</h3>
+                                            <h3 class="block-title">Fully-Specified</h3>
                                             <p class="intro">
-                                                The sample queries below illustrate examples of fully-specified queries (i.e., queries containing explicit references to attributes, tasks, and visualizations).
+                                                Queries containing explicit references to attributes, tasks, and visualizations.
                                             </p>
                                             <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/movies-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Movies</a></p>
                                             <p>
                                                 <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                <b>Click on a query</b> to show/hide recommended visualizations
                                                 or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                 or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                             </p>
@@ -506,9 +539,9 @@
                                 <div id="us-queries" class="section-block">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="block-title">Under Specified</h3>
+                                            <h3 class="block-title">Under-Specified</h3>
                                             <p class="intro">
-                                                The sample queries below illustrate examples of underspecified queries.
+                                                Queries without explicit references to attributes, tasks, or visualizations.
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
@@ -526,7 +559,7 @@
                                                     <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Cars</a></p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -540,7 +573,7 @@
                                                     <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/euro.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;European Soccer Players</a></p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -554,7 +587,7 @@
                                                     <p>Dataset: <a href="https://github.com/nl4dv/nl4dv/blob/master/examples/assets/data/cars-w-year.csv" target="_blank"><i class="fas fa-table"></i>&nbsp;Cars</a></p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -570,8 +603,7 @@
                                         <div class="col-md-12">
                                             <h3 class="block-title">More Queries</h3>
                                             <p class="intro">
-                                                Below we provide some additional queries to illustrate NL4DV's interpretation capabilities.
-                                                <br/><b>NOTE: these queries are not split by the level of detail they provide and contain a mix of underspecified and fully-specified queries.</b>
+                                                These queries are not split by the level of detail they provide and contain a mix of under-specified and fully-specified queries.
                                             </p>
                                             <nav>
                                                 <div class="nav nav-tabs" role="tablist">
@@ -588,7 +620,7 @@
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -601,7 +633,7 @@
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -614,7 +646,7 @@
                                                     </p>
                                                     <p>
                                                         <i class="fas fa-hand-pointer"></i>&nbsp;
-                                                        <b>Click on a query</b> to show/hide NL4DV's recommended visualizations
+                                                        <b>Click on a query</b> to show/hide recommended visualizations
                                                         or click&nbsp;&nbsp;<button class="btn btn-secondary btn-sm expandAllQueriesBtn">Expand all</button>&nbsp;&nbsp;
                                                         or &nbsp;&nbsp;<button class="btn btn-secondary btn-sm collapseAllQueriesBtn">Collapse all</button>
                                                     </p>
@@ -625,10 +657,7 @@
                                         </div>
                                     </div><!--//row-->
                                 </div><!--//section-block-->
-                                </div>
-
                             </section><!--//doc-section-->
-
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
                     <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -636,27 +665,33 @@
                             <nav id="doc-menu"  class="nav doc-menu flex-column sticky">
                                 <a class="nav-link scrollto" href="#applications">Applications</a>
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#nl4dv-llm">NL4DV-LLM</a>
-                                    <a class="nav-link scrollto" href="#vl-editor">Vega-Lite Editor</a>
-                                    <a class="nav-link scrollto" href="#vl-learner">Vega-Lite Learner</a>
-                                    <a class="nav-link scrollto" href="#jupyter-notebook">Jupyter Notebook</a>
-                                    <a class="nav-link scrollto" href="#datatone">DataTone</a>
-                                    <a class="nav-link scrollto" href="#chatbot">ChatBot</a>
-                                    <a class="nav-link scrollto" href="#mmplot">MMPlot</a>
-                                    <a class="nav-link scrollto" href="#mindmap">Mind Map</a>
+                                    <a class="nav-link scrollto" href="#nl4dv-llm">NL4DV-LLM | v3</a>
+                                    <a class="nav-link scrollto" href="#vl-learner">Vega-Lite Learner | v2</a>
+                                    <a class="nav-link scrollto" href="#mindmap">Mind Map | v2</a>
+                                    <a class="nav-link scrollto" href="#chatbot">ChatBot | v2</a>
+                                    <a class="nav-link scrollto" href="#jupyter-notebook">Jupyter Notebook | v1</a>
+                                    <a class="nav-link scrollto" href="#vl-editor">Vega-Lite Editor | v1</a>
+                                    <a class="nav-link scrollto" href="#datatone">DataTone | v1</a>
+                                    <a class="nav-link scrollto" href="#mmplot">MMPlot | v1</a>
                                 </nav><!--//doc-menu-->
-                                <a class="nav-link scrollto" href="#sample-queries-llm-outputs">(v3) Queries by LLMs</a> 
+                                <a class="nav-link scrollto" href="#sample-queries-lm-outputs">Sample Queries | v4</a> 
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#fs-queries-llm-outputs">Fully Specified</a>
-                                    <a class="nav-link scrollto" href="#us-queries-llm-outputs">Underspecified</a>
-                                    <a class="nav-link scrollto" href="#more-queries-llm-outputs">More Queries</a>
-                                    <a class="nav-link scrollto" href="#ci-queries-llm-outputs">Conversational Interaction</a>
+                                    <a class="nav-link scrollto" href="#lm-outputs-1">Example 1 | Basic</a>
+                                    <a class="nav-link scrollto" href="#lm-outputs-2">Example 2 | Advanced</a>
+                                    <a class="nav-link scrollto" href="#lm-outputs-3">Example 3 | Advanced</a>
                                 </nav><!--//doc-menu--> 
-                                <a class="nav-link scrollto" href="#ci-queries">(v2) Conversational Interaction Queries</a>
-                                <a class="nav-link scrollto" href="#sample-queries">(v1) Queries by Semantic Parsing</a>
+                                <a class="nav-link scrollto" href="#sample-queries-gpt-outputs">Sample Queries | v3</a> 
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#fs-queries">Fully Specified</a>
-                                    <a class="nav-link scrollto" href="#us-queries">Underspecified</a>
+                                    <a class="nav-link scrollto" href="#fs-queries-gpt-outputs">Fully-Specified</a>
+                                    <a class="nav-link scrollto" href="#us-queries-gpt-outputs">Under-Specified</a>
+                                    <a class="nav-link scrollto" href="#more-queries-gpt-outputs">More Queries</a>
+                                    <a class="nav-link scrollto" href="#ci-queries-gpt-outputs">Conversational Interaction</a>
+                                </nav><!--//doc-menu--> 
+                                <a class="nav-link scrollto" href="#ci-queries">Sample Queries | v2</a>
+                                <a class="nav-link scrollto" href="#sample-queries">Sample Queries | v1</a>
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#fs-queries">Fully-Specified</a>
+                                    <a class="nav-link scrollto" href="#us-queries">Under-Specified</a>
                                     <a class="nav-link scrollto" href="#more-queries">More Queries</a>
                                 </nav><!--//doc-menu-->    
                                    
@@ -672,7 +707,7 @@
         <div class="container">
             <p>
                 NL4DV: The Natural Language Toolkit for Data Visualization<br />
-                <small>Georgia Institute of Technology and UNC Charlotte&nbsp;&copy;&nbsp;2024</small>
+                <small>Georgia Institute of Technology, UNC Charlotte, and Hong Kong University of Science and Technology&nbsp;&copy;&nbsp;2025</small>
             </p>
             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
             <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a

@@ -12,7 +12,7 @@ def CustomParser(data):
 
 
 query_files_dir = os.path.join("..", "..", "..", "..", "nl4dv", "examples", "assets", "queries")
-query_filenames = ["fullyspecified-attributes-tasks-vis-llm-outputs.tsv", "underspecified-attributes-tasks-llm-outputs.tsv", "underspecified-attributes-vis-llm-outputs.tsv", "underspecified-attributes-llm-outputs.tsv", "other-examples-llm-outputs.tsv", "conversational-examples-llm-outputs.tsv"]
+query_filenames = ["fullyspecified-attributes-tasks-vis-gpt-outputs.tsv", "underspecified-attributes-tasks-gpt-outputs.tsv", "underspecified-attributes-vis-gpt-outputs.tsv", "underspecified-attributes-gpt-outputs.tsv", "other-examples-gpt-outputs.tsv", "conversational-examples-gpt-outputs.tsv"]
 output_dict = dict()
 global_query_counter = 159
 
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             query_item["query"] = row["Query"]
             query_item["output"] = CustomParser(row["Output"])
 
-            if query_file in ["fullyspecified-attributes-tasks-vis-llm-outputs.tsv", "underspecified-attributes-tasks-llm-outputs.tsv", "underspecified-attributes-vis-llm-outputs.tsv", "underspecified-attributes-llm-outputs.tsv"]:
+            if query_file in ["fullyspecified-attributes-tasks-vis-gpt-outputs.tsv", "underspecified-attributes-tasks-gpt-outputs.tsv", "underspecified-attributes-vis-gpt-outputs.tsv", "underspecified-attributes-gpt-outputs.tsv"]:
 
                 # Create a new key for the type of query (query file)
                 query_file_key = query_file.split(".tsv")[0]
@@ -43,7 +43,7 @@ if __name__ == "__main__":
                 output_dict[query_file_key].append(query_item)
 
             
-            elif query_file in ["other-examples-llm-outputs.tsv", "conversational-examples-llm-outputs.tsv"]:
+            elif query_file in ["other-examples-gpt-outputs.tsv", "conversational-examples-gpt-outputs.tsv"]:
                 # Create a new key for the type of query (query file)
                
                 query_file_key = query_file.split(".tsv")[0]

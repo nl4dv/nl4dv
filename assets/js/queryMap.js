@@ -19,7 +19,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -62,7 +62,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -99,7 +99,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "boxplot",
                   "tooltip": true
@@ -185,7 +185,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -228,7 +228,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -265,7 +265,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "boxplot",
                   "tooltip": true
@@ -352,7 +352,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -452,7 +452,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -553,7 +553,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -598,7 +598,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -647,7 +647,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -769,7 +769,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -814,7 +814,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -863,7 +863,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -984,7 +984,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -1084,7 +1084,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -1185,7 +1185,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -1309,7 +1309,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -1394,7 +1394,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -1435,7 +1435,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -1543,7 +1543,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -1593,7 +1593,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -1724,7 +1724,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -1831,7 +1831,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -1881,7 +1881,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -2009,7 +2009,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -2059,7 +2059,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -2185,7 +2185,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -2228,7 +2228,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -2265,7 +2265,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "boxplot",
                   "tooltip": true
@@ -2352,7 +2352,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -2398,7 +2398,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -2438,7 +2438,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "boxplot",
                   "tooltip": true
@@ -2552,7 +2552,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -2602,7 +2602,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -2646,7 +2646,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "boxplot",
                   "tooltip": true
@@ -2790,7 +2790,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -2875,7 +2875,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -2916,7 +2916,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -3020,7 +3020,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -3069,7 +3069,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -3205,7 +3205,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -3248,7 +3248,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -3285,7 +3285,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "boxplot",
                   "tooltip": true
@@ -3371,7 +3371,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "boxplot",
                 "tooltip": true
@@ -3456,7 +3456,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "boxplot",
                 "tooltip": true
@@ -3542,7 +3542,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -3649,7 +3649,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -3699,7 +3699,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -3828,7 +3828,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -3886,7 +3886,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -4037,7 +4037,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -4104,7 +4104,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -4291,7 +4291,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -4391,7 +4391,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -4492,7 +4492,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -4537,7 +4537,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -4586,7 +4586,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -4700,7 +4700,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -4804,7 +4804,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -4851,7 +4851,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -4976,7 +4976,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -5023,7 +5023,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -5147,7 +5147,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -5248,7 +5248,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -5384,7 +5384,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -5437,7 +5437,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -5494,7 +5494,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -5666,7 +5666,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "point",
               "tooltip": true
@@ -5917,7 +5917,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "point",
               "tooltip": true
@@ -6159,7 +6159,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -6333,7 +6333,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "tick",
               "tooltip": true
@@ -6445,7 +6445,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -6565,7 +6565,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "arc",
               "tooltip": true
@@ -6716,7 +6716,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "area",
               "tooltip": true
@@ -6888,7 +6888,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "tick",
               "tooltip": true
@@ -7031,7 +7031,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -7089,7 +7089,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -7259,7 +7259,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -7410,7 +7410,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -7463,7 +7463,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -7510,7 +7510,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "boxplot",
                 "tooltip": true
@@ -7625,7 +7625,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "point",
               "tooltip": true
@@ -7769,7 +7769,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -7922,7 +7922,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -7982,7 +7982,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -8176,7 +8176,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -8330,7 +8330,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -8534,7 +8534,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -8787,7 +8787,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -8991,7 +8991,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -9061,7 +9061,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -9125,7 +9125,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "boxplot",
                 "tooltip": true
@@ -9352,7 +9352,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -9416,7 +9416,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -9597,7 +9597,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -9666,7 +9666,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -9740,7 +9740,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -9966,7 +9966,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -10039,7 +10039,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -10117,7 +10117,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -10384,7 +10384,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -10502,7 +10502,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "boxplot",
               "tooltip": true
@@ -10614,7 +10614,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -10727,7 +10727,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "point",
               "tooltip": true
@@ -10872,7 +10872,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "line",
               "tooltip": true
@@ -11013,7 +11013,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -11077,7 +11077,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -11257,7 +11257,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "area",
                 "tooltip": true
@@ -11315,7 +11315,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "area",
                 "tooltip": true
@@ -11488,7 +11488,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -11626,7 +11626,7 @@ queryMap = {
           ],
           "inferenceType": "explicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "point",
               "tooltip": true
@@ -11766,7 +11766,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -11877,7 +11877,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -11930,7 +11930,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -11977,7 +11977,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "boxplot",
                 "tooltip": true
@@ -12092,7 +12092,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "bar",
               "tooltip": true
@@ -12230,7 +12230,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "point",
               "tooltip": true
@@ -12375,7 +12375,7 @@ queryMap = {
           ],
           "inferenceType": "implicit",
           "vlSpec": {
-            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
             "mark": {
               "type": "point",
               "tooltip": true
@@ -12520,7 +12520,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -12584,7 +12584,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -12759,7 +12759,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -12823,7 +12823,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -13003,7 +13003,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -13067,7 +13067,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -13242,7 +13242,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -13300,7 +13300,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -13363,7 +13363,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -13426,7 +13426,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -13487,7 +13487,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -13553,7 +13553,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -13729,7 +13729,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -13844,7 +13844,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -13905,7 +13905,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -13971,7 +13971,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -14139,7 +14139,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -14203,7 +14203,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -14381,7 +14381,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -14520,7 +14520,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -14633,7 +14633,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -14697,7 +14697,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -14873,7 +14873,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -15014,7 +15014,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -15172,7 +15172,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -15309,7 +15309,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -15370,7 +15370,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -15436,7 +15436,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -15607,7 +15607,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -15668,7 +15668,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -15734,7 +15734,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -15920,7 +15920,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -16033,7 +16033,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -16171,7 +16171,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -16235,7 +16235,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -16413,7 +16413,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -16554,7 +16554,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -16699,7 +16699,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -16840,7 +16840,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -17002,7 +17002,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -17060,7 +17060,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -17233,7 +17233,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -17291,7 +17291,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -17354,7 +17354,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -17417,7 +17417,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -17478,7 +17478,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -17544,7 +17544,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -17718,7 +17718,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -17836,7 +17836,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -17949,7 +17949,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -18090,7 +18090,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -18154,7 +18154,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -18332,7 +18332,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -18470,7 +18470,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -18611,7 +18611,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "transform": [{
                 "window": [{
                   "op": "row_number",
@@ -19112,7 +19112,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -19170,7 +19170,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -19233,7 +19233,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -19296,7 +19296,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -19357,7 +19357,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -19423,7 +19423,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -19601,7 +19601,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -19659,7 +19659,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -19722,7 +19722,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -19887,7 +19887,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -19951,7 +19951,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -20131,7 +20131,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -20195,7 +20195,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -20373,7 +20373,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -20513,7 +20513,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -20571,7 +20571,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -20742,7 +20742,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -20889,7 +20889,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -20947,7 +20947,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -21116,7 +21116,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -21229,7 +21229,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -21369,7 +21369,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -21427,7 +21427,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -21615,7 +21615,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -21666,7 +21666,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -21805,7 +21805,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -21950,7 +21950,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -22088,7 +22088,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -22228,7 +22228,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -22286,7 +22286,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -22455,7 +22455,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -22569,7 +22569,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -22627,7 +22627,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -22807,7 +22807,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -22922,7 +22922,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -22986,7 +22986,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -23162,7 +23162,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "tick",
                 "tooltip": true
@@ -23271,7 +23271,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -23324,7 +23324,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -23371,7 +23371,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "boxplot",
                   "tooltip": true
@@ -23486,7 +23486,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -23537,7 +23537,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -23676,7 +23676,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -23727,7 +23727,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -23866,7 +23866,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "arc",
                 "tooltip": true
@@ -24003,7 +24003,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -24061,7 +24061,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -24124,7 +24124,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -24289,7 +24289,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -24347,7 +24347,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "line",
                   "tooltip": true
@@ -24410,7 +24410,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -24473,7 +24473,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -24534,7 +24534,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -24600,7 +24600,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "tick",
                   "tooltip": true
@@ -24776,7 +24776,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -24913,7 +24913,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -25036,7 +25036,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -25100,7 +25100,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -25276,7 +25276,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -25391,7 +25391,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -25449,7 +25449,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -25622,7 +25622,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -25680,7 +25680,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -25851,7 +25851,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -25989,7 +25989,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -26136,7 +26136,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -26194,7 +26194,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -26257,7 +26257,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -26420,7 +26420,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -26558,7 +26558,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -26698,7 +26698,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -26762,7 +26762,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -26940,7 +26940,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -27087,7 +27087,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -27151,7 +27151,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -27329,7 +27329,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -27469,7 +27469,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -27533,7 +27533,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -27713,7 +27713,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -27771,7 +27771,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -27940,7 +27940,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -28053,7 +28053,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -28191,7 +28191,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "line",
                 "tooltip": true
@@ -28331,7 +28331,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -28389,7 +28389,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "bar",
                   "tooltip": true
@@ -28560,7 +28560,7 @@ queryMap = {
             ],
             "inferenceType": "explicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -28701,7 +28701,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "point",
                 "tooltip": true
@@ -28848,7 +28848,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -28912,7 +28912,7 @@ queryMap = {
               ],
               "inferenceType": "explicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -29090,7 +29090,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "mark": {
                 "type": "bar",
                 "tooltip": true
@@ -29230,7 +29230,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -29294,7 +29294,7 @@ queryMap = {
               ],
               "inferenceType": "implicit",
               "vlSpec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                 "mark": {
                   "type": "point",
                   "tooltip": true
@@ -29470,7 +29470,7 @@ queryMap = {
             ],
             "inferenceType": "implicit",
             "vlSpec": {
-              "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
               "transform": [{
                 "window": [{
                   "op": "row_number",
@@ -29778,7 +29778,7 @@ queryMap = {
     ]
   },
 
-  "fullyspecified-attributes-tasks-vis-llm-outputs": [
+  "fullyspecified-attributes-tasks-vis-gpt-outputs": [
     {
         "queryId": 159,
         "query": "show me a scatter plot of budget and gross for romantic comedy movies released between 1990 and 2000",
@@ -29808,7 +29808,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -29953,7 +29953,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -30088,7 +30088,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -30186,7 +30186,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -30262,7 +30262,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -30357,7 +30357,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -30466,7 +30466,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -30584,7 +30584,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                         },
@@ -30646,7 +30646,7 @@ queryMap = {
         }
     }
 ],
-"underspecified-attributes-tasks-llm-outputs": [
+"underspecified-attributes-tasks-gpt-outputs": [
     {
         "queryId": 169,
         "query": "show me a distribution of goals",
@@ -30669,7 +30669,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -30743,7 +30743,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -30822,7 +30822,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -30906,7 +30906,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31022,7 +31022,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31128,7 +31128,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31248,7 +31248,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31385,7 +31385,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31498,7 +31498,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31594,7 +31594,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31718,7 +31718,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                         },
@@ -31840,7 +31840,7 @@ queryMap = {
         }
     }
 ],
-"underspecified-attributes-vis-llm-outputs": [
+"underspecified-attributes-vis-gpt-outputs": [
     {
         "queryId": 181,
         "query": "create a histogram of mpg",
@@ -31863,7 +31863,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -31941,7 +31941,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32009,7 +32009,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32085,7 +32085,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32168,7 +32168,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32255,7 +32255,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32351,7 +32351,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32444,7 +32444,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32529,7 +32529,7 @@ queryMap = {
                     ],
                     "inferenceType": "Explicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32593,7 +32593,7 @@ queryMap = {
         }
     }
 ],
-"underspecified-attributes-llm-outputs": [
+"underspecified-attributes-gpt-outputs": [
     {
         "queryId": 190,
         "query": "Origin",
@@ -32615,7 +32615,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32706,7 +32706,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32783,7 +32783,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32863,7 +32863,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -32944,7 +32944,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -33026,7 +33026,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -33121,7 +33121,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -33216,7 +33216,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -33311,7 +33311,7 @@ queryMap = {
                     ],
                     "inferenceType": "Implicit",
                     "vlSpec": {
-                        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                         "data": {
                             "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                         },
@@ -33395,7 +33395,7 @@ queryMap = {
         }
     }
 ],
-"other-examples-llm-outputs": {
+"other-examples-gpt-outputs": {
     "cars-w-year": [
         {
             "queryId": 199,
@@ -33419,7 +33419,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -33503,7 +33503,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -33630,7 +33630,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -33730,7 +33730,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -33842,7 +33842,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -33945,7 +33945,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34050,7 +34050,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34136,7 +34136,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34216,7 +34216,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34305,7 +34305,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34423,7 +34423,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34499,7 +34499,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34596,7 +34596,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34687,7 +34687,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34780,7 +34780,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34861,7 +34861,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -34944,7 +34944,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35048,7 +35048,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35169,7 +35169,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35263,7 +35263,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35344,7 +35344,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35418,7 +35418,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35512,7 +35512,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35604,7 +35604,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35686,7 +35686,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                             },
@@ -35802,7 +35802,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -35958,7 +35958,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36067,7 +36067,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36194,7 +36194,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36288,7 +36288,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36380,7 +36380,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36477,7 +36477,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36598,7 +36598,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36681,7 +36681,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36806,7 +36806,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -36901,7 +36901,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37020,7 +37020,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37148,7 +37148,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37228,7 +37228,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37309,7 +37309,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37391,7 +37391,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37528,7 +37528,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37672,7 +37672,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37752,7 +37752,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37832,7 +37832,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -37913,7 +37913,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38006,7 +38006,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38125,7 +38125,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38212,7 +38212,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38293,7 +38293,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38403,7 +38403,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38512,7 +38512,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38625,7 +38625,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38716,7 +38716,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38795,7 +38795,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                             },
@@ -38874,7 +38874,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -38968,7 +38968,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39044,7 +39044,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39164,7 +39164,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39257,7 +39257,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39365,7 +39365,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39448,7 +39448,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39584,7 +39584,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39682,7 +39682,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39790,7 +39790,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39883,7 +39883,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -39966,7 +39966,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40058,7 +40058,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40154,7 +40154,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40249,7 +40249,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40364,7 +40364,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40438,7 +40438,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40534,7 +40534,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40620,7 +40620,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40748,7 +40748,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40847,7 +40847,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -40940,7 +40940,7 @@ queryMap = {
                         ],
                         "inferenceType": "Explicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -41034,7 +41034,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -41117,7 +41117,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -41227,7 +41227,7 @@ queryMap = {
                         ],
                         "inferenceType": "Implicit",
                         "vlSpec": {
-                            "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                             "data": {
                                 "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                             },
@@ -41331,7 +41331,7 @@ queryMap = {
         }
     ]
 },
-"conversational-examples-llm-outputs": {
+"conversational-examples-gpt-outputs": {
         "movies-w-year": [
             {
                 "queryId": 280,
@@ -41355,7 +41355,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -41426,7 +41426,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -41496,7 +41496,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -41570,7 +41570,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -41652,7 +41652,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -41760,7 +41760,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -41867,7 +41867,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -41976,7 +41976,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -42086,7 +42086,7 @@ queryMap = {
                             ],
                             "inferenceType": "Explicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
                                 },
@@ -42190,7 +42190,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42275,7 +42275,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42362,7 +42362,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42484,7 +42484,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42565,7 +42565,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42640,7 +42640,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42724,7 +42724,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42804,7 +42804,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -42913,7 +42913,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/cars-w-year.csv"
                                 },
@@ -43025,7 +43025,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43118,7 +43118,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43195,7 +43195,7 @@ queryMap = {
                             ],
                             "inferenceType": "Explicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43282,7 +43282,7 @@ queryMap = {
                             ],
                             "inferenceType": "Explicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43353,7 +43353,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43422,7 +43422,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43493,7 +43493,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43574,7 +43574,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43646,7 +43646,7 @@ queryMap = {
                             ],
                             "inferenceType": "Explicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv"
                                 },
@@ -43732,7 +43732,7 @@ queryMap = {
                             ],
                             "inferenceType": "Explicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -43831,7 +43831,7 @@ queryMap = {
                             ],
                             "inferenceType": "Explicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -43932,7 +43932,7 @@ queryMap = {
                             ],
                             "inferenceType": "Explicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -44034,7 +44034,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -44115,7 +44115,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -44188,7 +44188,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -44263,7 +44263,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -44354,7 +44354,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
@@ -44466,7 +44466,7 @@ queryMap = {
                             ],
                             "inferenceType": "Implicit",
                             "vlSpec": {
-                                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                                "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
                                 "data": {
                                     "url": "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/superstore.csv"
                                 },
