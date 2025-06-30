@@ -80,7 +80,7 @@ class VisGenie:
 
     def get_vis_list(self, attribute_list):
         vis_objects = list()
-        if self.nl4dv_instance.dialog == True:
+        if self.nl4dv_instance.dialog is True:
             vis_iteration = len(attribute_list)
         else:
             vis_iteration = 1

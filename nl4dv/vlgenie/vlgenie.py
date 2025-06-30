@@ -6,7 +6,7 @@ class VLGenie():
     def __init__(self):
 
         self.vl_spec = dict()
-        self.vl_spec['$schema'] = 'https://vega.github.io/schema/vega-lite/v4.json'
+        self.vl_spec['$schema'] = 'https://vega.github.io/schema/vega-lite/v6.json'
         self.vl_spec['mark'] = dict()
         self.vl_spec['encoding'] = dict()
         self.vl_spec['transform'] = list()

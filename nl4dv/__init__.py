@@ -1,32 +1,32 @@
- # In-built Libraries
+# In-built Libraries
 import os
 import time
 from collections import OrderedDict
 import json
+import re
 
 # Third-Party Libraries
 import spacy
-import openai
+import litellm
+from vega import VegaLite
 import pandas as pd
-import re
 from nltk.stem.porter import PorterStemmer
 from nltk.parse.stanford import StanfordDependencyParser
 from nltk.parse.corenlp import CoreNLPDependencyParser
 
-from vega import VegaLite
-
 # NL4DV Imports
+from nl4dv.utils import helpers, constants, error_codes
 from nl4dv.datagenie import DataGenie
 from nl4dv.querygenie import QueryGenie
 from nl4dv.attributegenie import AttributeGenie
 from nl4dv.taskgenie import TaskGenie
 from nl4dv.visgenie import VisGenie
 from nl4dv.updategenie import UpdateGenie
-from nl4dv.utils import helpers, constants, error_codes
 from nl4dv.conversationgenie import ConversationGenie
 from nl4dv.autogenie import AutoGenie
 from nl4dv.updategenie import UpdateGenie
-from nl4dv.promptgenie import PromptGenie
+from nl4dv.lm_designgenie import LM_DesignGenie
+from nl4dv.lm_querygenie import LM_QueryGenie
 
 class NL4DV:
     """
@@ -50,8 +50,11 @@ class NL4DV:
                  attribute_datatype=None,
                  verbose=False,
                  debug=False,
-                 processing_mode = 'semantic-parsing',
-                 gpt_api_key = ''):
+                 lm_config=dict(),
+                 design_config=dict(),
+                 processing_mode='semantic-parsing', # 'semantic-parsing', 'language-model', or 'gpt' (remnant from v3)
+                 gpt_api_key='' # remnant from v3.
+                ):
 
         # inputs
         self.data_url = data_url
@@ -65,6 +68,13 @@ class NL4DV:
         self.verbose = verbose
         self.debug = debug
         self.processing_mode = processing_mode
+        self.gpt_api_key = gpt_api_key
+        self.lm_config = lm_config
+        self.lm_model = None
+        self.lm_environ_var_name = None
+        self.lm_api_key = None
+        self.lm_api_base = None
+        self.design_config = design_config
 
         # Load constants: thresholds, mappings, scores
         self.vis_keyword_map = constants.vis_keyword_map
@@ -100,23 +110,21 @@ class NL4DV:
 
         # Others
         self.dialog = False
-        openai.api_key = gpt_api_key
 
         # initialize porter stemmer instance
         self.porter_stemmer_instance = PorterStemmer()
 
         # Initialize internal Class Instances
-        self.data_genie_instance = DataGenie(self)  # initialize a DataGenie instance.
-        self.query_genie_instance = QueryGenie(self)  # initialize a QueryGenie instance.
-        self.attribute_genie_instance = AttributeGenie(self)   # initialize a AttributeGenie instance.
-        self.task_genie_instance = TaskGenie(self)  # initialize a TaskGenie instance.
-        self.vis_genie_instance = VisGenie(self)   # initialize a VisGenie instance.
+        self.data_genie_instance = DataGenie(self)
+        self.query_genie_instance = QueryGenie(self)
+        self.attribute_genie_instance = AttributeGenie(self)
+        self.task_genie_instance = TaskGenie(self)
+        self.vis_genie_instance = VisGenie(self)
         self.conversation_genie_instance = ConversationGenie(self)
-        self.autogenie_instance = AutoGenie(self)
-        self.updategenie_instance = UpdateGenie(self) #initalize a FollowUpGenie instance
-        self.promptgenie_instance = PromptGenie(self)
-
-
+        self.auto_genie_instance = AutoGenie(self)
+        self.update_genie_instance = UpdateGenie(self)
+        self.lm_query_genie_instance = LM_QueryGenie(self)
+        self.lm_design_genie_instance = LM_DesignGenie(self)
 
         # Set the dependency parser if config is not None
         if self.dependency_parser_config is not None:
@@ -151,42 +159,81 @@ class NL4DV:
         if self.processing_mode == 'semantic-parsing':
             if not bool(self.conversation_genie_instance.all_dialogs):
                 return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
-            if dialog == True:
-                if query_id is not None:
-                    query_id = str(query_id)
-                return self.analyze_query_attribute(query, dialog, debug, verbose, dialog_id, query_id)
-            elif dialog == False or dialog is None:
-                return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
-            elif dialog == 'auto':
-                inferred_dialog, confidence_level = self.autogenie_instance.analyze_followup_status(query, self.reserve_words, self.ignore_words)
+            if dialog == 'auto':
+                inferred_dialog, confidence_level = self.auto_genie_instance.analyze_followup_status(query, self.reserve_words, self.ignore_words)
                 if inferred_dialog is True:
                     if query_id is not None:
                         query_id = str(query_id)
                     return self.analyze_query_attribute(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
                 else:
                     return self.analyze_query_no_dialog(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
-            else:
-                raise RuntimeError("Expected values for \'dialog\' are True, False, or \"auto\"")
-        elif self.processing_mode == 'gpt':
-            if not bool(self.conversation_genie_instance.all_dialogs):
-                return self.analyze_query_llm(query, dialog, dialog_id, query_id)
-            if dialog == True:
+            elif str(dialog) == 'True':
                 if query_id is not None:
                     query_id = str(query_id)
-                return self.analyze_query_llm(query, dialog, dialog_id, query_id)
-            elif dialog == False or dialog is None:
-                return self.analyze_query_llm(query, dialog, dialog_id, query_id)
-            elif dialog == 'auto':
-                inferred_dialog, confidence_level = self.autogenie_instance.analyze_followup_status(query, self.reserve_words, self.ignore_words)
-                if inferred_dialog is True:
-                    if query_id is not None:
-                        query_id = str(query_id)
-                    return self.analyze_query_llm(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
-                else:
-                    return self.analyze_query_llm(query, inferred_dialog, debug, verbose, dialog_id, query_id, confidence_level)
+                return self.analyze_query_attribute(query, dialog, debug, verbose, dialog_id, query_id)
+            elif str(dialog) == 'False' or str(dialog) == 'None':
+                return self.analyze_query_no_dialog(query, dialog, debug, verbose, dialog_id, query_id)
             else:
                 raise RuntimeError("Expected values for \'dialog\' are True, False, or \"auto\"")
 
+        elif self.processing_mode == 'gpt' or self.processing_mode == 'language-model':
+
+            if self.processing_mode == 'gpt':
+                self.lm_config = {
+                    "model": "gpt-4o",
+                    "environ_var_name": "OPENAI_API_KEY",
+                    "api_key": self.gpt_api_key,
+                    "api_base": None
+                }
+                # Configure language model configuration
+                self.configure_litellm(self.lm_config)
+
+            elif self.processing_mode == 'language-model':
+                # Configure language model configuration
+                self.configure_litellm(self.lm_config)
+
+            if not bool(self.conversation_genie_instance.all_dialogs):
+                return self.analyze_query_lm(query, dialog, dialog_id, query_id)
+            
+            if str(dialog) == 'True':
+                if query_id is not None:
+                    query_id = str(query_id)
+                return self.analyze_query_lm(query, dialog, dialog_id, query_id)
+            elif str(dialog) == 'False' or str(dialog) == 'None':
+                return self.analyze_query_lm(query, dialog, dialog_id, query_id)
+            else:
+                raise RuntimeError("Expected values for \'dialog\' are True, False")
+
+
+    def configure_litellm(self, lm_config):
+        """
+        Configure LiteLLM with API credentials and options.
+        
+        Args:
+            lm_config: Configuration object
+        """
+        if lm_config is not None:
+            self.lm_model = lm_config['model']
+            self.lm_environ_var_name = lm_config['environ_var_name']
+            self.lm_api_key = lm_config['api_key']
+            self.lm_api_base = lm_config['api_base']
+            
+            # Set API key if provided
+            if lm_config['api_key']:
+                litellm.api_key = lm_config['api_key']
+                os.environ[lm_config['environ_var_name']] = lm_config['api_key']
+            else:
+                raise RuntimeError("api_key is not provided in lm_config.")
+            
+            # Set API base if provided
+            if lm_config['api_base']:
+                litellm.api_base = lm_config['api_base']
+                # Warn if api_key is not provided when using custom api_base
+                if not lm_config['api_key'] and self.verbose:
+                    print("Warning: api_base is set but no api_key provided. This might cause authentication issues.")
+            
+            if self.verbose:
+                litellm.set_verbose = True
 
 
     def analyze_query_no_dialog(self, query=None, dialog=None, debug=None, verbose=None, dialog_id=None, query_id=None, confidence_level = None):
@@ -313,33 +360,31 @@ class NL4DV:
 
         return output if self.debug else helpers.delete_keys_from_dict(output, keys=constants.keys_to_delete_in_output)
 
-    def analyze_query_llm(self, query=None, dialog=None, dialog_id=None, query_id=None):
-        if dialog is None:
-            query_prompt = self.promptgenie_instance.prompt
-            query_prompt = re.sub(r"https://raw\.githubusercontent\.com\S*", self.data_url, query_prompt)
-            dataset_sample = pd.read_csv(self.data_url, index_col = False)
-            dataset_sample = dataset_sample.head(10).to_string(index=False)
-            query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
-            query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
-            message = self.chat_with_chatgpt(query_prompt)
-            if query_id is not None:
-                query_id = str(query_id)
-            if dialog_id is not None:
-                dialog_id = str(dialog_id)
-            return_convo, return_context = self.conversation_genie_instance.add_dialog(message, dialog_id, query_id)
-            message['dialogId'] = str(return_convo)
-            message['queryId'] = str(return_context)
-            return message
-        elif dialog is True:
-            context_obj = None
-            if dialog_id == None and query_id == None:
-                key_num = self.conversation_genie_instance.key_num - 1
-                key_num = str(key_num)
+    def analyze_query_lm(self, query=None, dialog=None, dialog_id=None, query_id=None):
+
+        # Prepare the prompt
+        query_prompt = self.lm_query_genie_instance.prompt
+
+        # Adjust the data URL in the prompt if needed
+        query_prompt = query_prompt.replace(self.data_url, "https://raw.githubusercontent.com/" + self.data_url)
+
+        # Read and sample the dataset
+        dataset_sample = pd.read_csv(self.data_url, index_col=False).head(10).to_string(index=False)
+
+        # Replace placeholders
+        query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
+        query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
+
+        context_obj = None
+        if dialog:
+            # Determine the context object based on IDs
+            if dialog_id is None and query_id is None:
+                key_num = str(self.conversation_genie_instance.key_num - 1)
                 context_obj = self.conversation_genie_instance.all_dialogs[key_num][-1]
-            elif dialog_id != None and query_id == None:
+            elif dialog_id is not None and query_id is None:
                 dialog_id = str(dialog_id)
                 context_obj = self.conversation_genie_instance.all_dialogs[dialog_id][-1]
-            elif dialog_id == None and query_id != None:
+            elif dialog_id is None and query_id is not None:
                 return None
             else:
                 dialog_id = str(dialog_id)
@@ -347,58 +392,110 @@ class NL4DV:
                     raise RuntimeError("Context id must be of type string")
                 query_id = int(query_id)
                 context_obj = self.conversation_genie_instance.all_dialogs[dialog_id][query_id]
-            query_prompt = self.promptgenie_instance.prompt
-            query_prompt = re.sub(r"https://raw\.githubusercontent\.com\S*", self.data_url, query_prompt)
-            dataset_sample = pd.read_csv(self.data_url, index_col = False)
-            dataset_sample = dataset_sample.head(10).to_string(index=False)
-            query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
-            query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
-            query_prompt = query_prompt + "\n" + "PREVIOUS ANALYTIC SPECIFICATION" + str(context_obj)
-            message = self.chat_with_chatgpt(query_prompt)
-            if query_id is not None:
-                query_id = str(query_id)
-            if dialog_id is not None:
-                dialog_id = str(dialog_id)
-            return_convo, return_context = self.conversation_genie_instance.add_dialog(message, dialog, dialog_id, query_id)
-            message['dialogId'] = str(return_convo)
-            message['queryId'] = str(return_context)
-            return message
+            # Append previous analytic specification
+            query_prompt += "\nPREVIOUS ANALYTIC SPECIFICATION" + str(context_obj)
 
-    def chat_with_chatgpt(self, new_prompt, model="gpt-4o-mini"):
-        response = openai.ChatCompletion.create(
-            model=model,
-            messages=[{"role": "user",
-               "content": new_prompt}],
-            temperature=0
-        )
-        message = response.choices[0].message.content
-        message = message.replace("\n", "")
-        message = re.sub(r' +', ' ', message)
-        # message = message.replace("json", "")
-        message = message.replace("None", "\"None\"")
-        message = message.replace("\"\"None\"\"", "\"None\"")
-        message = message.replace("True", "true")
-        message = message.replace("False", "false")
-        if "json" == message[3:7]:
-            message = message.replace("json", "", 1)
-            message = message[3:]
-            message = message[:-3]
+        
+        # First, process the Main Query Prompt
+        main_query_prompt_message = {
+            "type" : "text",
+            "text": query_prompt
+        }
+        design_unaware_nl4dv_response = self.query_language_model([main_query_prompt_message])
+
+        if self.design_config is not None and len(self.design_config) > 0:
+            # Now the design prompts
+            design_related_prompts = []
+
+            # Append the Design Prompt with the vl spec
+            main_design_prompt_message = {
+                "type" : "text",
+                "text": self.lm_design_genie_instance.prompt
+            }
+            design_related_prompts.append(main_design_prompt_message)
+
+            # Append Individual Design Requests
+            for idx, design_instruction in enumerate(self.design_config):
+                design_related_prompts.append(design_instruction.copy())
+
+            # Append the design unaware visualization specification (to process)
+            design_unaware_nl4dv_response_as_input_prompt_message = {
+                "type" : "text",
+                "text": str(design_unaware_nl4dv_response)
+            }
+            design_related_prompts.append(design_unaware_nl4dv_response_as_input_prompt_message)
+
+            # Second, process the Design-related Prompt
+            design_aware_nl4dv_response = self.query_language_model(design_related_prompts)
+            message = design_aware_nl4dv_response
+        else:
+            message = design_unaware_nl4dv_response
+
+        # Ensure IDs are strings
+        if query_id is not None:
+            query_id = str(query_id)
+        if dialog_id is not None:
+            dialog_id = str(dialog_id)
+
+        # Add dialog and get return values
+        if dialog:
+            return_convo, return_context = self.conversation_genie_instance.add_dialog(
+                message, dialog, dialog_id, query_id
+            )
+        else:
+            return_convo, return_context = self.conversation_genie_instance.add_dialog(
+                message, dialog_id, query_id
+            )
+
+        message['dialogId'] = str(return_convo)
+        message['queryId'] = str(return_context)
+        return message
+
+    def query_language_model(self, prompts, model="gpt-4o-mini"):
         try:
-            vlSpec = json.loads(message)
-        except ValueError as e:
-            return 'Invalid JSON'
+            response = litellm.completion(
+                model=model,
+                messages=[{
+                    "role": "user",
+                    "content": prompts
+                }],
+                temperature=0
+            )
+            # Extract message content
+            raw_message = response.choices[0].message.content
+            return self.parse_and_clean_llm_response(raw_message)
+            
+        except Exception as e:
+            error_msg = f"LLM Error: {str(e)}"
+            print(error_msg)
+            return {'error': error_msg}
 
-        return vlSpec
+    def parse_and_clean_llm_response(self, message: str):
+        """
+        Cleans and parses an LLM response string to extract valid JSON.
+
+        Args:
+            message: The raw text response from the LLM.
+
+        Returns:
+            The parsed JSON object, or a dictionary with error details if parsing fails.
+        """
+        try:
+            # Normalize whitespace and fix Python literals for JSON compatibility
+            cleaned = re.sub(r'\s+', ' ', message).strip()
+            cleaned = (cleaned.replace("None", "\"None\"")
+                            .replace("\"\"None\"\"", "\"None\"")
+                            .replace("True", "true")
+                            .replace("False", "false"))
+            # Extract the JSON substring
+            json_text = cleaned[cleaned.find("{"):cleaned.rfind("}") + 1]
+            return json.loads(json_text)
+        except Exception as e:
+            error_msg = f"JSON parsing error: {e}"
+            print(f"{error_msg}\nRaw response: {message}")
+            return {'error': 'Invalid JSON', 'details': str(e)}
 
 
-    #put operation in meta
-    #change operation to followup_type
-    #put followup_type for cold queries, put it as None
-    # meta: {followup_type: (add, remove, replace), followup_details : ({add : attr_value}, {remove: attr_value})}
-    # use dependency parser to detect attributes now, and see if it's add remove or replace
-    #create queries to see patterns for add, remove, and replace
-    #also detect vis for attribute detection
-    #concatenate group by and facet by groupby and facetby
     def analyze_query_attribute(self, query=None, dialog=None, debug=None, verbose=None, dialog_id=None, query_id=None, confidence_level=None):
 
         self.execution_durations = dict()
@@ -442,11 +539,11 @@ class NL4DV:
             if bool(self.past_ambiguities['attribute']):
                 for attr_query in self.past_ambiguities['attribute']:
                     if not self.past_ambiguities['attribute'][attr_query]['selected'] == "NL4DV_Resolved":
-                        self.updategenie_instance.auto_handle_attribute_ambiguity()
+                        self.update_genie_instance.auto_handle_attribute_ambiguity()
             if bool(self.past_ambiguities['value']):
                 for attr_query in self.past_ambiguities['value']:
                     if not self.past_ambiguities['value'][attr_query]['selected'] == "NL4DV_Resolved":
-                        raise Error("need to resolve ambiguity for value")
+                        raise RuntimeError("need to resolve ambiguity for value")
 
             self.ambiguities= dict()
             self.ambiguities['attribute'] = dict()
@@ -605,7 +702,7 @@ class NL4DV:
                     else:
                         current_ambiguity['value'][key] = self.past_ambiguities['value'][key]
                 self.ambiguities = current_ambiguity
-                output = self.updategenie_instance.update_vis(str(return_conversation), str(return_context))
+                output = self.update_genie_instance.update_vis(str(return_conversation), str(return_context))
 
             output['dialogId'] = str(return_conversation)
             output['queryId'] = str(return_context)
@@ -628,7 +725,7 @@ class NL4DV:
         if "value" in ambiguity_obj.keys():
             for key in ambiguity_obj['value']:
                 self.ambiguities['value'][key]['selected'] = ambiguity_obj['value'][key]
-        return self.updategenie_instance.update_vis(dialog_id, query_id)
+        return self.update_genie_instance.update_vis(dialog_id, query_id)
 
     # Update the attribute datatypes that were not correctly detected by NL4DV
     def set_attribute_datatype(self, attr_type_obj):
@@ -719,9 +816,7 @@ class NL4DV:
                 if cpath not in os.environ['CLASSPATH']:
                     os.environ['CLASSPATH'] = cpath + os.pathsep + os.environ['CLASSPATH']
 
-                # TODO:- DEPRECATED
-                self.dependency_parser_instance = StanfordDependencyParser(path_to_models_jar=config["model"],
-                                                                           encoding='utf8')
+                self.dependency_parser_instance = StanfordDependencyParser(path_to_models_jar=config["model"], encoding='utf8')
             elif config["name"] == "corenlp-server":
                 # Requires the CoreNLPServer running in the background at the below URL (generally https://localhost:9000)
                 # Start server by running the following command in the JARs directory.

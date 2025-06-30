@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='nl4dv',
-    version='3.0.0',
+    version='4.0.0',
     author='Arpit Narechania',
     author_email='arpitnarechania@gmail.com',
     packages=find_packages(),
@@ -23,14 +23,15 @@ setup(
     long_description_content_type='text/markdown',
     install_requires=[
         "fuzzywuzzy~=0.8.1",
+        "inflect~=5.5",
+        "levenshtein~=0.27.1",
+        "litellm~=1.71.1",
         "nltk~=3.5",
+        "pandas~=2.2.3",
         "pytest~=3.10.1",
         "pytest-cov~=2.6.0",
-        "python-Levenshtein~=0.25.1",
         "si-prefix~=1.3.3",
         "spacy~=3.0",
-        "vega~=3.1",
-        "inflect~=5.5.2",
-        "openai~=0.28.1"
+        "vega~=4.1"
     ]
 )

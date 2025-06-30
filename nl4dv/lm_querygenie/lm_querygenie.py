@@ -1,8 +1,8 @@
-class PromptGenie:
-
+class LM_QueryGenie:
     def __init__(self, nl4dv_instance):
-        # nl4dv instance
         self.nl4dv_instance = nl4dv_instance
+
+        # Large Language Model Query Prompt
         self.prompt = """
         Consider the below JSON array of objects describing low-level analytic tasks (fundamental operations that users perform when interacting with data visualizations) as a list of their "Name", "Description" and "Pro Forma Abstract" (a concise summary outlining the main elements for a given natural language query), with "Examples" (example natural language queries about different datasets), "Attribute Data Types and Visual Encodings" (the data type of the column titles in the provided dataset along with the preferred visual encodings in the recommended visualization), "Attributes and Visual Encoding Descriptions", and "Recommended Visualizations":
         [
@@ -44,7 +44,7 @@ class PromptGenie:
         "Name": "Filter",
         "Description": "Given some concrete conditions on attribute values, find data cases satisfying those conditions.",
         "Pro Forma Abstract": "Which data cases satisfy conditions {A, B, C, ...}?",
-        "Examples": ["What Kellogg's cereals have high fiber?", "What comedies have won awards?", "Which funds underperformed the SP-500?",  "Show the visualization only for films that have grossed more than 100 million dollars"],
+        "Examples": ["What Kellogg's cereals have high fiber?", "What comedies have won awards?", "Which funds underperformed the SP-500?", "Show the visualization only for films that have grossed more than 100 million dollars"],
         "taskMap Encoding": "filter",
         "Attribute Data Types and Visual Encodings":
             [{
@@ -76,7 +76,7 @@ class PromptGenie:
         },
         {
         "Name": "Distribution",
-        "Description": "Given a set of data cases and a quantitative attribute of interest, characterize the distribution of that attribute’s values over the set",
+        "Description": "Given a set of data cases and a quantitative attribute of interest, characterize the distribution of that attribute's values over the set",
         "Pro Forma Abstract": "What is the distribution of values of attribute A in a set S of data cases?",
         "Examples": ["What is the age distribution of shoppers?", "What is the distribution of carbohydrates in cereals?", "What is the count of movies for each genre?"],
         "taskMap Encoding": "distribution",
@@ -136,13 +136,13 @@ class PromptGenie:
         },
         {
         "Name": "Remove Attribute",
-        "Instruction": "Given a previous analytic specification, remove the attribute that is detected in the input natural language query to the previous specification.",
+        "Instruction": "Given a previous analytic specification, remove the attribute that is detected in the input natural language query to the previous specification.",
         "Examples": ["Remove genre", "Show only production budget"]
         },
         {
         "Name": "Replace Attribute",
         "Instruction": "Given a previous analytic specification, replace the attribute that is detected in the input natural language query and is also in the previous analytic specification with the attribute that is detected in the natural language query, but is not in the previous specification.",
-        "Examples": ["Replace gross with imdb rating", "Show gross instead of imdb rating"]
+        "Examples": ["Replace gross with imdb rating", "Show gross instead of imdb rating"]
         },
         {
         "Name": "Add Task",
@@ -164,16 +164,16 @@ class PromptGenie:
         "Instruction": "Given a previous analytic specification, replace the visualization type that is detected in the input natural language query and is also in the previous analytic specification with the visualization type that is detected in the natural language query, but is not in the previous specification.",
         "Examples": ["Replace the vis with a bar chart", "As a line chart now", "Show a tick plot instead"]
         }
-        ]’
+        ]'
 
-        If a field called **PREVIOUS ANALYTIC SPECIFICATION** appears below the natural language query, classify the below natural language query into the respective follow-up operations they map to. Utilize the previous analytic specification (including the attributeMap, taskMap, and visList) and modify this specification to reflect the changes specified and requested in the natural language query. Return the visualization type in the form of a Vega-Lite specification where it reads data from url: https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv.
-        However, if there is no field called PREVIOUS ANALYTIC SPECIFICATION that is below the natural language query,  then using the above definitions, classify the below natural language queries into the respective analytic tasks they map to. There can be one or more analytic tasks detected in the input natural language query. Return the visualization type in the form of a Vega-Lite specification where it reads data from the url above. PLEASE ensure that the schema used in your Vega-Lite specification is https://vega.github.io/schema/vega-lite/v4.json.
+        If a field called **PREVIOUS ANALYTIC SPECIFICATION** appears below the natural language query, classify the below natural language query into the respective follow-up operations they map to. Utilize the previous analytic specification (including the attributeMap, taskMap, and visList) and modify this specification to reflect the changes specified and requested in the natural language query. Return the visualization type in the form of a Vega-Lite specification where it reads data from url: https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv.
+        However, if there is no field called PREVIOUS ANALYTIC SPECIFICATION that is below the natural language query, then using the above definitions, classify the below natural language queries into the respective analytic tasks they map to. There can be one or more analytic tasks detected in the input natural language query. Return the visualization type in the form of a Vega-Lite specification where it reads data from the url above. PLEASE ensure that the schema used in your Vega-Lite specification is https://vega.github.io/schema/vega-lite/v6.json.
 
         Here's a subset of the original dataset with actual columns and rows for reference.
 
         <INSERT DATASET HERE>
 
-        If there is no PREVIOUS ANLAYTIC SPECIFICATION that appears below the query, detect any attributes, tasks, and visualizations in the dataset that the provided query references, and place the detected dataset columns in the attributeMap, taskMap and visList property of the JSON below. Each Query can have more than one task and visualization type they can map to. Each property in the "attributeMap" JSON should be populated with the extracted dataset column (e.g. "Worldwide Gross"). There can be multiple attributes, tasks, and visualizations that are detected, but make sure that each attribute, task, and visualization in the attributeMap, taskMap, and visList is unique. Put each attribute into the attributeMap, task into taskMap, and Visualization into visList JSON. There can also be multiple possible visualization specifications as well. For each possible visualization specification, you can include a dictionary that has the required contents to the "visList" list.
+        If there is no PREVIOUS ANLAYTIC SPECIFICATION that appears below the query, detect any attributes, tasks, and visualizations in the dataset that the provided query references, and place the detected dataset columns in the attributeMap, taskMap and visList property of the JSON below. Each Query can have more than one task and visualization type they can map to. Each property in the "attributeMap" JSON should be populated with the extracted dataset column (e.g. "Worldwide Gross"). There can be multiple attributes, tasks, and visualizations that are detected, but make sure that each attribute, task, and visualization in the attributeMap, taskMap, and visList is unique. Put each attribute into the attributeMap, task into taskMap, and Visualization into visList JSON. There can also be multiple possible visualization specifications as well. For each possible visualization specification, you can include a dictionary that has the required contents to the "visList" list.
         Furthermore, note that the input natural language (NL) query can also use ambiguous language with partial references to data attributes. In these cases, the attributeMap also includes an "isAmbiguous" field. The field can either be True or False. Set the field to True if the queryPhrase could refer to other attributes in the dataset. Otherwise set the field to False. If there are ambiguous attributes detected, generate Vega-Lite specifications for each ambiguous attribute that encode the ambiguous attribute in the visualization. Furthermore, if there are no tasks detected in the NL query, infer the task that is best suited with the detected attributes' datatypes. Generate a visualization specification using this inferred task and detected attributes.
         Here is the JSON object that the response should be returned as if and only if there is no PREVIOUS ANALYTIC SPECIFICATION attached to the natural language query:
 
@@ -197,10 +197,10 @@ class PromptGenie:
         "queryPhrase": [<Keywords found in query that were used to detect the dataset attribute>]
         "encode": <Boolean value depending on if the attribute appears on either of the axes or color in the Vega-Lite specification. The boolean value should be output as true or false in all lowercase letters.>
         },
-        "metric": <[Can be one of two values: "attribute_exact_match" or "attribute_similarity_match".  Set the value to "attribute_exact_match" if the attribute was found directly in the query. Set the value to "attribute_similarity_match" if the query uses a synonym for the attribute.]>,
-        "inferenceType": <Can be one of two values: "explicit" or "implicit". Set the value to "explicit" if the attribute’s "queryPhrase" references an attribute name. Set the value to "implicit" if the queryPhrase directly references values found in the attribute’s values.>
+        "metric": <[Can be one of two values: "attribute_exact_match" or "attribute_similarity_match". Set the value to "attribute_exact_match" if the attribute was found directly in the query. Set the value to "attribute_similarity_match" if the query uses a synonym for the attribute.]>,
+        "inferenceType": <Can be one of two values: "explicit" or "implicit". Set the value to "explicit" if the attribute's "queryPhrase" references an attribute name. Set the value to "implicit" if the queryPhrase directly references values found in the attribute's values.>
         "isAmbiguous": <Can be either True or False. Set the field to True if the queryPhrase could refer other attributes in the dataset. Otherwise set the field to False.>
-        "ambiguity": [<Populate this list with all the different attributes in the dataset that the queryPhrase can refer to  if isAmbiguous is set to True. Otherwise keep this list empty.]
+        "ambiguity": [<Populate this list with all the different attributes in the dataset that the queryPhrase can refer to if isAmbiguous is set to True. Otherwise keep this list empty.]
         },
         "taskMap": {
         <Task that was detected. Utilize the value from the "taskMap Encoding" key in the analytic task JSON array to populate this key>: [
@@ -220,6 +220,6 @@ class PromptGenie:
 
         If there is a PREVIOUS ANALYTIC SPECIFICATION provided, then utilize it (including the attributeMap, taskMap, and visList) and modify this specification to reflect the changes that are specified and requested in the natural language query. Then return this modified JSON object as output. The Vega-Lite specification should also change and a new visualization should be generated as a result of the modification. Also, in the modified JSON object, include a new property called "followupType". This "followupType" should include the classified follow-up operation (add attribute, replace task, etc.) that was detected in the natural language query.
         Please do not add any extra prose to your response. I only want to see the JSON output.
-
+        
         <INSERT QUERY HERE>
         """

@@ -21,10 +21,45 @@ With this output, developers can
 These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4dv/documentation.html).
 
 ### Credits
-NL4DV was created by
-<a target="_blank" href="https://www.cc.gatech.edu/~anarechania3">Arpit Narechania</a>, <a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a>, <a target="_blank"  href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a>, <a href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a> of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab.</a> Along with <a target="_blank"  href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a>, and <a href="https://webpages.charlotte.edu/~wdou1/">Wenwen Dou</a> of the <a target="_blank" href="https://viscenter.charlotte.edu/">Ribarsky Center for Visual Analytics at UNC Charlotte.</a>
-
-We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
+<div>
+  <p>
+      NL4DV is a collaborative project originally created by the <strong>Georgia Tech Visualization Lab</strong> at Georgia Institute of Technology with subsequent contributions from <strong>Ribarsky Center for Visual Analytics</strong> at UNC Charlotte and the <strong>DataVisards Group</strong> at The Hong Kong University of Science and Technology.
+  </p>
+  <ul>
+      <li>
+          <strong>Georgia Tech Visualization Lab</strong><br/>
+          <ul>
+              <li><a target="_blank" href="https://narechania.com">Arpit Narechania</a> (currently at HKUST)</li>
+              <li><a target="_blank" href="https://arjun010.github.io/">Arjun Srinivasan</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/rmitra34/">Rishab Mitra</a></li>
+              <li><a target="_blank" href="https://va.gatech.edu/endert/">Alex Endert</a></li>
+              <li><a target="_blank" href="https://www.cc.gatech.edu/~john.stasko/">John Stasko</a></li>
+          </ul>
+      </li>
+      <li>
+          <strong>Ribarsky Center for Visual Analytics at UNC Charlotte</strong><br/>
+          <ul>
+              <li><a target="_blank" href="https://www.linkedin.com/in/subhamsah17/">Subham Sah</a></li>
+              <li><a target="_blank" href="https://cci.charlotte.edu/directory/wenwen-dou/">Wenwen Dou</a></li>
+          </ul>
+      </li>
+      <li>
+          <strong>DataVisards Group at The Hong Kong University of Science and Technology</strong><br/>
+          <ul>
+              <li><a target="_blank" href="https://narechania.com">Arpit Narechania</a> (previously at Georgia Tech)</li>
+          </ul>
+      </li>
+      <li>
+          <strong>Independent Contributor</strong><br/>
+          <ul>
+              <li>Tenghao Ji</li>
+          </ul>
+      </li>
+  </ul>
+  <p>
+      We thank the members of the <a target="_blank" href="https://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback. We also thank <a href="https://github.com/vijaynyaya" target="_blank">@vijaynyaya</a> for the inspiration to support multiple language model providers.
+  </p>
+</div>
 
 ### Citations
 
@@ -58,7 +93,7 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
 ```bibTeX
 @misc{sah2024nl4dvllm,
     title={Generating Analytic Specifications for Data Visualization from Natural Language Queries using Large Language Models}, 
-    author={Subham Sah and Rishab Mitra and Arpit Narechania and Alex Endert and John Stasko and Wenwen Dou},
+    author={{Sah}, Subham and {Mitra}, Rishab and {Narechania}, Arpit and {Endert}, Alex and {Stasko}, John and {Dou}, Wenwen},
     year={2024},
     eprint={2408.13391},
     archivePrefix={arXiv},
@@ -68,8 +103,17 @@ We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Geo
 }
 ```
 
+#### 2025 Paper (coming soon)
+```bibTeX
+@misc{ji2025enl4dv,
+    title={{NL4DV-Stylist: Styling Data Visualizations Using Natural Language and Example Charts}}, 
+    author={{Ji}, Tenghao and {Narechania}, Arpit},
+    year={2025}
+}
+```
+
 ### License
 The software is available under the [MIT License](https://github.com/nl4dv/nl4dv/blob/master/LICENSE).
 
 ### Contact
-If you have any questions, feel free to [open an issue](https://github.com/nl4dv/nl4dv/issues/new/choose) or contact [Arpit Narechania](http://narechania.com).
+If you have any questions, feel free to [open an issue](https://github.com/nl4dv/nl4dv/issues/new/choose) or contact [Arpit Narechania](https://narechania.com).
