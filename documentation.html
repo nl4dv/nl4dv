@@ -274,13 +274,13 @@ print(output)</code></pre>
                                     </div>
                                 </div><!--//row-->
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="text-center"><strong>Input Chart 1</strong></div><br/>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="text-center mb-1"><strong>Input Chart 1</strong></div>
                                         <img width="80%" style="border: 1px solid lightgray;" class="img-fluid img-center"
                                         src="assets/images/sample-codes/v4-input-chart1.png" alt="Example chart input 1 of v4"/>
-                                    </div>    
-                                    <div class="col-md-6">
-                                        <div class="text-center"><strong>Input Chart 2</strong></div><br/>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="text-center mb-1"><strong>Input Chart 2</strong></div>
                                         <img width="80%" style="border: 1px solid lightgray;" class="img-fluid img-center"
                                         src="assets/images/sample-codes/v4-input-chart2.png" alt="Example chart input 2 of v4"/>
                                     </div>
@@ -431,7 +431,7 @@ print(output)</code></pre>
                                 </a></h4>
                                 <div class="collapse" id="design_failurelistCollapse">
                                     <div class="code-block">
-                                            <pre><code class="language-json">[][]</code></pre>
+                                            <pre><code class="language-json">[]</code></pre>
                                     </div><!--//code-block-->
                                 </div><!--//collapse-->
                                 <br/>
@@ -778,7 +778,10 @@ output = nl4dv_instance.analyze_query(query)
                                             </td>
                                             <td>
                                                 <p>Analyzes the input query.</p>
-                                                <span><b>Returns:</b> a JSON object comprising detected attributes, inferred analytic tasks, and relevant visualizations.</span>
+                                                <p><b>Returns:</b> a JSON object comprising detected attributes, inferred analytic tasks, and relevant visualizations.</p>
+                                                <p><b style="color:red">Note</b><br/> The <code class="language-bash">vlSpec</code> property contains the Vega-Lite() specification for the translated query without design aspects applied. </p>
+                                                <p><code class="language-bash">vlSpec_design</code>, <code class="language-bash">design_checklist</code>, <code class="language-bash">design_successlist</code>, <code class="language-bash">design_failurelist</code> properties were added in v4. The vlSpec_design contains the Vega-Lite() specification for the translated query with design aspects applied and the other properties have corresponding metadata.</p>
+                                                <p>The other properties in the output should be self-explanatory. Read the v1, v2, v3, v4 papers for details.</p>
                                             </td>
                                         </tr>
                                         <tr>
