@@ -298,18 +298,22 @@ print(output)</code></pre>
   "visList": ["..."],
   "attributeMap": {"..."},
   "taskMap": {"..."},
-  "vlSpec_design": {"..."},
-  "design_checklist": ["..."],
-  "design_successlist": ["..."],
-  "design_failurelist": []
+  "vlSpec": {"..."}, // Vega-Lite specification without any design customizations. 
+  "vlSpec_design": {"..."},  // New in v4. Vega-Lite specification with requested design customizations.
+  "design_checklist": ["..."], // New in v4.
+  "design_successlist": ["..."], // New in v4.
+  "design_failurelist": [] // New in v4.
 }</code></pre>
                                     </div><!--//code-block-->
                                 </div><!--//collapse-->
                                 <br/>
-                                <h4 class="block-title coloredText"><a data-toggle="collapse"
-                                                                       href="#vlSpec_designCollapse">
-                                    "vlSpec_design" &#9656;
-                                </a></h4>
+                                <h4 class="block-title coloredText">
+                                    <a data-toggle="collapse" href="#vlSpec_designCollapse">
+                                        "vlSpec_design" &#9656;
+                                    </a>
+                                    <br/><br/>
+                                    <span style="color: red;">Note that "vlSpec_design" is a new property in v4 containing a Vega-Lite specification that includes the design customizations requested by the user; the original "vlSpec" property continues to exist with the Vega-Lite specification without any design customizations (i.e., with the default designs).</span>                                
+                                </h4>
                                 <div class="collapse" id="vlSpec_designCollapse">
                                     <div class="code-block">
                                             <pre><code class="language-json">{
@@ -368,7 +372,7 @@ print(output)</code></pre>
     "fontWeight": "bold",
     "anchor": "middle",
     "align": "center"
-}
+    }
 }</code></pre>
                                     </div><!--//code-block-->
                                 </div><!--//collapse-->
@@ -512,7 +516,6 @@ print(output)</code></pre>
         "isAmbiguous": false,
         "ambiguity": []
     }
-  }
 }</code></pre>
                                     </div><!--//code-block-->
                                 </div><!--//collapse-->
@@ -1083,8 +1086,10 @@ Overrides the default implicit_followup_keyword_map map. The dictionary must be 
                                             <td>nl4dv_instance.analyze_query()</td>
                                             <td>
                                                 <p><code class="language-python">debug</code> (bool)</p>
+                                                Print logs to help debug the query translation process.
                                                 <hr>
                                                 <p><code class="language-python">verbose</code> (bool)</p>
+                                                Include metadata (e.g., confidence scores) in the output JSON.
                                             </td>
                                             <td></td>
                                         </tr>
