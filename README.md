@@ -105,10 +105,14 @@ These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4d
 
 #### 2025 Paper (coming soon)
 ```bibTeX
-@misc{ji2025enl4dv,
-    title={{NL4DV-Stylist: Styling Data Visualizations Using Natural Language and Example Charts}}, 
+@misc{ji2025nl4dvstylist,
+    title={{NL4DV-Stylist: Styling Data Visualizations Using Natural Language and Example Charts}},
     author={{Ji}, Tenghao and {Narechania}, Arpit},
-    year={2025}
+    year={2025},
+    url={osf.io/fs4en_v1},
+    DOI={10.31219/osf.io/fs4en_v1},
+    publisher={OSF Preprints},
+    note={Presented as a poster at IEEE VIS 2025 (Poster Track)}
 }
 ```
 
