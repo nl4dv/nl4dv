@@ -166,8 +166,11 @@ class LM_QueryGenie:
         }
         ]'
 
-        If a field called **PREVIOUS ANALYTIC SPECIFICATION** appears below the natural language query, classify the below natural language query into the respective follow-up operations they map to. Utilize the previous analytic specification (including the attributeMap, taskMap, and visList) and modify this specification to reflect the changes specified and requested in the natural language query. Return the visualization type in the form of a Vega-Lite specification where it reads data from url: https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv.
-        However, if there is no field called PREVIOUS ANALYTIC SPECIFICATION that is below the natural language query, then using the above definitions, classify the below natural language queries into the respective analytic tasks they map to. There can be one or more analytic tasks detected in the input natural language query. Return the visualization type in the form of a Vega-Lite specification where it reads data from the url above. PLEASE ensure that the schema used in your Vega-Lite specification is https://vega.github.io/schema/vega-lite/v6.json.
+        Return the visualization type in the form of a Vega-Lite specification where it reads data from url: <INSERT DATASET URL HERE>.
+        PLEASE ensure that the schema used in your Vega-Lite specification is https://vega.github.io/schema/vega-lite/v6.json.
+
+        If a field called **PREVIOUS ANALYTIC SPECIFICATION** appears below the natural language query, classify the below natural language query into the respective follow-up operations they map to. Utilize the previous analytic specification (including the attributeMap, taskMap, and visList) and modify this specification to reflect the changes specified and requested in the natural language query.
+        However, if there is no field called PREVIOUS ANALYTIC SPECIFICATION that is below the natural language query, then using the above definitions, classify the below natural language queries into the respective analytic tasks they map to. There can be one or more analytic tasks detected in the input natural language query. Return the visualization type in the form of a Vega-Lite specification where it reads data from the url above.
 
         Here's a subset of the original dataset with actual columns and rows for reference.
 
