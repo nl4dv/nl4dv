@@ -29,7 +29,7 @@
     <title>NL4DV | The Natural Language Toolkit for Data Visualization</title>
 
     <!--Favicon-->
-    <link rel='shortcut icon' type='image/x-icon'
+    <link rel="shortcut icon" type="image/x-icon"
         href="{{ url_for('nl4dv_llm.static', filename='img/favicon.ico') }}" />
 
     <!--Vendor CSS files-->
@@ -79,16 +79,39 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
-                            <div class="form-group col-md-3 mb-0">
-                                <label for="openAIKeyInput"><span class="step">1</span> Set <a href="https://openai.com/index/openai-api/" target="_blank">Open AI Key</a></label>
+                            <div class="form-group col-md-2 mb-0">
+                                <label for="llmProviderSelect"><span class="step">1</span> Set LLM Provider</label>
+                                <select class="form-control" style="border-radius: 0;" id="llmProviderSelect">
+                                    <option value="openai" selected="selected">OpenAI</option>
+                                    <option value="anthropic">Anthropic</option>
+                                    <option value="gemini">Google Gemini</option>
+                                    <option value="groq">Groq</option>
+                                    <option value="openrouter">OpenRouter</option>
+                                    <option value="custom">Custom Endpoint</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2 mb-0">
+                                <label for="llmModelInput">Model</label>
+                                <input id="llmModelInput" class="form-control" style="border-radius: 0;" type="text"
+                                    placeholder="gpt-4o-mini" value="gpt-4o-mini">
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                <label for="llmApiKeyInput">API Key</label>
                                 <div class="input-group">
-                                    <input id="openAIKeyInput" class="form-control" style="border-radius: 0;" type="password"
-                                        placeholder="Enter Open AI Key here..." value="">
+                                    <input id="llmApiKeyInput" class="form-control" style="border-radius: 0;" type="password"
+                                        placeholder="Enter API key here..." value="">
                                     <div class="input-group-append">
                                         <button onclick="initializeNL4DV()" class="btn btn-dark btn-sm"><i class="fa fa-save"></i>&nbsp;&nbsp;Set</button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group col-md-4 mb-0">
+                                <label for="llmApiBaseInput">Base URL</label>
+                                <input id="llmApiBaseInput" class="form-control" style="border-radius: 0;" type="url"
+                                    placeholder="Optional custom endpoint" value="">
+                            </div>
+                        </div>
+                        <div class="form-row mt-3">
                             <div class="form-group col-md-3 mb-0" style="position:relative;">
                                 <label for="datasetSelect"><span class="step">2</span> Set/Review Dataset</label>
                                 <div class="input-group">
@@ -109,8 +132,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6 mb-0">
-                                <label for="inputQuery"><span class="step">3</span> Enter Input Query</label>
+                            <div class="form-group col-md-9 mb-0">
+                                <label for="queryInput"><span class="step">3</span> Enter Input Query</label>
                                 <div class="input-group">
                                     <input disabled="true" style="border-radius: 0" type="search" class="form-control" id="queryInput"
                                         placeholder="Enter Input Query here...">
@@ -157,28 +180,67 @@
                 </div>
             </div>
         </div>
+        <div id="designStudio" class="card design-studio mt-3">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <div>
+                    <span class="step">4</span>
+                    <span class="card-title ml-1">Style using text or sample charts</span>
+                </div>
+                <span class="badge badge-light">Text + up to 5 example charts</span>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="designInstructionInput">Overall styling instruction</label>
+                        <textarea disabled id="designInstructionInput" class="form-control" rows="3"
+                            placeholder="Example: Use a dark background, remove gridlines, and put the legend at the top."></textarea>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div>
+                        <strong>Example chart references</strong>
+                        <span class="text-muted ml-2">Each image can have its own scoped instruction.</span>
+                    </div>
+                    <button disabled id="addDesignExampleBtn" type="button" class="btn btn-sm btn-outline-primary">
+                        <i class="fa fa-plus"></i>&nbsp; Add example chart
+                    </button>
+                </div>
+                <div id="designExamples"></div>
+
+                <div class="d-flex align-items-center justify-content-between mt-3">
+                    <small class="text-muted">PNG, JPEG, WebP, or GIF. Images are sent to the selected model as design context.</small>
+                    <button disabled id="applyDesignBtn" type="button" class="btn btn-primary">
+                        <i class="fa fa-paint-brush"></i>&nbsp; Apply styles
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <div class="row" style="margin-top: 16px;">
             <div class="col-md-6">
-                <div class="card w-100">
+                <div class="card w-100 output-card">
                     <div class="card-header">
                         <span class="card-title">Output: Analytic Specification JSON</span>
                     </div>
-                    <div class="card-body w-100" style="height: calc(100vh - 320px); overflow: auto;">
+                    <div class="card-body specification-panel">
                         <div class="h-100 w-100" id="inputContainer"></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card w-100">
+                <div class="card w-100 output-card">
                     <div class="card-header">
                         <span class="card-title">Output: Visualization</span>
                     </div>
-                    <div class="card-body w-100" style="height: calc(100vh - 320px); overflow: auto;">
-                        <div class="h-100 w-100" id="outputVisContainer"></div>
+                    <div class="card-body visualization-panel">
+                        <div class="empty-visualization" id="originalEmptyState">Generate a chart to begin.</div>
+                        <div class="w-100" id="outputVisContainer"></div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="loadingModal"></div>
 </body>
@@ -194,13 +256,16 @@
 <script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
 <script src="https://codemirror.net/mode/javascript/javascript.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
 
 <script src="{{ url_for('nl4dv_llm.static', filename='js/global.js') }}"></script>
 <script src="{{ url_for('nl4dv_llm.static', filename='js/utils.js') }}"></script>
-<script src="{{ url_for('nl4dv_llm.static', filename='js/ui.js') }}" z></script>
+<script src="{{ url_for('nl4dv_llm.static', filename='js/ui.js') }}"></script>
 <script src="{{ url_for('nl4dv_llm.static', filename='js/main.js') }}"></script>
 
 
