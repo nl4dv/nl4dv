@@ -13,6 +13,7 @@ from applications.mmplot import mmplot_routes
 from applications.mindmap import mindmap_routes
 from applications.chatbot import chatbot_routes
 from applications.nl4dv_llm import nl4dv_llm_routes
+from applications.nl4dv_stylist import nl4dv_stylist_routes
 
 # Import our Debugging Applications
 from debuggers.debugger_single import debugger_single_routes
@@ -26,20 +27,132 @@ app = Flask(__name__)
 # Initialize nl4dv variable
 nl4dv_instance = None
 
+PROVIDER_ENV_VAR = {
+    "openai": "OPENAI_API_KEY",
+    "anthropic": "ANTHROPIC_API_KEY",
+    "gemini": "GEMINI_API_KEY",
+    "groq": "GROQ_API_KEY",
+    "openrouter": "OPENROUTER_API_KEY",
+    "custom": "OPENAI_API_KEY",
+}
+
+PROVIDER_MODEL_PREFIX = {
+    "anthropic": "anthropic/",
+    "gemini": "gemini/",
+    "groq": "groq/",
+    "openrouter": "openrouter/",
+}
+
+# Example-app only: prefer the instance's configured LiteLLM model.
+# The published toolkit defaults query_language_model(...) to "gpt-4o-mini".
+_original_query_language_model = NL4DV.query_language_model
+
+
+def _query_language_model_using_lm_config(self, prompts, model="gpt-4o-mini"):
+    if getattr(self, "lm_model", None):
+        model = self.lm_model
+    return _original_query_language_model(self, prompts, model=model)
+
+
+NL4DV.query_language_model = _query_language_model_using_lm_config
+
+
+def normalize_lm_model(provider, model):
+    model = (model or "").strip()
+    if not model:
+        return model
+
+    prefix = PROVIDER_MODEL_PREFIX.get(provider)
+    if prefix and not model.startswith(prefix):
+        model = prefix + model
+    return model
+
+
+def build_lm_config(form):
+    provider = (form.get("provider") or "openai").strip().lower()
+    model = normalize_lm_model(provider, form.get("model"))
+    api_key = (form.get("api_key") or form.get("openAIKey") or "").strip()
+    api_base = (form.get("api_base") or "").strip() or None
+    environ_var_name = PROVIDER_ENV_VAR.get(provider, "OPENAI_API_KEY")
+
+    if not api_key:
+        raise ValueError("API key is required.")
+    if not model:
+        raise ValueError("Model is required.")
+
+    return {
+        "provider": provider,
+        "model": model,
+        "environ_var_name": environ_var_name,
+        "api_key": api_key,
+        "api_base": api_base,
+    }
+
+
+def apply_design_to_spec(instance, analytic_spec, design_config):
+    """
+    Example-app helper for the stylist UI's two-step flow:
+    1) generate an analytic spec via analyze_query
+    2) style that existing spec without re-running query translation
+
+    The toolkit already supports design via design_config + analyze_query().
+    This endpoint-only path reuses the design prompt + query_language_model.
+    """
+    if not design_config:
+        raise ValueError("design_config is empty.")
+
+    instance.design_config = design_config
+    if instance.processing_mode in ("gpt", "language-model"):
+        instance.configure_litellm(instance.lm_config)
+
+    prompts = [{
+        "type": "text",
+        "text": instance.lm_design_genie_instance.prompt
+    }]
+    for design_instruction in design_config:
+        prompts.append(design_instruction.copy() if isinstance(design_instruction, dict) else design_instruction)
+    prompts.append({
+        "type": "text",
+        "text": str(analytic_spec)
+    })
+    return instance.query_language_model(prompts)
+
+
 @app.route('/init', methods=['POST'])
 def init():
     global nl4dv_instance
 
-    if 'processing_mode' not in request.form:
-        request.form['processing_mode'] = 'semantic-parsing'
-
-    processing_mode = request.form['processing_mode']
+    processing_mode = request.form.get('processing_mode', 'semantic-parsing')
     if processing_mode == "gpt":
-            openai_key = request.form['openAIKey']
-            nl4dv_instance = NL4DV(processing_mode="gpt", gpt_api_key=openai_key, verbose=True)
+        openai_key = request.form.get('openAIKey') or request.form.get('api_key')
+        nl4dv_instance = NL4DV(processing_mode="gpt", gpt_api_key=openai_key, verbose=True)
+        return jsonify({"message": "NL4DV Initialized", "processing_mode": "gpt"})
 
-    elif processing_mode == "semantic-parsing":
-        dependency_parser = request.form['dependency_parser']
+    if processing_mode == "language-model":
+        try:
+            lm_config = build_lm_config(request.form)
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+
+        nl4dv_instance = NL4DV(
+            processing_mode="language-model",
+            lm_config={
+                "model": lm_config["model"],
+                "environ_var_name": lm_config["environ_var_name"],
+                "api_key": lm_config["api_key"],
+                "api_base": lm_config["api_base"],
+            },
+            verbose=True
+        )
+        return jsonify({
+            "message": "NL4DV Initialized",
+            "processing_mode": "language-model",
+            "provider": lm_config["provider"],
+            "model": lm_config["model"],
+        })
+
+    if processing_mode == "semantic-parsing":
+        dependency_parser = request.form.get('dependency_parser', 'spacy')
         if dependency_parser == "corenlp":
             dependency_parser_config = {'name': 'corenlp','model': os.path.join("assets","jars","stanford-english-corenlp-2018-10-05-models.jar"),'parser': os.path.join("assets","jars","stanford-parser.jar")}
             nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
@@ -53,11 +166,10 @@ def init():
             nl4dv_instance = NL4DV(dependency_parser_config=dependency_parser_config, verbose=True, processing_mode="semantic-parsing")
 
         else:
-            raise ValueError('Error with Dependency Parser')
-    else:
-        raise ValueError('Error with Processing Mode')
+            return jsonify({"error": "Error with Dependency Parser"}), 400
+        return jsonify({"message":"NL4DV Initialized", "dependency_parser": dependency_parser})
 
-    return jsonify({"message":"NL4DV Initialized"})
+    return jsonify({"error": "Error with Processing Mode"}), 400
 
 
 @app.route('/setDependencyParser', methods=['POST'])
@@ -173,6 +285,30 @@ def analyze_query():
     return json.dumps(nl4dv_instance.analyze_query(query, debug=True))
 
 
+@app.route('/apply_design', methods=['POST'])
+def apply_design():
+    global nl4dv_instance
+    if nl4dv_instance is None:
+        return jsonify({"error": "NL4DV NOT initialized"}), 400
+
+    payload = request.get_json(silent=True) or {}
+    analytic_spec = payload.get("analytic_spec")
+    design_config = payload.get("design_config")
+
+    if not analytic_spec:
+        return jsonify({"error": "analytic_spec is required."}), 400
+    if not design_config:
+        return jsonify({"error": "design_config is required."}), 400
+
+    try:
+        response = apply_design_to_spec(nl4dv_instance, analytic_spec, design_config)
+        if isinstance(response, dict) and response.get("error"):
+            return jsonify(response), 500
+        return jsonify(response)
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
+
+
 @app.route('/flushConversation', methods=['POST'])
 def flushConversation():
     global nl4dv_instance
@@ -230,18 +366,19 @@ def get_dataset_meta():
     return jsonify(output)
 
 if __name__ == "__main__":
-    # app.register_blueprint(datatone_routes.datatone_bp, url_prefix='/datatone')
-    # app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
-    # app.register_blueprint(vllearner_routes.vllearner_bp, url_prefix='/vllearner')
-    # app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
-    # app.register_blueprint(mindmap_routes.mindmap_bp, url_prefix='/mindmap')
-    # app.register_blueprint(chatbot_routes.chatbot_bp, url_prefix='/chatbot')
+    app.register_blueprint(datatone_routes.datatone_bp, url_prefix='/datatone')
+    app.register_blueprint(vleditor_routes.vleditor_bp, url_prefix='/vleditor')
+    app.register_blueprint(vllearner_routes.vllearner_bp, url_prefix='/vllearner')
+    app.register_blueprint(mmplot_routes.mmplot_bp, url_prefix='/mmplot')
+    app.register_blueprint(mindmap_routes.mindmap_bp, url_prefix='/mindmap')
+    app.register_blueprint(chatbot_routes.chatbot_bp, url_prefix='/chatbot')
     app.register_blueprint(nl4dv_llm_routes.nl4dv_llm_bp, url_prefix='/nl4dv_llm')
+    app.register_blueprint(nl4dv_stylist_routes.nl4dv_stylist_bp, url_prefix='/nl4dv_stylist')
 
-    # app.register_blueprint(debugger_single_routes.debugger_single_bp, url_prefix='/debugger_single')
-    # app.register_blueprint(debugger_batch_routes.debugger_batch_bp, url_prefix='/debugger_batch')
-    # app.register_blueprint(vis_matrix_routes.vis_matrix_bp, url_prefix='/vis_matrix')
-    # app.register_blueprint(test_queries_routes.test_queries_bp, url_prefix='/test_queries')
+    app.register_blueprint(debugger_single_routes.debugger_single_bp, url_prefix='/debugger_single')
+    app.register_blueprint(debugger_batch_routes.debugger_batch_bp, url_prefix='/debugger_batch')
+    app.register_blueprint(vis_matrix_routes.vis_matrix_bp, url_prefix='/vis_matrix')
+    app.register_blueprint(test_queries_routes.test_queries_bp, url_prefix='/test_queries')
 
     port = int(os.environ.get("PORT", 7001))
     app.run(host='0.0.0.0', debug=True, threaded=True, port=port)

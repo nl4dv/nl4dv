@@ -22,9 +22,163 @@ body{
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
     width: 100%;
-    /* height: 250px; */
 }
 
 .card:hover .img-wrapper img {
     margin-top: -50px;
+}
+
+/* Showcase homepage */
+body.showcase-home {
+    font-size: 15px;
+    overflow-x: hidden;
+}
+
+body.showcase-home .section-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #343a40;
+    background: #f1f3f5;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.45rem 0.9rem;
+    margin: 0;
+}
+
+body.showcase-home .section-note {
+    font-weight: 400;
+    font-size: 0.82rem;
+    color: #6c757d;
+}
+
+body.showcase-home .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 0.75rem;
+    padding: 0.65rem 0.9rem 0.75rem;
+}
+
+body.showcase-home .showcase-grid-secondary {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.55rem;
+    padding-top: 0.4rem;
+    opacity: 0.92;
+}
+
+body.showcase-home .showcase-divider {
+    margin: 0.35rem 0.9rem 0.25rem;
+    border-top: 1px solid #ced4da;
+}
+
+body.showcase-home .showcase-subheading {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6c757d;
+    padding: 0 0.9rem;
+}
+
+body.showcase-home .card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-width: 0;
+    overflow: hidden;
+}
+
+body.showcase-home .card > .link {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 100%;
+}
+
+body.showcase-home .card-body {
+    margin-top: auto;
+    padding: 0.55rem 0.65rem;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+body.showcase-home .card-title {
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.25;
+}
+
+body.showcase-home .card-text {
+    display: none;
+}
+
+body.showcase-home .img-wrapper {
+    height: 110px;
+    margin: 0;
+    flex: 0 0 110px;
+}
+
+body.showcase-home .showcase-grid-secondary .img-wrapper {
+    height: 88px;
+    flex-basis: 88px;
+}
+
+body.showcase-home .card:hover .img-wrapper img {
+    margin-top: -18px;
+}
+
+body.showcase-home .img-wrapper img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Shared slim top bar */
+.nl4dv-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    background: #343a40;
+    color: #fff;
+}
+
+.nl4dv-topbar .brand {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.nl4dv-topbar .brand:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nl4dv-topbar .brand small {
+    font-weight: 400;
+    opacity: 0.8;
+    margin-left: 0.25rem;
+}
+
+.nl4dv-topbar .topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.nl4dv-topbar .topbar-links a {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 0.2rem;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.78rem;
+    text-decoration: none;
+}
+
+.nl4dv-topbar .topbar-links a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    text-decoration: none;
 }

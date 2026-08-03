@@ -1,5 +1,7 @@
 var myCodeMirror;
 var currentAnalyticSpec = null;
+var designExampleCount = 0;
+var maxDesignExamples = 5;
 
 function emptyDatasetContainers() {
     $(globalConfig.extractedMetaDataContainer + " table tbody").empty();
@@ -22,6 +24,19 @@ function firstVisualization(response) {
     return response.visList.find(function (item) {
         return item && item.vlSpec && Object.keys(item.vlSpec).length;
     }) || null;
+}
+
+function findStyledSpec(response) {
+    if (!response || typeof response !== "object") return null;
+    if (response.vlSpec_design) return response.vlSpec_design;
+    if (Array.isArray(response.visList)) {
+        for (var i = 0; i < response.visList.length; i += 1) {
+            if (response.visList[i] && response.visList[i].vlSpec_design) {
+                return response.visList[i].vlSpec_design;
+            }
+        }
+    }
+    return null;
 }
 
 function selectedDatasetReference() {
@@ -57,10 +72,12 @@ function ensureResponseDataset(response) {
         response.dataset = dataReference.url;
     }
 
+    ensureDatasetUrl(response.vlSpec_design);
     if (Array.isArray(response.visList)) {
         response.visList.forEach(function (visualization) {
             if (!visualization || typeof visualization !== "object") return;
             ensureDatasetUrl(visualization.vlSpec);
+            ensureDatasetUrl(visualization.vlSpec_design);
         });
     }
 }
@@ -146,10 +163,16 @@ function setWorkflowEnabled(enabled) {
         "#datasetSelect",
         "#reviewDatasetBtn",
         "#queryInput",
-        "#queryBtn"
+        "#queryBtn",
+        "#designInstructionInput",
+        "#addDesignExampleBtn",
+        "#applyDesignBtn"
     ].forEach(function (selector) {
         $(selector).prop("disabled", !enabled);
     });
+
+    $(".design-example-file, .design-example-instruction, .remove-design-example")
+        .prop("disabled", !enabled);
 }
 
 var defaultModels = {
@@ -271,6 +294,127 @@ $(globalConfig.queryBtn).on("click", function (evt) {
         });
 });
 
+function addDesignExample() {
+    if ($(".design-example").length >= maxDesignExamples) {
+        alert("You can add up to " + maxDesignExamples + " example charts.");
+        return;
+    }
+    designExampleCount += 1;
+    var exampleId = designExampleCount;
+    var row = $("<div>", { "class": "design-example", "data-example-id": exampleId });
+    var preview = $("<div>", { "class": "design-example-preview" }).append(
+        $("<span>", { "class": "text-muted", text: "No image selected" })
+    );
+    var fileInput = $("<input>", {
+        "class": "form-control-file design-example-file",
+        type: "file",
+        accept: "image/png,image/jpeg,image/webp,image/gif"
+    });
+    var instruction = $("<textarea>", {
+        "class": "form-control design-example-instruction",
+        rows: 2,
+        placeholder: "Example: Use this chart's colors and axis styling, but not its legend."
+    });
+    var removeButton = $("<button>", {
+        "class": "btn btn-sm btn-outline-danger remove-design-example",
+        type: "button",
+        title: "Remove example chart",
+        html: '<i class="fa fa-trash"></i>'
+    });
+
+    row.append(
+        $("<div>", { "class": "design-example-number" }),
+        preview,
+        $("<div>", { "class": "design-example-fields" }).append(fileInput, instruction),
+        removeButton
+    );
+    $("#designExamples").append(row);
+    renumberDesignExamples();
+}
+
+function renumberDesignExamples() {
+    $(".design-example").each(function (index) {
+        $(this).find(".design-example-number").text("Example " + (index + 1));
+    });
+}
+
+function readDesignImage(file) {
+    return new Promise(function (resolve, reject) {
+        if (!file) {
+            reject(new Error("Select an image for every example chart."));
+            return;
+        }
+        if (["image/png", "image/jpeg", "image/webp", "image/gif"].indexOf(file.type) === -1) {
+            reject(new Error("Example charts must be PNG, JPEG, WebP, or GIF images."));
+            return;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+            reject(new Error("Each example chart must be smaller than 5 MB."));
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function () { resolve(reader.result); };
+        reader.onerror = function () { reject(new Error("An example chart could not be read.")); };
+        reader.readAsDataURL(file);
+    });
+}
+
+function collectDesignConfig() {
+    var config = [];
+    var overallInstruction = $("#designInstructionInput").val().trim();
+    if (overallInstruction) {
+        config.push({ type: "text", text: "Overall styling instruction: " + overallInstruction });
+    }
+
+    var examplePromises = [];
+    $(".design-example").each(function (index) {
+        var row = $(this);
+        var file = row.find(".design-example-file")[0].files[0];
+        var instruction = row.find(".design-example-instruction").val().trim();
+        examplePromises.push(readDesignImage(file).then(function (dataUrl) {
+            return [
+                { type: "image_url", image_url: { url: dataUrl } },
+                {
+                    type: "text",
+                    text: "Instructions for example chart " + (index + 1) + ": " +
+                        (instruction || "Use all visible design and layout aspects from this chart.")
+                }
+            ];
+        }));
+    });
+
+    return Promise.all(examplePromises).then(function (examples) {
+        examples.forEach(function (items) { config = config.concat(items); });
+        if (!config.length) throw new Error("Add a styling instruction or an example chart before applying styles.");
+        return config;
+    });
+}
+
+function applyDesign() {
+    if (!currentAnalyticSpec) {
+        alert("Generate a visualization before applying styles.");
+        return;
+    }
+    collectDesignConfig().then(function (designConfig) {
+        return $.ajax({
+            url: "/apply_design",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ analytic_spec: currentAnalyticSpec, design_config: designConfig })
+        });
+    }).then(function (response) {
+        ensureResponseDataset(response);
+        var styledSpec = findStyledSpec(response);
+        if (!styledSpec) throw new Error("The model did not return a styled Vega-Lite specification.");
+        renderVegaSpec("#outputVisContainer", styledSpec, "#originalEmptyState");
+        showSpecification(response);
+    }).catch(function (error) {
+        console.error("Styling error:", error);
+        var message = error.responseJSON && error.responseJSON.error ? error.responseJSON.error : error.message;
+        alert(message || "The visualization could not be styled. Check the model and design instructions.");
+    });
+}
+
 $(document).ready(function () {
     $("#llmProviderSelect").on("change", function () {
         var provider = $(this).val();
@@ -279,5 +423,27 @@ $(document).ready(function () {
 
     $("#llmApiKeyInput").on("input", function () {
         syncProviderFromKey(this.value);
+    });
+
+    $("#addDesignExampleBtn").on("click", addDesignExample);
+    $("#applyDesignBtn").on("click", applyDesign);
+
+    $("#designExamples").on("click", ".remove-design-example", function () {
+        $(this).closest(".design-example").remove();
+        renumberDesignExamples();
+    });
+
+    $("#designExamples").on("change", ".design-example-file", function () {
+        var input = this;
+        var preview = $(input).closest(".design-example").find(".design-example-preview");
+        preview.empty();
+        if (!input.files || !input.files[0]) {
+            preview.append($("<span>", { "class": "text-muted", text: "No image selected" }));
+            return;
+        }
+        var url = URL.createObjectURL(input.files[0]);
+        var image = $("<img>", { alt: "Example chart preview", src: url });
+        image.on("load", function () { URL.revokeObjectURL(url); });
+        preview.append(image);
     });
 });

@@ -240,6 +240,54 @@ ul, ol {
     background-color: #343A3F;
 }
 
+.design-studio {
+    border-color: #9fb7d8;
+    box-shadow: 0 3px 12px rgba(35, 73, 122, 0.08);
+}
+
+.design-studio .card-header {
+    background: #f3f7fc;
+}
+
+.design-example {
+    display: grid;
+    grid-template-columns: 82px 150px minmax(240px, 1fr) 38px;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #dce2e8;
+    background: #fafbfc;
+}
+
+.design-example-number {
+    font-weight: 600;
+    color: #495057;
+}
+
+.design-example-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 92px;
+    overflow: hidden;
+    border: 1px dashed #adb5bd;
+    background: white;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.design-example-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.design-example-fields textarea {
+    margin-top: 8px;
+}
+
 .output-card {
     height: 540px;
 }
@@ -262,4 +310,27 @@ ul, ol {
 .specification-panel {
     height: 485px;
     overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    .design-example {
+        grid-template-columns: 82px 120px minmax(180px, 1fr) 38px;
+    }
+
+    .design-example-preview {
+        width: 120px;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .design-example {
+        grid-template-columns: 1fr 38px;
+    }
+
+    .design-example-preview,
+    .design-example-fields {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
 }

@@ -30,7 +30,7 @@
 
     <!--Favicon-->
     <link rel="shortcut icon" type="image/x-icon"
-        href="{{ url_for('nl4dv_llm.static', filename='img/favicon.ico') }}" />
+        href="{{ url_for('nl4dv_stylist.static', filename='img/favicon.ico') }}" />
 
     <!--Vendor CSS files-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
@@ -44,13 +44,13 @@
 
     <!--Custom CSS files-->
     <link href="/static/css/styles.css" rel="stylesheet">
-    <link href="{{ url_for('nl4dv_llm.static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('nl4dv_stylist.static', filename='css/style.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
     <header class="nl4dv-topbar">
-        <a class="brand" href="/">NL4DV <small>v3.x</small> · NL4DV-LLM</a>
+        <a class="brand" href="/">NL4DV <small>v4.x</small> · NL4DV-Stylist</a>
         <div class="topbar-links">
             <a href="/"><i class="fa fa-th-large"></i> Showcase</a>
             <a href="https://github.com/nl4dv/nl4dv" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a>
@@ -167,6 +167,43 @@
                 </div>
             </div>
         </div>
+        <div id="designStudio" class="card design-studio mt-3">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <div>
+                    <span class="step">4</span>
+                    <span class="card-title ml-1">Style using text or sample charts</span>
+                </div>
+                <span class="badge badge-light">Text + up to 5 example charts</span>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="designInstructionInput">Overall styling instruction</label>
+                        <textarea disabled id="designInstructionInput" class="form-control" rows="3"
+                            placeholder="Example: Use a dark background, remove gridlines, and put the legend at the top."></textarea>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div>
+                        <strong>Example chart references</strong>
+                        <span class="text-muted ml-2">Each image can have its own scoped instruction.</span>
+                    </div>
+                    <button disabled id="addDesignExampleBtn" type="button" class="btn btn-sm btn-outline-primary">
+                        <i class="fa fa-plus"></i>&nbsp; Add example chart
+                    </button>
+                </div>
+                <div id="designExamples"></div>
+
+                <div class="d-flex align-items-center justify-content-between mt-3">
+                    <small class="text-muted">PNG, JPEG, WebP, or GIF. Images are sent to the selected model as design context.</small>
+                    <button disabled id="applyDesignBtn" type="button" class="btn btn-primary">
+                        <i class="fa fa-paint-brush"></i>&nbsp; Apply styles
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <div class="row" style="margin-top: 16px;">
             <div class="col-md-6">
                 <div class="card w-100 output-card">
@@ -213,10 +250,10 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
 
-<script src="{{ url_for('nl4dv_llm.static', filename='js/global.js') }}"></script>
-<script src="{{ url_for('nl4dv_llm.static', filename='js/utils.js') }}"></script>
-<script src="{{ url_for('nl4dv_llm.static', filename='js/ui.js') }}"></script>
-<script src="{{ url_for('nl4dv_llm.static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('nl4dv_stylist.static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('nl4dv_stylist.static', filename='js/utils.js') }}"></script>
+<script src="{{ url_for('nl4dv_stylist.static', filename='js/ui.js') }}"></script>
+<script src="{{ url_for('nl4dv_stylist.static', filename='js/main.js') }}"></script>
 
 
 </html>
