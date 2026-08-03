@@ -47,12 +47,8 @@ These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4d
           <strong>DataVisards Group at The Hong Kong University of Science and Technology</strong><br/>
           <ul>
               <li><a target="_blank" href="https://narechania.com">Arpit Narechania</a> (previously at Georgia Tech)</li>
-          </ul>
-      </li>
-      <li>
-          <strong>Independent Contributor</strong><br/>
-          <ul>
               <li>Tenghao Ji</li>
+              <li>Kushall Saraf</li>
           </ul>
       </li>
   </ul>
