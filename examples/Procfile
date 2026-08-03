@@ -1,1 +1,1 @@
-web: NLTK_DISABLE_IMPORT_SECURITY=1 python app.py
+web: NLTK_DATA=/app/nltk_data NLTK_DISABLE_IMPORT_SECURITY=1 python app.py

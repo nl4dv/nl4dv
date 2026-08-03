@@ -7,8 +7,12 @@ set -euo pipefail
 export NLTK_DISABLE_IMPORT_SECURITY=1
 export PYTHONSAFEPATH=1
 
+# Pin corpora into the slug so runtime can find them (default ~/nltk_data is unreliable on Heroku).
+export NLTK_DATA=/app/nltk_data
+mkdir -p "$NLTK_DATA"
+
 echo "-----> Downloading spaCy model en_core_web_sm"
 python -m spacy download en_core_web_sm
 
-echo "-----> Downloading NLTK popular corpora"
-python -m nltk.downloader popular
+echo "-----> Downloading NLTK popular corpora into $NLTK_DATA"
+python -m nltk.downloader -d "$NLTK_DATA" popular
