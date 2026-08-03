@@ -57,7 +57,7 @@ These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4d
       </li>
   </ul>
   <p>
-      We thank the members of the <a target="_blank" href="https://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback. We also thank <a href="https://github.com/vijaynyaya" target="_blank">@vijaynyaya</a> for the inspiration to support multiple language model providers.
+      We thank the members of the <a target="_blank" href="https://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback. We also thank <a href="https://github.com/vijaynyaya" target="_blank">@vijaynyaya</a> for the inspiration to support multiple language model providers. Big thanks to <a href="https://www.linkedin.com/in/kushall-saraf-95a87021b/" target="_blank">Kushall Saraf</a> for contributing the v3 and v4 example applications.
   </p>
 </div>
 
