@@ -39,47 +39,32 @@ function findStyledSpec(response) {
     return null;
 }
 
-function selectedDatasetReference() {
-    var dataset = $(globalConfig.datasetSelect).val();
-    if (!dataset) return null;
-    return {
-        url: "assets/data/" + encodeURIComponent(dataset),
-        format: { type: "csv" }
-    };
-}
-
-function needsDatasetUrl(url) {
-    return typeof url !== "string" ||
-        !url.trim() ||
-        url.toLowerCase().indexOf("add dataset url") !== -1;
-}
-
-function ensureDatasetUrl(spec) {
-    var dataReference = selectedDatasetReference();
-    if (!spec || typeof spec !== "object" || !dataReference) return;
-
-    var currentUrl = spec.data && spec.data.url;
-    if (needsDatasetUrl(currentUrl)) {
-        spec.data = $.extend(true, {}, dataReference);
-    }
-}
-
 function ensureResponseDataset(response) {
-    var dataReference = selectedDatasetReference();
-    if (!response || typeof response !== "object" || !dataReference) return;
+    var dataset = $(globalConfig.datasetSelect).val();
+    if (!response || !dataset) return;
 
-    if (needsDatasetUrl(response.dataset)) {
-        response.dataset = dataReference.url;
+    var dataUrl = "assets/data/" + encodeURIComponent(dataset);
+    if (response.dataset !== dataUrl) {
+        response.dataset = dataUrl;
     }
 
-    ensureDatasetUrl(response.vlSpec_design);
-    if (Array.isArray(response.visList)) {
-        response.visList.forEach(function (visualization) {
-            if (!visualization || typeof visualization !== "object") return;
-            ensureDatasetUrl(visualization.vlSpec);
-            ensureDatasetUrl(visualization.vlSpec_design);
-        });
-    }
+    var specs = [response.vlSpec_design];
+    (response.visList || []).forEach(function (visualization) {
+        if (!visualization) return;
+        specs.push(visualization.vlSpec, visualization.vlSpec_design);
+    });
+
+    specs.forEach(function (spec) {
+        if (!spec || (spec.data &&
+            Object.prototype.hasOwnProperty.call(spec.data, "values"))) return;
+
+        if (!spec.data || spec.data.url !== dataUrl) {
+            spec.data = {
+                url: dataUrl,
+                format: { type: "csv" }
+            };
+        }
+    });
 }
 
 function renderVegaSpec(containerId, spec, emptyStateSelector) {
@@ -91,7 +76,6 @@ function renderVegaSpec(containerId, spec, emptyStateSelector) {
     $(emptyStateSelector).addClass("d-none");
     $(containerId).empty();
     var renderSpec = $.extend(true, {}, spec);
-    ensureDatasetUrl(renderSpec);
     renderSpec.width = "container";
     renderSpec.height = 360;
     vegaEmbed(document.querySelector(containerId), renderSpec, vegaOptMode).catch(function (error) {
