@@ -16,15 +16,20 @@ export NLTK_DATA="$NLTK_DATA_DIR"
 echo "-----> Downloading spaCy model en_core_web_sm"
 python -m spacy download en_core_web_sm
 
-echo "-----> Downloading NLTK popular corpora into $NLTK_DATA_DIR"
-python -m nltk.downloader -d "$NLTK_DATA_DIR" popular
+# popular includes punkt/stopwords/wordnet, but NLTK 3.8.2+/3.9+ word_tokenize
+# needs punkt_tab (and pos_tag needs averaged_perceptron_tagger_eng).
+echo "-----> Downloading NLTK corpora into $NLTK_DATA_DIR"
+python -m nltk.downloader -d "$NLTK_DATA_DIR" popular punkt_tab averaged_perceptron_tagger_eng
 
-# Fail the build early if stopwords still aren't present in the slug path.
+# Fail the build early if tokenization still can't load.
 python - <<'PY'
-import os, sys
+import os
 import nltk
-nltk.data.path.insert(0, os.environ["NLTK_DATA"])
 from nltk.corpus import stopwords
+from nltk import word_tokenize
+
+nltk.data.path.insert(0, os.environ["NLTK_DATA"])
 words = stopwords.words("english")
-print(f"-----> NLTK stopwords OK ({len(words)} words) at {os.environ['NLTK_DATA']}")
+tokens = word_tokenize("Show average budget by genre")
+print(f"-----> NLTK OK (stopwords={len(words)}, tokenize={tokens}) at {os.environ['NLTK_DATA']}")
 PY
