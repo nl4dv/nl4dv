@@ -144,7 +144,9 @@
          console.log("node clicked: " + d.text);
      }
 
-    $("#processQueryBtn").click(function(){
+    // Rebind on each MindMap create so dataset switches don't stack handlers
+    // against previous mindmap instances (which kept old queries on screen).
+    $("#processQueryBtn").off("click.mindmap").on("click.mindmap", function(){
         let newQuery = $("#queryBox").val();
         if(!newQuery || newQuery.trim().length === 0){
             console.log("Your query is incorrect/incomplete.");

@@ -10,18 +10,31 @@
 
     // Flush All Conversations
     main.flushAllConversations = function(){
-        $.post("/delete_dialogs", {})
+        return $.post("/flushAllConversations", {})
             .done(function (response) {
-                // Not sure what to do with it, yet.
                 console.log(response);
             });
     };
 
+    main.resetMindMapData = function(){
+        globalConfig.data = {
+            nodes: [{
+                id: "ROOT",
+                text: "Dataset",
+                fx: window.innerWidth / 2,
+                fy: (window.innerHeight - 250) / 2,
+                vlSpec: null,
+                dialog_id: 0,
+                query_id: 0
+            }],
+            connections: []
+        };
+    };
+
     // Flush Specific Conversation
     main.flushConversation = function(dialog_id, query_id){
-        $.post("/delete_dialogs", {query_id: query_id, dialog_id: dialog_id})
+        $.post("/flushConversation", {query_id: query_id, dialog_id: dialog_id})
             .done(function (response) {
-                // Not sure what to do with it, yet.
                 console.log(response);
             });
     };
@@ -122,12 +135,17 @@
 
     $("#datasetSelect").change(function () {
         let dataset = $(this).val();
-        main.initializeNL4DV(dataset);
-        main.flushAllConversations();
 
-        let data = JSON.parse(JSON.stringify(globalConfig.data));
-        let mindmap = new MindMap("mindmap-svg", data);
-        mindmap.renderMap();
+        // Clear server-side dialogs first, then re-init on the new dataset and
+        // rebuild a fresh mindmap (ROOT only) so prior queries do not linger.
+        main.flushAllConversations().always(function () {
+            main.resetMindMapData();
+            main.initializeNL4DV(dataset);
+
+            let data = JSON.parse(JSON.stringify(globalConfig.data));
+            let mindmap = new MindMap("mindmap-svg", data);
+            mindmap.renderMap();
+        });
     });
 
     function init() {

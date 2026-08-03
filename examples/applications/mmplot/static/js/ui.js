@@ -132,40 +132,6 @@
         scatterplotRenderer.update(chartData, globalConfig.activeVisSpec);
     });
 
-    uiHandler.record = function(options) {
-        options = typeof options !== 'undefined' ? options : {};
-        let final_transcript = '';
-        $("#queryBox").val('');
-        globalConfig.speechRecognizer.continuous = true;
-        globalConfig.speechRecognizer.interimResults = true;
-        globalConfig.speechRecognizer.onresult = function(event) {
-            var interim_transcript = '';
-            for (var i = event.resultIndex; i < event.results.length; ++i) {
-                interim_transcript += event.results[i][0].transcript;
-                if (event.results[i].isFinal) {
-                    final_transcript += event.results[i][0].transcript;
-                    let query = final_transcript.toLowerCase();
-                    utils.refineS2T(query);
-                    $("#queryBox").val(final_transcript);
-                    uiHandler.processSpeechQuery(final_transcript);
-                }
-            }
-            if(interim_transcript!=''){
-                $("#queryBox").val(interim_transcript);
-            }
-        };
-        if(globalConfig.recognizingSpeech===false){
-            if($("#queryBox").hasClass("blinkingBorder")){
-            }else{
-                try{
-                    globalConfig.speechRecognizer.start();
-                }catch (e) {
-                    console.log("recognizer active");
-                }
-            }
-        }
-    };
-
     uiHandler.updateFilterWidgets = function(){
         for(let attr in globalConfig.activeFilterMap){
             let filterId = "filter_"+ attr.replace(/\s/g,'');
@@ -181,29 +147,87 @@
         }
     };
 
-    $("#recordButton").click(function (evt) {
-        uiHandler.record();
-    });
-
-    globalConfig.speechRecognizer.onstart = function () {
-        globalConfig.recognizingSpeech = true;
-        $("#recordButton").addClass("blinkingButton");
-        $("#queryBox").addClass("blinkingBorder");
-    };
-
-    globalConfig.speechRecognizer.onend = function () {
-        globalConfig.recognizingSpeech = false;
-        $("#recordButton").removeClass("blinkingButton");
-        $("#queryBox").removeClass("blinkingBorder");
-    };
-
-    globalConfig.speechRecognizer.onerror = function (event) {
-        globalConfig.recognizingSpeech = false;
-    };
-
-    uiHandler.processSpeechQuery = function (query) {
-        globalConfig.speechRecognizer.stop();
+    uiHandler.submitQuery = function(query) {
+        query = (query || "").trim();
+        if (!query) {
+            return;
+        }
+        if (globalConfig.speechRecognizer && globalConfig.recognizingSpeech) {
+            try {
+                globalConfig.speechRecognizer.stop();
+            } catch (e) {}
+        }
         main.analyzeQuery(query);
     };
+
+    $("#queryBox").on("keydown", function (evt) {
+        if (evt.key === "Enter" || evt.keyCode === 13) {
+            evt.preventDefault();
+            uiHandler.submitQuery($("#queryBox").val());
+        }
+    });
+
+    if (!globalConfig.speechRecognizer) {
+        $("#recordButton").prop("disabled", true).attr("title", "Speech recognition is not supported in this browser. Type your query instead.");
+        $("#queryBox").attr("placeholder", "Type your query and press Enter...");
+    } else {
+        uiHandler.record = function(options) {
+            options = typeof options !== 'undefined' ? options : {};
+            let final_transcript = '';
+            $("#queryBox").val('');
+            globalConfig.speechRecognizer.continuous = true;
+            globalConfig.speechRecognizer.interimResults = true;
+            globalConfig.speechRecognizer.onresult = function(event) {
+                var interim_transcript = '';
+                for (var i = event.resultIndex; i < event.results.length; ++i) {
+                    interim_transcript += event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        final_transcript += event.results[i][0].transcript;
+                        let query = final_transcript.toLowerCase();
+                        utils.refineS2T(query);
+                        $("#queryBox").val(final_transcript);
+                        uiHandler.processSpeechQuery(final_transcript);
+                    }
+                }
+                if(interim_transcript!=''){
+                    $("#queryBox").val(interim_transcript);
+                }
+            };
+            if(globalConfig.recognizingSpeech===false){
+                if($("#queryBox").hasClass("blinkingBorder")){
+                }else{
+                    try{
+                        globalConfig.speechRecognizer.start();
+                    }catch (e) {
+                        console.log("recognizer active");
+                    }
+                }
+            }
+        };
+
+        $("#recordButton").click(function (evt) {
+            uiHandler.record();
+        });
+
+        globalConfig.speechRecognizer.onstart = function () {
+            globalConfig.recognizingSpeech = true;
+            $("#recordButton").addClass("blinkingButton");
+            $("#queryBox").addClass("blinkingBorder");
+        };
+
+        globalConfig.speechRecognizer.onend = function () {
+            globalConfig.recognizingSpeech = false;
+            $("#recordButton").removeClass("blinkingButton");
+            $("#queryBox").removeClass("blinkingBorder");
+        };
+
+        globalConfig.speechRecognizer.onerror = function (event) {
+            globalConfig.recognizingSpeech = false;
+        };
+
+        uiHandler.processSpeechQuery = function (query) {
+            uiHandler.submitQuery(query);
+        };
+    }
 
 })();

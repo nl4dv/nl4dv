@@ -91,15 +91,19 @@ const d3Nodes = (svg, nodes) => {
     .data(nodes)
     .enter();
 
+  // Safari requires SVG width/height attributes on foreignObject (CSS alone is not enough).
+  // Also wrap HTML in an XHTML namespaced div for reliable rendering inside SVG.
+  const foWidth = node => (node.id == "ROOT" ? node.width : 300);
+  const foHeight = node => node.height;
   const d3nodes = selection
     .append("foreignObject")
     .attr("class", "mindmap-node")
-    .style("width", node => node.id == "ROOT" ? node.width : 300)
-    .style("height", node => node.height)
+    .attr("width", foWidth)
+    .attr("height", foHeight)
+    .style("width", foWidth)
+    .style("height", foHeight)
     .style("overflow", "visible")
-    // .attr("width", node => node.width + 4)
-    // .attr("height", node => node.height)
-    .html(node => node.html);
+    .html(node => `<div xmlns="http://www.w3.org/1999/xhtml" style="position:relative;width:100%;height:100%;overflow:visible;">${node.html}</div>`);
 
   return {
     nodes: d3nodes

@@ -18,9 +18,8 @@
 
     // Flush All Conversations
     main.flushAllConversations = function(){
-        $.post("/flushAllConversations", {})
+        return $.post("/flushAllConversations", {})
             .done(function (response) {
-                // Not sure what to do with it, yet.
                 console.log(response);
             });
     };
@@ -316,13 +315,16 @@
 
     $("#datasetSelect").change(function () {
         let dataset = $(this).val();
-        main.initializeNL4DV(dataset);
-        main.flushAllConversations();
+        main.flushAllConversations().always(function () {
+            globalConfig.conversation = [];
+            globalConfig.nl4dvResponse = null;
+            main.initializeNL4DV(dataset);
 
-        if(globalConfig.botui != null){
-            globalConfig.botui.message.removeAll();
-        }
-        initConversation();
+            if(globalConfig.botui != null){
+                globalConfig.botui.message.removeAll();
+            }
+            initConversation();
+        });
     });
 
     function initConversation(){
