@@ -1,1 +1,1 @@
-web: python app.py
+web: NLTK_DISABLE_IMPORT_SECURITY=1 python app.py

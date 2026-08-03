@@ -1,6 +1,6 @@
 ### Heroku
 - Verify `Procfile` inside the `examples` folder.
-- Verify `examples/runtime.txt` (`python-3.11`), `examples/requirements.txt`, and `examples/bin/post_compile`.
+- Verify `examples/.python-version` (`3.11`), `examples/requirements.txt`, and `examples/bin/post_compile`.
 - `heroku login`
 - If not added, add git remote: `git remote add heroku https://git.heroku.com/nl4dv.git`
 - Set buildpack for this project: `heroku buildpacks:set heroku/python` (it might err that the buildpack is already set on your app. Good, nothing to worry then.)

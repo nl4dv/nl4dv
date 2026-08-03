@@ -1,28 +1,14 @@
 #!/usr/bin/env bash
 # Runs during Heroku Python buildpack compile (after pip install).
-# Keep heavy downloads here — NOT in the Procfile web command — so dyno boot stays fast.
 
 set -euo pipefail
+
+# Newer NLTK blocks some imports when the app root is on sys.path (Heroku build dir).
+export NLTK_DISABLE_IMPORT_SECURITY=1
+export PYTHONSAFEPATH=1
 
 echo "-----> Downloading spaCy model en_core_web_sm"
 python -m spacy download en_core_web_sm
 
-echo "-----> Downloading required NLTK data"
-python - <<'PY'
-import nltk
-
-for package in (
-    "stopwords",
-    "punkt",
-    "punkt_tab",
-    "averaged_perceptron_tagger",
-    "averaged_perceptron_tagger_eng",
-    "wordnet",
-    "omw-1.4",
-):
-    try:
-        nltk.download(package, quiet=True)
-        print(f"downloaded {package}")
-    except Exception as exc:
-        print(f"skip {package}: {exc}")
-PY
+echo "-----> Downloading NLTK popular corpora"
+python -m nltk.downloader popular
