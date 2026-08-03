@@ -103,7 +103,7 @@ These can all be found on [NL4DV's project website](https://nl4dv.github.io/nl4d
 }
 ```
 
-#### 2025 Paper (coming soon)
+#### 2025 IEEE VIS Poster
 ```bibTeX
 @misc{ji2025nl4dvstylist,
     title={{NL4DV-Stylist: Styling Data Visualizations Using Natural Language and Example Charts}},
