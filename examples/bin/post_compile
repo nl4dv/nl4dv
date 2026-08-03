@@ -7,12 +7,24 @@ set -euo pipefail
 export NLTK_DISABLE_IMPORT_SECURITY=1
 export PYTHONSAFEPATH=1
 
-# Pin corpora into the slug so runtime can find them (default ~/nltk_data is unreliable on Heroku).
-export NLTK_DATA=/app/nltk_data
-mkdir -p "$NLTK_DATA"
+# IMPORTANT: during compile, cwd is the build dir that becomes /app at runtime.
+# Writing to absolute /app/... here does NOT end up in the slug.
+NLTK_DATA_DIR="$(pwd)/nltk_data"
+mkdir -p "$NLTK_DATA_DIR"
+export NLTK_DATA="$NLTK_DATA_DIR"
 
 echo "-----> Downloading spaCy model en_core_web_sm"
 python -m spacy download en_core_web_sm
 
-echo "-----> Downloading NLTK popular corpora into $NLTK_DATA"
-python -m nltk.downloader -d "$NLTK_DATA" popular
+echo "-----> Downloading NLTK popular corpora into $NLTK_DATA_DIR"
+python -m nltk.downloader -d "$NLTK_DATA_DIR" popular
+
+# Fail the build early if stopwords still aren't present in the slug path.
+python - <<'PY'
+import os, sys
+import nltk
+nltk.data.path.insert(0, os.environ["NLTK_DATA"])
+from nltk.corpus import stopwords
+words = stopwords.words("english")
+print(f"-----> NLTK stopwords OK ({len(words)} words) at {os.environ['NLTK_DATA']}")
+PY
