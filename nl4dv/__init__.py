@@ -365,13 +365,11 @@ class NL4DV:
         # Prepare the prompt
         query_prompt = self.lm_query_genie_instance.prompt
 
-        # Adjust the data URL in the prompt if needed
-        query_prompt = query_prompt.replace(self.data_url, "https://raw.githubusercontent.com/" + self.data_url)
-
         # Read and sample the dataset
         dataset_sample = pd.read_csv(self.data_url, index_col=False).head(10).to_string(index=False)
 
         # Replace placeholders
+        query_prompt = re.sub(r"<INSERT DATA URL HERE>", self.data_url, query_prompt)
         query_prompt = re.sub(r"<INSERT DATASET HERE>", dataset_sample, query_prompt)
         query_prompt = re.sub(r"<INSERT QUERY HERE>", query, query_prompt)
 
