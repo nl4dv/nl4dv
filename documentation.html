@@ -117,20 +117,20 @@
                                                 <li>
                                                     <p><b><a href="https://pypi.org/project/nl4dv/" target="_blank">PyPi</a></b>.</p>
                                                     <p>To download, run</p>
-                                                    <p><pre><code class="language-bash">pip install nl4dv==4.1.0</code></pre></p>
+                                                    <p><pre><code class="language-bash">pip install nl4dv==4.2.0</code></pre></p>
                                                 </li>
                                                 <li>
                                                     <p>A local distributable. Download </p>
                                                     <p style="font-size:1.1rem;">
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/4.1.0.tar.gz"
-                                                        target="_blank">nl4dv-4.1.0.tar.gz</a></b>
+                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/4.2.0.tar.gz"
+                                                        target="_blank">nl4dv-4.2.0.tar.gz</a></b>
                                                         &nbsp;&nbsp;<i>OR</i>&nbsp;&nbsp;
                                                         <b><a
-                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/4.1.0.zip"
-                                                        target="_blank">nl4dv-4.1.0.zip</a></b>
+                                                        href="https://github.com/nl4dv/nl4dv/archive/refs/tags/4.2.0.zip"
+                                                        target="_blank">nl4dv-4.2.0.zip</a></b>
                                                     </p>
-                                                    <p>Accordingly, run <pre><code class="language-bash">pip install nl4dv-4.1.0.tar.gz</code></pre> <i>OR</i> <pre><code class="language-bash">pip install nl4dv-4.1.0.zip</code></pre>.</p>
+                                                    <p>Accordingly, run <pre><code class="language-bash">pip install nl4dv-4.2.0.tar.gz</code></pre> <i>OR</i> <pre><code class="language-bash">pip install nl4dv-4.2.0.zip</code></pre>.</p>
                                                 </li>
                                             </ol>
 
@@ -624,8 +624,8 @@ print(output)</code></pre>
 import os
 
 # Initialize an instance of NL4DV
-# ToDo: verify the path to the source data file. modify accordingly.
-nl4dv_instance = NL4DV(data_url = os.path.join(".", "examples", "assets", "data", "movies-w-year.csv"))
+data_url = "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/movies-w-year.csv"
+nl4dv_instance = NL4DV(data_url=data_url)
 
 # using Stanford Core NLP
 # ToDo: verify the paths to the jars. modify accordingly.
@@ -803,7 +803,7 @@ output = nl4dv_instance.analyze_query(query)
                                             <td>nl4dv_instance.set_data()</td>
                                             <td>
                                                 <p><code class="language-python">data_url</code> (str: path to local file or url)</p>
-                                                <span><b>Example:</b><i>"euro.csv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv" target="_blank">sample</a>) | "euro.tsv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.tsv" target="_blank">sample</a>) | "euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.json" target="_blank">sample</a>) </i></span>
+                                                <span><b>Example:</b><i>"https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.csv" target="_blank">sample</a>) | "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.tsv" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.tsv" target="_blank">sample</a>) | "https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/data/euro.json" target="_blank">sample</a>) </i></span>
                                                 <div class="separator"><i>OR</i></div>
                                                 <p><code class="language-python">data_value</code> (list|dict|pandas.DataFrame)</p>
                                                 <span><b>Example:</b><br/>
@@ -1099,7 +1099,7 @@ Overrides the default implicit_followup_keyword_map map. The dictionary must be 
                                             <td>
                                                 <p><code class="language-python">alias_url</code> (str: path to local file or url)</p>
                                                 <span>
-                                                    <b>Example:</b> <i>"aliases/euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json" target="_blank">sample</a>)</i>
+                                                    <b>Example:</b> <i>"https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json" (<a href="https://raw.githubusercontent.com/nl4dv/nl4dv/master/examples/assets/aliases/euro.json" target="_blank">sample</a>)</i>
                                                 </span>
                                                 <div class="separator"><i>OR</i></div>
                                                 <p><code class="language-python">alias_value</code> (dict)</p>
